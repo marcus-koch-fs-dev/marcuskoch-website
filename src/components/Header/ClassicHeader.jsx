@@ -128,7 +128,7 @@ const ClassicHeader = ({ handleNavClick }) => {
                       setIsNavModalClose(true);
                     }}
                   >
-                    Leistung
+                    Services
                   </Link>
                 </li>
                 {/* <li className="nav-item">

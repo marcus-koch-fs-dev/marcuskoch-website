@@ -1,4 +1,3 @@
-import React from "react";
 import Typewriter from "typewriter-effect";
 import videobg from "../../videos/home.mp4";
 
@@ -38,7 +37,7 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
                     options={{
                       strings: [
                         "Ich bin Marcus Koch",
-                        "Ich bin ein React-Spezialist",
+                        "Ich bin Web-Developer",
                         "Ich bin Freiberufler",
                       ],
                       autoStart: true,

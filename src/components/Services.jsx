@@ -4,34 +4,29 @@ const Services = ({ classicHeader, darkTheme }) => {
   // services details
   const services = [
     {
-      name: "Graphic Design",
-      desc: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      icon: "fas fa-palette",
+      name: "Digitale Transformationsberatung",
+      desc: "Optimiere Geschäftsprozesse durch den Einsatz digitaler Technologien.",
+      icon: "fa-solid fa-digital-tachograph",
     },
     {
-      name: "Web Design",
-      desc: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      icon: "fas fa-desktop",
+      name: "Responsive Webentwicklung",
+      desc: "Erstellung benutzerfreundlicher, responsiver Webseiten und Anwendungen.",
+      icon: "fa-solid fa-mobile-alt",
     },
     {
-      name: "UI/UX Design",
-      desc: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      icon: "fas fa-pencil-ruler",
+      name: "Web Performance Optimierung",
+      desc: "Steigerung der Ladezeiten und Leistung für ein besseres Benutzererlebnis.",
+      icon: "fa-solid fa-tachometer-alt",
     },
     {
-      name: "App Design & Develop",
-      desc: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      icon: "fas fa-paint-brush",
+      name: "Technischer Support",
+      desc: "Technische Unterstützung und Beratung für Entwicklerteams.",
+      icon: "fa-solid fa-users-cog",
     },
     {
-      name: "Business Analysis",
-      desc: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      icon: "fas fa-chart-area",
-    },
-    {
-      name: "SEO Marketing",
-      desc: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      icon: "fas fa-bullhorn",
+      name: "API-Integration",
+      desc: "Integration externer Dienste und APIs zur Erweiterung von Funktionen.",
+      icon: "fa-solid fa-plug",
     },
   ];
 
@@ -57,7 +52,7 @@ const Services = ({ classicHeader, darkTheme }) => {
               (darkTheme ? "text-white" : "text-dark")
             }
           >
-            What I Do?
+            Services
             <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
           </p>
         </div>

@@ -35,19 +35,41 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
               }
             >
               Ich bin <span className="text-primary">Marcus Koch, </span>
-              Full-Stack Entwickler und fokusiert auf das Frontend mit React
+              JavaScript Full-Stack Entwickler und mein Schwerpunkt ist das
+              bauen von Frontends mit React.
             </h2>
             <p className={darkTheme ? "text-white-50" : ""}>
-              Als enthusiastischer React-Entwickler konzentriere ich mich
-              darauf, ansprechende Webseiten zu erstellen, die sowohl durch ihre
-              Optik als auch durch intuitive Bedienbarkeit überzeugen. Mein Ziel
-              ist es, dem Nutzer ein positives Erlebnis zu schaffen, das er mit
+              Als enthusiastischer Entwickler konzentriere ich mich darauf,
+              ansprechende Webseiten zu erstellen, die sowohl durch ihre Optik
+              als auch durch intuitive Bedienbarkeit überzeugen. Mein Ziel ist
+              es, dem Nutzer ein positives Erlebnis zu schaffen, das er mit
               Ihrem Produkt verbindet.
             </p>
             <p className={darkTheme ? "text-white-50" : ""}>
-              Delivering work within time and budget which meets client’s
-              requirements is our moto. Lorem Ipsum has been the industry's
-              standard dummy text ever when an unknown printer took a galley.
+              Weil ich überzeugt bin, dass technische Exzellenz und ein
+              herausragendes Nutzererlebnis Hand in Hand gehen sollten. Als
+              Full-Stack Entwickler mit einem Schwerpunkt auf React im Frontend
+              lege ich großen Wert auf eine optimale Datenbereitstellung und
+              eine reibungslose Bedienbarkeit.
+            </p>
+            <p className={darkTheme ? "text-white-50" : ""}>
+              Mit meinem tiefgreifenden Verständnis für React und
+              unterstützenden Tools wie Redux und TypeScript garantiere ich hohe
+              Performance und Benutzerfreundlichkeit. Agile Entwicklungsmethoden
+              und regelmäßige Code-Reviews unterstützen mich dabei, Qualität und
+              Flexibilität meiner Projekte zu sichern, ergänzt durch eine
+              nahtlose Backend-Integration über Microservices und REST-APIs.
+            </p>
+            <p className={darkTheme ? "text-white-50" : ""}>
+              Meine bisherige Expertise liegt vor allem bei der Digitalisierung
+              interner Prozesse im Automobilsektor. Darüber hinaus bin ich auch
+              offen für Herausforderungen in anderen Branchen. Ich biete
+              Frontend-Entwicklung, die Ihre digitalen Produkte auf das nächste
+              Level heben.
+            </p>
+            <p className={darkTheme ? "text-white-50" : ""}>
+              Lassen Sie uns gemeinsam innovative Lösungen schaffen, die nicht
+              nur technisch überzeugen, sondern auch Ihre Nutzer begeistern.
             </p>
           </div>
           {/* About me content end */}
@@ -63,7 +85,7 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
           }
         >
           <div className="row">
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-4">
               <div className="featured-box text-center">
                 <h4
                   className={
@@ -71,14 +93,14 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                     (darkTheme ? "text-white-50" : "text-muted")
                   }
                 >
-                  <span>10</span>+
+                  <span>3</span>+
                 </h4>
                 <p className={"mb-0 " + (darkTheme ? "text-light" : "")}>
-                  Years Experiance
+                  Jahre an Expertise
                 </p>
               </div>
             </div>
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-4">
               <div className="featured-box text-center">
                 <h4
                   className={
@@ -86,14 +108,15 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                     (darkTheme ? "text-white-50" : "text-muted")
                   }
                 >
-                  <span>250</span>+
+                  <span>4</span>
+                  {/* + */}
                 </h4>
                 <p className={"mb-0 " + (darkTheme ? "text-light" : "")}>
-                  Happy Clients
+                  Zufriedene Kunden
                 </p>
               </div>
             </div>
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-4">
               <div className="featured-box text-center">
                 <h4
                   className={
@@ -101,14 +124,15 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                     (darkTheme ? "text-white-50" : "text-muted")
                   }
                 >
-                  <span>650</span>+
+                  <span>5</span>
+                  {/* + */}
                 </h4>
                 <p className={"mb-0 " + (darkTheme ? "text-light" : "")}>
-                  Projects Done
+                  Abgeschlossene Projekte
                 </p>
               </div>
             </div>
-            <div className="col-6 col-md-3">
+            {/* <div className="col-6 col-md-4">
               <div className="featured-box text-center">
                 <h4
                   className={
@@ -122,7 +146,7 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                   Get Awards
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* projects rewards counting end */}
