@@ -1,39 +1,7 @@
-import React from "react";
-
 import Slider from "react-slick";
+import { reviews } from "./testimonialList";
 
 const Testimonials = ({ classicHeader, darkTheme }) => {
-  const reviews = [
-    {
-      name: "Dennis Jacques",
-      position: "User from USA",
-      src: "images/testimonial/client-sm-3.jpg",
-      desc: "Only trying it out since a few days. But up to now excellent. Seems to work flawlessly. priced simply dummy text of the printing and typesetting industry.",
-      rating: 5,
-    },
-    {
-      name: "Jay Shah",
-      position: "Founder at Icomatic Pvt Ltd",
-      src: "images/testimonial/client-sm-1.jpg",
-      desc: "Easy to use, reasonably priced simply dummy text of the printing and typesetting industry. Quidam lisque persius interesset his et, in quot quidam possim iriure.",
-      rating: 5,
-    },
-    {
-      name: "Patrick Cary",
-      position: "Freelancer from USA",
-      src: "images/testimonial/client-sm-2.jpg",
-      desc: "I am happy Working with printing and typesetting industry. Quidam lisque persius interesset his et, in quot quidam persequeris essent possim iriure.",
-      rating: 5,
-    },
-    {
-      name: "Chris Tom",
-      position: "User from UK",
-      src: "images/testimonial/client-sm-4.jpg",
-      desc: "I have used them twice now. Good rates, very efficient service and priced simply dummy text of the printing and typesetting industry quidam interesset his et. Excellent.",
-      rating: 5,
-    },
-  ];
-
   var settings = {
     dots: true,
     arrows: false,
@@ -66,7 +34,7 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
               (darkTheme ? "text-muted opacity-1" : "text-light opacity-4")
             }
           >
-            Testimonial
+            Testimonials
           </h2>
           <p
             className={
@@ -74,8 +42,7 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
               (darkTheme ? "text-white" : "text-dark")
             }
           >
-            {" "}
-            Client Speak
+            Testimonials
             <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
           </p>
         </div>
@@ -91,11 +58,11 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
                   }
                 >
                   <div className="d-flex align-items-center mt-auto mb-4">
-                    <img
+                    {/* <img
                       className="img-fluid rounded-circle border d-inline-block w-auto"
                       src={value.src}
                       alt=""
-                    />
+                    /> */}
                     <p className="ms-3 mb-0">
                       <strong
                         className={
@@ -106,8 +73,7 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
                         {value.name}
                       </strong>
                       <span className="text-muted fw-500">
-                        {" "}
-                        {value.position}{" "}
+                        {value.position}
                       </span>
                     </p>
                   </div>
@@ -115,14 +81,15 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
                     className={
                       " fw-500 mb-4 " + (darkTheme ? "text-white" : "text-dark")
                     }
+                    style={{ wordBreak: "break-word" }}
                   >
                     “{value.desc}”
                   </p>
-                  <span className="text-2">
+                  {/* <span className="text-2">
                     {[...Array(value.rating)].map((value, i) => (
                       <i className="fas fa-star text-warning" key={i} />
                     ))}
-                  </span>
+                  </span> */}
                 </div>
               </div>
             ))}

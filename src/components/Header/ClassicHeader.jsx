@@ -179,7 +179,7 @@ const ClassicHeader = ({ handleNavClick }) => {
                       setIsNavModalClose(true);
                     }}
                   >
-                    Kunde
+                    Testimonials
                   </Link>
                 </li>
                 <li className="nav-item">
