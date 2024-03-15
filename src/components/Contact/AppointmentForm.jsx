@@ -19,7 +19,7 @@ const AppointmentForm = ({ darkTheme }) => {
         Oder buche gleich einen Termin
       </h2>
       <form
-        action="https://calendly.com/marcus-koch-react/30min"
+        action="https://calendly.com/marcus-koch-webdev/30min"
         target="_blank"
         // style={{ margin: "0 auto" }}
       >

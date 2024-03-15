@@ -65,7 +65,7 @@ const MessageForm = ({ classicHeader, darkTheme }) => {
         className={darkTheme ? "form-dark" : ""}
         id="contact-form"
         //Todo add Mail-Server
-        // action="marcus.koch01@outlook.de"
+        action=""
         method="post"
         ref={form}
         onSubmit={sendEmail}
