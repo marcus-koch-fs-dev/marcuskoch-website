@@ -32,22 +32,21 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
                 <p className="text-7 fw-500 text-white mb-2 mb-md-3">
                   Willkommen
                 </p>
-                <h2 className="text-16 fw-600 text-white mb-2 mb-md-3">
+                <h2 className="text-14 fw-600 text-white mb-2 mb-md-3 ">
                   <Typewriter
                     options={{
                       strings: [
-                        "Ich bin Marcus Koch",
-                        "Ich bin Web-Developer",
-                        "Ich bin Freiberufler",
+                        "Hi, ich bin Marcus Koch...",
+                        "Fullstack-Developer and Frontend-Virtuose.",
+                        "Außerdem, Hobbyfotograf & Freediving-Fan",
+                        "Ich möchte Technik und Kreativität vereinen.",
                       ],
                       autoStart: true,
                       loop: true,
+                      delay: 40,
                     }}
                   />
                 </h2>
-                {/* <p className="text-5 text-light mb-4">
-                  ansässig in Lindau am Bodensee, Deutschland.
-                </p> */}
                 <a
                   href="#contact"
                   className="btn btn-outline-primary rounded-pill shadow-none smooth-scroll mt-2"
