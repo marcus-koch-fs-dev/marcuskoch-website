@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Isotope from "isotope-layout";
 import ProjectDetailsModal from "./ProjectDetailsModal";
-import { filters, projectsData } from "./projects";
+import { filters, projectsData } from "./projectList";
 
 const Portfolio = ({ classicHeader, darkTheme }) => {
   // init one ref to store the future isotope object
@@ -58,8 +58,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
                 (darkTheme ? "text-white" : "text-dark")
               }
             >
-              {" "}
-              My Work
+              Portfolio
               <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
             </p>
           </div>

@@ -5,6 +5,7 @@ export const filters = {
 };
 export const projectsData = [
   {
+    id: 1,
     title: "Überarbeitung des \n Launchpad-Frontends",
     projectInfo:
       "Als Entwickler lag mein Fokus auf der Gestaltung einer visuell ansprechenden und responsiven Startseite, die sich verschiedenen Bildschirmgrößen anpasst. Ich führte eine anpassungsfähige Kachelanzeige für Apps und Berichte ein, basierend auf Benutzerrollen, und ermöglichte das Hinzufügen von Favoriten. Zusätzlich entwickelte ich eine separate Administrationsseite für die einfache Verwaltung neuer App-Kacheln.",
@@ -24,6 +25,7 @@ export const projectsData = [
     categories: [filters.PROJECTS],
   },
   {
+    id: 2,
     title: "Track and Trace - Tracing Component Lifecycles",
     projectInfo:
       "Im Team mit einem DB-Entwickler optimierten wir die Leistung einer App zur Überwachung des Lebenszyklus von Bauteilen. Ziel war es, die Datenverarbeitung zu effektivieren und eine skalierbare Architektur zu schaffen, die zukünftige Erweiterungen unterstützt. Meine Hauptaufgabe war die Entwicklung eines effizienten, stabilen Systems für Frontend und Backend, das auch die Verarbeitung umfangreicher Daten ermöglicht. Gemeinsam identifizierten und lösten wir Systemfehler sowie Probleme im ERP-System.",
@@ -48,6 +50,7 @@ export const projectsData = [
     categories: [filters.PROJECTS],
   },
   {
+    id: 3,
     title: "Cloud Surveillance - Visualisierung von SAP HANA Metadaten",
     projectInfo:
       "Als Frontend-Entwickler arbeitete ich an einer Anwendung zur Überwachung und grafischen Darstellung von Datenbank- und Mikroservice-Objekten. Durch die Integration von Daten aus verschiedenen Mikroservices entwickelte ich Funktionen für die Gruppierung und Verdichtung, um komplexe Filteranforderungen zu erfüllen. Dies ermöglichte eine übersichtliche Präsentation von Mikroservices, Datenbanken und Objekten im SAP HANA-System und erleichterte die Identifikation nicht konformer oder veralteter Elemente.",
@@ -65,6 +68,7 @@ export const projectsData = [
     categories: [filters.PROJECTS],
   },
   {
+    id: 4,
     title: "Woundera - Mobile Gesundheitsanwendung",
     projectInfo:
       "Während einer personell herausfordernden Phase unterstützte ich das Team, um die Projektfristen einzuhalten. Als Teil des Entwicklerteams trug ich zur Umsetzung der App bei, die in React Native entwickelt wurde. Die App dient der Erfassung und Verwaltung von Patientendaten, Wundinformationen und Behandlungsverläufen. Zu meinen Kernverantwortlichkeiten gehörten die Entwicklung der Navigationsstruktur, die Integration von CRUD-Funktionen und die Sicherstellung der korrekten Formulareingaben-Validierung. Fehlerbehebungen zur Aufrechterhaltung des Betriebs zählten ebenfalls zu meinen Aufgaben.",
@@ -85,6 +89,7 @@ export const projectsData = [
     categories: [filters.PROJECTS],
   },
   {
+    id: 5,
     title: "Dashboard für zentrale Server-Metadaten",
     projectInfo:
       "Als spezialisiertes Unternehmen für Server-Speicherlösungen entwickelte Arvato ein Dashboard, das Server-Metadaten für Kunden mit Fokus auf Deutschland präsentiert. Mein Beitrag als Entwickler bestand zu Beginn darin, gemeinsam mit Kollegen das Design-Layout umzusetzen. Später konzentrierte ich mich auf die Erstellung wiederverwendbarer UI-Komponenten mittels Storybook und Material UI. Die Qualitätssicherung erfolgte durch Unit-Tests mit Jest.",
