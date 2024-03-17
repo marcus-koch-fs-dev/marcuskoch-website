@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 const ModalLayer = ({ handleClose, image, darkTheme }) => {
   return createPortal(
     <div
+      onClick={handleClose}
       style={{
         position: "fixed",
         top: 0,

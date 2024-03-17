@@ -47,22 +47,24 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
                     darkTheme={darkTheme}
                     projectDetails={projectDetails}
                   />
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <ProjectDetailsInfo
-                      darkTheme={darkTheme}
-                      projectDetails={projectDetails}
-                    />
+                  {projectDetails.categories[0] === "Projects" && (
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <ProjectDetailsInfo
+                        darkTheme={darkTheme}
+                        projectDetails={projectDetails}
+                      />
 
-                    <ProjectDetailsMetadata
-                      darkTheme={darkTheme}
-                      projectDetails={projectDetails}
-                    />
-                  </div>
+                      <ProjectDetailsMetadata
+                        darkTheme={darkTheme}
+                        projectDetails={projectDetails}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

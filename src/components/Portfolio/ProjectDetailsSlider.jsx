@@ -50,7 +50,8 @@ const ProjectDetailsSlider = ({ darkTheme, projectDetails }) => {
           <img className="img-fluid" alt="" src={projectDetails?.thumbImage} />
         </div> */}
         {projectDetails?.sliderImages?.length > 0 &&
-          projectDetails?.sliderImages?.map((image, index) => {
+          projectDetails?.sliderImages?.map((obj, index) => {
+            const { desc, medium, big } = obj;
             return (
               <div key={index}>
                 <div
@@ -63,24 +64,23 @@ const ProjectDetailsSlider = ({ darkTheme, projectDetails }) => {
                 >
                   <img
                     className="img-fluid"
-                    onClick={() => handleOpen(image)}
+                    onClick={() => handleOpen(big)}
                     alt=""
-                    src={image}
+                    src={medium}
                     style={{
                       cursor: "pointer",
                       maxHeight: "30vh",
                       margin: "0 auto",
-                      objectFit: "cover",
                     }}
                   />
-                  <span
+                  <p
                     className={
                       "text-dark font-weight-600 me-2" +
                       (darkTheme ? " text-white" : "")
                     }
                   >
-                    image description
-                  </span>
+                    {desc}
+                  </p>
                 </div>
               </div>
             );
