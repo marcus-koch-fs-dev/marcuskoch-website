@@ -35,22 +35,27 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
               }
             >
               Ich bin <span className="text-primary">Marcus Koch, </span>
-              JavaScript Full-Stack Entwickler und mein Schwerpunkt ist das
-              bauen von Frontends mit React.
+              ein dynamischer JavaScript Full-Stack Entwickler, der in der Welt
+              der React-Frontends zu Hause ist.
             </h2>
             <p className={darkTheme ? "text-white-50" : ""}>
               Als enthusiastischer Entwickler konzentriere ich mich darauf,
               ansprechende Webseiten zu erstellen, die sowohl durch ihre Optik
               als auch durch intuitive Bedienbarkeit überzeugen. Mein Ziel ist
               es, dem Nutzer ein positives Erlebnis zu schaffen, das er mit
-              Ihrem Produkt verbindet.
+              Ihrem Produkt verbindet. Ich bin überzeugt, dass technische
+              Exzellenz und ein herausragendes Nutzererlebnis Hand in Hand gehen
+              müssen.
             </p>
             <p className={darkTheme ? "text-white-50" : ""}>
-              Weil ich überzeugt bin, dass technische Exzellenz und ein
-              herausragendes Nutzererlebnis Hand in Hand gehen sollten. Als
-              Full-Stack Entwickler mit einem Schwerpunkt auf React im Frontend
-              lege ich großen Wert auf eine optimale Datenbereitstellung und
-              eine reibungslose Bedienbarkeit.
+              Um dies zu erreichen, nutze ich bewährte Techniken und moderne
+              Werkzeuge wie React, um schnelle und nutzerfreundliche Webseiten
+              zu entwickeln. Durch agile Entwicklungsmethoden und
+              kontinuierliches Feedback stelle ich sicher, dass meine Arbeit
+              nicht nur technisch auf dem neuesten Stand ist, sondern auch genau
+              auf die Bedürfnisse und Wünsche der Nutzer abgestimmt. Dieser
+              Ansatz hilft mir, Projekte effizient zu managen und dabei stets
+              hohe Qualitätsstandards zu wahren.
             </p>
             <p className={darkTheme ? "text-white-50" : ""}>
               Mit meinem tiefgreifenden Verständnis für React und
@@ -61,15 +66,18 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
               nahtlose Backend-Integration über Microservices und REST-APIs.
             </p>
             <p className={darkTheme ? "text-white-50" : ""}>
-              Meine bisherige Expertise liegt vor allem bei der Digitalisierung
-              interner Prozesse im Automobilsektor. Darüber hinaus bin ich auch
+              Meine Expertise habe ich insbesondere in der Digitalisierung
+              interner Prozesse im Automobilsektor erworben, doch ich bin stets
               offen für Herausforderungen in anderen Branchen. Ich biete
               Frontend-Entwicklung, die Ihre digitalen Produkte auf das nächste
-              Level heben.
+              Level hebt. Lassen Sie uns gemeinsam innovative Lösungen schaffen,
+              die nicht nur technisch überzeugen, sondern auch Ihre Nutzer
+              begeistern.
             </p>
             <p className={darkTheme ? "text-white-50" : ""}>
-              Lassen Sie uns gemeinsam innovative Lösungen schaffen, die nicht
-              nur technisch überzeugen, sondern auch Ihre Nutzer begeistern.
+              Bereit, Ihre digitalen Produkte auf das nächste Level zu bringen?
+              Kontaktieren Sie mich, und lassen Sie uns gemeinsam die Zukunft
+              gestalten.
             </p>
           </div>
           {/* About me content end */}
