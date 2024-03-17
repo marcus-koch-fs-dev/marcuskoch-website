@@ -1,11 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useState } from "react";
 
 import Slider from "react-slick";
+import ModalLayer from "./ModalLayer";
 
 const ProjectDetailsSlider = ({ darkTheme, projectDetails }) => {
   const sliderRef = useRef();
+  const [isOpen, setIsOpen] = useState(false);
+  const [img, setImg] = useState(null);
 
-  var settings = {
+  const handleOpen = (img) => {
+    setImg(img);
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setImg(null);
+    setIsOpen(false);
+  };
+
+  const settings = {
     dots: true,
     arrows: false,
     infinite: true,
@@ -38,10 +52,9 @@ const ProjectDetailsSlider = ({ darkTheme, projectDetails }) => {
         {projectDetails?.sliderImages?.length > 0 &&
           projectDetails?.sliderImages?.map((image, index) => {
             return (
-              <>
+              <div key={index}>
                 <div
                   className="item"
-                  key={index}
                   style={{
                     display: "flex",
                     flexDirection: "column",
@@ -50,12 +63,13 @@ const ProjectDetailsSlider = ({ darkTheme, projectDetails }) => {
                 >
                   <img
                     className="img-fluid"
+                    onClick={() => handleOpen(image)}
                     alt=""
                     src={image}
                     style={{
+                      cursor: "pointer",
                       maxHeight: "30vh",
                       margin: "0 auto",
-                      //   width: "100%",
                       objectFit: "cover",
                     }}
                   />
@@ -68,10 +82,17 @@ const ProjectDetailsSlider = ({ darkTheme, projectDetails }) => {
                     image description
                   </span>
                 </div>
-              </>
+              </div>
             );
           })}
       </Slider>
+      {isOpen && (
+        <ModalLayer
+          image={img}
+          handleClose={handleClose}
+          darkTheme={darkTheme}
+        />
+      )}
     </div>
   );
 };
