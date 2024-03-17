@@ -11,44 +11,40 @@ const MessageForm = ({ classicHeader, darkTheme }) => {
   const sendEmail = (e) => {
     e.preventDefault();
     setSendingMail(true);
-    emailjs
-      .sendForm(
-        "service_i86k3ms",
-        "template_si6cin9",
-        form.current,
-        "c9HsDgGF0tvWyVnAL"
-      )
-      .then(
-        (result) => {
-          document.getElementById("contact-form").reset();
-          toast.success("Message sent successfully!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: darkTheme ? "dark" : "light",
-          });
-          console.log(result.text);
-          setSendingMail(false);
-        },
-        (error) => {
-          toast.error("Something went wrong!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: darkTheme ? "dark" : "light",
-          });
-          console.log(error.text);
-          setSendingMail(false);
-        }
-      );
+    emailjs.init({
+      publicKey: "NWH5J5Wdxk0bTRsJP",
+    });
+    emailjs.sendForm("service_n812gml", "template_n812gml", form.current).then(
+      (result) => {
+        document.getElementById("contact-form").reset();
+        toast.success("Message sent successfully!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: darkTheme ? "dark" : "light",
+        });
+        console.log(result.text);
+        setSendingMail(false);
+      },
+      (error) => {
+        toast.error("Something went wrong!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: darkTheme ? "dark" : "light",
+        });
+        console.log(error.text);
+        setSendingMail(false);
+      }
+    );
   };
 
   return (
@@ -65,7 +61,7 @@ const MessageForm = ({ classicHeader, darkTheme }) => {
         className={darkTheme ? "form-dark" : ""}
         id="contact-form"
         //Todo add Mail-Server
-        action=""
+        action="https://api.emailjs.com/api/v1.0/email/send-form"
         method="post"
         ref={form}
         onSubmit={sendEmail}
@@ -73,7 +69,8 @@ const MessageForm = ({ classicHeader, darkTheme }) => {
         <div className="row g-4">
           <div className="col-xl-6">
             <input
-              name="user_name"
+              // name="user_name"
+              name="from_name"
               type="text"
               className="form-control"
               required
@@ -82,7 +79,8 @@ const MessageForm = ({ classicHeader, darkTheme }) => {
           </div>
           <div className="col-xl-6">
             <input
-              name="user_email"
+              // name="user_email"
+              name="reply_to"
               type="email"
               className="form-control"
               required
