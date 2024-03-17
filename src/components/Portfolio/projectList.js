@@ -69,7 +69,7 @@ export const projectsData = [
       "React, Redux, Node.js, Python, Microservices, REST-API, Git, Azure für CI/CD, SAP HANA für SQL-DB-Management, Material UI, AG-Grid",
     industry: "Automotive",
     date: "05/23 - 07/23",
-    thumbImage: "/public/assets/work/cloud-surveillance256.jpg",
+    thumbImage: "/assets/work/cloud-surveillance256.jpg",
     sliderImages: [
       {
         medium: "/assets/work/cloud-surveillance512.jpg",
@@ -113,7 +113,7 @@ export const projectsData = [
       "React (mit TS), Redux, REST API, Git, Material UI, Storybook für dieUI-bibliothek, Jest",
     industry: "IT-Dienstleister",
     date: "06/21 - 11/21, fortlaufend",
-    thumbImage: "/public/assets/work/arvato256.jpg",
+    thumbImage: "/assets/work/arvato256.jpg",
     sliderImages: [
       {
         medium: "/assets/work/arvato512.jpg",
@@ -129,21 +129,21 @@ export const projectsData = [
     projectInfo: "Tagesausflug in Hangzhou",
     technologies: "",
     date: "06/21 - 11/21",
-    thumbImage: "/public/assets/arts/Hangzhou/Hangzhou coffee.JPG",
+    thumbImage: "/assets/arts/Hangzhou/Hangzhou coffee.JPG",
     sliderImages: [
       {
-        medium: "/public/assets/arts/Hangzhou/Hangzhou back yard.JPG",
-        big: "/public/assets/arts/Hangzhou/Hangzhou back yard.JPG",
+        medium: "/assets/arts/Hangzhou/Hangzhou back yard.JPG",
+        big: "/assets/arts/Hangzhou/Hangzhou back yard.JPG",
         desc: "Hinterhof irgendwo in Hangzhou",
       },
       {
-        medium: "/public/assets/arts/Hangzhou/Hangzhou coffee.JPG",
-        big: "/public/assets/arts/Hangzhou/Hangzhou coffee.JPG",
+        medium: "/assets/arts/Hangzhou/Hangzhou coffee.JPG",
+        big: "/assets/arts/Hangzhou/Hangzhou coffee.JPG",
         desc: "Cafe am Westlake",
       },
       {
-        medium: "/public/assets/arts/Hangzhou/Hangzhou westlake pagode.JPG",
-        big: "/public/assets/arts/Hangzhou/Hangzhou westlake pagode.JPG",
+        medium: "/assets/arts/Hangzhou/Hangzhou westlake pagode.JPG",
+        big: "/assets/arts/Hangzhou/Hangzhou westlake pagode.JPG",
         desc: "Liuhe Pagode am Westlake",
       },
     ],
@@ -155,21 +155,21 @@ export const projectsData = [
     projectInfo: "Unterwegs in der Stadt",
     technologies: "",
     date: "06/21 - 11/21",
-    thumbImage: "/public/assets/arts/Ningbo/Ningbo cotton house.jpg",
+    thumbImage: "/assets/arts/Ningbo/Ningbo cotton house.jpg",
     sliderImages: [
       {
-        medium: "/public/assets/arts/Ningbo/Enjoy.JPG",
-        big: "/public/assets/arts/Ningbo/Enjoy.JPG",
+        medium: "/assets/arts/Ningbo/Enjoy.JPG",
+        big: "/assets/arts/Ningbo/Enjoy.JPG",
         desc: "Tianyi Square",
       },
       {
-        medium: "/public/assets/arts/Ningbo/Ningbo cotton house.jpg",
-        big: "/public/assets/arts/Ningbo/Ningbo cotton house.jpg",
+        medium: "/assets/arts/Ningbo/Ningbo cotton house.jpg",
+        big: "/assets/arts/Ningbo/Ningbo cotton house.jpg",
         desc: "Ehemaliges Gebäude zur Baumwolleherstellung",
       },
       {
-        medium: "/public/assets/arts/Ningbo/Ningbo night.JPG",
-        big: "/public/assets/arts/Ningbo/Ningbo night.JPG",
+        medium: "/assets/arts/Ningbo/Ningbo night.JPG",
+        big: "/assets/arts/Ningbo/Ningbo night.JPG",
         desc: "Promenade am Tianyi Square",
       },
     ],
@@ -195,11 +195,11 @@ export const projectsData = [
   //     instagram: "http://www.instagram.com/",
   //     mail: "mailto:example@gmail.com",
   //   },
-  //   thumbImage: "/public/assets/Hangzhou back yard.JPG",
+  //   thumbImage: "/assets/Hangzhou back yard.JPG",
   //   sliderImages: [
-  //     "/public/assets/Hangzhou coffee.JPG",
-  //     "/public/assets/Hangzhou tempel.JPG",
-  //     "/public/assets/Hanzhou Westlake.JPG",
+  //     "/assets/Hangzhou coffee.JPG",
+  //     "/assets/Hangzhou tempel.JPG",
+  //     "/assets/Hanzhou Westlake.JPG",
   //     "/assets/Hangzhou westlake pagode.JPG",
   //   ],
   //   categories: [filters.DESIGN, filters.PHOTOS],

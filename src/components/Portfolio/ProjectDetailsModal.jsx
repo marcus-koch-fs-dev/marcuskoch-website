@@ -47,7 +47,7 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
                     darkTheme={darkTheme}
                     projectDetails={projectDetails}
                   />
-                  {projectDetails.categories[0] === "Projects" && (
+                  {projectDetails?.categories[0] === "Projects" && (
                     <div
                       style={{
                         display: "flex",
