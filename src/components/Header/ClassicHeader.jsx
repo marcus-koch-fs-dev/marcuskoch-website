@@ -226,7 +226,7 @@ const ClassicHeader = ({ handleNavClick }) => {
                   </a>
                 </Tooltip>
               </li> */}
-              <li className="social-icons-dribbble">
+              {/* <li className="social-icons-dribbble">
                 <Tooltip text="Dribbble" placement="top">
                   <a
                     href="http://www.dribbble.com/"
@@ -236,7 +236,7 @@ const ClassicHeader = ({ handleNavClick }) => {
                     <i className="fab fa-dribbble" />
                   </a>
                 </Tooltip>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
