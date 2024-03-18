@@ -1,6 +1,3 @@
-import React from "react";
-import resumeFile from "../../documents/resume.pdf";
-
 const AboutUs = ({ classicHeader, darkTheme }) => {
   return (
     <section id="about" className={"section " + (darkTheme ? "bg-dark-1" : "")}>
@@ -80,10 +77,6 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
               gestalten.
             </p>
           </div>
-          {/* About me content end */}
-          {/* about me personal detials start */}
-          {/* <div className="col-lg-5 col-xl-4">block</div> */}
-          {/* about me personal details end */}
         </div>
         {/* projects rewards counting start */}
         <div
@@ -140,21 +133,6 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                 </p>
               </div>
             </div>
-            {/* <div className="col-6 col-md-4">
-              <div className="featured-box text-center">
-                <h4
-                  className={
-                    "text-12  mb-0 " +
-                    (darkTheme ? "text-white-50" : "text-muted")
-                  }
-                >
-                  <span>38</span>
-                </h4>
-                <p className={"mb-0 " + (darkTheme ? "text-light" : "")}>
-                  Get Awards
-                </p>
-              </div>
-            </div> */}
           </div>
         </div>
         {/* projects rewards counting end */}
@@ -164,34 +142,3 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
 };
 
 export default AboutUs;
-
-// {/* <div className="ps-lg-4">
-// <ul
-//   className={
-//     "list-style-2 " +
-//     (darkTheme ? "list-style-light text-light" : "")
-//   }
-// >
-//   <li>
-//     <span className="fw-600 me-2">Name:</span>Marcus Koch
-//   </li>
-//   <li>
-//     <span className="fw-600 me-2">Email:</span>
-//     <a href="mailto:chat@simone.com">info@marcuskochtech.com</a>
-//   </li>
-//   {/* <li>
-//     <span className="fw-600 me-2">Age:</span>28
-//   </li> */}
-//   <li className="border-0">
-//     <span className="fw-600 me-2">From:</span>Lindau am Bodensee,
-//     Deutschland
-//   </li>
-// </ul>
-// <a
-//   href={resumeFile}
-//   download
-//   className="btn btn-primary rounded-pill"
-// >
-//   Download CV
-// </a>
-// </div> */}

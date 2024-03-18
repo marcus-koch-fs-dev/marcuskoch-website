@@ -1,16 +1,18 @@
 import Typewriter from "typewriter-effect";
-import videobg from "../../videos/home.mp4";
+// import videobg from "../../videos/home.mp4";
 
 const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
   return (
-    <section id="home">
+    <section id="home" href="/home">
       <div className="hero-wrap">
         <div className="hero-mask opacity-8 bg-dark" />
 
         {/* ---------------image background------------------ */}
         <div
           className="hero-bg parallax"
-          style={{ backgroundImage: 'url("images/intro-bg.jpg")' }}
+          style={{
+            backgroundImage: 'url("/assets/arts/Ningbo/Enjoy.JPG")',
+          }}
         ></div>
 
         {/* -------------------video background---------------------- */}
@@ -49,6 +51,7 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
                 </h2>
                 <a
                   href="#contact"
+                  aria-label="go to contact section"
                   className="btn btn-outline-primary rounded-pill shadow-none smooth-scroll mt-2"
                   onClick={(e) => {
                     e.preventDefault();
@@ -62,6 +65,7 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
           </div>
           <a
             href="#about"
+            aria-label="go to about section"
             className="scroll-down-arrow text-white smooth-scroll"
             onClick={(e) => {
               e.preventDefault();

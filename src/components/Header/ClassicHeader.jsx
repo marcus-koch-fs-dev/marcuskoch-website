@@ -1,6 +1,4 @@
-import React from "react";
 import { useState } from "react";
-import { Tooltip } from "../Tooltip/Tooltip";
 import { Link } from "react-scroll";
 
 const ClassicHeader = ({ handleNavClick }) => {
@@ -54,7 +52,10 @@ const ClassicHeader = ({ handleNavClick }) => {
             </Link>
             {/* Logo End */}
           </div>
-          <div className="col col-lg-8 navbar-accordion">
+          <div
+            className="col col-lg-8 navbar-accordion"
+            aria-label="mobile-menu wrapper"
+          >
             <button
               onClick={(e) => {
                 setIsNavModalClose(!isNavModalClose);
@@ -66,10 +67,11 @@ const ClassicHeader = ({ handleNavClick }) => {
               }
               id="navbar-toggler"
               type="button"
+              aria-label="mobile-menu toggle button"
             >
-              <span />
-              <span />
-              <span />
+              <span aria-label="mobile-menu burger-menu" />
+              <span aria-label="mobile-menu burger-menu" />
+              <span aria-label="mobile-menu burger-menu" />
             </button>
             <div
               id="header-nav"
@@ -131,23 +133,6 @@ const ClassicHeader = ({ handleNavClick }) => {
                     Services
                   </Link>
                 </li>
-                {/* <li className="nav-item">
-                  <Link
-                    smooth
-                    duration={500}
-                    style={{ cursor: "pointer" }}
-                    spy
-                    activeClass="active"
-                    className="nav-link"
-                    to="resume"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setIsNavModalClose(true);
-                    }}
-                  >
-                    Lebenslauf
-                  </Link>
-                </li> */}
                 <li className="nav-item">
                   <Link
                     smooth
@@ -203,41 +188,7 @@ const ClassicHeader = ({ handleNavClick }) => {
             </div>
           </div>
           <div className="col-auto col-lg-2 d-flex justify-content-end">
-            <ul className="social-icons social-icons-light">
-              {/* <li className="social-icons-twitter">
-                <Tooltip text="Twitter" placement="top">
-                  <a
-                    href="http://www.twitter.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-twitter" />
-                  </a>
-                </Tooltip>
-              </li> */}
-              {/* <li className="social-icons-facebook">
-                <Tooltip text="Facebook" placement="top">
-                  <a
-                    href="http://www.facebook.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-facebook-f" />
-                  </a>
-                </Tooltip>
-              </li> */}
-              {/* <li className="social-icons-dribbble">
-                <Tooltip text="Dribbble" placement="top">
-                  <a
-                    href="http://www.dribbble.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fab fa-dribbble" />
-                  </a>
-                </Tooltip>
-              </li> */}
-            </ul>
+            <ul className="social-icons social-icons-light"></ul>
           </div>
         </div>
       </nav>
