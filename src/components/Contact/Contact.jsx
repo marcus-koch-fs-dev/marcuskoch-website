@@ -1,6 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
 import MessageForm from "./MessageForm";
-import AppointmentForm from "./AppointmentForm";
+// import AppointmentForm from "./AppointmentForm";
 
 const Contact = ({ classicHeader, darkTheme }) => {
   return (
@@ -34,9 +34,6 @@ const Contact = ({ classicHeader, darkTheme }) => {
           {/* contact form */}
           <div className="col-md-10 col-xl-8 order-0 order-md-1">
             <MessageForm classicHeader={classicHeader} darkTheme={darkTheme} />
-          </div>
-          <div className="col-md-10 col-xl-4 order-0 order-md-1">
-            <AppointmentForm darkTheme={darkTheme} />
           </div>
         </div>
       </div>

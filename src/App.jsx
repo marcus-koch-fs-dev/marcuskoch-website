@@ -4,15 +4,15 @@ import AboutUs from "./components/About/About";
 import Services from "./components/Services";
 import Portfolio from "./components/Portfolio/Portfolio";
 import Testimonials from "./components/Testimonials/Testimonials";
-import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import { useEffect, useState } from "react";
 import { commonConfig } from "./config/commonConfig";
-import TermsAndConditions from "./components/Footer/TermsAndConditions";
-import Disclaimer from "./components/Footer/Disclaimer";
 import PreLoader from "./components/Preloader";
 import TooltipWrapper from "./components/Tooltip/TooltipWrapper";
-import HeaderWrapper from "./components/Header/HeaderWrapper";
+
+import ClassicHeader from "./components/Header/ClassicHeader";
+import Impressum from "./components/Footer/Impressum";
+import Datenschutz from "./components/Footer/Datenschutz";
 
 function App() {
   const classicHeader = commonConfig.classicHeader;
@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
       setisLoading(false);
-    }, 1000);
+    }, 500);
     return () => {
       clearTimeout(loadingTimeout);
     };
@@ -54,28 +54,16 @@ function App() {
 
   return (
     <>
-      <div
-        style={{ position: "relative" }}
-        className={classicHeader ? "" : "side-header"}
-      >
+      <div style={{ position: "relative" }}>
         {isLoading && <PreLoader />}
         <div id="main-wrapper">
-          <HeaderWrapper
-            classicHeader={classicHeader}
-            handleNavClick={handleNavClick}
-          />
+          <ClassicHeader />
           <div id="content" role="main">
-            <Home
-              classicHeader={classicHeader}
-              darkTheme={darkTheme}
-              handleNavClick={handleNavClick}
-            />
+            <Home darkTheme={darkTheme} handleNavClick={handleNavClick} />
             <AboutUs classicHeader={classicHeader} darkTheme={darkTheme} />
             <Services classicHeader={classicHeader} darkTheme={darkTheme} />
-            {/* <Resume classicHeader={classicHeader} darkTheme={darkTheme} /> */}
             <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
             <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} />
-            <Contact classicHeader={classicHeader} darkTheme={darkTheme} />
           </div>
           <Footer
             classicHeader={classicHeader}
@@ -88,8 +76,8 @@ function App() {
           label={"Zum Seitenanfang"}
           scrollTopVisible={scrollTopVisible}
         />
-        <TermsAndConditions darkTheme={darkTheme} />
-        <Disclaimer darkTheme={darkTheme} />
+        <Impressum darkTheme={darkTheme} />
+        <Datenschutz darkTheme={darkTheme} />
       </div>
     </>
   );

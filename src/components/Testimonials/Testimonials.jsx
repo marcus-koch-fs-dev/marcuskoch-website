@@ -22,7 +22,7 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
   };
   return (
     <section
-      id="testimonial"
+      id="rezensionen"
       className={"section " + (darkTheme ? "bg-dark-1" : "")}
     >
       <div className={"container " + (classicHeader ? "" : "px-lg-5")}>
@@ -34,7 +34,7 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
               (darkTheme ? "text-muted opacity-1" : "text-light opacity-4")
             }
           >
-            Testimonials
+            Rezensionen
           </h2>
           <p
             className={
@@ -42,7 +42,7 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
               (darkTheme ? "text-white" : "text-dark")
             }
           >
-            Testimonials
+            Rezensionen
             <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
           </p>
         </div>
@@ -58,11 +58,12 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
                   }
                 >
                   <div className="d-flex align-items-center mt-auto mb-4">
-                    {/* <img
-                      className="img-fluid rounded-circle border d-inline-block w-auto"
-                      src={value.src}
+                    <img
+                      className="img-fluid rounded-circle border d-inline-block w-auto w"
+                      style={{ height: "5rem" }}
+                      src={value.path}
                       alt=""
-                    /> */}
+                    />
                     <p className="ms-3 mb-0">
                       <strong
                         className={
@@ -85,11 +86,11 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
                   >
                     “{value.desc}”
                   </p>
-                  {/* <span className="text-2">
+                  <span className="text-2">
                     {[...Array(value.rating)].map((value, i) => (
                       <i className="fas fa-star text-warning" key={i} />
                     ))}
-                  </span> */}
+                  </span>
                 </div>
               </div>
             ))}

@@ -1,8 +1,3 @@
-export const filters = {
-  PROJECTS: "Projects",
-  // BRAND: "Brand",
-  PHOTOS: "Photos",
-};
 export const projectsData = [
   {
     id: 1,
@@ -27,7 +22,6 @@ export const projectsData = [
         desc: "Mobile-Ansicht Launchpad",
       },
     ],
-    categories: [filters.PROJECTS],
   },
   {
     id: 2,
@@ -57,7 +51,6 @@ export const projectsData = [
         desc: "Konsumierte-Teile & Eingebaut-In Ansicht",
       },
     ],
-    categories: [filters.PROJECTS],
   },
   {
     id: 3,
@@ -77,7 +70,6 @@ export const projectsData = [
         desc: "Symbolbild von Cloud-Surveillance",
       },
     ],
-    categories: [filters.PROJECTS],
   },
   {
     id: 4,
@@ -101,7 +93,6 @@ export const projectsData = [
         desc: "Symbolbild der Woundera-App",
       },
     ],
-    categories: [filters.PROJECTS],
   },
   {
     id: 5,
@@ -121,87 +112,5 @@ export const projectsData = [
         desc: "Symbolbild des Arvato Service",
       },
     ],
-    categories: [filters.PROJECTS],
   },
-  {
-    id: 6,
-    title: "Hangzhou (China)",
-    projectInfo: "Tagesausflug in Hangzhou",
-    technologies: "",
-    date: "06/21 - 11/21",
-    thumbImage: "/assets/arts/Hangzhou/Hangzhou coffee.JPG",
-    sliderImages: [
-      {
-        medium: "/assets/arts/Hangzhou/Hangzhou back yard.JPG",
-        big: "/assets/arts/Hangzhou/Hangzhou back yard.JPG",
-        desc: "Hinterhof irgendwo in Hangzhou",
-      },
-      {
-        medium: "/assets/arts/Hangzhou/Hangzhou coffee.JPG",
-        big: "/assets/arts/Hangzhou/Hangzhou coffee.JPG",
-        desc: "Cafe am Westlake",
-      },
-      {
-        medium: "/assets/arts/Hangzhou/Hangzhou westlake pagode.JPG",
-        big: "/assets/arts/Hangzhou/Hangzhou westlake pagode.JPG",
-        desc: "Liuhe Pagode am Westlake",
-      },
-    ],
-    categories: [filters.PHOTOS],
-  },
-  {
-    id: 7,
-    title: "Ningbo (China)",
-    projectInfo: "Unterwegs in der Stadt",
-    technologies: "",
-    date: "06/21 - 11/21",
-    thumbImage: "/assets/arts/Ningbo/Ningbo cotton house.jpg",
-    sliderImages: [
-      {
-        medium: "/assets/arts/Ningbo/Enjoy.JPG",
-        big: "/assets/arts/Ningbo/Enjoy.JPG",
-        desc: "Tianyi Square",
-      },
-      {
-        medium: "/assets/arts/Ningbo/Ningbo cotton house.jpg",
-        big: "/assets/arts/Ningbo/Ningbo cotton house.jpg",
-        desc: "Ehemaliges Gebäude zur Baumwolleherstellung",
-      },
-      {
-        medium: "/assets/arts/Ningbo/Ningbo night.JPG",
-        big: "/assets/arts/Ningbo/Ningbo night.JPG",
-        desc: "Promenade am Tianyi Square",
-      },
-    ],
-    categories: [filters.PHOTOS],
-  },
-
-  // {
-  //   title: "Hangzhou Roundtrip",
-  //   projectInfo:
-  //     "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-  //   client: "Travel Impressions",
-  //   technologies: "iOS, HTML5, CSS3, PHP, Java",
-  //   industry: "Art & Design",
-  //   date: "July 16, 2019",
-  //   url: {
-  //     name: "www.example.com",
-  //     link: "https://www.example.com",
-  //   },
-  //   socialLinks: {
-  //     facebook: "http://www.facebook.com/",
-  //     twitter: "http://www.twitter.com/",
-  //     google: "http://www.google.com/",
-  //     instagram: "http://www.instagram.com/",
-  //     mail: "mailto:example@gmail.com",
-  //   },
-  //   thumbImage: "/assets/Hangzhou back yard.JPG",
-  //   sliderImages: [
-  //     "/assets/Hangzhou coffee.JPG",
-  //     "/assets/Hangzhou tempel.JPG",
-  //     "/assets/Hanzhou Westlake.JPG",
-  //     "/assets/Hangzhou westlake pagode.JPG",
-  //   ],
-  //   categories: [filters.DESIGN, filters.PHOTOS],
-  // },
 ];
