@@ -1,4 +1,4 @@
-import videobg from "../../videos/home.mp4";
+import videobg from "../../videos/Selbstvorstellung.mp4";
 const AboutUs = ({ classicHeader, darkTheme }) => {
   return (
     <section id="about" className={"section " + (darkTheme ? "bg-dark-1" : "")}>

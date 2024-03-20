@@ -9,6 +9,7 @@ const Datenschutz = ({ darkTheme }) => {
       <div
         className="modal-dialog modal-lg modal-dialog-centered"
         role="document"
+        style={{ maxWidth: "90%" }}
       >
         <div
           className={
@@ -16,9 +17,7 @@ const Datenschutz = ({ darkTheme }) => {
           }
         >
           <div className="modal-header">
-            <h5 className={"modal-title " + (darkTheme ? "text-white" : "")}>
-              Copyright &amp; Datenschutz
-            </h5>
+            <h1>Datenschutzerkl&auml;rung</h1>
             <button
               type="button"
               className={"btn-close " + (darkTheme ? "btn-close-white" : "")}
@@ -27,8 +26,6 @@ const Datenschutz = ({ darkTheme }) => {
             />
           </div>
           <div className="modal-body p-4">
-            <h1>Datenschutzerkl&auml;rung</h1>
-
             <h2>1) Einleitung und Kontaktdaten des Verantwortlichen</h2>
 
             <p>
