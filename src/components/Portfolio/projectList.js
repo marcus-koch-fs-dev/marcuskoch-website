@@ -1,8 +1,3 @@
-export const filters = {
-  PROJECTS: "Projects",
-  // BRAND: "Brand",
-  PHOTOS: "Photos",
-};
 export const projectsData = [
   {
     id: 1,
@@ -27,7 +22,6 @@ export const projectsData = [
         desc: "Mobile-Ansicht Launchpad",
       },
     ],
-    categories: [filters.PROJECTS],
   },
   {
     id: 2,
@@ -57,7 +51,6 @@ export const projectsData = [
         desc: "Konsumierte-Teile & Eingebaut-In Ansicht",
       },
     ],
-    categories: [filters.PROJECTS],
   },
   {
     id: 3,
@@ -69,7 +62,7 @@ export const projectsData = [
       "React, Redux, Node.js, Python, Microservices, REST-API, Git, Azure für CI/CD, SAP HANA für SQL-DB-Management, Material UI, AG-Grid",
     industry: "Automotive",
     date: "05/23 - 07/23",
-    thumbImage: "/public/assets/work/cloud-surveillance256.jpg",
+    thumbImage: "/assets/work/cloud-surveillance256.jpg",
     sliderImages: [
       {
         medium: "/assets/work/cloud-surveillance512.jpg",
@@ -77,7 +70,6 @@ export const projectsData = [
         desc: "Symbolbild von Cloud-Surveillance",
       },
     ],
-    categories: [filters.PROJECTS],
   },
   {
     id: 4,
@@ -101,7 +93,6 @@ export const projectsData = [
         desc: "Symbolbild der Woundera-App",
       },
     ],
-    categories: [filters.PROJECTS],
   },
   {
     id: 5,
@@ -113,7 +104,7 @@ export const projectsData = [
       "React (mit TS), Redux, REST API, Git, Material UI, Storybook für dieUI-bibliothek, Jest",
     industry: "IT-Dienstleister",
     date: "06/21 - 11/21, fortlaufend",
-    thumbImage: "/public/assets/work/arvato256.jpg",
+    thumbImage: "/assets/work/arvato256.jpg",
     sliderImages: [
       {
         medium: "/assets/work/arvato512.jpg",
@@ -121,87 +112,5 @@ export const projectsData = [
         desc: "Symbolbild des Arvato Service",
       },
     ],
-    categories: [filters.PROJECTS],
   },
-  {
-    id: 6,
-    title: "Hangzhou (China)",
-    projectInfo: "Tagesausflug in Hangzhou",
-    technologies: "",
-    date: "06/21 - 11/21",
-    thumbImage: "/public/assets/arts/Hangzhou/Hangzhou coffee.JPG",
-    sliderImages: [
-      {
-        medium: "/public/assets/arts/Hangzhou/Hangzhou back yard.JPG",
-        big: "/public/assets/arts/Hangzhou/Hangzhou back yard.JPG",
-        desc: "Hinterhof irgendwo in Hangzhou",
-      },
-      {
-        medium: "/public/assets/arts/Hangzhou/Hangzhou coffee.JPG",
-        big: "/public/assets/arts/Hangzhou/Hangzhou coffee.JPG",
-        desc: "Cafe am Westlake",
-      },
-      {
-        medium: "/public/assets/arts/Hangzhou/Hangzhou westlake pagode.JPG",
-        big: "/public/assets/arts/Hangzhou/Hangzhou westlake pagode.JPG",
-        desc: "Liuhe Pagode am Westlake",
-      },
-    ],
-    categories: [filters.PHOTOS],
-  },
-  {
-    id: 7,
-    title: "Ningbo (China)",
-    projectInfo: "Unterwegs in der Stadt",
-    technologies: "",
-    date: "06/21 - 11/21",
-    thumbImage: "/public/assets/arts/Ningbo/Ningbo cotton house.jpg",
-    sliderImages: [
-      {
-        medium: "/public/assets/arts/Ningbo/Enjoy.JPG",
-        big: "/public/assets/arts/Ningbo/Enjoy.JPG",
-        desc: "Tianyi Square",
-      },
-      {
-        medium: "/public/assets/arts/Ningbo/Ningbo cotton house.jpg",
-        big: "/public/assets/arts/Ningbo/Ningbo cotton house.jpg",
-        desc: "Ehemaliges Gebäude zur Baumwolleherstellung",
-      },
-      {
-        medium: "/public/assets/arts/Ningbo/Ningbo night.JPG",
-        big: "/public/assets/arts/Ningbo/Ningbo night.JPG",
-        desc: "Promenade am Tianyi Square",
-      },
-    ],
-    categories: [filters.PHOTOS],
-  },
-
-  // {
-  //   title: "Hangzhou Roundtrip",
-  //   projectInfo:
-  //     "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-  //   client: "Travel Impressions",
-  //   technologies: "iOS, HTML5, CSS3, PHP, Java",
-  //   industry: "Art & Design",
-  //   date: "July 16, 2019",
-  //   url: {
-  //     name: "www.example.com",
-  //     link: "https://www.example.com",
-  //   },
-  //   socialLinks: {
-  //     facebook: "http://www.facebook.com/",
-  //     twitter: "http://www.twitter.com/",
-  //     google: "http://www.google.com/",
-  //     instagram: "http://www.instagram.com/",
-  //     mail: "mailto:example@gmail.com",
-  //   },
-  //   thumbImage: "/public/assets/Hangzhou back yard.JPG",
-  //   sliderImages: [
-  //     "/public/assets/Hangzhou coffee.JPG",
-  //     "/public/assets/Hangzhou tempel.JPG",
-  //     "/public/assets/Hanzhou Westlake.JPG",
-  //     "/assets/Hangzhou westlake pagode.JPG",
-  //   ],
-  //   categories: [filters.DESIGN, filters.PHOTOS],
-  // },
 ];

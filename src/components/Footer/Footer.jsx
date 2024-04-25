@@ -1,5 +1,3 @@
-import React from "react";
-
 const Footer = ({ classicHeader, darkTheme, handleNavClick }) => {
   return (
     <footer
@@ -10,7 +8,7 @@ const Footer = ({ classicHeader, darkTheme, handleNavClick }) => {
         <div className="row">
           <div className="col-lg-6 text-center text-lg-start">
             <p className="mb-3 mb-lg-0">
-              Copyright © 2024{" "}
+              Copyright © 2024
               <a
                 href="#home"
                 className="fw-500"
@@ -30,20 +28,20 @@ const Footer = ({ classicHeader, darkTheme, handleNavClick }) => {
                 <a
                   className="nav-link"
                   data-bs-toggle="modal"
-                  data-bs-target="#terms-policy"
-                  href="#terms-policy"
+                  data-bs-target="#datenschutz"
+                  href="#datenschutz"
                 >
-                  Nutzungsbedingungen &amp; Datenschutzrichtlinie
+                  Datenschutz
                 </a>
               </li>
               <li className="nav-item">
                 <a
                   className="nav-link"
                   data-bs-toggle="modal"
-                  data-bs-target="#disclaimer"
-                  href="#disclaimer"
+                  data-bs-target="#impressum"
+                  href="#impressum"
                 >
-                  Haftungsausschluss
+                  Impressum
                 </a>
               </li>
             </ul>

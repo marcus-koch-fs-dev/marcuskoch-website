@@ -1,6 +1,4 @@
-import React from "react";
-import resumeFile from "../../documents/resume.pdf";
-
+import videobg from "../../videos/Selbstvorstellung.mp4";
 const AboutUs = ({ classicHeader, darkTheme }) => {
   return (
     <section id="about" className={"section " + (darkTheme ? "bg-dark-1" : "")}>
@@ -28,62 +26,77 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
         {/* Heading end*/}
         <div className="row gy-5" style={{ justifyContent: "center" }}>
           {/* About me content start */}
-          <div className="col-lg-7 col-xl-8 text-center text-lg-start">
+          <div
+            className="col-lg-10  "
+            // style={{
+            //   alignItems: "center",
+            //   display: "flex",
+            //   flexDirection: "column",
+            // }}
+          >
             <h2
               className={
                 "text-7 fw-600 mb-3 " + (darkTheme ? "text-white" : "")
               }
+              style={{ wordBreak: "break-word" }}
             >
               Ich bin <span className="text-primary">Marcus Koch, </span>
-              ein dynamischer JavaScript Full-Stack Entwickler, der in der Welt
-              der React-Frontends zu Hause ist.
+              ein dynamischer JavaScript Full-Stack Entwickler, zu Hause in der
+              Welt der React-Frontends.
             </h2>
-            <p className={darkTheme ? "text-white-50" : ""}>
-              Als enthusiastischer Entwickler konzentriere ich mich darauf,
-              ansprechende Webseiten zu erstellen, die sowohl durch ihre Optik
-              als auch durch intuitive Bedienbarkeit überzeugen. Mein Ziel ist
-              es, dem Nutzer ein positives Erlebnis zu schaffen, das er mit
-              Ihrem Produkt verbindet. Ich bin überzeugt, dass technische
-              Exzellenz und ein herausragendes Nutzererlebnis Hand in Hand gehen
-              müssen.
-            </p>
-            <p className={darkTheme ? "text-white-50" : ""}>
-              Um dies zu erreichen, nutze ich bewährte Techniken und moderne
-              Werkzeuge wie React, um schnelle und nutzerfreundliche Webseiten
-              zu entwickeln. Durch agile Entwicklungsmethoden und
-              kontinuierliches Feedback stelle ich sicher, dass meine Arbeit
-              nicht nur technisch auf dem neuesten Stand ist, sondern auch genau
-              auf die Bedürfnisse und Wünsche der Nutzer abgestimmt. Dieser
-              Ansatz hilft mir, Projekte effizient zu managen und dabei stets
-              hohe Qualitätsstandards zu wahren.
-            </p>
-            <p className={darkTheme ? "text-white-50" : ""}>
-              Mit meinem tiefgreifenden Verständnis für React und
-              unterstützenden Tools wie Redux und TypeScript garantiere ich hohe
-              Performance und Benutzerfreundlichkeit. Agile Entwicklungsmethoden
-              und regelmäßige Code-Reviews unterstützen mich dabei, Qualität und
-              Flexibilität meiner Projekte zu sichern, ergänzt durch eine
-              nahtlose Backend-Integration über Microservices und REST-APIs.
-            </p>
-            <p className={darkTheme ? "text-white-50" : ""}>
-              Meine Expertise habe ich insbesondere in der Digitalisierung
-              interner Prozesse im Automobilsektor erworben, doch ich bin stets
-              offen für Herausforderungen in anderen Branchen. Ich biete
-              Frontend-Entwicklung, die Ihre digitalen Produkte auf das nächste
-              Level hebt. Lassen Sie uns gemeinsam innovative Lösungen schaffen,
-              die nicht nur technisch überzeugen, sondern auch Ihre Nutzer
-              begeistern.
-            </p>
-            <p className={darkTheme ? "text-white-50" : ""}>
-              Bereit, Ihre digitalen Produkte auf das nächste Level zu bringen?
-              Kontaktieren Sie mich, und lassen Sie uns gemeinsam die Zukunft
-              gestalten.
-            </p>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-around",
+              }}
+            >
+              <div className="col-lg-5">
+                <video
+                  controls
+                  src={videobg}
+                  muted
+                  style={{
+                    width: "100%",
+                    height: "90%",
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
+              <div className="col-lg-6 ">
+                <p className={darkTheme ? "text-white-50" : ""}>
+                  Als enthusiastischer Entwickler schaffe ich Webseiten, die
+                  durch Optik und intuitive Bedienbarkeit überzeugen. Mit
+                  modernen Techniken und Werkzeugen wie React entwickle ich
+                  schnelle, nutzerfreundliche Lösungen.
+                </p>
+                <p className={darkTheme ? "text-white-50" : ""}>
+                  Durch agile Methoden und ständiges Feedback sorge ich für hohe
+                  Qualitätsstandards und bedürfnisorientierte Ergebnisse.
+                </p>
+                <p className={darkTheme ? "text-white-50" : ""}>
+                  Meine Expertise in der Digitalisierung, besonders im
+                  Automobilsektor, qualifiziert mich für Herausforderungen über
+                  Branchengrenzen hinweg. Ich hebe Ihre digitalen Produkte auf
+                  das nächste Level.
+                </p>
+                <p className={darkTheme ? "text-white-50" : ""}>
+                  <a
+                    aria-label="Set appoinment"
+                    // className="btn btn-outline-primary rounded-pill shadow-none smooth-scroll mt-2"
+                    href="https://calendly.com/marcus-koch-webdev/30min"
+                    target="_blank"
+                  >
+                    <span className="text-primary fw-600">
+                      Bereit für den nächsten Schritt?{" "}
+                    </span>
+                  </a>
+                  Kontaktieren Sie mich, und wir gestalten die Zukunft
+                  gemeinsam.
+                </p>
+              </div>
+            </div>
           </div>
-          {/* About me content end */}
-          {/* about me personal detials start */}
-          {/* <div className="col-lg-5 col-xl-4">block</div> */}
-          {/* about me personal details end */}
         </div>
         {/* projects rewards counting start */}
         <div
@@ -140,21 +153,6 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                 </p>
               </div>
             </div>
-            {/* <div className="col-6 col-md-4">
-              <div className="featured-box text-center">
-                <h4
-                  className={
-                    "text-12  mb-0 " +
-                    (darkTheme ? "text-white-50" : "text-muted")
-                  }
-                >
-                  <span>38</span>
-                </h4>
-                <p className={"mb-0 " + (darkTheme ? "text-light" : "")}>
-                  Get Awards
-                </p>
-              </div>
-            </div> */}
           </div>
         </div>
         {/* projects rewards counting end */}
@@ -164,34 +162,3 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
 };
 
 export default AboutUs;
-
-// {/* <div className="ps-lg-4">
-// <ul
-//   className={
-//     "list-style-2 " +
-//     (darkTheme ? "list-style-light text-light" : "")
-//   }
-// >
-//   <li>
-//     <span className="fw-600 me-2">Name:</span>Marcus Koch
-//   </li>
-//   <li>
-//     <span className="fw-600 me-2">Email:</span>
-//     <a href="mailto:chat@simone.com">info@marcuskochtech.com</a>
-//   </li>
-//   {/* <li>
-//     <span className="fw-600 me-2">Age:</span>28
-//   </li> */}
-//   <li className="border-0">
-//     <span className="fw-600 me-2">From:</span>Lindau am Bodensee,
-//     Deutschland
-//   </li>
-// </ul>
-// <a
-//   href={resumeFile}
-//   download
-//   className="btn btn-primary rounded-pill"
-// >
-//   Download CV
-// </a>
-// </div> */}
