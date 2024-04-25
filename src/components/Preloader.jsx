@@ -1,8 +1,6 @@
-import React from "react";
-
 const PreLoader = () => {
   return (
-    <div className="preloader">
+    <div className="preloader" role="progressbar">
       <div className="lds-ellipsis">
         <div></div>
         <div></div>

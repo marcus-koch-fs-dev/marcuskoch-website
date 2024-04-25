@@ -1,4 +1,12 @@
-const Footer = ({ classicHeader, darkTheme, handleNavClick }) => {
+import Datenschutz from "./Datenschutz";
+import Impressum from "./Impressum";
+
+const Footer = ({
+  classicHeader,
+  darkTheme,
+  handleNavClick,
+  scrollTopVisible,
+}) => {
   return (
     <footer
       id="footer"
@@ -17,7 +25,7 @@ const Footer = ({ classicHeader, darkTheme, handleNavClick }) => {
                   handleNavClick("home");
                 }}
               >
-                Marcus
+                {` Marcus`}
               </a>
               . Alle Rechte Vorbehalten.
             </p>
@@ -48,6 +56,8 @@ const Footer = ({ classicHeader, darkTheme, handleNavClick }) => {
           </div>
         </div>
       </div>
+      <Impressum darkTheme={darkTheme} />
+      <Datenschutz darkTheme={darkTheme} />
     </footer>
   );
 };

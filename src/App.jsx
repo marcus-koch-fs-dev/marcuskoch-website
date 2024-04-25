@@ -53,33 +53,28 @@ function App() {
   }
 
   return (
-    <>
-      <div style={{ position: "relative" }}>
-        {isLoading && <PreLoader />}
-        <div id="main-wrapper">
-          <ClassicHeader />
-          <div id="content" role="main">
-            <Home darkTheme={darkTheme} handleNavClick={handleNavClick} />
-            <AboutUs classicHeader={classicHeader} darkTheme={darkTheme} />
-            <Services classicHeader={classicHeader} darkTheme={darkTheme} />
-            <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
-            <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} />
-          </div>
-          <Footer
-            classicHeader={classicHeader}
-            darkTheme={darkTheme}
-            handleNavClick={handleNavClick}
-          />
-        </div>
-        {/* back to top */}
-        <TooltipWrapper
-          label={"Zum Seitenanfang"}
+    <main style={{ position: "relative" }}>
+      {isLoading && <PreLoader />}
+      <section id="main-wrapper">
+        <ClassicHeader />
+        <h1 hidden={true}>Web Developer Marcus Koch</h1>
+        <Home darkTheme={darkTheme} handleNavClick={handleNavClick} />
+        <AboutUs classicHeader={classicHeader} darkTheme={darkTheme} />
+        <Services classicHeader={classicHeader} darkTheme={darkTheme} />
+        <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
+        <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} />
+        <Footer
+          classicHeader={classicHeader}
+          darkTheme={darkTheme}
+          handleNavClick={handleNavClick}
           scrollTopVisible={scrollTopVisible}
         />
-        <Impressum darkTheme={darkTheme} />
-        <Datenschutz darkTheme={darkTheme} />
-      </div>
-    </>
+      </section>
+      <TooltipWrapper
+        label={"Zum Seitenanfang"}
+        scrollTopVisible={scrollTopVisible}
+      />
+    </main>
   );
 }
 
