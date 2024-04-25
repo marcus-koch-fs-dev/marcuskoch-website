@@ -1,4 +1,5 @@
 import videobg from "../../videos/home.mp4";
+import BookingButton from "../BookingButton";
 
 const Home = ({ darkTheme, handleNavClick }) => {
   return (
@@ -35,10 +36,11 @@ const Home = ({ darkTheme, handleNavClick }) => {
                   Willkommen
                 </p>
                 <h2 className="text-14 fw-600 text-white mb-2 mb-md-3">
-                  <span>Hi, ich bin Marcus Koch,</span>
-                  <span>Fullstack-Developer and Frontend-Virtuose</span>
+                  <span>Hi, ich bin Marcus Koch, </span>
+                  <span>Web-Developer and Frontend-Virtuose</span>
                 </h2>
-                <a
+                <BookingButton />
+                {/* <a
                   aria-label="Kontakt für Gratis Beratung sichern"
                   className="btn btn-outline-primary rounded-pill shadow-none smooth-scroll mt-2"
                   href="https://calendly.com/marcus-koch-webdev/30min"
@@ -46,7 +48,7 @@ const Home = ({ darkTheme, handleNavClick }) => {
                   rel="noopener noreferrer"
                 >
                   Jetzt Gratis Beratung Sichern
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import Slider from "react-slick";
 import { reviews } from "./testimonialList";
+import BookingButton from "../BookingButton";
 
 const Testimonials = ({ classicHeader, darkTheme }) => {
   var settings = {
@@ -95,6 +96,18 @@ const Testimonials = ({ classicHeader, darkTheme }) => {
               </div>
             ))}
         </Slider>
+      </div>
+      <div
+        style={{
+          // padding: "0",
+          // width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          // border: "red solid 1px",
+        }}
+      >
+        <BookingButton />
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import BookingButton from "./BookingButton";
 
 const Services = ({ classicHeader, darkTheme }) => {
   // services details
@@ -88,6 +89,18 @@ const Services = ({ classicHeader, darkTheme }) => {
           </div>
         </div>
         {/* content end */}
+        <div
+          style={{
+            // padding: "0",
+            // width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            // border: "red solid 1px",
+          }}
+        >
+          <BookingButton />
+        </div>
       </div>
     </section>
   );
