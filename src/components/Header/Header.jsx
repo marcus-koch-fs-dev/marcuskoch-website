@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Link, scroller } from "react-scroll";
 import { navLinks } from "./navLinks";
 
@@ -7,6 +7,7 @@ const Header = () => {
   const [isNavModalClose, setIsNavModalClose] = useState(true);
 
   useEffect(() => {
+    // Check scroll position to toggle sticky header
     const checkScrollTop = () => {
       setStickyHeader(window.scrollY > 180);
     };
@@ -14,6 +15,54 @@ const Header = () => {
     window.addEventListener("scroll", checkScrollTop);
     return () => window.removeEventListener("scroll", checkScrollTop);
   }, []);
+
+  useEffect(() => {
+    // Ensure the window scrolls to the top on initial load
+    scroller.scrollTo("home", {
+      duration: 500,
+      delay: 100,
+      smooth: true,
+      offset: -50, // Adjust according to your needs for correct positioning
+    });
+  }, []);
+
+  const navList = useMemo(
+    () =>
+      navLinks.map((link) => (
+        <li className="nav-item" key={link.to}>
+          <Link
+            tabIndex={0}
+            aria-label={link.label}
+            to={link.to}
+            className="nav-link"
+            smooth
+            duration={500}
+            spy
+            onClick={() => {
+              setIsNavModalClose(true);
+              scroller.scrollTo(link.to, {
+                duration: 500,
+                delay: 0,
+                smooth: "easeInOutQuart",
+              });
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                setIsNavModalClose(true);
+                scroller.scrollTo(link.to, {
+                  duration: 500,
+                  delay: 0,
+                  smooth: "easeInOutQuart",
+                });
+              }
+            }}
+          >
+            {link.name}
+          </Link>
+        </li>
+      )),
+    []
+  );
 
   return (
     <header className={`sticky-top-slide ${stickyHeader ? "sticky-on" : ""}`}>
@@ -30,35 +79,7 @@ const Header = () => {
             }`}
             aria-label="Hauptnavigation"
           >
-            <ul className="navbar-nav">
-              {navLinks.map((link) => (
-                <li className="nav-item" key={link.to}>
-                  <Link
-                    tabIndex={0}
-                    aria-label={link.label}
-                    to={link.to}
-                    className="nav-link"
-                    smooth
-                    duration={500}
-                    spy
-                    activeClass="active"
-                    onClick={() => setIsNavModalClose(true)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        setIsNavModalClose(true);
-                        scroller.scrollTo(link.to, {
-                          smooth: true,
-                          duration: 500,
-                          spy: true,
-                        });
-                      }
-                    }}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <ul className="navbar-nav">{navList}</ul>
           </div>
         </div>
       </nav>
