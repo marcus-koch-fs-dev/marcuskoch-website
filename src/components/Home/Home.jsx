@@ -5,7 +5,7 @@ const Home = ({ darkTheme, handleNavClick }) => {
   return (
     <section id="home">
       <div className="hero-wrap">
-        <div className="hero-mask opacity-8 bg-dark"></div>
+        <div className="hero-mask opacity-8 bg-dark" />
 
         {/* ---------------image background------------------ */}
         <div
@@ -13,7 +13,7 @@ const Home = ({ darkTheme, handleNavClick }) => {
           style={{
             backgroundImage: 'url("/assets/tech-tokio.jpg")',
           }}
-        ></div>
+        />
 
         {/* -------------------video background---------------------- */}
         {/* 
@@ -32,29 +32,22 @@ const Home = ({ darkTheme, handleNavClick }) => {
           <div className="container my-auto">
             <div className="row">
               <div className="col-12 text-center">
-                <p className="text-9 fw-500 text-white mb-2 mb-md-2">
-                  Willkommen
-                </p>
                 <h2 className="text-14 fw-600 text-white mb-2 mb-md-3">
-                  <span>Hi, ich bin Marcus Koch, </span>
+                  {/* <span className="text-9 fw-500 text-white mb-2 mb-md-2">
+                    Willkommen
+                  </span> */}
+                  <span>{`Willkommen, ich bin Marcus Koch. `}</span>
+                  <p />
                   <span>Web-Developer and Frontend-Virtuose</span>
                 </h2>
                 <BookingButton />
-                {/* <a
-                  aria-label="Kontakt für Gratis Beratung sichern"
-                  className="btn btn-outline-primary rounded-pill shadow-none smooth-scroll mt-2"
-                  href="https://calendly.com/marcus-koch-webdev/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Jetzt Gratis Beratung Sichern
-                </a> */}
               </div>
             </div>
           </div>
           <a
             href="#about"
-            aria-label="Zur Über-mich Sektion"
+            aria-label="Zur Über-Mich Sektion"
+            role="button"
             className="scroll-down-arrow text-white"
             onClick={(e) => {
               e.preventDefault();
@@ -62,7 +55,7 @@ const Home = ({ darkTheme, handleNavClick }) => {
             }}
           >
             <span className="animated">
-              <i className="fa fa-chevron-down"></i>
+              <i className="fa fa-chevron-down" />
             </span>
           </a>
         </div>

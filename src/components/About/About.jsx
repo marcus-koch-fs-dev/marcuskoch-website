@@ -1,49 +1,23 @@
 import videobg from "../../videos/Selbstvorstellung.mp4";
+import HeadlineWrapperH2 from "../Header/HeadlineWrapperH2";
 const AboutUs = ({ classicHeader, darkTheme }) => {
   return (
     <section id="about" className={"section " + (darkTheme ? "bg-dark-1" : "")}>
       <div className={"container " + (classicHeader ? "" : "px-lg-5")}>
-        {/* Heading */}
-        <div className="position-relative d-flex text-center mb-5">
-          <h2
-            className={
-              "text-24  text-uppercase fw-600 w-100 mb-0 " +
-              (darkTheme ? "text-muted opacity-1" : "text-light opacity-4")
-            }
-          >
-            Über Mich
-          </h2>
-          <p
-            className={
-              "text-9 text-dark fw-600 position-absolute w-100 align-self-center lh-base mb-0 " +
-              (darkTheme ? "text-white" : "text-dark")
-            }
-          >
-            Über Mich
-            <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
-          </p>
-        </div>
-        {/* Heading end*/}
+        <HeadlineWrapperH2 label={"Über Mich"} darkTheme={darkTheme} />
         <div className="row gy-5" style={{ justifyContent: "center" }}>
           {/* About me content start */}
-          <div
-            className="col-lg-10  "
-            // style={{
-            //   alignItems: "center",
-            //   display: "flex",
-            //   flexDirection: "column",
-            // }}
-          >
-            <h2
+          <div className="col-lg-10  ">
+            <h3
               className={
                 "text-7 fw-600 mb-3 " + (darkTheme ? "text-white" : "")
               }
               style={{ wordBreak: "break-word" }}
             >
               Ich bin <span className="text-primary">Marcus Koch, </span>
-              ein dynamischer JavaScript Full-Stack Entwickler, zu Hause in der
-              Welt der React-Frontends.
-            </h2>
+              ein dynamischer Web Entwickler und zu Hause in der Welt der
+              React-Frontends.
+            </h3>
             <div
               style={{
                 display: "flex",
@@ -53,6 +27,7 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
             >
               <div className="col-lg-5">
                 <video
+                  aria-label="Video mit der Selbstdarstellung von Marcus Koch"
                   controls
                   src={videobg}
                   muted
@@ -61,9 +36,16 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                     height: "90%",
                     objectFit: "cover",
                   }}
-                />
+                >
+                  {/* <track
+                    label="Deutsch"
+                    kind="subtitles"
+                    srclang="de"
+                    // src="captions/vtt/sintel-de.vtt"
+                  /> */}
+                </video>
               </div>
-              <div className="col-lg-6 ">
+              <article className="col-lg-6 ">
                 <p className={darkTheme ? "text-white-50" : ""}>
                   Als enthusiastischer Entwickler schaffe ich Webseiten, die
                   durch Optik und intuitive Bedienbarkeit überzeugen. Mit
@@ -81,20 +63,13 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                   das nächste Level.
                 </p>
                 <p className={darkTheme ? "text-white-50" : ""}>
-                  <a
-                    aria-label="Set appoinment"
-                    // className="btn btn-outline-primary rounded-pill shadow-none smooth-scroll mt-2"
-                    href="https://calendly.com/marcus-koch-webdev/30min"
-                    target="_blank"
-                  >
-                    <span className="text-primary fw-600">
-                      Bereit für den nächsten Schritt?{" "}
-                    </span>
-                  </a>
+                  <span className="text-primary fw-600">
+                    Bereit für den nächsten Schritt?
+                  </span>
                   Kontaktieren Sie mich, und wir gestalten die Zukunft
                   gemeinsam.
                 </p>
-              </div>
+              </article>
             </div>
           </div>
         </div>
@@ -105,9 +80,12 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
             (darkTheme ? "separator-border-light" : "")
           }
         >
-          <div className="row">
+          <section className="row">
             <div className="col-6 col-md-4">
-              <div className="featured-box text-center">
+              <div
+                className="featured-box text-center"
+                aria-label="Jahre an Expertise 3+"
+              >
                 <h4
                   className={
                     "text-12  mb-0 " +
@@ -122,7 +100,10 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
               </div>
             </div>
             <div className="col-6 col-md-4">
-              <div className="featured-box text-center">
+              <div
+                className="featured-box text-center"
+                aria-label="Zufriedene Kunden 4"
+              >
                 <h4
                   className={
                     "text-12  mb-0 " +
@@ -138,7 +119,10 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
               </div>
             </div>
             <div className="col-6 col-md-4">
-              <div className="featured-box text-center">
+              <div
+                className="featured-box text-center"
+                aria-label="Abgeschlossene Projekte 5"
+              >
                 <h4
                   className={
                     "text-12  mb-0 " +
@@ -153,7 +137,7 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                 </p>
               </div>
             </div>
-          </div>
+          </section>
         </div>
         {/* projects rewards counting end */}
       </div>

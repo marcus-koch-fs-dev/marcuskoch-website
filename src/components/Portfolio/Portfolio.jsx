@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Isotope from "isotope-layout";
 import ProjectDetailsModal from "./ProjectDetailsModal";
 import { projectsData } from "./projectList";
+import HeadlineWrapperH2 from "../Header/HeadlineWrapperH2";
 
 const Portfolio = ({ classicHeader, darkTheme }) => {
   // init one ref to store the future isotope object
@@ -39,38 +40,12 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
         className={"section " + (darkTheme ? "bg-dark-2" : "bg-light")}
       >
         <div className={"container " + (classicHeader ? "" : "px-lg-5")}>
-          {/* Heading */}
-          <div className="position-relative d-flex text-center mb-5">
-            <h2
-              className={
-                "text-24  text-uppercase fw-600 w-100 mb-0 " +
-                (darkTheme ? "text-muted opacity-1" : "text-light opacity-4")
-              }
-            >
-              Portfolio
-            </h2>
-            <p
-              className={
-                "text-9 text-dark fw-600 position-absolute w-100 align-self-center lh-base mb-0 " +
-                (darkTheme ? "text-white" : "text-dark")
-              }
-            >
-              Portfolio
-              <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
-            </p>
-          </div>
-          {/* Heading end*/}
+          <HeadlineWrapperH2 label={"Portfolio"} darkTheme={darkTheme} />
           {/* Filter Menu end */}
           <div className="portfolio popup-ajax-gallery">
             <div className="row portfolio-filter filter-container g-4">
               {projectsData.map((project, index) => (
-                <div
-                  className={
-                    "col-sm-6 col-lg-4 filter-item "
-                    // project.categories.join(" ")
-                  }
-                  key={index}
-                >
+                <div className={"col-sm-6 col-lg-4 filter-item "} key={index}>
                   <div className="portfolio-box rounded">
                     <div className="portfolio-img rounded">
                       <img
@@ -79,7 +54,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
                         }}
                         className="img-fluid d-block portfolio-image"
                         src={project.thumbImage}
-                        alt=""
+                        alt={project.alt}
                         style={{
                           maxHeight: "25vh",
                           margin: "0 auto",
@@ -87,21 +62,21 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
                       />
                       <div className="portfolio-overlay">
                         <a
+                          // href=""
                           className="popup-ajax stretched-link"
-                          href=""
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
                           onClick={() => {
                             setSelectedProjectDetails(projectsData[index]);
                           }}
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
                         />
                         <div className="portfolio-overlay-details">
-                          <h5
+                          <h3
                             className="text-white fw-400"
                             style={{ padding: "1rem" }}
                           >
                             {project.title}
-                          </h5>
+                          </h3>
                           {/* <span className="text-light">Category</span> */}
                         </div>
                       </div>
@@ -113,13 +88,13 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
           </div>
         </div>
       </section>
-      <div className="project-details-modal">
-        {/* Modal */}
-        <ProjectDetailsModal
-          projectDetails={selectedProjectDetails}
-          darkTheme={darkTheme}
-        ></ProjectDetailsModal>
-      </div>
+      {/* <div className="project-details-modal">
+      </div> */}
+      {/* Modal */}
+      <ProjectDetailsModal
+        projectDetails={selectedProjectDetails}
+        darkTheme={darkTheme}
+      />
     </>
   );
 };
