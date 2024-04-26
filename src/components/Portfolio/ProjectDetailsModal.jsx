@@ -2,14 +2,15 @@ import ProjectDetailsInfo from "./ProjectDetailsInfo";
 import ProjectDetailsSlider from "./ProjectDetailsSlider";
 
 const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
+  if (!projectDetails) return null;
   return (
     <>
       <div
         className="modal fade bg-dark-1"
         id="exampleModal"
-        tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
+        tabIndex={projectDetails.id}
+        // aria-labelledby="exampleModalLabel"
+        // aria-hidden="true"
       >
         <div className="modal-dialog modal-xl">
           <div
@@ -30,14 +31,14 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
                   (darkTheme ? "bg-dark-2 text-light" : "")
                 }
               >
-                <h2
+                <h3
                   className={
                     "text-6 font-weight-600 text-center mb-4" +
                     (darkTheme ? " text-white" : "")
                   }
                 >
                   {projectDetails?.title}
-                </h2>
+                </h3>
                 <div className="column g-4">
                   <ProjectDetailsSlider
                     darkTheme={darkTheme}
@@ -47,12 +48,12 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
                     darkTheme={darkTheme}
                     projectDetails={projectDetails}
                   />
-                  <div
+                  {/* <div
                     style={{
                       display: "flex",
                       flexWrap: "wrap",
                     }}
-                  ></div>
+                  ></div> */}
                 </div>
               </div>
             </div>

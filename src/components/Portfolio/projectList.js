@@ -2,6 +2,7 @@ export const projectsData = [
   {
     id: 1,
     title: "Überarbeitung des Launchpad-Frontends",
+    alt: "Launchpad - Screenshot. Homepage der TK-Cloud",
     projectInfo:
       "Zwischen Februar und April 2022 habe ich das Frontend eines Cloud-App-Launchpads modernisiert. Mein Fokus lag auf der Entwicklung einer responsiven, visuell ansprechenden Startseite, die an verschiedene Bildschirmgrößen anpassbar ist. Ich implementierte ein benutzerrollenbasiertes Kachelsystem für Apps und Berichte, ermöglichte das Markieren von Favoriten und entwickelte eine Admin-Seite für das einfache Hinzufügen neuer Apps. Diese Arbeit schärfte meine Kompetenzen in responsivem Design und benutzerzentrierter Entwicklung.",
     client: "Thyssenkrupp Presta AG",
@@ -26,6 +27,7 @@ export const projectsData = [
   {
     id: 2,
     title: "Track and Trace - Tracing Component Lifecycles",
+    alt: "Track and Trace - Screenshot. Zeigt eine Tabelle mit umfangreichen Komponenteneigenschaften",
     projectInfo:
       "In dem 'Track and Trace' Projekt optimierte ich eine App zur Überwachung des Lebenszyklus von unseren Lenkgetriebe-Produkte und anderen Komponenten. Mein Fokus lag auf der Performance-Verbesserung, der Entwicklung eines stabilen Frontend- und Backend-Systems für umfangreiche Daten und der Gewährleistung der Responsivität auf diversen Endgeräten weltweit. Zusammen mit einem DB-Entwickler erfassten und optimierten wir Produktionsabläufe, adressierten System- und ERP-Probleme, um die App zukunftssicher und international einsetzbar zu machen.",
     client: "Thyssenkrupp Presta AG",
@@ -55,6 +57,7 @@ export const projectsData = [
   {
     id: 3,
     title: "Cloud Surveillance - Visualisierung von SAP HANA Metadaten",
+    alt: "Cloud Surveillance - Screenshot. KI generiertes Bild mit fiktiver Wolke und Verbindungen.",
     projectInfo:
       "Für 'Cloud Surveillance' entwickelte ich eine Anwendung zur effektiven Überwachung und Visualisierung von SAP HANA Metadaten, einschließlich Datenbankobjekten und Mikroservices. Als Frontend-Entwickler integrierte ich Daten aus verschiedenen Quellen und schuf fortgeschrittene Filterfunktionen für Gruppierungen und Verdichtungen. Die Anwendung bietet eine klare Darstellung der Serviceverteilung nach Teams und identifiziert nicht konforme oder veraltete Elemente, wodurch die Datenintegrität und Systemübersicht im SAP HANA-System verbessert werden.",
     client: "Thyssenkrupp Presta AG",
@@ -74,6 +77,7 @@ export const projectsData = [
   {
     id: 4,
     title: "Woundera - Mobile Gesundheitsanwendung",
+    alt: "Woundera App - Screenshot. KI generiertes Bild mit Herz und Stetoskop drumherum.",
     projectInfo:
       "In der knappen Personalphase bei 'Woundera', einer Gesundheitsapp, unterstützte ich die Fristeinhaltung. Ich entwickelte wesentliche Teile der in React Native erstellten App zur Verwaltung von Patienten- und Wunddaten. Zu meinen Hauptaufgaben zählten die Erstellung einer intuitiven Navigation, die Implementierung von CRUD-Operationen und die Formularvalidierung. Zudem beseitigte ich kritische Bugs für einen stabilen Betrieb.",
     client: "Sciendis GmbH",
@@ -97,6 +101,7 @@ export const projectsData = [
   {
     id: 5,
     title: "Dashboard für zentrale Server-Metadaten",
+    alt: "Arvato App - Screenshot. KI generiertes Bild mit Computern auf der Welt verteilt und vernetzt.",
     projectInfo:
       "Im Team bei Arvato trug ich zur Entwicklung eines Dashboards für Server-Metadaten bei, um Kunden sichere Speicherlösungen in Deutschland anzubieten. Mein Beitrag umfasste das gemeinsame Erarbeiten des Design-Layouts und die Entwicklung wiederverwendbarer UI-Komponenten wie Listen, Buttons und Avatare mit Storybook und Material UI. Ich sicherte die Qualität durch Unit-Tests mit Jest.",
     client: "Arvato Systems GmbH",

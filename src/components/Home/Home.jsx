@@ -33,10 +33,11 @@ const Home = ({ darkTheme, handleNavClick }) => {
             <div className="row">
               <div className="col-12 text-center">
                 <h2 className="text-14 fw-600 text-white mb-2 mb-md-3">
-                  <span className="text-9 fw-500 text-white mb-2 mb-md-2">
+                  {/* <span className="text-9 fw-500 text-white mb-2 mb-md-2">
                     Willkommen
-                  </span>
-                  <span>Hi, ich bin Marcus Koch, </span>
+                  </span> */}
+                  <span>{`Willkommen, ich bin Marcus Koch. `}</span>
+                  <p />
                   <span>Web-Developer and Frontend-Virtuose</span>
                 </h2>
                 <BookingButton />
@@ -45,7 +46,7 @@ const Home = ({ darkTheme, handleNavClick }) => {
           </div>
           <a
             href="#about"
-            aria-label="Link - Zur Über-Mich Sektion"
+            aria-label="Zur Über-Mich Sektion"
             role="button"
             className="scroll-down-arrow text-white"
             onClick={(e) => {

@@ -10,9 +10,7 @@ import { commonConfig } from "./config/commonConfig";
 import PreLoader from "./components/Preloader";
 import TooltipWrapper from "./components/Tooltip/TooltipWrapper";
 
-import ClassicHeader from "./components/Header/ClassicHeader";
-import Impressum from "./components/Footer/Impressum";
-import Datenschutz from "./components/Footer/Datenschutz";
+import Header from "./components/Header/Header";
 
 function App() {
   const classicHeader = commonConfig.classicHeader;
@@ -56,7 +54,7 @@ function App() {
     <main style={{ position: "relative" }}>
       {isLoading && <PreLoader />}
       <section id="main-wrapper">
-        <ClassicHeader />
+        <Header />
         <h1 hidden={true}>Web Developer Marcus Koch</h1>
         <Home darkTheme={darkTheme} handleNavClick={handleNavClick} />
         <AboutUs classicHeader={classicHeader} darkTheme={darkTheme} />

@@ -16,18 +16,7 @@ const Footer = ({
         <div className="row">
           <div className="col-lg-6 text-center text-lg-start">
             <p className="mb-3 mb-lg-0">
-              Copyright © 2024
-              <a
-                href="#home"
-                className="fw-500"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick("home");
-                }}
-              >
-                {` Marcus`}
-              </a>
-              . Alle Rechte Vorbehalten.
+              Copyright ©2024 Marcus Koch. Alle Rechte Vorbehalten.
             </p>
           </div>
           <div className="col-lg-6">

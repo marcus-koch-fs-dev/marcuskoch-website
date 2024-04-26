@@ -45,13 +45,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
           <div className="portfolio popup-ajax-gallery">
             <div className="row portfolio-filter filter-container g-4">
               {projectsData.map((project, index) => (
-                <div
-                  className={
-                    "col-sm-6 col-lg-4 filter-item "
-                    // project.categories.join(" ")
-                  }
-                  key={index}
-                >
+                <div className={"col-sm-6 col-lg-4 filter-item "} key={index}>
                   <div className="portfolio-box rounded">
                     <div className="portfolio-img rounded">
                       <img
@@ -60,7 +54,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
                         }}
                         className="img-fluid d-block portfolio-image"
                         src={project.thumbImage}
-                        alt=""
+                        alt={project.alt}
                         style={{
                           maxHeight: "25vh",
                           margin: "0 auto",
@@ -68,21 +62,21 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
                       />
                       <div className="portfolio-overlay">
                         <a
+                          // href=""
                           className="popup-ajax stretched-link"
-                          href=""
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
                           onClick={() => {
                             setSelectedProjectDetails(projectsData[index]);
                           }}
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
                         />
                         <div className="portfolio-overlay-details">
-                          <h5
+                          <h3
                             className="text-white fw-400"
                             style={{ padding: "1rem" }}
                           >
                             {project.title}
-                          </h5>
+                          </h3>
                           {/* <span className="text-light">Category</span> */}
                         </div>
                       </div>
@@ -94,13 +88,13 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
           </div>
         </div>
       </section>
-      <div className="project-details-modal">
-        {/* Modal */}
-        <ProjectDetailsModal
-          projectDetails={selectedProjectDetails}
-          darkTheme={darkTheme}
-        ></ProjectDetailsModal>
-      </div>
+      {/* <div className="project-details-modal">
+      </div> */}
+      {/* Modal */}
+      <ProjectDetailsModal
+        projectDetails={selectedProjectDetails}
+        darkTheme={darkTheme}
+      />
     </>
   );
 };
