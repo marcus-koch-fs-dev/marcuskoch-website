@@ -9,12 +9,14 @@ import { useEffect, useState } from "react";
 import { commonConfig } from "./config/commonConfig";
 import PreLoader from "./components/Preloader";
 import TooltipWrapper from "./components/Tooltip/TooltipWrapper";
+import useThemeSetter, { ThemeContext } from "./context/themeContext";
 
 import Header from "./components/Header/Header";
 
 function App() {
   const classicHeader = commonConfig.classicHeader;
-  const darkTheme = commonConfig.darkTheme;
+  // const darkTheme = commonConfig.darkTheme;
+  const [darkTheme, setTheme] = useThemeSetter();
 
   const handleNavClick = (section) => {
     document.getElementById(section).scrollIntoView({ behavior: "smooth" });
@@ -51,28 +53,26 @@ function App() {
   }
 
   return (
-    <main style={{ position: "relative" }}>
-      {isLoading && <PreLoader />}
-      <section id="main-wrapper">
-        <Header />
-        <h1 hidden={true}>Web Developer Marcus Koch</h1>
-        <Home darkTheme={darkTheme} handleNavClick={handleNavClick} />
-        <AboutUs classicHeader={classicHeader} darkTheme={darkTheme} />
-        <Services classicHeader={classicHeader} darkTheme={darkTheme} />
-        <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
-        <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} />
-        <Footer
-          classicHeader={classicHeader}
-          darkTheme={darkTheme}
-          handleNavClick={handleNavClick}
+    <ThemeContext.Provider value={{ darkTheme, setTheme }}>
+      <main style={{ position: "relative" }}>
+        {isLoading && <PreLoader />}
+        <section id="main-wrapper">
+          <Header />
+          <h1 hidden={true}>Web Developer Marcus Koch</h1>
+          <Home handleNavClick={handleNavClick} />
+          <AboutUs classicHeader={classicHeader} darkTheme={darkTheme} />
+          <Services classicHeader={classicHeader} darkTheme={darkTheme} />
+          <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
+          <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} />
+          <Footer classicHeader={classicHeader} darkTheme={darkTheme} />
+        </section>
+        <TooltipWrapper
+          label={"Zum Seitenanfang"}
           scrollTopVisible={scrollTopVisible}
+          darkTheme={darkTheme}
         />
-      </section>
-      <TooltipWrapper
-        label={"Zum Seitenanfang"}
-        scrollTopVisible={scrollTopVisible}
-      />
-    </main>
+      </main>
+    </ThemeContext.Provider>
   );
 }
 

@@ -1,10 +1,13 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useContext } from "react";
 import { Link, scroller } from "react-scroll";
 import { navLinks } from "./navLinks";
+import { ThemeContext } from "../../context/themeContext";
+import "./header.scss";
 
 const Header = () => {
   const [stickyHeader, setStickyHeader] = useState(false);
   const [isNavModalClose, setIsNavModalClose] = useState(true);
+  const { darkTheme, setTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     // Check scroll position to toggle sticky header
@@ -80,6 +83,14 @@ const Header = () => {
             aria-label="Hauptnavigation"
           >
             <ul className="navbar-nav">{navList}</ul>
+            <label className="toggle-switch">
+              <input
+                type="checkbox"
+                checked={darkTheme}
+                onChange={() => setTheme(!darkTheme)}
+              />
+              <span className="slider"></span>
+            </label>
           </div>
         </div>
       </nav>

@@ -1,11 +1,16 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../context/themeContext";
 import videobg from "../../videos/home.mp4";
 import BookingButton from "../BookingButton";
+import { useEffect } from "react";
 
-const Home = ({ darkTheme, handleNavClick }) => {
+const Home = ({ handleNavClick }) => {
+  const { darkTheme, setTheme } = useContext(ThemeContext);
+
   return (
     <section id="home">
       <div className="hero-wrap">
-        <div className="hero-mask opacity-8 bg-dark" />
+        <div className={`hero-mask opacity-8 bg-${darkTheme ? "dark" : ""}`} />
 
         {/* ---------------image background------------------ */}
         <div
