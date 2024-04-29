@@ -1,21 +1,13 @@
 import Datenschutz from "./Datenschutz";
 import Impressum from "./Impressum";
 
-const Footer = ({
-  classicHeader,
-  darkTheme,
-  handleNavClick,
-  scrollTopVisible,
-}) => {
+const Footer = ({ classicHeader, darkTheme }) => {
   return (
-    <footer
-      id="footer"
-      className={"section " + (darkTheme ? "footer-dark bg-dark-1" : "")}
-    >
+    <footer id="footer" className={"section " + (darkTheme ? "bg-dark-1" : "")}>
       <div className={"container " + (classicHeader ? "" : "px-lg-5")}>
         <div className="row">
           <div className="col-lg-6 text-center text-lg-start">
-            <p className="mb-3 mb-lg-0">
+            <p className={`mb-3 mb-lg-0 ${darkTheme ? "text-white-50" : ""} `}>
               Copyright ©2024 Marcus Koch. Alle Rechte Vorbehalten.
             </p>
           </div>
@@ -28,7 +20,9 @@ const Footer = ({
                   data-bs-target="#datenschutz"
                   href="#datenschutz"
                 >
-                  Datenschutz
+                  <span className={darkTheme ? "text-white-50" : ""}>
+                    Datenschutz
+                  </span>
                 </a>
               </li>
               <li className="nav-item">
@@ -38,7 +32,9 @@ const Footer = ({
                   data-bs-target="#impressum"
                   href="#impressum"
                 >
-                  Impressum
+                  <span className={darkTheme ? "text-white-50" : ""}>
+                    Impressum
+                  </span>
                 </a>
               </li>
             </ul>

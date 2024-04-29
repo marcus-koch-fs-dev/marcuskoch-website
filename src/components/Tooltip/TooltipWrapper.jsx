@@ -1,6 +1,6 @@
 import { Tooltip } from "./Tooltip";
 
-const TooltipWrapper = ({ label, scrollTopVisible }) => {
+const TooltipWrapper = ({ label, scrollTopVisible, darkTheme }) => {
   return (
     <Tooltip text={label} placement="left">
       <span
@@ -8,8 +8,11 @@ const TooltipWrapper = ({ label, scrollTopVisible }) => {
         aria-label="Zurück zum Anfang navigieren"
         role="button"
         id="back-to-top"
-        className="rounded-circle"
-        style={{ display: scrollTopVisible ? "inline" : "none" }}
+        className={`rounded-circle `}
+        style={{
+          display: scrollTopVisible ? "inline" : "none",
+          backgroundColor: darkTheme ? "#ffffff80" : "",
+        }}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             window.scrollTo({ top: 0, behavior: "smooth" });
