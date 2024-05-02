@@ -75,6 +75,22 @@ const Header = () => {
         }`}
       >
         <div className="container-fluid position-relative">
+          <button
+            onClick={(e) => {
+              setIsNavModalClose(!isNavModalClose);
+            }}
+            className={
+              isNavModalClose
+                ? "navbar-toggler ms-auto"
+                : "navbar-toggler ms-auto show"
+            }
+            id="navbar-toggler"
+            type="button"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
           <div
             id="header-nav"
             className={`collapse navbar-collapse justify-content-center ${
@@ -83,15 +99,15 @@ const Header = () => {
             aria-label="Hauptnavigation"
           >
             <ul className="navbar-nav">{navList}</ul>
-            <label className="toggle-switch">
-              <input
-                type="checkbox"
-                checked={darkTheme}
-                onChange={() => setTheme(!darkTheme)}
-              />
-              <span className="slider"></span>
-            </label>
           </div>
+          <label className="toggle-switch">
+            <input
+              type="checkbox"
+              checked={darkTheme}
+              onChange={() => setTheme(!darkTheme)}
+            />
+            <span className="slider"></span>
+          </label>
         </div>
       </nav>
     </header>
