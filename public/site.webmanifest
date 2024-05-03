@@ -1,10 +1,28 @@
 {
+  "name": "marcus-koch-profile",
   "short_name": "marcus-koch",
-  "name": "Website of Marcus Koch, Web Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "Website of Marcus Koch, Web Developer",
+  "lang": "de",
+  "categories": ["web developer", "react developer", "profile"],
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
       "type": "image/x-icon"
     },
     {
@@ -18,8 +36,18 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "screenshots": [
+    {
+      "src": "screenshot-home.jpg",
+      "type": "image/jpg",
+      "sizes": "762x415",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshot-wide.jpg",
+      "type": "image/jpg",
+      "sizes": "1904x1036",
+      "form_factor": "wide"
+    }
+  ]
 }
