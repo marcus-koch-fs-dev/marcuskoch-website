@@ -1,4 +1,5 @@
 import videobg from "../../videos/Selbstvorstellung.mp4";
+import BookingButton from "../BookingButton";
 import HeadlineWrapperH2 from "../Header/HeadlineWrapperH2";
 const AboutUs = ({ classicHeader, darkTheme }) => {
   return (
@@ -70,6 +71,7 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                   gemeinsam.
                 </p>
               </article>
+              <BookingButton />
             </div>
           </div>
         </div>
