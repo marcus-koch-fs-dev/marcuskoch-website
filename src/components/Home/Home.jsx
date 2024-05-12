@@ -2,10 +2,16 @@ import { useContext } from "react";
 import { ThemeContext } from "../../context/themeContext";
 import videobg from "../../videos/home.mp4";
 import BookingButton from "../BookingButton";
-import { useEffect } from "react";
+import useResponsiveSize from "../../hooks/useResponsiveSize";
+const sizeObj = {
+  sm: "600x400",
+  med: "1200x800",
+  lg: "2400x1600",
+};
 
 const Home = ({ handleNavClick }) => {
   const { darkTheme, setTheme } = useContext(ThemeContext);
+  const curSize = useResponsiveSize();
 
   return (
     <section id="home">
@@ -16,7 +22,7 @@ const Home = ({ handleNavClick }) => {
         <div
           className="hero-bg parallax"
           style={{
-            backgroundImage: 'url("/assets/tech-tokio.jpg")',
+            backgroundImage: `url("/assets/tech-tokio${sizeObj[curSize]}.jpg")`,
           }}
         />
 
@@ -45,7 +51,7 @@ const Home = ({ handleNavClick }) => {
                   <p />
                   <span>Web-Developer and Frontend-Virtuose</span>
                 </h2>
-                <BookingButton />
+                {/* <BookingButton /> */}
               </div>
             </div>
           </div>
