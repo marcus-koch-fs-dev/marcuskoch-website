@@ -9,11 +9,11 @@ const useResponsiveSize = () => {
       case width <= breakpoints.sm:
         return "sm"; // Sehr kleine Displays
       case width > breakpoints.sm && width <= breakpoints.med:
-        return "med"; // Kleine Displays
+        return "md"; // Kleine Displays
       case width > breakpoints.med:
         return "lg"; // Mittelgroße Displays
       default:
-        return "med"; // Große Displays
+        return "md"; // Große Displays
     }
   };
 

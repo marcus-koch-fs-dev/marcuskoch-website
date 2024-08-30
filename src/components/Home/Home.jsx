@@ -4,15 +4,15 @@ import videobg from "../../videos/home.mp4";
 import BookingButton from "../BookingButton";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 const sizeObj = {
-  sm: "600x400",
-  med: "1200x800",
-  lg: "2400x1600",
+  sm: "sm",
+  md: "md",
+  lg: "lg",
 };
+// import "../../sass/_elements.scss";
 
 const Home = ({ handleNavClick }) => {
   const { darkTheme, setTheme } = useContext(ThemeContext);
   const curSize = useResponsiveSize();
-
   return (
     <section id="home">
       <div className="hero-wrap">
@@ -20,9 +20,18 @@ const Home = ({ handleNavClick }) => {
 
         {/* ---------------image background------------------ */}
         <div
-          className="hero-bg parallax"
+          // className="hero-bg parallax"
+          className="hero-bg"
           style={{
-            backgroundImage: `url("/assets/tech-tokio${sizeObj[curSize]}.jpg")`,
+            // backgroundImage: `url("/assets/tech-tokio${sizeObj.sm}.jpg")`,
+            // backgroundImage: `url("/assets/tech-tokio_sm.jpg")`,
+            backgroundImage: `url("/assets/tech-tokio_${sizeObj[curSize]}.jpg")`,
+            // backgroundPosition: "center center",
+            // WebkitBackgroundPosition: "center center",
+            // backgroundRepeat: "no-repeat",
+            // WebkitBackgroundRepeat: "no-repeat",
+            // backgroundSize: "cover",
+            // WebkitBackgroundSize: "cover",
           }}
         />
 

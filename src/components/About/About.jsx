@@ -8,7 +8,7 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
         <HeadlineWrapperH2 label={"Über Mich"} darkTheme={darkTheme} />
         <div className="row gy-5" style={{ justifyContent: "center" }}>
           {/* About me content start */}
-          <div className="col-lg-10  ">
+          <div className="col-lg-8  ">
             <h3
               className={
                 "text-7 fw-600 mb-3 " + (darkTheme ? "text-white" : "")
@@ -26,7 +26,7 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                 justifyContent: "space-around",
               }}
             >
-              <div className="col-lg-5">
+              {/* <div className="col-lg-5">
                 <video
                   aria-label="Video mit der Selbstdarstellung von Marcus Koch"
                   controls
@@ -38,15 +38,15 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                     objectFit: "cover",
                   }}
                 >
-                  {/* <track
+                  <track
                     label="Deutsch"
                     kind="subtitles"
                     srclang="de"
-                    // src="captions/vtt/sintel-de.vtt"
-                  /> */}
+                    src="captions/vtt/sintel-de.vtt"
+                  />
                 </video>
-              </div>
-              <article className="col-lg-6 ">
+              </div> */}
+              <article className="col-lg-12 ">
                 <p className={darkTheme ? "text-white-50" : ""}>
                   Als enthusiastischer Entwickler schaffe ich Webseiten, die
                   durch Optik und intuitive Bedienbarkeit überzeugen. Mit
@@ -65,13 +65,13 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
                 </p>
                 <p className={darkTheme ? "text-white-50" : ""}>
                   <span className="text-primary fw-600">
-                    Bereit für den nächsten Schritt?
+                    {`Bereit für den nächsten Schritt? `}
                   </span>
                   Kontaktieren Sie mich, und wir gestalten die Zukunft
                   gemeinsam.
                 </p>
               </article>
-              <BookingButton />
+              {/* <BookingButton /> */}
             </div>
           </div>
         </div>
