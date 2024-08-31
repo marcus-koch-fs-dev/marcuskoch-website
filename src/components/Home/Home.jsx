@@ -11,12 +11,12 @@ const sizeObj = {
 // import "../../sass/_elements.scss";
 
 const Home = ({ handleNavClick }) => {
-  const { darkTheme, setTheme } = useContext(ThemeContext);
+  // const { darkTheme, setTheme } = useContext(ThemeContext);
   const curSize = useResponsiveSize();
   return (
     <section id="home">
       <div className="hero-wrap">
-        <div className={`hero-mask opacity-8 bg-${darkTheme ? "dark" : ""}`} />
+        {/* <div className={`hero-mask opacity-8 bg-${darkTheme ? "dark" : ""}`} /> */}
 
         {/* ---------------image background------------------ */}
         <div

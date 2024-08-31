@@ -1,115 +1,37 @@
-import { useEffect, useState, useMemo, useContext } from "react";
-import { Link, scroller } from "react-scroll";
-import { navLinks } from "./navLinks";
-import { ThemeContext } from "../../context/themeContext";
 import "./header.scss";
+import { useEffect, useState, useMemo, useContext } from "react";
+import Navbar from "./Navbar";
 
 const Header = () => {
   const [stickyHeader, setStickyHeader] = useState(false);
   const [isNavModalClose, setIsNavModalClose] = useState(true);
-  const { darkTheme, setTheme } = useContext(ThemeContext);
+  // const { darkTheme, setTheme } = useContext(ThemeContext);
 
-  useEffect(() => {
-    // Check scroll position to toggle sticky header
-    const checkScrollTop = () => {
-      setStickyHeader(window.scrollY > 180);
-    };
+  // useEffect(() => {
+  //   // Check scroll position to toggle sticky header
+  //   const checkScrollTop = () => {
+  //     setStickyHeader(window.scrollY > 180);
+  //   };
 
-    window.addEventListener("scroll", checkScrollTop);
-    return () => window.removeEventListener("scroll", checkScrollTop);
-  }, []);
+  //   window.addEventListener("scroll", checkScrollTop);
+  //   return () => window.removeEventListener("scroll", checkScrollTop);
+  // }, []);
 
-  useEffect(() => {
-    // Ensure the window scrolls to the top on initial load
-    scroller.scrollTo("home", {
-      duration: 500,
-      delay: 100,
-      smooth: true,
-      offset: -50, // Adjust according to your needs for correct positioning
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Ensure the window scrolls to the top on initial load
+  //   scroller.scrollTo("home", {
+  //     duration: 500,
+  //     delay: 100,
+  //     smooth: true,
+  //     offset: -50, // Adjust according to your needs for correct positioning
+  //   });
+  // }, []);
 
-  const navList = useMemo(
-    () =>
-      navLinks.map((link) => (
-        <li className="nav-item" key={link.to}>
-          <Link
-            tabIndex={0}
-            aria-label={link.label}
-            to={link.to}
-            className="nav-link"
-            smooth
-            duration={500}
-            spy
-            onClick={() => {
-              setIsNavModalClose(true);
-              scroller.scrollTo(link.to, {
-                duration: 500,
-                delay: 0,
-                smooth: "easeInOutQuart",
-              });
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                setIsNavModalClose(true);
-                scroller.scrollTo(link.to, {
-                  duration: 500,
-                  delay: 0,
-                  smooth: "easeInOutQuart",
-                });
-              }
-            }}
-          >
-            {link.name}
-          </Link>
-        </li>
-      )),
-    []
-  );
+  const isMobile = false;
 
   return (
-    <header className={`sticky-top-slide ${stickyHeader ? "sticky-on" : ""}`}>
-      <nav
-        className={`primary-menu navbar navbar-expand-lg navbar-dark bg-transparent border-bottom-0 sticky-top ${
-          stickyHeader ? "sticky-on" : ""
-        }`}
-      >
-        <div className="container-fluid position-relative">
-          <button
-            onClick={(e) => {
-              setIsNavModalClose(!isNavModalClose);
-            }}
-            className={
-              isNavModalClose
-                ? "navbar-toggler ms-auto"
-                : "navbar-toggler ms-auto show"
-            }
-            id="navbar-toggler"
-            type="button"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-          <div
-            id="header-nav"
-            className={`collapse navbar-collapse justify-content-center ${
-              !isNavModalClose ? "show" : ""
-            }`}
-            aria-label="Hauptnavigation"
-          >
-            <ul className="navbar-nav">{navList}</ul>
-          </div>
-          <label className="toggle-switch">
-            <input
-              type="checkbox"
-              checked={darkTheme}
-              onChange={() => setTheme(!darkTheme)}
-            />
-            <span className="slider"></span>
-          </label>
-        </div>
-      </nav>
+    <header>
+      <Navbar />
     </header>
   );
 };
