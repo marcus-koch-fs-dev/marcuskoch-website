@@ -1,4 +1,5 @@
 import "./app.scss";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       <Services classicHeader={classicHeader} darkTheme={darkTheme} />
       <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
       <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} /> */}
-      {/* <Footer classicHeader={classicHeader} darkTheme={darkTheme} /> */}
+      <Footer />
     </div>
   );
 }

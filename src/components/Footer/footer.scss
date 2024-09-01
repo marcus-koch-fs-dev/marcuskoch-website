@@ -1,0 +1,41 @@
+@import "../../sass/base.scss";
+
+footer {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-svg;
+  }
+
+  img {
+    width: 2rem;
+  }
+
+  section {
+    > ul,
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    ul {
+      flex-wrap: wrap;
+    }
+
+    li {
+      margin: 0.25rem 0.75rem;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    p,
+    a {
+      color: $secondary-p;
+    }
+  }
+}

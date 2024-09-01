@@ -23,6 +23,7 @@ const useResponsiveSize = () => {
 
   useEffect(() => {
     const handleResize = () => {
+      console.log(window.innerWidth);
       setDisplaySize(getDisplaySize(window.innerWidth));
     };
 
