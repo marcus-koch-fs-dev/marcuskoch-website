@@ -1,0 +1,23 @@
+@import "../sass/base.scss";
+
+.contact-button {
+  display: inline-block; /* Macht den a-Tag wie einen Button blockförmig */
+  background-color: $primary-btn-bg-color; /* Heller grauer Hintergrund */
+  color: $theme-dark-bg_main; /* Schwarzer Text */
+  text-decoration: none; /* Entfernt die Standard-Unterstreichung */
+  padding: 10px 20px; /* Abstand innen (oben/unten: 10px, rechts/links: 20px) */
+  font-size: 1rem; /* Textgröße */
+  font-weight: bold; /* Fettdruck für den Text */
+  text-align: center; /* Text zentriert */
+  border-radius: 50rem; /* Runde Ecken */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2),
+    /* Schattierung unten */ 0px 8px 15px $primary-svg; /* Gelber Schlagschatten */
+  cursor: pointer; /* Zeigt an, dass der Button klickbar ist */
+  transition: all 0.3s ease; /* Sanfte Übergänge für Hover-Effekte */
+}
+
+.contact-button:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3),
+    /* Schattierung beim Hover */ 0px 10px 20px rgba(255, 223, 0, 1); /* Verstärkter gelber Schlagschatten beim Hover */
+  transform: translateY(-2px); /* Der Button hebt sich beim Hover leicht an */
+}

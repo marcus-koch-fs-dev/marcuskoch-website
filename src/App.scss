@@ -1,16 +1,16 @@
 @import "../src/sass/base.scss";
 
-.main {
+.app {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Stellt sicher, dass .main mindestens die volle Höhe des Viewports einnimmt */
   background-color: $primary-bg_main;
 
-  h1 {
+  main {
     flex-grow: 1;
-    display: flex;
-    justify-content: center; /* Zentriert den Text horizontal */
-    align-items: center; /* Zentriert den Text vertikal */
-    margin: 0; /* Entfernt Standardmargen, um keinen zusätzlichen Platz zu beanspruchen */
+    // display: flex;
+    // justify-content: center; /* Zentriert den Text horizontal */
+    // align-items: center; /* Zentriert den Text vertikal */
+    // margin: 0; /* Entfernt Standardmargen, um keinen zusätzlichen Platz zu beanspruchen */
   }
 }

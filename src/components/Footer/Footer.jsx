@@ -8,7 +8,7 @@ import InterpolatedWave from "./InterpolatedWave";
 const Footer = () => {
   return (
     <footer>
-      <InterpolatedWave />
+      <InterpolatedWave innerW={window.innerWidth} />
       <div className="wrapper">
         <section className="sm-wrapper">
           <ul className="sm-list">
