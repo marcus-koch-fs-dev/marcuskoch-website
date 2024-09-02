@@ -1,8 +1,7 @@
 import "./app.scss";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import Frame from "./components/Home/Frame";
-import Home from "./components/Home/Home";
+import { Outlet } from "react-router-dom";
 
 function App() {
   // const [darkTheme, setTheme] = useThemeSetter();
@@ -11,10 +10,9 @@ function App() {
     <div className="app">
       <Header />
       <main>
-        <Home />
+        <Outlet />
       </main>
       {/* <h1 hidden={true}>Web Developer Marcus Koch</h1>
-      <AboutUs classicHeader={classicHeader} darkTheme={darkTheme} />
       <Services classicHeader={classicHeader} darkTheme={darkTheme} />
       <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
       <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} /> */}

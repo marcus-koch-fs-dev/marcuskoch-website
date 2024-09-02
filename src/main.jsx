@@ -17,11 +17,23 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // import { ThemesProvider } from "./context/ThemesContext";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About from "./components/About/About";
+import Home from "./components/Home/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+    ],
   },
 ]);
 

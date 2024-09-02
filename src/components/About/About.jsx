@@ -1,7 +1,7 @@
 import videobg from "../../videos/Selbstvorstellung.mp4";
 import BookingButton from "../BookingButton";
 import HeadlineWrapperH2 from "../Header/HeadlineWrapperH2";
-const AboutUs = ({ classicHeader, darkTheme }) => {
+const About = ({ classicHeader, darkTheme }) => {
   return (
     <section id="about" className={"section " + (darkTheme ? "bg-dark-1" : "")}>
       <div className={"container " + (classicHeader ? "" : "px-lg-5")}>
@@ -147,4 +147,4 @@ const AboutUs = ({ classicHeader, darkTheme }) => {
   );
 };
 
-export default AboutUs;
+export default About;
