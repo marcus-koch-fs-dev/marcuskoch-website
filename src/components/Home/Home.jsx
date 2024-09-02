@@ -9,6 +9,7 @@ import Frame from "./Frame";
 const Home = ({ handleNavClick }) => {
   // const { darkTheme, setTheme } = useContext(ThemeContext);
   // const curSize = useResponsiveSize();
+  // console.log(curSize);
   return (
     <section className="home">
       <div className="frame">

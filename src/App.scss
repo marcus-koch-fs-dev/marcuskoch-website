@@ -8,9 +8,7 @@
 
   main {
     flex-grow: 1;
-    // display: flex;
-    // justify-content: center; /* Zentriert den Text horizontal */
-    // align-items: center; /* Zentriert den Text vertikal */
-    // margin: 0; /* Entfernt Standardmargen, um keinen zusätzlichen Platz zu beanspruchen */
+    // border: solid 1px white;
+    display: flex;
   }
 }

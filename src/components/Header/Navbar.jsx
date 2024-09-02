@@ -6,9 +6,7 @@ import useResponsiveSize from "../../hooks/useResponsiveSize";
 import "./navbar.scss";
 
 const Navbar = () => {
-  const displaySize = useResponsiveSize();
-  const isMobile = displaySize === "sm";
-  //   const isMobile = true;
+  const { isMobile } = useResponsiveSize();
   const [isToggled, setIsToggled] = useState(false);
 
   const renderList = () => (

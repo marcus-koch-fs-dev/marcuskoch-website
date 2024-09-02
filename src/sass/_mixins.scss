@@ -1,31 +1,125 @@
-//---------- @mixins ----------//
+// Breakpoints for devices
 
-@mixin box-shadow($val...) {
-	-webkit-box-shadow: ($val);
-	box-shadow: ($val);
+@mixin mobile {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
 }
 
-@mixin transition($val...) {
-	-webkit-transition: ($val);
-	transition: ($val);
+@mixin tablet {
+  @media screen and (min-width: $mobile + 1) and (max-width: $tablet) {
+    @content;
+  }
 }
 
-@mixin translateY($val...) {
-	-webkit-transform: translateY($val);
-	transform: translateY($val);
+@mixin laptop {
+  @media screen and (min-width: $tablet + 1) and (max-width: $laptop) {
+    @content;
+  }
 }
 
-@mixin translateX($val...) {
-	-webkit-transform: translateX($val);
-	transform: translateX($val);
+@mixin desktop-lg {
+  @media screen and (min-width: $laptop + 1) and (max-width: $desktop-lg) {
+    @content;
+  }
 }
 
-@mixin rotate($val){
-	-webkit-transform: rotate($val);
-	transform: rotate($val);
+// Styling functions
+
+// Hovering navbar item
+@mixin hoverNavItem {
+  background-color: $font-color-gold;
+  font-weight: 600;
+  transition-duration: 0.3s;
 }
 
-@mixin scale($val){
-	-webkit-transform: scale($val);
-	transform: scale($val);
+// Center a child inside parents body
+@mixin centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+// User card property
+@mixin cardSize {
+  width: 20rem;
+  height: 4rem;
+  border-radius: 5px 5px 0px 0px;
+}
+
+// Transition duration
+@mixin transDuration {
+  transition: box-shadow cubic-bezier(0.08, 0.82, 0.56, 1.21) 1s;
+  transition-property: box-shadow;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.08, 0.82, 0.56, 1.21);
+  transition-delay: 0s;
+}
+
+// Skill card with scale icon
+@mixin skillCardAndScale($color) {
+  .skillCard {
+    &__icon {
+      color: $color;
+      animation: scale 5s infinite linear;
+    }
+    &__h2 {
+      color: $color;
+    }
+  }
+  @include boxShadowAnimation($color);
+}
+
+// Skill card with rotate icon
+@mixin skillCardAndRotate($color) {
+  .skillCard {
+    &__icon {
+      color: $color;
+      animation: rotate 6s infinite linear;
+    }
+    &__h2 {
+      color: $color;
+    }
+  }
+  @include boxShadowAnimation($color);
+}
+
+// Box shadow  animation
+@mixin boxShadowAnimation($color) {
+  &:hover {
+    box-shadow: 0px 4px 8px $color;
+  }
+}
+
+// //---------- @mixins ----------//
+
+// @mixin box-shadow($val...) {
+// 	-webkit-box-shadow: ($val);
+// 	box-shadow: ($val);
+// }
+
+// @mixin transition($val...) {
+// 	-webkit-transition: ($val);
+// 	transition: ($val);
+// }
+
+// @mixin translateY($val...) {
+// 	-webkit-transform: translateY($val);
+// 	transform: translateY($val);
+// }
+
+// @mixin translateX($val...) {
+// 	-webkit-transform: translateX($val);
+// 	transform: translateX($val);
+// }
+
+// @mixin rotate($val){
+// 	-webkit-transform: rotate($val);
+// 	transform: rotate($val);
+// }
+
+// @mixin scale($val){
+// 	-webkit-transform: scale($val);
+// 	transform: scale($val);
+// }

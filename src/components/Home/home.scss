@@ -1,9 +1,15 @@
 @import "../../../src/sass/base.scss";
 
 .home {
-  position: relative;
+  display: grid; /* Definiert das übergeordnete Element als Grid-Container */
+  grid-template-columns: 1fr 1fr 1fr; /* 3 gleich große Spalten */
+  grid-template-rows: 1fr; /* Lässt die Zeile auf 100% der Höhe wachsen */
+  grid-template-areas: "home home frame"; /* Definiert die Anordnung der Bereiche */
+  flex-grow: 1; /* Lässt das .home-Element auf 100% der verfügbaren Höhe wachsen */
+  // border: solid 1px red; /* Sichtbarer Rahmen zum Debuggen */
 
   .frame {
+    grid-area: frame; /* Platziert das Element in dem "frame"-Bereich des Grids */
     display: flex;
     justify-content: flex-end;
 
@@ -30,14 +36,12 @@
   }
 
   .homeWrapper {
-    position: absolute;
-    top: 25vh;
-    left: 30vw;
+    grid-area: home; /* Platziert das Element in dem "home"-Bereich des Grids */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // border: solid 1px red;
+    // border: solid red 1px;
 
     .home-h1 {
       display: flex;
@@ -48,5 +52,21 @@
         color: $secondary-h1;
       }
     }
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr; /* 3 gleich große Spalten */
+    grid-template-rows: 0.5fr auto;
+    grid-template-areas:
+      "frame"
+      "home";
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr; /* 3 gleich große Spalten */
+    grid-template-rows: 0.5fr auto;
+    grid-template-areas:
+      "frame"
+      "home";
   }
 }

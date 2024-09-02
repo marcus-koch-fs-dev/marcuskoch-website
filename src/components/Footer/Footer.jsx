@@ -4,11 +4,13 @@ import IconLinkedin from "../../../public/assets/linkedin.png";
 import IconGit from "../../../public/assets/git.png";
 import "./footer.scss";
 import InterpolatedWave from "./InterpolatedWave";
+import useResponsiveSize from "../../hooks/useResponsiveSize";
 
 const Footer = () => {
+  const { width } = useResponsiveSize();
   return (
     <footer>
-      <InterpolatedWave innerW={window.innerWidth} />
+      <InterpolatedWave innerW={width} />
       <div className="wrapper">
         <section className="sm-wrapper">
           <ul className="sm-list">

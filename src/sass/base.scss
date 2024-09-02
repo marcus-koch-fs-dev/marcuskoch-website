@@ -1,5 +1,6 @@
 @import "./normalize.scss";
 @import "./theme-colors.scss";
+@import "./mixins";
 
 html,
 body,
@@ -14,3 +15,9 @@ body,
     font-size: 32px;
   }
 }
+
+// Breakpoints media devices: max sizes
+$mobile: 425px; //360 small mobile
+$tablet: 768px;
+$laptop: 1024px;
+$desktop-lg: 1440px;
