@@ -4,15 +4,17 @@ import { NavLink, Link } from "react-router-dom";
 import NavMenu from "./NavMenu";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 import "./navbar.scss";
+import { useRef } from "react";
 
 const Navbar = () => {
   const { isMobile } = useResponsiveSize();
   const [isToggled, setIsToggled] = useState(false);
+  const menuRef = useRef(null);
 
   const renderList = () => (
-    <ul className="menu-vertical">
+    <ul className="menu-vertical" ref={menuRef}>
       {navLinks.map((link, idx) => (
-        <li className="menu-item" key={idx}>
+        <li className="menu-item" key={idx} onClick={() => setIsToggled(false)}>
           <Link to={`/${link.to}`}>{link.name}</Link>
         </li>
       ))}
@@ -39,6 +41,7 @@ const Navbar = () => {
       {isMobile ? (
         <div className={`menu-wrapper-vertical`}>
           <NavMenu
+            menuRef={menuRef}
             handleClick={() => setIsToggled((prev) => !prev)}
             isToggled={isToggled}
           />
