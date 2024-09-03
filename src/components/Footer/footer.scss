@@ -1,6 +1,26 @@
 @import "../../sass/base.scss";
 
 footer {
+  .next-page-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+
+    i {
+      border-radius: 20rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: $primary-svg 1px solid;
+
+      color: $primary-svg;
+      width: 1.15rem;
+      height: 1.15rem;
+      padding: 0.75rem;
+    }
+  }
+
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -36,6 +56,17 @@ footer {
     p,
     a {
       color: $secondary-p;
+    }
+  }
+
+  @include tablet {
+    .next-page-btn {
+      visibility: visible;
+    }
+  }
+  @include mobile {
+    .next-page-btn {
+      visibility: visible;
     }
   }
 }

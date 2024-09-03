@@ -20,20 +20,22 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About/About";
 import Home from "./components/Home/Home";
 
+const innerRoutes = [
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "about",
+    element: <About />,
+  },
+];
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "about",
-        element: <About />,
-      },
-    ],
+    element: <App routes={innerRoutes.map((route) => route.path)} />,
+    children: innerRoutes,
   },
 ]);
 

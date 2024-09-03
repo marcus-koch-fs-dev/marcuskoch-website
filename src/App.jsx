@@ -3,9 +3,9 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import { Outlet } from "react-router-dom";
 
-function App() {
+function App({ routes }) {
   // const [darkTheme, setTheme] = useThemeSetter();
-
+  // console.log(routes);
   return (
     <div className="app">
       <Header />
@@ -16,7 +16,7 @@ function App() {
       <Services classicHeader={classicHeader} darkTheme={darkTheme} />
       <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
       <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} /> */}
-      <Footer />
+      <Footer routes={routes} />
     </div>
   );
 }

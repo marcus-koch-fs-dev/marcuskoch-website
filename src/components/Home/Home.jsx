@@ -35,20 +35,6 @@ const Home = ({ handleNavClick }) => {
         </h1>
         <BookingButton />
       </div>
-      {/* <a
-            href="#about"
-            aria-label="Zur Über-Mich Sektion"
-            role="button"
-            className="scroll-down-arrow text-white"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("about");
-            }}
-          >
-            <span className="animated">
-              <i className="fa fa-chevron-down" />
-            </span>
-          </a> */}
     </section>
   );
 };

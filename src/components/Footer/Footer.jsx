@@ -5,11 +5,33 @@ import IconGit from "../../../public/assets/git.png";
 import "./footer.scss";
 import InterpolatedWave from "./InterpolatedWave";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const Footer = () => {
+const Footer = ({ routes }) => {
   const { width } = useResponsiveSize();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    const nextIndex = (currentIndex + 1) % routes.length;
+    setCurrentIndex(nextIndex);
+    navigate(routes[nextIndex]);
+  };
+
   return (
     <footer>
+      <a
+        aria-label="Nächste Seite"
+        role="button"
+        className="next-page-btn"
+        onClick={(e) => {
+          e.preventDefault();
+          handleClick();
+        }}
+      >
+        <i className="fa fa-chevron-down" />
+      </a>
       <InterpolatedWave innerW={width} />
       <div className="wrapper">
         <section className="sm-wrapper">
