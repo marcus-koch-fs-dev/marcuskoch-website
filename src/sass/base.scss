@@ -2,22 +2,64 @@
 @import "./theme-colors.scss";
 @import "./mixins";
 
-html,
-body,
-#root {
-  height: 100%;
-  font-family: "Poppins";
-  h1 {
-    font-size: 48px;
-  }
-
-  h2 {
-    font-size: 32px;
-  }
-}
-
 // Breakpoints media devices: max sizes
 $mobile: 425px; //360 small mobile
 $tablet: 768px;
 $laptop: 1024px;
 $desktop-lg: 1440px;
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: "Poppins", "Sans";
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+
+  @include mobile {
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+    h4 {
+      font-size: 0.75rem;
+    }
+    p {
+      font-size: 0.75rem;
+    }
+  }
+
+  @include tablet {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    h4 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.75rem;
+    }
+  }
+}

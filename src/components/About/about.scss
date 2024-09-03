@@ -1,0 +1,79 @@
+@import "/src/sass/base.scss";
+
+.about {
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". text .";
+  overflow: auto;
+  position: relative;
+
+  .eyes-simulation {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+  }
+
+  .about-container {
+    margin: 1rem 0;
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .highlight-text {
+      color: $secondary-h1;
+    }
+
+    h2 {
+      word-break: normal;
+      color: $primary-h1;
+    }
+
+    > article > p {
+      margin: 1.5rem 0;
+      color: $primary-p;
+      font-size: 1.1rem;
+    }
+  }
+
+  .achievement-list {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .achievement-item {
+    color: $primary-p;
+    h4 {
+      color: $primary-p;
+    }
+    // border: red 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-areas: "text";
+
+    .about-container {
+      padding: 1rem;
+      border: red 1px solid;
+    }
+
+    .eyes-simulation {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: 0.25fr 1fr 0.25fr;
+    .eyes-simulation {
+      display: none;
+    }
+  }
+}

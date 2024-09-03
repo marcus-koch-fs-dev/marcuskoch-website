@@ -1,22 +1,21 @@
 @import "../../../src/sass/base.scss";
 
 .home {
-  display: grid; /* Definiert das übergeordnete Element als Grid-Container */
-  grid-template-columns: 1fr 1fr 1fr; /* 3 gleich große Spalten */
-  grid-template-rows: 1fr; /* Lässt die Zeile auf 100% der Höhe wachsen */
-  grid-template-areas: "home home frame"; /* Definiert die Anordnung der Bereiche */
-  flex-grow: 1; /* Lässt das .home-Element auf 100% der verfügbaren Höhe wachsen */
-  // border: solid 1px red; /* Sichtbarer Rahmen zum Debuggen */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "home home frame";
+  flex-grow: 1;
 
   .frame {
-    grid-area: frame; /* Platziert das Element in dem "frame"-Bereich des Grids */
+    grid-area: frame;
     display: flex;
     justify-content: flex-end;
 
     .frame-order {
       position: relative;
-      width: 300px; /* oder eine andere passende Breite */
-      height: 300px; /* oder eine andere passende Höhe */
+      width: 300px;
+      height: 300px;
 
       .frame-svg {
         position: absolute;
@@ -36,7 +35,7 @@
   }
 
   .homeWrapper {
-    grid-area: home; /* Platziert das Element in dem "home"-Bereich des Grids */
+    grid-area: home;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,7 +54,7 @@
   }
 
   @include mobile {
-    grid-template-columns: 1fr; /* 3 gleich große Spalten */
+    grid-template-columns: 1fr;
     grid-template-rows: 0.5fr auto;
     grid-template-areas:
       "frame"
@@ -63,7 +62,7 @@
   }
 
   @include tablet {
-    grid-template-columns: 1fr; /* 3 gleich große Spalten */
+    grid-template-columns: 1fr;
     grid-template-rows: 0.5fr auto;
     grid-template-areas:
       "frame"
