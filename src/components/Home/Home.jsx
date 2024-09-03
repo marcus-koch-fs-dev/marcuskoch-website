@@ -8,13 +8,16 @@ import Frame from "./Frame";
 
 const Home = ({ handleNavClick }) => {
   // const { darkTheme, setTheme } = useContext(ThemeContext);
-  // const curSize = useResponsiveSize();
-  // console.log(curSize);
+  const { width } = useResponsiveSize();
+
   return (
     <section className="home">
       <div className="frame">
         <div className="frame-order">
-          <Frame width={300} height={300} />
+          <Frame
+            width={width < 426 ? 200 : 300}
+            height={width < 426 ? 200 : 300}
+          />
           <img
             className="frame-img"
             alt="Foto von Marcus"

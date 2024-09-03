@@ -59,6 +59,28 @@
     grid-template-areas:
       "frame"
       "home";
+    .frame {
+      .frame-order {
+        position: relative;
+        width: 200px;
+        height: 200px;
+
+        .frame-svg {
+          position: absolute;
+          z-index: 0;
+        }
+
+        .frame-img {
+          position: absolute;
+          z-index: 1;
+          border-radius: 100rem;
+          width: 120px;
+          height: 120px;
+          bottom: 10px;
+          left: 11px;
+        }
+      }
+    }
   }
 
   @include tablet {
