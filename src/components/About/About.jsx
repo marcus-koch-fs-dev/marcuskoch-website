@@ -43,23 +43,23 @@ const About = () => {
           Lösungsorientierung und einer praxisorientierten Einstellung.
         </h2>
         <article>
-          <p className="">
+          <p className="block">
             Als enthusiastischer Entwickler schaffe ich Webseiten, die durch
             Optik und intuitive Bedienbarkeit überzeugen. Mit modernen Techniken
             und Werkzeugen wie React entwickle ich schnelle, nutzerfreundliche
             Lösungen.
           </p>
-          <p className="">
+          <p className="block">
             Durch agile Methoden und ständiges Feedback sorge ich für hohe
             Qualitätsstandards und bedürfnisorientierte Ergebnisse.
           </p>
-          <p className="">
+          <p className="block">
             Meine Expertise in der Digitalisierung, besonders im
             Automobilsektor, qualifiziert mich für Herausforderungen über
             Branchengrenzen hinweg. Ich hebe Ihre digitalen Produkte auf das
             nächste Level.
           </p>
-          <p className="">
+          <p className="block">
             <span className="highlight-text">
               {`Bereit für den nächsten Schritt? `}
             </span>
