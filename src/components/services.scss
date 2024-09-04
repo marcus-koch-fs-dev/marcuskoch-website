@@ -1,0 +1,76 @@
+@import "../sass/base.scss";
+
+.services {
+  display: flex;
+  flex-grow: 1;
+  //   border: solid white 1px;
+
+  .services-wrapper {
+    display: flex;
+    flex-grow: 1;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // border: solid greenyellow 1px;
+
+    .services-list {
+      //   border: solid blue 1px;
+      display: flex;
+      width: 80vw;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+
+      .services-item {
+        // border: solid orange 1px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0.25rem;
+        width: 38vw;
+
+        i {
+          //   border: solid pink 1px;
+          width: 6rem;
+          color: $primary-svg;
+          font-size: 2rem;
+          padding: 0.75rem;
+          display: flex;
+          justify-content: center;
+        }
+
+        h3,
+        h4 {
+          color: $primary-h1;
+        }
+
+        p {
+          color: $primary-p;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    .services-wrapper {
+      align-items: center;
+      justify-content: center;
+
+      .services-list {
+        .services-item {
+          width: 100vw;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    .services-wrapper {
+      .services-list {
+        .services-item {
+          min-width: 80vw;
+        }
+      }
+    }
+  }
+}

@@ -19,6 +19,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About/About";
 import Home from "./components/Home/Home";
+import Services from "./components/Services";
 
 const innerRoutes = [
   {
@@ -28,6 +29,10 @@ const innerRoutes = [
   {
     path: "about",
     element: <About />,
+  },
+  {
+    path: "services",
+    element: <Services />,
   },
 ];
 

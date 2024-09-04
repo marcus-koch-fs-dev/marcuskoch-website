@@ -13,7 +13,7 @@ function App({ routes }) {
         <Outlet />
       </main>
       {/* <h1 hidden={true}>Web Developer Marcus Koch</h1>
-      <Services classicHeader={classicHeader} darkTheme={darkTheme} />
+      
       <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
       <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} /> */}
       <Footer routes={routes} />
