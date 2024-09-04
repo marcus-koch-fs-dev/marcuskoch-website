@@ -23,4 +23,20 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: ({ name }) => {
+          // Speichert alle Bilddateien in einem 'images'-Ordner im 'assets'-Verzeichnis
+          if (/\.(png|jpe?g|gif|svg)$/.test(name ?? "")) {
+            return "assets/images/[name].[hash][extname]";
+          }
+          // Standardverhalten für andere Arten von Assets
+          return "assets/[name].[hash][extname]";
+        },
+        chunkFileNames: "assets/js/[name].[hash].js",
+        entryFileNames: "assets/js/[name].[hash].js",
+      },
+    },
+  },
 });

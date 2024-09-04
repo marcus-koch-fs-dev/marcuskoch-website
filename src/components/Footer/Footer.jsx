@@ -1,7 +1,7 @@
 import Datenschutz from "./Datenschutz";
 import Impressum from "./Impressum";
-import IconLinkedin from "../../../public/assets/linkedin.png";
-import IconGit from "../../../public/assets/git.png";
+import IconLinkedin from "../../assets/linkedin.png";
+import IconGit from "../../assets/git.png";
 import "./footer.scss";
 import InterpolatedWave from "./InterpolatedWave";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
@@ -17,7 +17,7 @@ const Footer = () => {
   const handleClick = () => {
     const nextIndex = (currentIndex + 1) % navLinks.length;
     setCurrentIndex(nextIndex);
-    navigate(navLinks[nextIndex]);
+    navigate(navLinks[nextIndex].to);
   };
 
   return (
