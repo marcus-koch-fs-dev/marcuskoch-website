@@ -7,16 +7,17 @@ import InterpolatedWave from "./InterpolatedWave";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { navLinks } from "../Header/navLinks";
 
-const Footer = ({ routes }) => {
+const Footer = () => {
   const { width } = useResponsiveSize();
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    const nextIndex = (currentIndex + 1) % routes.length;
+    const nextIndex = (currentIndex + 1) % navLinks.length;
     setCurrentIndex(nextIndex);
-    navigate(routes[nextIndex]);
+    navigate(navLinks[nextIndex]);
   };
 
   return (
