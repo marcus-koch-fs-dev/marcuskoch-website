@@ -1,7 +1,7 @@
 import ProjectDetailsInfo from "./ProjectDetailsInfo";
 import ProjectDetailsSlider from "./ProjectDetailsSlider";
 
-const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
+const ProjectDetailsModal = ({ darkTheme = false, projectDetails }) => {
   if (!projectDetails) return null;
   return (
     <>
@@ -48,12 +48,6 @@ const ProjectDetailsModal = ({ darkTheme, projectDetails }) => {
                     darkTheme={darkTheme}
                     projectDetails={projectDetails}
                   />
-                  {/* <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                    }}
-                  ></div> */}
                 </div>
               </div>
             </div>

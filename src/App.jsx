@@ -14,7 +14,7 @@ function App() {
       </main>
       {/* <h1 hidden={true}>Web Developer Marcus Koch</h1>
       
-      <Portfolio classicHeader={classicHeader} darkTheme={darkTheme} />
+      <Projects classicHeader={classicHeader} darkTheme={darkTheme} />
       <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} /> */}
       <Footer />
     </div>

@@ -1,0 +1,107 @@
+@import "/src/sass/base.scss";
+
+.projects {
+  //   border: 1px white solid;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+
+  > ul {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: end;
+    overflow: auto;
+    // border: orange 3px solid;
+
+    li {
+      // border: green 1px solid;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 0.5rem;
+      position: relative;
+      top: 0;
+      left: 0;
+      height: 13rem;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      &.narrow {
+        width: 13rem;
+      }
+
+      &.wide {
+        width: 26rem;
+      }
+      //       //   border: blue 1px solid;
+      .item-title {
+        position: absolute;
+        margin: 0.25rem;
+        padding: 0.5rem;
+        background-color: rgba(0, 0, 0, 0.534);
+        border-radius: 20rem;
+      }
+
+      span {
+        color: $primary-p;
+      }
+
+      .item-overlay {
+        position: absolute;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(19, 18, 18, 0.603);
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      &:hover {
+        .item-overlay {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    > ul {
+      li {
+        height: 8rem;
+
+        &.narrow {
+          width: 8rem;
+        }
+
+        &.wide {
+          width: 16rem;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    > ul {
+      align-items: center;
+      li {
+        height: 11rem;
+
+        &.narrow {
+          width: 11rem;
+        }
+
+        &.wide {
+          width: 22rem;
+        }
+      }
+    }
+  }
+}
