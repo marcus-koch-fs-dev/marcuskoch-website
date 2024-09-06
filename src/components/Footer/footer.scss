@@ -1,77 +1,71 @@
 @import "../../sass/base.scss";
 
 footer {
-  // a{
-  //   ;
-  // }
-  .next-page-btn {
-    margin-top: 1.5rem;
+  > a {
+    margin-top: 1rem;
     text-decoration: none;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
 
     i {
       border-radius: 20rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       border: $primary-svg 1px solid;
-
+      font-size: 1.25rem;
       color: $primary-svg;
-      width: 1.15rem;
-      height: 1.15rem;
-      padding: 0.75rem;
+      padding: 0.25rem;
+      @include slideY-animation(2s);
     }
   }
+}
 
-  .wrapper {
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-svg;
+}
+
+img {
+  width: 2rem;
+}
+
+section {
+  > ul,
+  li {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: $primary-svg;
   }
 
-  img {
-    width: 2rem;
+  ul {
+    flex-wrap: wrap;
   }
 
-  section {
-    > ul,
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    ul {
-      flex-wrap: wrap;
-    }
-
-    li {
-      margin: 0.25rem 0.75rem;
-    }
-
-    p {
-      margin: 0;
-    }
-
-    p,
-    a {
-      color: $secondary-p;
-    }
+  li {
+    margin: 0.25rem 0.75rem;
   }
 
-  @include tablet {
-    .next-page-btn {
-      visibility: visible;
-    }
+  p {
+    margin: 0;
   }
-  @include mobile {
-    .next-page-btn {
-      visibility: visible;
-    }
+
+  p,
+  a {
+    color: $secondary-p;
+  }
+}
+
+@include tablet {
+  a {
+    // .next-page-btn {
+    display: flex !important;
+  }
+}
+
+@include mobile {
+  .next-page-btn {
+    display: flex;
   }
 }
