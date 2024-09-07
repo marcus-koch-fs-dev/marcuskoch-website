@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./projectDetailsSlider.scss";
 
 import Slider from "react-slick";
-import { Overlay } from "./Overlay";
+import { Overlay } from "../Overlay";
 
 const ProjectDetailsSlider = ({ projectDetails }) => {
   const sliderRef = useRef();

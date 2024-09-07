@@ -2,7 +2,7 @@ import { useState } from "react";
 import { projectsData } from "./projectList";
 import { useMemo } from "react";
 import "./projects.scss";
-import { Overlay } from "./Overlay";
+import { Overlay } from "../Overlay";
 import ProjectDetailsSlider from "./ProjectDetailsSlider";
 
 const Projects = () => {

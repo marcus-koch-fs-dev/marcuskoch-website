@@ -10,6 +10,7 @@
   background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background
   flex-direction: column;
   display: flex;
+  z-index: 1000; // to be the highest frame when other frames with relative positions enabled
 
   .control {
     // border: red solid 1px;
@@ -34,6 +35,10 @@
     align-items: center;
     border: none;
     background-color: transparent;
+
+    :hover {
+      cursor: pointer;
+    }
   }
 
   i {
