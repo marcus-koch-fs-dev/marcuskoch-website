@@ -54,6 +54,10 @@ section {
   a {
     color: $secondary-p;
   }
+
+  span.laws-p {
+    cursor: pointer;
+  }
 }
 
 @include tablet {

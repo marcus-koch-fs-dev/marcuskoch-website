@@ -1,0 +1,8 @@
+@import "/src/assets/sass/base.scss";
+
+article.impressum {
+  overflow-y: scroll;
+  height: 90vh;
+  padding: 0 2rem;
+  background-color: black;
+}

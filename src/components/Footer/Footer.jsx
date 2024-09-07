@@ -7,8 +7,12 @@ import InterpolatedWave from "./InterpolatedWave";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 import { useNavigate, useLocation } from "react-router-dom";
 import { navLinks } from "../Header/navLinks";
+import { Overlay } from "../Overlay";
+import { useState } from "react";
 
 const Footer = () => {
+  const [openDS, setOpenDS] = useState(false);
+  const [openImp, setOpenImp] = useState(false);
   const { width } = useResponsiveSize();
   const navigate = useNavigate();
   let location = useLocation();
@@ -63,31 +67,27 @@ const Footer = () => {
         <section className="laws">
           <ul className="laws-list">
             <li className="laws-item">
-              <span className="laws-p">Copyright ©2024 Marcus Koch</span>
+              <span className="">Copyright ©2024 Marcus Koch</span>
             </li>
-            <li className="laws-item">
-              <a
-                data-bs-toggle="modal"
-                data-bs-target="#datenschutz"
-                href="#datenschutz"
-              >
-                <span className={""}>Datenschutz</span>
-              </a>
+            <li className="laws-item" onClick={() => setOpenDS(true)}>
+              <span className={"laws-p"}>Datenschutz</span>
             </li>
-            <li className="laws-item">
-              <a
-                data-bs-toggle="modal"
-                data-bs-target="#impressum"
-                href="#impressum"
-              >
-                <span className={""}>Impressum</span>
-              </a>
+            <li className="laws-item" onClick={() => setOpenImp(true)}>
+              <span className={"laws-p"}>Impressum</span>
             </li>
           </ul>
         </section>
       </div>
-      {/* <Impressum darkTheme={false} />
-      <Datenschutz darkTheme={false} /> */}
+      {openDS && (
+        <Overlay handleClose={() => setOpenDS(false)}>
+          <Datenschutz />
+        </Overlay>
+      )}
+      {openImp && (
+        <Overlay handleClose={() => setOpenImp(false)}>
+          <Impressum />
+        </Overlay>
+      )}
     </footer>
   );
 };
