@@ -25,6 +25,9 @@ ul {
     .menu-horizontal {
       .menu-item {
         margin: 0.35rem;
+        :hover {
+          border-bottom: 2px solid $primary-svg;
+        }
       }
     }
   }
@@ -51,6 +54,10 @@ ul {
   background-color: $primary-bg_menu;
 
   .menu-item {
-    margin: 0.25rem;
+    box-sizing: border-box;
+    height: 2rem;
+    :hover {
+      border-bottom: 2px solid $primary-svg;
+    }
   }
 }
