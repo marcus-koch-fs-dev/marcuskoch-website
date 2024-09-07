@@ -3,7 +3,7 @@
 .about {
   display: grid;
   flex-grow: 1;
-  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-columns: 0.5fr 1fr 0.25fr;
   grid-template-rows: 1fr;
   grid-template-areas: ". text .";
   overflow: auto;
@@ -36,12 +36,20 @@
     h2 {
       word-break: normal;
       color: $primary-h1;
+
+      &.about-headline {
+        margin-top: 1rem;
+      }
     }
 
-    > article > p {
-      margin: 1.5rem 0;
+    // > article > p {
+    p {
       color: $primary-p;
       font-size: 1.1rem;
+
+      &.block {
+        margin: 1.5rem 0;
+      }
     }
   }
 
@@ -73,6 +81,14 @@
 
     .eyes-simulation {
       display: none;
+    }
+
+    ul.achievement-list {
+      margin: 0;
+    }
+
+    li {
+      margin: 1rem 0.5rem;
     }
   }
 
