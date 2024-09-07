@@ -1,0 +1,80 @@
+@import "/src/sass/base.scss";
+
+.details-wrapper {
+  // Das Wrapper-Element für den gesamten Slider
+  width: 80%;
+  // max-width: 1200px;
+  // padding: 20px;
+
+  .slick-slider {
+    // Styles für den Slick Slider selbst
+    .slick-list {
+      // Styles für die äußere Liste
+      overflow: hidden;
+    }
+
+    .slick-slide {
+      // Styles für einzelne Slides
+      text-align: center; // Zentriert den Inhalt innerhalb jedes Slides
+      display: flex;
+      justify-content: center; // Zentriert horizontal
+      align-items: center; // Zentriert vertikal
+    }
+
+    .slick-prev,
+    .slick-next {
+      z-index: 1;
+      &::before {
+        color: $primary-bg_btn-arrow; // Pfeilfarbe
+      }
+    }
+  }
+
+  .details-item {
+    // Styles für einzelne Slides
+    background-color: $secondary-bg_menu; // Hintergrundfarbe der Slides
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .details-desc {
+    // Styles für die Beschreibung in den Slides
+    font-size: 1.2rem;
+    color: $primary-p;
+    margin: 1rem 0;
+  }
+
+  .details-img {
+    // Styles für das Bild in den Sl
+    max-width: 100%;
+    max-height: 80vh; // Setzt eine maximale Höhe, um sicherzustellen, dass das Bild nicht den Viewport sprengt
+    overflow: hidden; // Verhindert Überlaufen von zu großen Bildern
+    img {
+      padding: 0 0.5rem;
+      height: 60vh;
+      width: 80vw;
+      max-height: 80vh;
+      display: block;
+      margin: 0 auto; // Zentriert das Bild horizontal
+      object-fit: contain; // Skaliert das Bild, um es vollständig anzuzeigen, ohne es zu verzerren
+    }
+    :hover {
+      cursor: pointer;
+    }
+  }
+}
+
+img.details-max {
+  border: red 1px solid;
+  width: 90vw;
+  max-height: 80vh;
+
+  @include mobile {
+    transform: rotate(-90deg);
+    transform-origin: center;
+    width: 90vh;
+  }
+}

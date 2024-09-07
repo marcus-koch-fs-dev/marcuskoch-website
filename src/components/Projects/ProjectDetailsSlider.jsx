@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { useState } from "react";
+import "./projectDetailsSlider.scss";
 
 import Slider from "react-slick";
-import ModalLayer from "./ModalLayer";
+import { Overlay } from "./Overlay";
 
-const ProjectDetailsSlider = ({ darkTheme, projectDetails }) => {
+const ProjectDetailsSlider = ({ projectDetails }) => {
   const sliderRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [img, setImg] = useState(null);
@@ -19,11 +20,10 @@ const ProjectDetailsSlider = ({ darkTheme, projectDetails }) => {
     setIsOpen(false);
   };
 
+  const sliderImages = projectDetails?.sliderImages || [];
   const settings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    adaptiveHeight: true,
+    arrows: sliderImages.length > 1, // Zeigt Pfeile nur, wenn es mehr als ein Bild gibt
+    infinite: sliderImages.length > 1, // Endloses Scrollen nur bei mehr als einem Bild
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -44,54 +44,28 @@ const ProjectDetailsSlider = ({ darkTheme, projectDetails }) => {
   }, [projectDetails]);
 
   return (
-    <div className="col-md-8" style={{ margin: "0 auto" }}>
-      <Slider {...settings} ref={sliderRef}>
-        {/* <div className="item">
-          <img className="img-fluid" alt="" src={projectDetails?.thumbImage} />
-        </div> */}
-        {projectDetails?.sliderImages?.length > 0 &&
-          projectDetails?.sliderImages?.map((obj, index) => {
-            const { desc, medium, big } = obj;
-            return (
-              <div key={index}>
-                <div
-                  className="item"
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    className="img-fluid"
-                    onClick={() => handleOpen(big)}
-                    alt=""
-                    src={medium}
-                    style={{
-                      cursor: "pointer",
-                      maxHeight: "30vh",
-                      margin: "0 auto",
-                    }}
-                  />
-                  <p
-                    className={
-                      "text-dark font-weight-600 me-2" +
-                      (darkTheme ? " text-white" : "")
-                    }
-                  >
-                    {desc}
-                  </p>
-                </div>
+    <div className="details-wrapper">
+      <Slider {...settings} ref={sliderRef} className="">
+        {sliderImages.map((obj, index) => {
+          const { desc, medium, big } = obj;
+          return (
+            <div key={index} className="details-item">
+              <h4 className="details-desc">{desc}</h4>
+              <div className="details-img">
+                <img onClick={() => handleOpen(big)} alt="" src={medium} />
               </div>
-            );
-          })}
+            </div>
+          );
+        })}
       </Slider>
       {isOpen && (
-        <ModalLayer
-          image={img}
-          handleClose={handleClose}
-          darkTheme={darkTheme}
-        />
+        <Overlay handleClose={handleClose}>
+          <img
+            src={img}
+            className="details-max"
+            // style={{ width: "100%", maxHeight: "80%" }}
+          />
+        </Overlay>
       )}
     </div>
   );
