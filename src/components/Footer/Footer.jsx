@@ -1,7 +1,7 @@
 import Datenschutz from "./Datenschutz";
 import Impressum from "./Impressum";
-import IconLinkedin from "../../assets/linkedin.png";
-import IconGit from "../../assets/git.png";
+import IconLinkedin from "/assets/linkedin.png";
+import IconGit from "/assets/git.png";
 import "./footer.scss";
 import InterpolatedWave from "./InterpolatedWave";
 import useResponsiveSize from "../../hooks/useResponsiveSize";

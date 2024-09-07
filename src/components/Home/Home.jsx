@@ -4,7 +4,7 @@ import BookingButton from "../BookingButton";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 import "./home.scss";
 import Frame from "./Frame";
-import Foto from "../../assets/me.jpg";
+import Foto from "/assets/me.jpg";
 
 const Home = ({ handleNavClick }) => {
   // const { darkTheme, setTheme } = useContext(ThemeContext);
