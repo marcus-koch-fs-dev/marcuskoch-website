@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
-const time = 6000;
+const time = 8000;
 import "./footer.scss";
 
 const InterpolatedWave = ({ innerW }) => {
-  // Array of objects holding the paths for both yellow and black waves
-  // "M0 4.97397C0 4.97397 618.5 122.801 413 41.4672C207.5 -39.8667 840.5 18.0475 1079.5 59.6399C1318.5 101.232 1440 25.5667 1440 25.5667V136.858H0V4.97397Z",
   const wavePaths = [
     // {
     //   yellow:
@@ -46,13 +44,13 @@ const InterpolatedWave = ({ innerW }) => {
     config: { duration: time },
   });
 
-  const blackWaveProps = useSpring({
-    d: wavePaths[index].black,
-    config: { duration: time },
-  });
-  // console.log(innerW);
+  // const blackWaveProps = useSpring({
+  //   d: wavePaths[index].black,
+  //   config: { duration: time },
+  // });
+
   return (
-    <div className="wave-simulation">
+    <div className="wave-simulation" style={{ marginBottom: "-0.3rem" }}>
       <svg
         // width="1440"
         width={innerW}
@@ -62,7 +60,7 @@ const InterpolatedWave = ({ innerW }) => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <animated.path d={yellowWaveProps.d} fill="#F4D115" />
-        <animated.path d={blackWaveProps.d} fill="black" />
+        {/* <animated.path d={blackWaveProps.d} fill="black" /> */}
       </svg>
     </div>
   );
