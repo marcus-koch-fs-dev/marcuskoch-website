@@ -86,8 +86,8 @@ const Footer = () => {
           </ul>
         </section>
       </div>
-      <Impressum darkTheme={false} />
-      <Datenschutz darkTheme={false} />
+      {/* <Impressum darkTheme={false} />
+      <Datenschutz darkTheme={false} /> */}
     </footer>
   );
 };
