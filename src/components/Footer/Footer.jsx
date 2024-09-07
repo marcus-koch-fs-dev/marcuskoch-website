@@ -5,18 +5,21 @@ import IconGit from "../../assets/git.png";
 import "./footer.scss";
 import InterpolatedWave from "./InterpolatedWave";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { navLinks } from "../Header/navLinks";
 
 const Footer = () => {
   const { width } = useResponsiveSize();
-  const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
+  let location = useLocation();
+  const routes = navLinks.reduce((obj, nav, idx) => {
+    return { ...obj, [nav.to]: idx };
+  }, {});
 
   const handleClick = () => {
-    const nextIndex = (currentIndex + 1) % navLinks.length;
-    setCurrentIndex(nextIndex);
+    const curPath = location.pathname.slice(1);
+    const getIdx = routes[curPath];
+    const nextIndex = (getIdx + 1) % navLinks.length;
     navigate(navLinks[nextIndex].to);
   };
 
