@@ -22,31 +22,19 @@
     flex-direction: column;
     justify-content: center;
 
-    // // article {
-    // article > p {
-    //   border: red 1px solid;
-    //   margin: 50rem 0;
-    //   // }
-    // }
-
     .highlight-text {
       color: $secondary-h1;
     }
 
     h2 {
       word-break: normal;
-      color: $primary-h1;
 
       &.about-headline {
         margin-top: 1rem;
       }
     }
 
-    // > article > p {
     p {
-      color: $primary-p;
-      font-size: 1.1rem;
-
       &.block {
         margin: 1.5rem 0;
       }
@@ -60,10 +48,6 @@
   }
 
   .achievement-item {
-    color: $primary-p;
-    h4 {
-      color: $primary-p;
-    }
     // border: red 1px solid;
     display: flex;
     flex-direction: column;

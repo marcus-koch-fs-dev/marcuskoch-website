@@ -60,7 +60,7 @@ const Footer = () => {
         <section className="laws">
           <ul className="laws-list">
             <li className="laws-item">
-              <p className="laws-p">Copyright ©2024 Marcus Koch</p>
+              <span className="laws-p">Copyright ©2024 Marcus Koch</span>
             </li>
             <li className="laws-item">
               <a

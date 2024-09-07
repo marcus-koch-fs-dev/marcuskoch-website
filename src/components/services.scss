@@ -3,7 +3,7 @@
 .services {
   display: flex;
   flex-grow: 1;
-  //   border: solid white 1px;
+  // border: solid white 1px;
 
   .services-wrapper {
     display: flex;
@@ -12,17 +12,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // border: solid greenyellow 1px;
+    border: solid greenyellow 1px;
 
     .services-list {
-      //   border: solid blue 1px;
+      border: solid blue 1px;
       display: flex;
-      width: 80vw;
+      // width: 80vw;
       flex-wrap: wrap;
       margin-bottom: 1.5rem;
 
       .services-item {
-        // border: solid orange 1px;
+        border: solid orange 1px;
         display: flex;
         flex-wrap: wrap;
         margin: 0.25rem;
@@ -36,15 +36,6 @@
           padding: 0.75rem;
           display: flex;
           justify-content: center;
-        }
-
-        h3,
-        h4 {
-          color: $primary-h1;
-        }
-
-        p {
-          color: $primary-p;
         }
       }
     }

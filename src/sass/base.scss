@@ -46,6 +46,10 @@ body,
     text-decoration: none;
   }
 
+  p {
+    color: $primary-p;
+  }
+
   // @include desktop-lg {
   //   h1 {
   //     font-size: 3rem;

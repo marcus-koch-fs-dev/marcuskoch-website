@@ -51,7 +51,6 @@ section {
     margin: 0;
   }
 
-  p,
   a {
     color: $secondary-p;
   }
@@ -59,7 +58,6 @@ section {
 
 @include tablet {
   a {
-    // .next-page-btn {
     display: flex !important;
   }
 }
