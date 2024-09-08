@@ -1,0 +1,95 @@
+@import "/src/assets/sass/base.scss";
+
+.services {
+  display: flex;
+  flex-grow: 1;
+  // border: solid white 1px;
+
+  .services-wrapper {
+    display: flex;
+    flex-grow: 1;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // border: solid greenyellow 1px;
+
+    .services-list {
+      // border: solid blue 1px;
+      display: flex;
+      width: 80vw;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding: 0 0.5rem;
+
+      .services-item {
+        // border: solid orange 1px;
+        display: grid;
+        grid-template-columns: 0.2fr 1fr;
+        grid-template-areas: "icon text";
+        grid-template-rows: 1fr;
+        margin: 0.75rem 0;
+
+        width: 36vw;
+
+        .services-i {
+          // border: solid lightcyan 1px;
+
+          grid-area: icon;
+        }
+
+        .text-wrapper {
+          // border: solid magenta 1px;
+          grid-area: text;
+          padding: 0 0.25rem;
+        }
+
+        i {
+          //   border: solid pink 1px;
+          color: var(--sec-color-svg);
+          font-size: 2rem;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    .services-wrapper {
+      align-items: center;
+      justify-content: center;
+
+      .services-list {
+        width: 100vw;
+        padding: 0 0.25rem;
+        .services-item {
+          width: 100vw;
+          margin: 0.55rem 0;
+          .text-wrapper {
+            padding: 0 0.25rem;
+          }
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    .services-wrapper {
+      align-items: center;
+      justify-content: center;
+
+      .services-list {
+        width: 80vw;
+        padding: 0 0.25rem;
+        .services-item {
+          min-width: 80vw;
+          margin: 0.55rem 0;
+          .text-wrapper {
+            padding: 0 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}

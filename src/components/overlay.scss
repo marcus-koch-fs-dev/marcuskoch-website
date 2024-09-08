@@ -1,0 +1,57 @@
+@import "/src/assets/sass/base.scss";
+
+.overlay {
+  // border: 1px blue solid;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  // background-color: black; // Semi-transparent background
+  background-color: var(--bg-overlay-main); // Semi-transparent background
+  flex-direction: column;
+  display: flex;
+  z-index: 1000; // to be the highest frame when other frames with relative positions enabled
+
+  .control {
+    // border: red solid 1px;
+    display: flex;
+    justify-content: end;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .children {
+    // border: darkgoldenrod solid 1px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay-close {
+    // border: 1px solid var(--primary-svg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--bg-btn-overlay-close);
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+}
+
+i.i-tag {
+  color: var(--color-overlay-close);
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+
+@include mobile {
+}
+
+@include tablet {
+}

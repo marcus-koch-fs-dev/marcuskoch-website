@@ -1,48 +1,93 @@
 import Datenschutz from "./Datenschutz";
 import Impressum from "./Impressum";
+import IconLinkedin from "/assets/linkedin.png";
+import IconGit from "/assets/git.png";
+import "./footer.scss";
+import InterpolatedWave from "./InterpolatedWave";
+import useResponsiveSize from "../../hooks/useResponsiveSize";
+import { useNavigate, useLocation } from "react-router-dom";
+import { navLinks } from "../Header/navLinks";
+import { Overlay } from "../Overlay";
+import { useState } from "react";
 
-const Footer = ({ classicHeader, darkTheme }) => {
+const Footer = () => {
+  const [openDS, setOpenDS] = useState(false);
+  const [openImp, setOpenImp] = useState(false);
+  const { width } = useResponsiveSize();
+  const navigate = useNavigate();
+  let location = useLocation();
+  const routes = navLinks.reduce((obj, nav, idx) => {
+    return { ...obj, [nav.to]: idx };
+  }, {});
+
+  const handleClick = () => {
+    const curPath = location.pathname.slice(1);
+    const getIdx = routes[curPath];
+    const nextIndex = (getIdx + 1) % navLinks.length;
+    navigate(navLinks[nextIndex].to);
+  };
+
   return (
-    <footer id="footer" className={"section " + (darkTheme ? "bg-dark-1" : "")}>
-      <div className={"container " + (classicHeader ? "" : "px-lg-5")}>
-        <div className="row">
-          <div className="col-lg-6 text-center text-lg-start">
-            <p className={`mb-3 mb-lg-0 ${darkTheme ? "text-white-50" : ""} `}>
-              Copyright ©2024 Marcus Koch. Alle Rechte Vorbehalten.
-            </p>
-          </div>
-          <div className="col-lg-6">
-            <ul className="nav nav-separator justify-content-center justify-content-lg-end">
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  data-bs-toggle="modal"
-                  data-bs-target="#datenschutz"
-                  href="#datenschutz"
-                >
-                  <span className={darkTheme ? "text-white-50" : ""}>
-                    Datenschutz
-                  </span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  data-bs-toggle="modal"
-                  data-bs-target="#impressum"
-                  href="#impressum"
-                >
-                  <span className={darkTheme ? "text-white-50" : ""}>
-                    Impressum
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <footer>
+      <a
+        aria-label="Nächste Seite"
+        role="button"
+        className="next-page-btn"
+        onClick={(e) => {
+          e.preventDefault();
+          handleClick();
+        }}
+      >
+        <i className="fa fa-chevron-down" />
+      </a>
+      <InterpolatedWave innerW={width} />
+      <div className="wrapper">
+        <section className="sm-wrapper">
+          <ul className="sm-list">
+            <li className="sm-item">
+              <a
+                href="https://www.linkedin.com/in/marcus-koch-webdeveloper "
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img className="sm-icon" src={IconLinkedin} alt="Linkedin" />
+              </a>
+            </li>
+            <li className="item">
+              <a
+                href="https://github.com/marcus-koch-fs-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img className="icon" src={IconGit} alt="Github" />
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section className="laws">
+          <ul className="laws-list">
+            <li className="laws-item">
+              <span className="">Copyright ©2024 Marcus Koch</span>
+            </li>
+            <li className="laws-item" onClick={() => setOpenDS(true)}>
+              <span className={"laws-p"}>Datenschutz</span>
+            </li>
+            <li className="laws-item" onClick={() => setOpenImp(true)}>
+              <span className={"laws-p"}>Impressum</span>
+            </li>
+          </ul>
+        </section>
       </div>
-      <Impressum darkTheme={darkTheme} />
-      <Datenschutz darkTheme={darkTheme} />
+      {openDS && (
+        <Overlay handleClose={() => setOpenDS(false)}>
+          <Datenschutz />
+        </Overlay>
+      )}
+      {openImp && (
+        <Overlay handleClose={() => setOpenImp(false)}>
+          <Impressum />
+        </Overlay>
+      )}
     </footer>
   );
 };

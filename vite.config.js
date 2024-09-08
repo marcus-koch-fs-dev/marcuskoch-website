@@ -16,4 +16,27 @@ export default defineConfig({
   server: {
     open: true,
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "/src/assets/sass/base.scss";`,
+      },
+    },
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: ({ name }) => {
+          // Speichert alle Bilddateien in einem 'images'-Ordner im 'assets'-Verzeichnis
+          if (/\.(png|jpe?g|gif|svg)$/.test(name ?? "")) {
+            return "assets/images/[name].[hash][extname]";
+          }
+          // Standardverhalten für andere Arten von Assets
+          return "assets/[name].[hash][extname]";
+        },
+        chunkFileNames: "assets/js/[name].[hash].js",
+        entryFileNames: "assets/js/[name].[hash].js",
+      },
+    },
+  },
 });

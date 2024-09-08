@@ -1,0 +1,85 @@
+@import "./normalize.scss";
+@import "./mixins";
+@import "./theme-day.scss";
+@import "./theme-night.scss";
+@import "./theme-sunrise.scss";
+@import "./theme-sundown.scss";
+
+// Breakpoints media devices: max sizes
+$mobile: 425px; //360 small mobile
+$tablet: 768px;
+$laptop: 1024px;
+$desktop-lg: 1440px;
+
+html,
+body {
+  height: 100%;
+  font-family: "Poppins", "Sans";
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--h1);
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    color: var(--h2);
+  }
+  h3 {
+    font-size: 1.5rem;
+    color: var(--h3);
+  }
+  h4 {
+    font-size: 1rem;
+    color: var(--h4);
+  }
+  p {
+    font-size: 1rem;
+    color: var(--p);
+  }
+  a {
+    font-size: 1rem;
+    color: var(--a);
+    text-decoration: none;
+  }
+
+  ul {
+    text-decoration: none;
+  }
+
+  @include tablet {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    h4 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.85rem;
+    }
+  }
+
+  @include mobile {
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1rem;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+    h4 {
+      font-size: 0.75rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}

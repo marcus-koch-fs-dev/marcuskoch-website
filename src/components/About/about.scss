@@ -1,0 +1,85 @@
+@import "/src/assets/sass/base.scss";
+
+.about {
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: 0.5fr 1fr 0.25fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". text .";
+  overflow: auto;
+  position: relative;
+
+  .eyes-simulation {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+  }
+
+  .about-container {
+    margin: 1rem 0;
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .highlight-text {
+      color: var(--h1-highlight);
+    }
+
+    h2 {
+      word-break: normal;
+
+      &.about-headline {
+        margin-top: 1rem;
+      }
+    }
+
+    p {
+      &.block {
+        margin: 1.5rem 0;
+      }
+    }
+  }
+
+  .achievement-list {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .achievement-item {
+    // border: red 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-areas: "text";
+
+    .about-container {
+      padding: 1rem;
+    }
+
+    .eyes-simulation {
+      display: none;
+    }
+
+    ul.achievement-list {
+      margin: 0;
+    }
+
+    li {
+      margin: 1rem 0.5rem;
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: 0.25fr 1fr 0.25fr;
+    .eyes-simulation {
+      display: none;
+    }
+  }
+}

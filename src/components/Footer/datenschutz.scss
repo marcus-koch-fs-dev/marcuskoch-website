@@ -1,0 +1,19 @@
+@import "/src/assets/sass/base.scss";
+
+article.datenschutz {
+  overflow-y: scroll;
+  height: 90vh;
+  padding: 0 2rem;
+  background-color: var(--bg-footer-disclaimer);
+  ul {
+    color: var(--p);
+    flex-direction: column;
+    li {
+      margin: 0.5rem 0;
+    }
+  }
+}
+ul.urheber {
+  //   border: rebeccapurple 1px solid;
+  display: flex;
+}

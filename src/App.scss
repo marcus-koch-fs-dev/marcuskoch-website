@@ -1,0 +1,15 @@
+@import "/src/assets/sass/base.scss";
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Stellt sicher, dass .main mindestens die volle Höhe des Viewports einnimmt */
+  background-color: var(--bg-main);
+
+  main {
+    flex-grow: 1;
+    // border: solid 1px white;
+    display: flex;
+    flex-direction: column;
+  }
+}

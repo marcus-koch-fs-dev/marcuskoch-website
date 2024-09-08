@@ -1,0 +1,51 @@
+// Day - Theme default
+:root {
+  // Fonts
+  --h1: #0a0a0a;
+  --h1-highlight: #fa770c;
+  --h2: #0a0a0a;
+  --h2-highlight: #fa770c;
+  --h3: #0a0a0a;
+  --h3-highlight: #fa770c;
+  --h4: #222120;
+  --h4-highlight: #eeeeee;
+  --p: #1b1919;
+  --p-highlight: #e6dcdc;
+  --a: #ffffff;
+  --a-highlight: #181717;
+  --span: #ece2e2;
+  --span-highlight: #181717;
+
+  --btn-label: #181717;
+  --btn-default-boxShadow: #fa770c;
+  --btn-default-boxShadow_hover: #db541fec;
+
+  // --pri-color-svg: #b80e9b;
+  --pri-color-svg: #f4d115;
+  --sec-color-svg: #fa770c;
+
+  --bg-header: #141414;
+  --bg-main: #f1f1f1;
+  --bg-footer: #242424;
+  --bg-footer-disclaimer: #939799;
+  --bg-overlay-main: #949393e5;
+  --bg-item-label: rgba(32, 24, 32, 0.781);
+  --bg-item-hover: rgba(0, 0, 0, 0.534);
+  --bg-slide: #242424;
+
+  --bg-btn-arrow-slider: rgb(0, 0, 0);
+  --bg-btn-arrow-boxShadow: rgba(29, 31, 29, 0.24);
+  --bg-btn-toggler: "transparent";
+  --bg-btn-span-toggler: var(--pri-color-svg);
+  --bg-mobile-menu: rgb(85, 84, 84);
+  --bg-btn-overlay-close: "transparent";
+  --color-overlay-close: #080808;
+  --bg-btn-default: rgb(129, 124, 124);
+
+  --bg-theme-zones: rgb(22, 21, 21);
+  --color-night: rgb(255, 251, 0);
+  --color-day: rgb(255, 255, 255);
+  --color-sundown: rgb(235, 121, 14);
+  --color-sunrise: rgb(53, 104, 163);
+}
+// }

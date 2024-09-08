@@ -1,0 +1,86 @@
+// Rotation der gesamten Palette
+@import "/src/assets/sass/base.scss";
+
+@keyframes dynamicRotate {
+  0% {
+    transform: rotate(var(--start-angle, 45deg));
+  }
+  100% {
+    transform: rotate(var(--end-angle, 45deg));
+  }
+}
+
+// Rotation of palette
+@keyframes rotRise0 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-135deg);
+  }
+}
+@keyframes rotRise90 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+}
+@keyframes rotRise180 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+// Movement of the icon
+@keyframes sunrise {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1.5rem, 1.5rem);
+  }
+  100% {
+    transform: translateY(-0.75rem) translateX(4rem);
+  }
+}
+
+@keyframes day {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-1.5rem, 1.5rem);
+  }
+  100% {
+    transform: translateX(0.75rem) translateY(4rem);
+  }
+}
+
+@keyframes sundown {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-1.5rem, -1.5rem);
+  }
+  100% {
+    transform: translateY(0.75rem) translateX(-4rem);
+  }
+}
+
+@keyframes night {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1.5rem, -1.5rem);
+  }
+  100% {
+    transform: translateX(-1rem) translateY(-4.2rem);
+  }
+}

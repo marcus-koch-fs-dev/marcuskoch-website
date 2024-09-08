@@ -1,0 +1,73 @@
+@import "/src/assets/sass/base.scss";
+
+footer {
+  > a {
+    margin-top: 1rem;
+    text-decoration: none;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      border-radius: 20rem;
+      border: var(--pri-color-svg) 1px solid;
+      font-size: 1.25rem;
+      color: var(--pri-color-svg);
+      padding: 0.25rem;
+      @include slideY-animation(2s);
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pri-color-svg);
+}
+
+img {
+  width: 2rem;
+}
+
+section {
+  > ul,
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul {
+    flex-wrap: wrap;
+  }
+
+  li {
+    margin: 0.25rem 0.75rem;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: var(--p);
+  }
+
+  span.laws-p {
+    cursor: pointer;
+  }
+}
+
+@include tablet {
+  a {
+    display: flex !important;
+  }
+}
+
+@include mobile {
+  .next-page-btn {
+    display: flex;
+  }
+}

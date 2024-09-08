@@ -1,40 +1,30 @@
 import React, { useState, useEffect } from "react";
 
 const useResponsiveSize = () => {
-  // Definiere Breakpoints für die Bildschirmgrößen
-  const breakpoints = { sm: 600, med: 1200, lg: 2400 };
-
-  const getDisplaySize = (width) => {
-    switch (true) {
-      case width <= breakpoints.sm:
-        return "sm"; // Sehr kleine Displays
-      case width > breakpoints.sm && width <= breakpoints.med:
-        return "med"; // Kleine Displays
-      case width > breakpoints.med:
-        return "lg"; // Mittelgroße Displays
-      default:
-        return "med"; // Große Displays
-    }
+  const breakpoints = {
+    tablet: 768,
   };
 
-  const [displaySize, setDisplaySize] = useState(() =>
-    getDisplaySize(window.innerWidth)
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth <= breakpoints.tablet
   );
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
-      setDisplaySize(getDisplaySize(window.innerWidth));
+      const currentWidth = window.innerWidth;
+      setWidth(currentWidth);
+      setIsMobile(currentWidth <= breakpoints.tablet); // Setzt isMobile auf true, wenn die Breite <= tablet-Breite ist
     };
 
     window.addEventListener("resize", handleResize);
 
-    // Cleanup-Funktion, um den Event Listener zu entfernen
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  return displaySize;
+  return { isMobile, width };
 };
 
 export default useResponsiveSize;

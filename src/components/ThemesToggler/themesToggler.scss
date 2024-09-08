@@ -1,0 +1,253 @@
+@import "/src/assets/sass/base.scss";
+@import "./animations.scss";
+
+.themes-wrapper {
+  z-index: 999; // One level beneath overlay
+  display: flex;
+  // border: white solid 1px;
+  align-items: center;
+  position: relative;
+  // width: 10rem;
+
+  i {
+    font-size: 1.5rem;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.day {
+      color: var(--color-day);
+    }
+    &.night {
+      color: var(--color-night);
+    }
+    &.sunrise {
+      color: var(--color-sunrise);
+    }
+    &.sundown {
+      color: var(--color-sundown);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+div.current-theme {
+  // border: red solid 1px;
+  border-radius: 50%;
+  margin: 0 1.5rem 0 1rem;
+  padding: 0.5rem;
+
+  i {
+    transform: rotate(0deg);
+  }
+}
+
+.dayZones {
+  position: absolute;
+  top: 2.75rem;
+  left: 2.95rem;
+  background-color: var(--bg-theme-zones);
+  border-radius: 25%;
+  display: grid;
+  grid-template-areas:
+    "top-left top-right"
+    "bottom-left bottom-right";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  transform: rotate(-45deg);
+
+  // Rotate palette
+  &.active-0 {
+    animation: rotRise0 1s forwards;
+  }
+
+  &.active-90 {
+    animation: rotRise90 1s forwards;
+  }
+  &.active-180 {
+    animation: rotRise180 1s forwards;
+  }
+}
+
+// Movement of the icon
+.zones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  &.zone-0 {
+    > i {
+      color: var(--color-sunrise);
+    }
+  }
+  &.zone-90 {
+    > i {
+      color: var(--color-day);
+    }
+  }
+  &.zone-180 {
+    > i {
+      color: var(--color-sundown);
+    }
+  }
+  &.zone-270 {
+    > i {
+      color: var(--color-night);
+    }
+  }
+}
+
+.zone-0 {
+  grid-area: bottom-right;
+
+  &.active-0 {
+    animation: sunrise 0.5s 1s forwards; // Startet nach 1s, um 1.5s Gesamtzeit zu erreichen
+  }
+}
+
+.zone-90 {
+  grid-area: bottom-left;
+  &.active-90 {
+    animation: day 0.5s 1s forwards;
+  }
+}
+
+.zone-180 {
+  grid-area: top-left;
+  &.active-180 {
+    animation: sundown 0.5s 1s forwards;
+  }
+}
+
+.zone-270 {
+  grid-area: top-right;
+  &.active-270 {
+    animation: night 0.5s forwards;
+  }
+}
+
+// Icons rotate only when their zone is active
+.zone-0.active-0 i,
+.zone-90.active-90 i,
+.zone-180.active-180 i,
+.zone-270.active-270 i {
+  animation: dynamicRotate 1s forwards;
+}
+
+// Specific rotations for each zone when active
+.zone-0.active-0 i {
+  --start-angle: -45deg;
+  --end-angle: 45deg;
+}
+
+.zone-90.active-90 i {
+  --start-angle: 45deg;
+  --end-angle: -45deg;
+}
+
+.zone-180.active-180 i {
+  --start-angle: 45deg;
+  --end-angle: -45deg;
+}
+
+.zone-270.active-270 i {
+  --start-angle: 45deg;
+  --end-angle: 45deg;
+}
+
+// // Keyframes for rotation based on active zones
+// Rotation der gesamten Palette
+
+@keyframes dynamicRotate {
+  0% {
+    transform: rotate(var(--start-angle, 45deg));
+  }
+  100% {
+    transform: rotate(var(--end-angle, 45deg));
+  }
+}
+
+// Rotation of palette
+@keyframes rotRise0 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-135deg);
+  }
+}
+@keyframes rotRise90 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+}
+@keyframes rotRise180 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+// Movement of the icon
+@keyframes sunrise {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1.5rem, 1.5rem);
+  }
+  100% {
+    transform: translateY(-0.75rem) translateX(3.8rem);
+  }
+}
+
+@keyframes day {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-1.5rem, 1.5rem);
+  }
+  100% {
+    transform: translateX(0.65rem) translateY(3.8rem);
+  }
+}
+
+@keyframes sundown {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-1.5rem, -1.5rem);
+  }
+  100% {
+    transform: translateY(0.7rem) translateX(-3.8rem);
+  }
+}
+
+@keyframes night {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1.5rem, -1.5rem);
+  }
+  100% {
+    transform: translateX(-0.7rem) translateY(-4rem);
+  }
+}

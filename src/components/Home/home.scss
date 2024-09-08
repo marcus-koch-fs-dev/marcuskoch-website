@@ -1,0 +1,93 @@
+@import "/src/assets/sass/base.scss";
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "home home frame";
+  flex-grow: 1;
+
+  .frame {
+    grid-area: frame;
+    display: flex;
+    justify-content: flex-end;
+
+    .frame-order {
+      position: relative;
+      width: 300px;
+      height: 300px;
+
+      .frame-svg {
+        position: absolute;
+        z-index: 0;
+      }
+
+      .frame-img {
+        position: absolute;
+        z-index: 1;
+        border-radius: 100rem;
+        width: 170px;
+        height: 170px;
+        bottom: 22px;
+        left: 22px;
+      }
+    }
+  }
+
+  .homeWrapper {
+    grid-area: home;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // border: solid red 1px;
+
+    .home-h1 {
+      display: flex;
+      flex-direction: column;
+      // color: var(--h1);
+
+      .highlight-text {
+        color: var(--h1-highlight);
+      }
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr auto;
+    grid-template-areas:
+      "frame"
+      "home";
+    .frame {
+      .frame-order {
+        position: relative;
+        width: 200px;
+        height: 200px;
+
+        .frame-svg {
+          position: absolute;
+          z-index: 0;
+        }
+
+        .frame-img {
+          position: absolute;
+          z-index: 1;
+          border-radius: 100rem;
+          width: 120px;
+          height: 120px;
+          bottom: 10px;
+          left: 11px;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr auto;
+    grid-template-areas:
+      "frame"
+      "home";
+  }
+}
