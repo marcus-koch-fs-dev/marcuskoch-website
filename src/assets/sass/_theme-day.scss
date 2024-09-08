@@ -1,15 +1,14 @@
 // Day - Theme default
-#root,
-#modal-root {
+:root {
   // Fonts
   --h1: #0a0a0a;
-  --h1-highlight: #e411b6;
+  --h1-highlight: #fa770c;
   --h2: #0a0a0a;
-  --h2-highlight: #e411b6;
+  --h2-highlight: #fa770c;
   --h3: #0a0a0a;
-  --h3-highlight: #e411b6;
+  --h3-highlight: #fa770c;
   --h4: #222120;
-  --h4-highlight: #c7bbc4;
+  --h4-highlight: #eeeeee;
   --p: #1b1919;
   --p-highlight: #e6dcdc;
   --a: #ffffff;
@@ -18,32 +17,34 @@
   --span-highlight: #181717;
   --btn-label: #181717;
 
-  --pri-color-svg: #b80e9b;
-  --sec-color-svg: #642aa5;
+  // --pri-color-svg: #b80e9b;
+  --pri-color-svg: #f4d115;
+  --sec-color-svg: #fa770c;
 
-  --bg-header: #242424;
-  --bg-main: #242424;
+  --bg-header: #141414;
+  --bg-main: #f3f3f3;
   --bg-footer: #242424;
-  --bg-footer-disclaimer: #3f7497;
-  --bg-overlay-main: #242424;
+  --bg-footer-disclaimer: #939799;
+  --bg-overlay-main: #949393e5;
   --bg-item-label: rgba(32, 24, 32, 0.781);
   --bg-item-hover: rgba(0, 0, 0, 0.534);
   --bg-slide: #242424;
 
-  --bg-btn-arrow-slider: rgb(21, 125, 211);
+  --bg-btn-arrow-slider: rgb(0, 0, 0);
   --bg-btn-arrow-boxShadow: rgba(29, 31, 29, 0.24);
   --bg-btn-toggler: "transparent";
   --bg-btn-span-toggler: var(--pri-color-svg);
   --bg-mobile-menu: grey;
   --bg-btn-overlay-close: "transparent";
+  --color-overlay-close: #080808;
   --bg-btn-default: rgb(129, 124, 124);
-  --btn-default-boxShadow: rgba(175, 23, 221, 0.651);
-  --btn-default-boxShadow_hover: rgb(0, 110, 255);
+  --btn-default-boxShadow: #fa770c;
+  --btn-default-boxShadow_hover: #db541fec;
 
-  --bg-theme-zones: grey;
-  --color-night: white;
-  --color-day: orange;
-  --color-sundown: rgb(109, 28, 28);
-  --color-sunrise: rgb(64, 109, 194);
+  --bg-theme-zones: rgb(22, 21, 21);
+  --color-night: rgb(255, 251, 0);
+  --color-day: rgb(255, 255, 255);
+  --color-sundown: rgb(235, 121, 14);
+  --color-sunrise: rgb(53, 104, 163);
 }
 // }

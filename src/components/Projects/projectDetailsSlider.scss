@@ -23,8 +23,18 @@
     .slick-next {
       z-index: 1;
       &::before {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         color: var(--bg-btn-arrow-slider);
+      }
+    }
+    .slick-prev {
+      &::before {
+        margin-left: -1.5rem;
+      }
+    }
+    .slick-next {
+      &::before {
+        margin-right: 1.5rem;
       }
     }
   }

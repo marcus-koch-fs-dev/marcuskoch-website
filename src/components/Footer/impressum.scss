@@ -5,4 +5,9 @@ article.impressum {
   height: 90vh;
   padding: 0 2rem;
   background-color: var(--bg-footer-disclaimer);
+
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
 }

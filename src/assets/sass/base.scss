@@ -1,9 +1,9 @@
-@import "./theme-sunrise.scss";
-@import "./theme-sundown.scss";
-@import "./theme-night.scss";
-@import "./theme-day.scss";
 @import "./normalize.scss";
 @import "./mixins";
+@import "./theme-day.scss";
+@import "./theme-night.scss";
+@import "./theme-sunrise.scss";
+@import "./theme-sundown.scss";
 
 // Breakpoints media devices: max sizes
 $mobile: 425px; //360 small mobile
