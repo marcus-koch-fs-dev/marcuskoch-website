@@ -1,50 +1,50 @@
-// Day - Theme default
-#root {
-  // Fonts
-  .sunrise {
-    --h1: #0a0a0a;
-    --h1-highlight: #e411b6;
-    --h2: #0a0a0a;
-    --h2-highlight: #e411b6;
-    --h3: #0a0a0a;
-    --h3-highlight: #e411b6;
-    --h4: #222120;
-    --h4-highlight: #c7bbc4;
-    --p: #1b1919;
-    --p-highlight: #e6dcdc;
-    --a: #ffffff;
-    --a-highlight: #181717;
-    --span: #ece2e2;
-    --span-highlight: #181717;
-    --btn-label: #181717;
+body.sunrise {
+  --h1: #8d8d8d;
+  --h1-highlight: #af5113;
+  --h2: #dddddd;
+  --h2-highlight: #af5113;
+  --h3: #dddddd;
+  --h3-highlight: #af5113;
+  --h4: #dddddd;
+  --h4-highlight: #b5b5b6;
+  --p: #dddddd;
+  --p-highlight: #e6dcdc;
+  --a: #ffffff;
+  --a-highlight: #181717;
+  --span: #e7dcdc;
+  --span-highlight: #181717;
 
-    --pri-color-svg: #b80e9b;
-    --sec-color-svg: #642aa5;
+  --btn-label: #181717;
+  --btn-default-boxShadow: #f3f3f3;
+  --btn-default-boxShadow_hover: #f08229;
 
-    --bg-header: #242424;
-    --bg-main: #242424;
-    --bg-footer: #242424;
-    --bg-footer-disclaimer: #3f7497;
-    --bg-overlay-main: #242424;
-    --bg-item-label: rgba(32, 24, 32, 0.781);
-    --bg-item-hover: rgba(0, 0, 0, 0.534);
-    --bg-slide: #242424;
+  // --pri-color-svg: #f4d115;
+  --pri-color-svg: #af5113;
+  --sec-color-svg: #c2a213;
 
-    --bg-btn-arrow-slider: green;
-    --bg-btn-arrow-boxShadow: rgba(29, 31, 29, 0.24);
-    --bg-btn-toggler: "transparent";
-    --bg-btn-span-toggler: var(--pri-color-svg);
-    --bg-mobile-menu: grey;
-    --bg-btn-overlay-close: "transparent";
-    --color-overlay-close: "#fff";
-    --bg-btn-default: rgb(129, 124, 124);
-    --btn-default-boxShadow: rgba(175, 23, 221, 0.651);
-    --btn-default-boxShadow_hover: rgb(0, 110, 255);
+  --bg-header: #242424;
+  // --bg-main: linear-gradient(90deg, #0c2974, #107cd4);
+  --bg-main: #284c8f;
+  --bg-footer: #242424;
+  --bg-footer-disclaimer: #3a4a74;
+  --bg-overlay-main: #24242488;
+  --bg-item-label: rgba(32, 24, 32, 0.781);
+  --bg-item-hover: rgba(0, 0, 0, 0.534);
+  --bg-slide: #15151f;
 
-    --bg-theme-zones: grey;
-    --color-night: white;
-    --color-day: orange;
-    --color-sundown: rgb(109, 28, 28);
-    --color-sunrise: rgb(64, 109, 194);
-  }
+  --bg-btn-arrow-slider: rgb(144, 199, 243);
+  --bg-btn-arrow-boxShadow: rgba(29, 31, 29, 0.24);
+  --bg-btn-toggler: "transparent";
+  --bg-btn-span-toggler: var(--pri-color-svg);
+  --bg-mobile-menu: rgb(41, 41, 131);
+  --bg-btn-overlay-close: "transparent";
+  --color-overlay-close: #f08229;
+  --bg-btn-default: rgb(129, 124, 124);
+
+  --bg-theme-zones: rgb(34, 50, 143);
+  --color-night: #c7c7c7;
+  --color-day: rgb(189, 172, 20);
+  --color-sundown: rgb(201, 136, 40);
+  --color-sunrise: #5172b1;
 }
+// }

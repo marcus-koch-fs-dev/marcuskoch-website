@@ -15,14 +15,17 @@
   --a-highlight: #181717;
   --span: #ece2e2;
   --span-highlight: #181717;
+
   --btn-label: #181717;
+  --btn-default-boxShadow: #fa770c;
+  --btn-default-boxShadow_hover: #db541fec;
 
   // --pri-color-svg: #b80e9b;
   --pri-color-svg: #f4d115;
   --sec-color-svg: #fa770c;
 
   --bg-header: #141414;
-  --bg-main: #f3f3f3;
+  --bg-main: #f1f1f1;
   --bg-footer: #242424;
   --bg-footer-disclaimer: #939799;
   --bg-overlay-main: #949393e5;
@@ -34,12 +37,10 @@
   --bg-btn-arrow-boxShadow: rgba(29, 31, 29, 0.24);
   --bg-btn-toggler: "transparent";
   --bg-btn-span-toggler: var(--pri-color-svg);
-  --bg-mobile-menu: grey;
+  --bg-mobile-menu: rgb(85, 84, 84);
   --bg-btn-overlay-close: "transparent";
   --color-overlay-close: #080808;
   --bg-btn-default: rgb(129, 124, 124);
-  --btn-default-boxShadow: #fa770c;
-  --btn-default-boxShadow_hover: #db541fec;
 
   --bg-theme-zones: rgb(22, 21, 21);
   --color-night: rgb(255, 251, 0);
