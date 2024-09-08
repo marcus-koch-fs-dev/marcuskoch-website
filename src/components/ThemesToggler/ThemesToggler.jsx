@@ -8,27 +8,29 @@ const ThemesToggler = () => {
   const curZone = zones.find((zone) => zone.theme === theme);
 
   const [isToggled, setIsToggled] = useState(false);
+  const [temp, setTemp] = useState(curZone);
   const [active, setActive] = useState("");
 
   const handleClick = (zone) => {
     setActive(zone.angle);
-    setIsToggled(false);
-    changeTheme(zone.theme);
+    setTemp(zone);
   };
 
   useEffect(() => {
     if (active !== "" && typeof active === "string") {
       setTimeout(() => {
+        changeTheme(temp.theme);
+        setIsToggled(false);
         setActive("");
-      }, curZone.delay);
+      }, temp.delay);
     }
-  }, [active, curZone]);
+  }, [active, changeTheme, temp]);
 
   return (
     <div className="themes-wrapper">
       <div className="current-theme">
         <i
-          className={`${curZone.class}`}
+          className={`${curZone.class} ${curZone.theme}`}
           onClick={() => setIsToggled(!isToggled)}
         ></i>
       </div>

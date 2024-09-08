@@ -2,6 +2,7 @@
 @import "./animations.scss";
 
 .themes-wrapper {
+  z-index: 999; // One level beneath overlay
   display: flex;
   // border: white solid 1px;
   align-items: center;
@@ -9,12 +10,24 @@
   // width: 10rem;
 
   i {
-    color: white;
     font-size: 1.5rem;
     transform: rotate(45deg);
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &.day {
+      color: var(--color-day);
+    }
+    &.night {
+      color: var(--color-night);
+    }
+    &.sunrise {
+      color: var(--color-sunrise);
+    }
+    &.sundown {
+      color: var(--color-sundown);
+    }
 
     &:hover {
       cursor: pointer;
@@ -37,7 +50,7 @@ div.current-theme {
   position: absolute;
   top: 2.75rem;
   left: 2.95rem;
-  background-color: lightcoral;
+  background-color: var(--bg-theme-zones);
   border-radius: 25%;
   display: grid;
   grid-template-areas:
@@ -65,8 +78,38 @@ div.current-theme {
 }
 
 // Movement of the icon
+.zones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  &.zone-0 {
+    > i {
+      color: var(--color-sunrise);
+    }
+  }
+  &.zone-90 {
+    > i {
+      color: var(--color-day);
+    }
+  }
+  &.zone-180 {
+    > i {
+      color: var(--color-sundown);
+    }
+  }
+  &.zone-270 {
+    > i {
+      color: var(--color-night);
+    }
+  }
+}
+
 .zone-0 {
   grid-area: bottom-right;
+
   &.active-0 {
     animation: sunrise 0.5s 1s forwards; // Startet nach 1s, um 1.5s Gesamtzeit zu erreichen
   }
@@ -123,86 +166,88 @@ div.current-theme {
 }
 
 // // Keyframes for rotation based on active zones
-// @keyframes dynamicRotate {
-//   0% {
-//     transform: rotate(var(--start-angle, 45deg));
-//   }
-//   100% {
-//     transform: rotate(var(--end-angle, 45deg));
-//   }
-// }
+// Rotation der gesamten Palette
+
+@keyframes dynamicRotate {
+  0% {
+    transform: rotate(var(--start-angle, 45deg));
+  }
+  100% {
+    transform: rotate(var(--end-angle, 45deg));
+  }
+}
 
 // Rotation of palette
-// @keyframes rotRise0 {
-//   0% {
-//     transform: rotate(-45deg);
-//   }
-//   100% {
-//     transform: rotate(-135deg);
-//   }
-// }
-// @keyframes rotRise90 {
-//   0% {
-//     transform: rotate(-45deg);
-//   }
-//   100% {
-//     transform: rotate(135deg);
-//   }
-// }
-// @keyframes rotRise180 {
-//   0% {
-//     transform: rotate(-45deg);
-//   }
-//   100% {
-//     transform: rotate(45deg);
-//   }
-// }
+@keyframes rotRise0 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-135deg);
+  }
+}
+@keyframes rotRise90 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+}
+@keyframes rotRise180 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
 
-// // Movement of the icon
-// @keyframes sunrise {
-//   0% {
-//     transform: translate(0, 0);
-//   }
-//   50% {
-//     transform: translate(1.5rem, 1.5rem);
-//   }
-//   100% {
-//     transform: translateY(-0.75rem) translateX(4rem);
-//   }
-// }
+// Movement of the icon
+@keyframes sunrise {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1.5rem, 1.5rem);
+  }
+  100% {
+    transform: translateY(-0.75rem) translateX(4rem);
+  }
+}
 
-// @keyframes day {
-//   0% {
-//     transform: translate(0, 0);
-//   }
-//   50% {
-//     transform: translate(-1.5rem, 1.5rem);
-//   }
-//   100% {
-//     transform: translateX(0.75rem) translateY(4rem);
-//   }
-// }
+@keyframes day {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-1.5rem, 1.5rem);
+  }
+  100% {
+    transform: translateX(0.75rem) translateY(4rem);
+  }
+}
 
-// @keyframes sundown {
-//   0% {
-//     transform: translate(0, 0);
-//   }
-//   50% {
-//     transform: translate(-1.5rem, -1.5rem);
-//   }
-//   100% {
-//     transform: translateY(0.75rem) translateX(-4rem);
-//   }
-// }
+@keyframes sundown {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-1.5rem, -1.5rem);
+  }
+  100% {
+    transform: translateY(0.75rem) translateX(-4rem);
+  }
+}
 
-// @keyframes night {
-//   0% {
-//     transform: translate(0, 0);
-//   }
-//   50% {
-//     transform: translate(1.5rem, -1.5rem);
-//   }
-//   100% {
-//     transform: translateX(-1rem) translateY(-4.2rem);
-//   }
-// }
+@keyframes night {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1.5rem, -1.5rem);
+  }
+  100% {
+    transform: translateX(-1rem) translateY(-4.2rem);
+  }
+}
