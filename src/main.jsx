@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-// import { ThemesProvider } from "./context/ThemesContext";
+import { ThemesProvider } from "./context/ThemesContext";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About/About";
 import Home from "./components/Home/Home";
@@ -42,10 +42,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <ThemesProvider> */}
-    <RouterProvider router={router} />
-    {/* <App /> */}
-    {/* </ThemesProvider> */}
+    <ThemesProvider>
+      <RouterProvider router={router} />
+    </ThemesProvider>
   </React.StrictMode>
 );
 

@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { createContext } from "react";
-import { commonConfig } from "../config/commonConfig";
 import { useEffect } from "react";
-// import { stringify } from "querystring";
+import { zones } from "./ThemesContext";
 
-const isDark = commonConfig.darkTheme;
 const loadLocalTheme = localStorage?.getItem("theme");
-
-const curTheme = loadLocalTheme === null ? isDark : JSON.parse(loadLocalTheme);
+const defaultDay = zones[1].theme;
+const curTheme =
+  loadLocalTheme === null ? defaultDay : JSON.parse(loadLocalTheme);
 
 export const ThemeContext = createContext(curTheme);
 

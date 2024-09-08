@@ -1,17 +1,20 @@
-import React from "react";
 import "./themesToggler.scss";
 import { useState } from "react";
 import { useEffect } from "react";
+import useThemeSetter from "../../context/themeContext";
+import { zones } from "../../context/ThemesContext";
 
-const ThemesToggler = ({ size = 20 }) => {
-  const [curTheme, setCurTheme] = useState("fa-solid fa-moon");
-  const [tempTheme, setTempTheme] = useState("fa-solid fa-moon");
+const ThemesToggler = () => {
+  const [theme, setTheme] = useThemeSetter();
+  const curData = zones.filter((ct) => ct.theme === theme)[0];
+
+  const [delay, setDelay] = useState(curData.delay);
+  const [curZone, setCurZone] = useState(curData);
   const [isToggled, setIsToggled] = useState(false);
-  const [delay, setDelay] = useState(1500);
   const [active, setActive] = useState("");
 
   const handleClick = (stg) => {
-    setTempTheme(stg.class);
+    setCurZone(stg);
     setActive(stg.angle);
     setDelay(stg.delay);
   };
@@ -19,24 +22,17 @@ const ThemesToggler = ({ size = 20 }) => {
   useEffect(() => {
     if (active !== "" && typeof active === "string")
       setTimeout(() => {
-        setActive("");
         setIsToggled(false);
-        setCurTheme(tempTheme);
+        setActive("");
+        setTheme(curZone.theme);
       }, delay);
-  }, [active, delay, tempTheme]);
-
-  const zones = [
-    { angle: "0", class: "fa-regular fa-sun", delay: 1750 },
-    { angle: "90", class: "fa-solid fa-sun", delay: 1750 },
-    { angle: "180", class: "fa-regular fa-moon", delay: 1750 },
-    { angle: "270", class: "fa-solid fa-moon", delay: 1000 },
-  ];
+  }, [active, delay, curZone, setTheme]);
 
   return (
     <div className="themes-wrapper">
       <div className="current-theme">
         <i
-          className={`${curTheme}`}
+          className={`${curZone.class}`}
           onClick={() => setIsToggled(!isToggled)}
         ></i>
       </div>

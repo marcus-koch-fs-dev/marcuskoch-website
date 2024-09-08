@@ -5,6 +5,7 @@ import NavMenu from "./NavMenu";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 import "./navbar.scss";
 import { useRef } from "react";
+import ThemesToggler from "../ThemesToggler/ThemesToggler";
 
 const Navbar = () => {
   const { isMobile } = useResponsiveSize();
@@ -22,24 +23,30 @@ const Navbar = () => {
   );
 
   const renderBar = () => (
-    <ul className="menu-horizontal">
-      {navLinks.map((link, idx) => (
-        <li className="menu-item" key={idx}>
-          <NavLink
-            to={`/${link.to}`}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            {link.name}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
+    <>
+      {/* <ThemesToggler /> */}
+      <ul className="menu-horizontal">
+        {navLinks.map((link, idx) => (
+          <li className="menu-item" key={idx}>
+            <NavLink
+              to={`/${link.to}`}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              {link.name}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 
   return (
     <>
       {isMobile ? (
         <div className={`menu-wrapper-vertical`}>
+          <div className="themesToggler">
+            <ThemesToggler />
+          </div>
           <NavMenu
             menuRef={menuRef}
             handleClick={() => setIsToggled((prev) => !prev)}
@@ -48,7 +55,13 @@ const Navbar = () => {
           {isToggled && renderList()}
         </div>
       ) : (
-        <div className="menu-wrapper-horizontal">{renderBar()}</div>
+        <div className="menu-wrapper-horizontal">
+          <div className="themesToggler">
+            <ThemesToggler />
+          </div>
+          {renderBar()}
+          <div className="placeholder"></div>
+        </div>
       )}
     </>
   );
