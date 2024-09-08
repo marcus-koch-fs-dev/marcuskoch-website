@@ -25,14 +25,14 @@
     .slick-next {
       z-index: 1;
       &::before {
-        color: $primary-bg_btn-arrow; // Pfeilfarbe
+        color: var(--primary-bg_btn-arrow); // Pfeilfarbe
       }
     }
   }
 
   .details-item {
     // Styles für einzelne Slides
-    background-color: $secondary-bg_menu; // Hintergrundfarbe der Slides
+    background-color: var(--secondary-bg_menu); // Hintergrundfarbe der Slides
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -43,7 +43,7 @@
   .details-desc {
     // Styles für die Beschreibung in den Slides
     font-size: 1.2rem;
-    color: $primary-p;
+    color: var(--primary-p);
     margin: 1rem 0;
   }
 

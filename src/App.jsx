@@ -2,20 +2,17 @@ import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import { Outlet } from "react-router-dom";
+import { useThemeSetter } from "./hooks/useThemeSetter";
 
 function App() {
-  // const [darkTheme, setTheme] = useThemeSetter();
-  // console.log(routes);
+  const [theme] = useThemeSetter();
+
   return (
-    <div className="app">
+    <div className={`app ${theme}`}>
       <Header />
       <main>
         <Outlet />
       </main>
-      {/* <h1 hidden={true}>Web Developer Marcus Koch</h1>
-      
-      <Projects classicHeader={classicHeader} darkTheme={darkTheme} />
-      <Testimonials classicHeader={classicHeader} darkTheme={darkTheme} /> */}
       <Footer />
     </div>
   );

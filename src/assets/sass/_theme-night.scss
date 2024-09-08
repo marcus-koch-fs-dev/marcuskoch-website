@@ -1,0 +1,61 @@
+// $theme-dark-heading-highlight: #fbc508;
+// $theme-dark-heading: #f9f9f9;
+// $theme-dark-text: #fbfafa;
+// $theme-dark-svg: #f4d115;
+
+// $theme-dark-bg_header: #242424;
+// var(--theme-dark-bg_main): #000;
+// $theme-dark-bg_toggler: $theme-dark-heading;
+// $theme-dark-bg_menu: grey;
+
+// var(--primary-h1): $theme-dark-heading;
+// var(--secondary-h1): $theme-dark-heading-highlight;
+// var(--primary-p): $theme-dark-text;
+// var(--secondary-p): var(--theme-dark-bg_main);
+// var(--primary-svg): $theme-dark-svg;
+// var(--primary-span): $theme-dark-svg;
+
+// $primary-bg_header: $theme-dark-bg_header;
+// var(--primary-bg_main): var(--theme-dark-bg_main);
+// var(--primary-bg_toggler): $theme-dark-bg_toggler;
+// $primary-bg_menu: $theme-dark-bg_menu;
+// var(--secondary-bg_menu): rgb(51, 35, 51);
+// var(--primary-bg_btn-arrow): white;
+
+// var(--primary-btn-bg-color): #d3d3d3;
+// $primary-btn-label-color: var(--theme-dark-bg_main);
+
+// //default day
+// $h1color: black;
+
+.night {
+  $theme-dark-heading-highlight: #fbc508;
+  $theme-dark-heading: #f9f9f9;
+  $theme-dark-text: #fbfafa;
+  $theme-dark-svg: #f4d115;
+
+  $theme-dark-bg_header: #242424;
+  var(--theme-dark-bg_main): #000;
+  $theme-dark-bg_toggler: $theme-dark-heading;
+  $theme-dark-bg_menu: grey;
+
+  var(--primary-h1): $theme-dark-heading;
+  var(--secondary-h1): $theme-dark-heading-highlight;
+  var(--primary-p): $theme-dark-text;
+  var(--secondary-p): var(--theme-dark-bg_main);
+  var(--primary-svg): $theme-dark-svg;
+  var(--primary-span): $theme-dark-svg;
+
+  $primary-bg_header: $theme-dark-bg_header;
+  var(--primary-bg_main): var(--theme-dark-bg_main);
+  var(--primary-bg_toggler): $theme-dark-bg_toggler;
+  $primary-bg_menu: $theme-dark-bg_menu;
+  var(--secondary-bg_menu): rgb(51, 35, 51);
+  var(--primary-bg_btn-arrow): white;
+
+  var(--primary-btn-bg-color): #d3d3d3;
+  $primary-btn-label-color: var(--theme-dark-bg_main);
+
+  //default day
+  $h1color: black;
+}

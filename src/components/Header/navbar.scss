@@ -31,14 +31,14 @@ ul {
     align-items: center;
 
     a {
-      color: $primary-p;
+      color: var(--primary-p);
     }
 
     .menu-horizontal {
       .menu-item {
         margin: 0.35rem;
         :hover {
-          border-bottom: 2px solid $primary-svg;
+          border-bottom: 2px solid var(--primary-svg);
         }
       }
     }
@@ -51,7 +51,7 @@ ul {
     align-items: center;
 
     a {
-      color: $primary-p;
+      color: var(--primary-p);
     }
   }
 }
@@ -64,13 +64,13 @@ ul {
   width: 100%;
   align-items: center;
   flex-direction: column;
-  background-color: $primary-bg_menu;
+  background-color: var(--primary-bg_menu);
 
   .menu-item {
     box-sizing: border-box;
     height: 2rem;
     :hover {
-      border-bottom: 2px solid $primary-svg;
+      border-bottom: 2px solid var(--primary-svg);
     }
   }
 }

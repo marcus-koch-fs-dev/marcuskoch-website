@@ -1,19 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// for rtl format comment out bootstrap.min.css and uncomment bootstrap.rtl.min.css
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import "./index.scss";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemesProvider } from "./context/ThemesContext";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About/About";
 import Home from "./components/Home/Home";
 import Services from "./components/Services";
 import Projects from "./components/Projects/Projects";
+import { ThemesProvider } from "./context/ThemesContext";
 
 const router = createBrowserRouter([
   {

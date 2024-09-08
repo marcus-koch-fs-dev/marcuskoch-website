@@ -29,7 +29,7 @@
   }
 
   button.overlay-close {
-    // border: 1px solid $primary-svg;
+    // border: 1px solid var(--primary-svg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,7 @@
   }
 
   i {
-    color: $primary-svg;
+    color: var(--primary-svg);
     padding: 0.5rem;
     font-size: 2rem;
   }

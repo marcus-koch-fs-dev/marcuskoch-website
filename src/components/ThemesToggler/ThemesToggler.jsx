@@ -1,32 +1,28 @@
 import "./themesToggler.scss";
-import { useState } from "react";
-import { useEffect } from "react";
-import useThemeSetter from "../../context/themeContext";
+import { useState, useEffect } from "react";
 import { zones } from "../../context/ThemesContext";
+import { useThemeSetter } from "../../hooks/useThemeSetter";
 
 const ThemesToggler = () => {
-  const [theme, setTheme] = useThemeSetter();
-  const curData = zones.filter((ct) => ct.theme === theme)[0];
+  const [theme, changeTheme] = useThemeSetter();
+  const curZone = zones.find((zone) => zone.theme === theme);
 
-  const [delay, setDelay] = useState(curData.delay);
-  const [curZone, setCurZone] = useState(curData);
   const [isToggled, setIsToggled] = useState(false);
   const [active, setActive] = useState("");
 
-  const handleClick = (stg) => {
-    setCurZone(stg);
-    setActive(stg.angle);
-    setDelay(stg.delay);
+  const handleClick = (zone) => {
+    setActive(zone.angle);
+    setIsToggled(false);
+    changeTheme(zone.theme);
   };
 
   useEffect(() => {
-    if (active !== "" && typeof active === "string")
+    if (active !== "" && typeof active === "string") {
       setTimeout(() => {
-        setIsToggled(false);
         setActive("");
-        setTheme(curZone.theme);
-      }, delay);
-  }, [active, delay, curZone, setTheme]);
+      }, curZone.delay);
+    }
+  }, [active, curZone]);
 
   return (
     <div className="themes-wrapper">
@@ -38,13 +34,13 @@ const ThemesToggler = () => {
       </div>
       {isToggled && (
         <ul className={`dayZones active-${active}`}>
-          {zones.map((stage, index) => (
+          {zones.map((zone, index) => (
             <li
               key={index}
               className={`zones zone-${index * 90} active-${active}`}
-              onClick={() => handleClick(stage)}
+              onClick={() => handleClick(zone)}
             >
-              <i className={`${stage.class} active-${active}`}></i>
+              <i className={`${zone.class} active-${active}`}></i>
             </li>
           ))}
         </ul>

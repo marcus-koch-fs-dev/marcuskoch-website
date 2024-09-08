@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { ThemeContext } from "../../context/themeContext";
 import BookingButton from "../BookingButton";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 import "./home.scss";
@@ -7,7 +5,6 @@ import Frame from "./Frame";
 import Foto from "/assets/me.jpg";
 
 const Home = ({ handleNavClick }) => {
-  // const { darkTheme, setTheme } = useContext(ThemeContext);
   const { width } = useResponsiveSize();
 
   return (

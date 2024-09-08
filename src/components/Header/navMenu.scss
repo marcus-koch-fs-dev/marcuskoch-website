@@ -1,7 +1,7 @@
 @import "/src/assets/sass/base.scss";
 
 .menu-toggler {
-  background-color: $primary-bg_toggler;
+  background-color: var(--primary-bg_toggler);
   border: none;
   border-radius: 0.25rem;
   margin: 0.25rem;
@@ -19,7 +19,7 @@
     display: block;
     width: 70%;
     height: 0.2rem;
-    background-color: $primary-span;
+    background-color: var(--primary-span);
     border-radius: 0.2rem;
     transition: transform 0.3s ease, opacity 0.3s ease;
     position: relative;

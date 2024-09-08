@@ -1,6 +1,4 @@
 import { createContext, useCallback, useState } from "react";
-import "../App.scss";
-import React, { useContext } from "react";
 
 export const zones = [
   { angle: "0", class: "fa-regular fa-sun", delay: 1750, theme: "sunrise" },
@@ -9,16 +7,21 @@ export const zones = [
   { angle: "270", class: "fa-solid fa-moon", delay: 1000, theme: "night" },
 ];
 
-const ThemesContext = createContext({
-  theme: zones[0].theme,
-  changeTheme: (t: string) => {},
+const loadLocalTheme = localStorage?.getItem("theme");
+const defaultDay = zones[1].theme;
+const initialTheme = loadLocalTheme ? JSON.parse(loadLocalTheme) : defaultDay;
+
+export const ThemesContext = createContext({
+  theme: initialTheme,
+  changeTheme: () => {},
 });
 
 export const ThemesProvider = ({ children }) => {
-  const [theme, setTheme] = useState(zones[1].theme);
+  const [theme, setTheme] = useState(initialTheme);
 
   const changeTheme = useCallback((newTheme) => {
     setTheme(newTheme);
+    localStorage.setItem("theme", JSON.stringify(newTheme));
   }, []);
 
   return (
@@ -27,5 +30,3 @@ export const ThemesProvider = ({ children }) => {
     </ThemesContext.Provider>
   );
 };
-
-export const useMyTheme = () => useContext(ThemesContext);
