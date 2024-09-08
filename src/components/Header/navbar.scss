@@ -30,15 +30,15 @@ ul {
     justify-content: space-evenly;
     align-items: center;
 
-    a {
-      color: var(--primary-p);
-    }
+    // a {
+    //   color: var(--a);
+    // }
 
     .menu-horizontal {
       .menu-item {
         margin: 0.35rem;
         :hover {
-          border-bottom: 2px solid var(--primary-svg);
+          border-bottom: 2px solid var(--pri-color-svg);
         }
       }
     }
@@ -50,9 +50,9 @@ ul {
     justify-content: flex-end;
     align-items: center;
 
-    a {
-      color: var(--primary-p);
-    }
+    // a {
+    //   color: var(--a);
+    // }
   }
 }
 
@@ -64,13 +64,13 @@ ul {
   width: 100%;
   align-items: center;
   flex-direction: column;
-  background-color: var(--primary-bg_menu);
+  background-color: var(--bg-mobile-menu);
 
   .menu-item {
     box-sizing: border-box;
     height: 2rem;
     :hover {
-      border-bottom: 2px solid var(--primary-svg);
+      border-bottom: 2px solid var(--pri-color-svg);
     }
   }
 }

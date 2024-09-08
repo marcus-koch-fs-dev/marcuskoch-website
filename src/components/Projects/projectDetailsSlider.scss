@@ -3,8 +3,6 @@
 .details-wrapper {
   // Das Wrapper-Element für den gesamten Slider
   width: 80%;
-  // max-width: 1200px;
-  // padding: 20px;
 
   .slick-slider {
     // Styles für den Slick Slider selbst
@@ -25,16 +23,18 @@
     .slick-next {
       z-index: 1;
       &::before {
-        color: var(--primary-bg_btn-arrow); // Pfeilfarbe
+        font-size: 1.5rem;
+        color: var(--bg-btn-arrow-slider);
       }
     }
   }
 
   .details-item {
     // Styles für einzelne Slides
-    background-color: var(--secondary-bg_menu); // Hintergrundfarbe der Slides
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-slide); // Hintergrundfarbe der Slides
+    border-radius: 1.25rem;
+    box-shadow: 0 0.5rem 0.5rem var(--bg-btn-arrow-boxShadow);
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@
   .details-desc {
     // Styles für die Beschreibung in den Slides
     font-size: 1.2rem;
-    color: var(--primary-p);
+    color: var(--p);
     margin: 1rem 0;
   }
 

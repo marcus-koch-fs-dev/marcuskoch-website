@@ -10,9 +10,9 @@ footer {
 
     i {
       border-radius: 20rem;
-      border: var(--primary-svg) 1px solid;
+      border: var(--pri-color-svg) 1px solid;
       font-size: 1.25rem;
-      color: var(--primary-svg);
+      color: var(--pri-color-svg);
       padding: 0.25rem;
       @include slideY-animation(2s);
     }
@@ -24,7 +24,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-svg);
+  background-color: var(--pri-color-svg);
 }
 
 img {
@@ -52,7 +52,7 @@ section {
   }
 
   a {
-    color: var(--secondary-p);
+    color: var(--p);
   }
 
   span.laws-p {

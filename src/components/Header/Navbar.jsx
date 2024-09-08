@@ -32,7 +32,7 @@ const Navbar = () => {
               to={`/${link.to}`}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              {link.name}
+              <span>{link.name}</span>
             </NavLink>
           </li>
         ))}

@@ -6,7 +6,7 @@ export const Overlay = ({ children, handleClose }) => {
     <div className="overlay">
       <div className="control">
         <button onClick={handleClose} className="overlay-close">
-          <i type="button" className="fa-solid fa-xmark" />
+          <i className="fa-solid fa-xmark i-tag" />
         </button>
       </div>
       <div className="children">{children}</div>

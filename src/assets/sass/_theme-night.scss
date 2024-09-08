@@ -1,61 +1,82 @@
-// $theme-dark-heading-highlight: #fbc508;
-// $theme-dark-heading: #f9f9f9;
-// $theme-dark-text: #fbfafa;
-// $theme-dark-svg: #f4d115;
+// #root {
+//   .night {
+//     --theme-dark-heading-highlight: #fbc508;
+//     --theme-dark-heading: #f9f9f9;
+//     --theme-dark-text: #fbfafa;
+//     --theme-dark-svg: #f4d115;
+//     --pri-color-svg: #f4d115;
+//     --theme-dark-bg_header: #242424;
+//     --theme-dark-bg_main: green;
+//     --theme-dark-bg_toggler: var(--theme-dark-heading);
+//     --theme-dark-bg_menu: grey;
 
-// $theme-dark-bg_header: #242424;
-// var(--theme-dark-bg_main): #000;
-// $theme-dark-bg_toggler: $theme-dark-heading;
-// $theme-dark-bg_menu: grey;
+//     --primary-h1: var(--theme-dark-heading);
+//     --secondary-h1: var(--theme-dark-heading-highlight);
+//     --primary-p: var(--theme-dark-text);
+//     --secondary-p: var(--theme-dark-bg_main);
+//     --primary-svg: var(--theme-dark-svg);
+//     --primary-span: var(--theme-dark-svg);
 
-// var(--primary-h1): $theme-dark-heading;
-// var(--secondary-h1): $theme-dark-heading-highlight;
-// var(--primary-p): $theme-dark-text;
-// var(--secondary-p): var(--theme-dark-bg_main);
-// var(--primary-svg): $theme-dark-svg;
-// var(--primary-span): $theme-dark-svg;
+//     --primary-bg_header: var(--theme-dark-bg_header);
+//     --primary-bg_main: green;
+//     --primary-bg_toggler: var(--theme-dark-bg_toggler);
+//     --primary-bg_menu: var(--theme-dark-bg_menu);
+//     --secondary-bg_menu: rgb(51, 35, 51);
+//     --primary-bg_btn-arrow: white;
 
-// $primary-bg_header: $theme-dark-bg_header;
-// var(--primary-bg_main): var(--theme-dark-bg_main);
-// var(--primary-bg_toggler): $theme-dark-bg_toggler;
-// $primary-bg_menu: $theme-dark-bg_menu;
-// var(--secondary-bg_menu): rgb(51, 35, 51);
-// var(--primary-bg_btn-arrow): white;
+//     --primary-btn-bg-color: #d3d3d3;
+//     --primary-btn-label-color: var(--theme-dark-bg_main);
+//   }
+// }
 
-// var(--primary-btn-bg-color): #d3d3d3;
-// $primary-btn-label-color: var(--theme-dark-bg_main);
+// Day - Theme default
+#root,
+#modal-root {
+  // Fonts
+  .night {
+    --h1: #dddddd;
+    --h1-highlight: #1149e4;
+    --h2: #dddddd;
+    --h2-highlight: #1149e4;
+    --h3: #dddddd;
+    --h3-highlight: #1149e4;
+    --h4: #dddddd;
+    --h4-highlight: #1149e4;
+    --p: #dddddd;
+    --p-highlight: #e6dcdc;
+    --a: #ffffff;
+    --a-highlight: #181717;
+    --span: #e7dcdc;
+    --span-highlight: #181717;
+    --btn-label: #181717;
 
-// //default day
-// $h1color: black;
+    // --pri-color-svg: #f4d115;
+    --pri-color-svg: #1149e4;
+    --sec-color-svg: #5565f8;
 
-.night {
-  $theme-dark-heading-highlight: #fbc508;
-  $theme-dark-heading: #f9f9f9;
-  $theme-dark-text: #fbfafa;
-  $theme-dark-svg: #f4d115;
+    --bg-header: #242424;
+    --bg-main: #181717;
+    --bg-footer: #242424;
+    --bg-footer-disclaimer: #3f7497;
+    --bg-overlay-main: #9c2f2f;
+    --bg-item-label: rgba(32, 24, 32, 0.781);
+    --bg-item-hover: rgba(0, 0, 0, 0.534);
+    --bg-slide: #15151f;
 
-  $theme-dark-bg_header: #242424;
-  var(--theme-dark-bg_main): #000;
-  $theme-dark-bg_toggler: $theme-dark-heading;
-  $theme-dark-bg_menu: grey;
+    --bg-btn-arrow-slider: rgb(21, 125, 211);
+    --bg-btn-arrow-boxShadow: rgba(29, 31, 29, 0.24);
+    --bg-btn-toggler: "transparent";
+    --bg-btn-span-toggler: var(--pri-color-svg);
+    --bg-mobile-menu: rgb(52, 52, 73);
+    --bg-btn-overlay-close: "transparent";
+    --bg-btn-default: rgb(129, 124, 124);
+    --btn-default-boxShadow: #1149e4;
+    --btn-default-boxShadow_hover: #f4d115;
 
-  var(--primary-h1): $theme-dark-heading;
-  var(--secondary-h1): $theme-dark-heading-highlight;
-  var(--primary-p): $theme-dark-text;
-  var(--secondary-p): var(--theme-dark-bg_main);
-  var(--primary-svg): $theme-dark-svg;
-  var(--primary-span): $theme-dark-svg;
-
-  $primary-bg_header: $theme-dark-bg_header;
-  var(--primary-bg_main): var(--theme-dark-bg_main);
-  var(--primary-bg_toggler): $theme-dark-bg_toggler;
-  $primary-bg_menu: $theme-dark-bg_menu;
-  var(--secondary-bg_menu): rgb(51, 35, 51);
-  var(--primary-bg_btn-arrow): white;
-
-  var(--primary-btn-bg-color): #d3d3d3;
-  $primary-btn-label-color: var(--theme-dark-bg_main);
-
-  //default day
-  $h1color: black;
+    --bg-theme-zones: grey;
+    --color-night: #5565f8;
+    --color-day: rgb(172, 160, 0);
+    --color-sundown: rgb(141, 15, 15);
+    --color-sunrise: rgb(50, 175, 197);
+  }
 }

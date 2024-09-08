@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import useSvgUpdate from "../../hooks/useSvgUpdate";
 
 const Eyes = () => {
   const [eyesToggled, setEyesToggled] = useState(false);
-
+  const fill = useSvgUpdate();
   useEffect(() => {
     const times = [4000, 200]; // Zeit in Millisekunden, 150ms für das Blinzeln
 
@@ -37,7 +38,7 @@ const Eyes = () => {
           height="100"
           rx="50"
           transform="rotate(0.927192 1.61816 82)"
-          fill="#F4D115"
+          fill={fill}
         />
         <rect
           x="30.9709"
@@ -56,7 +57,7 @@ const Eyes = () => {
           rx="12.5"
           transform="rotate(0.927192 57.3236 135)"
           // fill="#FBC508"
-          fill={eyesToggled ? "none " : "#FBC508"}
+          fill={eyesToggled ? "none " : fill}
         />
         <rect
           x="92.6182"
@@ -64,7 +65,7 @@ const Eyes = () => {
           height="100"
           rx="50"
           transform="rotate(0.927192 92.6182 0)"
-          fill="#F4D115"
+          fill={fill}
         />
         <rect
           x="121.971"
@@ -82,7 +83,7 @@ const Eyes = () => {
           height="25"
           rx="12.5"
           transform="rotate(0.927192 148.324 53)"
-          fill={eyesToggled ? "none " : "#FBC508"}
+          fill={eyesToggled ? "none " : fill}
         />
       </svg>
     </div>

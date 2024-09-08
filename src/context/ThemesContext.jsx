@@ -13,7 +13,7 @@ export const zones = [
     class: "fa-solid fa-sun",
     delay: 1750,
     theme: "day",
-    svg: "#b80e9b",
+    svg: "#F4D115",
   },
   {
     angle: "180",
@@ -27,7 +27,7 @@ export const zones = [
     class: "fa-solid fa-moon",
     delay: 1000,
     theme: "night",
-    svg: "#F4D115",
+    svg: "#1149e4",
   },
 ];
 

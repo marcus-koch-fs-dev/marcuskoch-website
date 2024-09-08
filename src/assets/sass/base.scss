@@ -1,3 +1,7 @@
+@import "./theme-sunrise.scss";
+@import "./theme-sundown.scss";
+@import "./theme-night.scss";
+@import "./theme-day.scss";
 @import "./normalize.scss";
 @import "./mixins";
 
@@ -14,38 +18,33 @@ body {
 
   h1 {
     font-size: 2.5rem;
+    color: var(--h1);
   }
 
   h2 {
     font-size: 1.75rem;
+    color: var(--h2);
   }
   h3 {
     font-size: 1.5rem;
+    color: var(--h3);
   }
   h4 {
     font-size: 1rem;
+    color: var(--h4);
   }
   p {
     font-size: 1rem;
+    color: var(--p);
   }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: var(--primary-h1);
+  a {
+    font-size: 1rem;
+    color: var(--a);
+    text-decoration: none;
   }
 
   ul {
     text-decoration: none;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  p {
-    color: var(--primary-p);
   }
 
   @include tablet {
@@ -82,64 +81,5 @@ body {
     p {
       font-size: 0.8rem;
     }
-  }
-}
-
-#root {
-  /* Default (day theme) */
-  --theme-dark-heading-highlight: #e411b6;
-  --theme-dark-heading: #0a0a0a;
-  --theme-dark-text: #181717;
-  --theme-dark-svg: #b80e9b;
-
-  --theme-dark-bg_header: #242424;
-  --theme-dark-bg_main: #fffefe;
-  --theme-dark-bg_toggler: var(--theme-dark-heading);
-  --theme-dark-bg_menu: grey;
-
-  --primary-h1: var(--theme-dark-heading);
-  --secondary-h1: var(--theme-dark-heading-highlight);
-  --primary-p: var(--theme-dark-text);
-  --secondary-p: var(--theme-dark-bg_main);
-  --primary-svg: var(--theme-dark-svg);
-  --primary-span: var(--theme-dark-svg);
-
-  --primary-bg_header: var(--theme-dark-bg_header);
-  --primary-bg_main: var(--theme-dark-bg_main);
-  --primary-bg_toggler: var(--theme-dark-bg_toggler);
-  --primary-bg_menu: var(--theme-dark-bg_menu);
-  --secondary-bg_menu: rgb(51, 35, 51);
-  --primary-bg_btn-arrow: white;
-
-  --primary-btn-bg-color: #aaa1aa;
-  --primary-btn-label-color: var(--theme-dark-bg_main);
-
-  .night {
-    --theme-dark-heading-highlight: #fbc508;
-    --theme-dark-heading: #f9f9f9;
-    --theme-dark-text: #fbfafa;
-    --theme-dark-svg: #f4d115;
-
-    --theme-dark-bg_header: #242424;
-    --theme-dark-bg_main: green;
-    --theme-dark-bg_toggler: var(--theme-dark-heading);
-    --theme-dark-bg_menu: grey;
-
-    --primary-h1: var(--theme-dark-heading);
-    --secondary-h1: var(--theme-dark-heading-highlight);
-    --primary-p: var(--theme-dark-text);
-    --secondary-p: var(--theme-dark-bg_main);
-    --primary-svg: var(--theme-dark-svg);
-    --primary-span: var(--theme-dark-svg);
-
-    --primary-bg_header: var(--theme-dark-bg_header);
-    --primary-bg_main: green;
-    --primary-bg_toggler: var(--theme-dark-bg_toggler);
-    --primary-bg_menu: var(--theme-dark-bg_menu);
-    --secondary-bg_menu: rgb(51, 35, 51);
-    --primary-bg_btn-arrow: white;
-
-    --primary-btn-bg-color: #d3d3d3;
-    --primary-btn-label-color: var(--theme-dark-bg_main);
   }
 }

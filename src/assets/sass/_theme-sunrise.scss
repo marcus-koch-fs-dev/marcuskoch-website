@@ -1,31 +1,49 @@
-.sunrise {
-  $theme-dark-heading-highlight: #fbc508;
-  $theme-dark-heading: #f9f9f9;
-  $theme-dark-text: #fbfafa;
-  $theme-dark-svg: #f4d115;
+// Day - Theme default
+#root {
+  // Fonts
+  .sunrise {
+    --h1: #0a0a0a;
+    --h1-highlight: #e411b6;
+    --h2: #0a0a0a;
+    --h2-highlight: #e411b6;
+    --h3: #0a0a0a;
+    --h3-highlight: #e411b6;
+    --h4: #222120;
+    --h4-highlight: #c7bbc4;
+    --p: #1b1919;
+    --p-highlight: #e6dcdc;
+    --a: #ffffff;
+    --a-highlight: #181717;
+    --span: #ece2e2;
+    --span-highlight: #181717;
+    --btn-label: #181717;
 
-  $theme-dark-bg_header: #242424;
-  var(--theme-dark-bg_main): #000;
-  $theme-dark-bg_toggler: $theme-dark-heading;
-  $theme-dark-bg_menu: grey;
+    --pri-color-svg: #b80e9b;
+    --sec-color-svg: #642aa5;
 
-  var(--primary-h1): $theme-dark-heading;
-  var(--secondary-h1): $theme-dark-heading-highlight;
-  var(--primary-p): $theme-dark-text;
-  var(--secondary-p): var(--theme-dark-bg_main);
-  var(--primary-svg): $theme-dark-svg;
-  var(--primary-span): $theme-dark-svg;
+    --bg-header: #242424;
+    --bg-main: #242424;
+    --bg-footer: #242424;
+    --bg-footer-disclaimer: #3f7497;
+    --bg-overlay-main: #242424;
+    --bg-item-label: rgba(32, 24, 32, 0.781);
+    --bg-item-hover: rgba(0, 0, 0, 0.534);
+    --bg-slide: #242424;
 
-  $primary-bg_header: $theme-dark-bg_header;
-  var(--primary-bg_main): var(--theme-dark-bg_main);
-  var(--primary-bg_toggler): $theme-dark-bg_toggler;
-  $primary-bg_menu: $theme-dark-bg_menu;
-  var(--secondary-bg_menu): rgb(51, 35, 51);
-  var(--primary-bg_btn-arrow): white;
+    --bg-btn-arrow-slider: green;
+    --bg-btn-arrow-boxShadow: rgba(29, 31, 29, 0.24);
+    --bg-btn-toggler: "transparent";
+    --bg-btn-span-toggler: var(--pri-color-svg);
+    --bg-mobile-menu: grey;
+    --bg-btn-overlay-close: "transparent";
+    --bg-btn-default: rgb(129, 124, 124);
+    --btn-default-boxShadow: rgba(175, 23, 221, 0.651);
+    --btn-default-boxShadow_hover: rgb(0, 110, 255);
 
-  var(--primary-btn-bg-color): #d3d3d3;
-  $primary-btn-label-color: var(--theme-dark-bg_main);
-
-  //default day
-  $h1color: black;
+    --bg-theme-zones: grey;
+    --color-night: white;
+    --color-day: orange;
+    --color-sundown: rgb(109, 28, 28);
+    --color-sunrise: rgb(64, 109, 194);
+  }
 }
