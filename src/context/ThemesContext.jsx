@@ -6,7 +6,7 @@ export const zones = [
     class: "fa-regular fa-sun",
     delay: 1750,
     theme: "sunrise",
-    svg: " #af5113",
+    svg: "#af5113",
   },
   {
     angle: "90",
