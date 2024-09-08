@@ -1,10 +1,34 @@
 import { createContext, useCallback, useState } from "react";
 
 export const zones = [
-  { angle: "0", class: "fa-regular fa-sun", delay: 1750, theme: "sunrise" },
-  { angle: "90", class: "fa-solid fa-sun", delay: 1750, theme: "day" },
-  { angle: "180", class: "fa-regular fa-moon", delay: 1750, theme: "sundown" },
-  { angle: "270", class: "fa-solid fa-moon", delay: 1000, theme: "night" },
+  {
+    angle: "0",
+    class: "fa-regular fa-sun",
+    delay: 1750,
+    theme: "sunrise",
+    svg: "#b80e9b",
+  },
+  {
+    angle: "90",
+    class: "fa-solid fa-sun",
+    delay: 1750,
+    theme: "day",
+    svg: "#b80e9b",
+  },
+  {
+    angle: "180",
+    class: "fa-regular fa-moon",
+    delay: 1750,
+    theme: "sundown",
+    svg: "#b80e9b",
+  },
+  {
+    angle: "270",
+    class: "fa-solid fa-moon",
+    delay: 1000,
+    theme: "night",
+    svg: "#F4D115",
+  },
 ];
 
 const loadLocalTheme = localStorage?.getItem("theme");

@@ -1,7 +1,9 @@
 import React from "react";
+import useSvgUpdate from "../../hooks/useSvgUpdate";
 
 // eslint-disable-next-line react/prop-types
 const Frame = ({ width = 1440, height = 1440, fill = "#F4D115" }) => {
+  fill = useSvgUpdate();
   return (
     <svg
       className="frame-svg"

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 const time = 8000;
 import "./footer.scss";
+import useSvgUpdate from "../../hooks/useSvgUpdate";
 
 const InterpolatedWave = ({ innerW }) => {
   const wavePaths = [
@@ -23,6 +24,7 @@ const InterpolatedWave = ({ innerW }) => {
   ];
 
   const [index, setIndex] = useState(0);
+  const fill = useSvgUpdate();
 
   // Cycle through the paths every 5 seconds
   useEffect(() => {
@@ -59,7 +61,7 @@ const InterpolatedWave = ({ innerW }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <animated.path d={yellowWaveProps.d} fill="#F4D115" />
+        <animated.path d={yellowWaveProps.d} fill={fill} />
         {/* <animated.path d={blackWaveProps.d} fill="black" /> */}
       </svg>
     </div>
