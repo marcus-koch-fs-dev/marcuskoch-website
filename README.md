@@ -1,8 +1,45 @@
-# React + Vite
+# Marcus Koch Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with **React** and **Vite**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+
+- Modern frontend architecture with React + Vite  
+- Hot Module Replacement (HMR) for fast development  
+- ESLint configuration for clean code  
+- Clear folder separation for maintainability  
+
+---
+
+## 📂 Project Structure
+
+- **`public/`** – Static assets (favicon, index.html, …)  
+- **`src/`** – Source code (components, styles, logic)  
+- **`dev-dist/`** – Development build output  
+- **`.eslintrc.cjs`** – ESLint configuration  
+- **`vite.config.js`** – Vite configuration  
+- **`package.json`** – Dependencies and scripts  
+- **`pnpm-lock.yaml`** – Lockfile  
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/marcus-koch-fs-dev/marcuskoch-website.git
+cd marcuskoch-website
+
+# Install dependencies (pnpm recommended)
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview the production build
+pnpm preview
