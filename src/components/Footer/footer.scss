@@ -25,6 +25,18 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: var(--pri-color-svg);
+
+  .sm-wrapper {
+    .sm-list {
+      gap: 1rem;
+    }
+  }
+
+  .laws {
+    .laws-list {
+      gap: 1rem;
+    }
+  }
 }
 
 img {

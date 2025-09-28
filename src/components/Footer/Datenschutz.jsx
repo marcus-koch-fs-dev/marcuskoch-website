@@ -5,7 +5,7 @@ const Datenschutz = () => {
     <article className="datenschutz">
       <div>
         <h1>Datenschutzerkl&auml;rung</h1>
-        <button type="button" className={""} aria-label="Close" />
+        {/* <button type="button" className={""} aria-label="Close" /> */}
       </div>
       <div className="">
         <h2>1) Einleitung und Kontaktdaten des Verantwortlichen</h2>

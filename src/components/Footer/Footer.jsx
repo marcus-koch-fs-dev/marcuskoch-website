@@ -46,7 +46,7 @@ const Footer = () => {
           <ul className="sm-list">
             <li className="sm-item">
               <a
-                href="https://www.linkedin.com/in/marcus-koch-webdeveloper "
+                href="https://www.linkedin.com/in/marcus-koch-dev"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -67,7 +67,9 @@ const Footer = () => {
         <section className="laws">
           <ul className="laws-list">
             <li className="laws-item">
-              <span className="">Copyright ©2024 Marcus Koch</span>
+              <span className="">
+                Copyright ©{new Date().getFullYear()} Marcus Koch
+              </span>
             </li>
             <li className="laws-item" onClick={() => setOpenDS(true)}>
               <span className={"laws-p"}>Datenschutz</span>
