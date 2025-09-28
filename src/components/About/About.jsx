@@ -1,99 +1,61 @@
 import Eyes from "./Eyes";
 import "./about.scss";
 
-const achievements = [
-  {
-    value: "3+",
-    label: "Jahre in Expertise",
-  },
-  {
-    value: "3",
-    label: "Zufriedene Kunden",
-  },
-  {
-    value: "5",
-    label: "Abgeschlossene Projekte",
-  },
-];
+const techStack = {
+  Frontend: [
+    "React",
+    "React Native (Expo)",
+    "Redux",
+    "Material UI",
+    "Tailwind",
+    "Apollo",
+    "GraphQL",
+  ],
+  Backend: ["Node.js (Express.js)", "Liquid", "SAP HANA", "SQL/NoSQL"],
+  Tools: ["Git", "Docker", "Azure CI/CD", "Storybook", "Figma", "PlatformIO"],
+  Testing: ["Jest", "Vitest", "Playwright"],
+};
 
 const About = () => {
-  const achievementList = achievements.map((ach, idx) => {
-    return (
-      <li
-        key={idx}
-        className="achievement-item"
-        aria-label={`${ach.label} ${ach.value}`}
-      >
-        <h3 className="">
-          {/* <span className="highlight-text">{ach.value}</span> */}
-          {ach.value}
-        </h3>
-        <p className="">{ach.label}</p>
-      </li>
-    );
-  });
-
   return (
     <section className="about">
       <Eyes />
       <div className="about-container">
-        <h2 className="about-headline">
-          Ich bin <span className="highlight-text">Marcus Koch, </span>
-          kreativer Web Entwickler mit einem ausgeprägten Sinn für Qualität,
-          Lösungsorientierung und einer praxisorientierten Einstellung.
-        </h2>
+        <h2 className="about-headline">About me</h2>
         <article>
           <p className="block">
-            Als enthusiastischer Entwickler schaffe ich Webseiten, die durch
-            Optik und intuitive Bedienbarkeit überzeugen. Mit modernen Techniken
-            und Werkzeugen wie React entwickle ich schnelle, nutzerfreundliche
-            Lösungen.
+            I’m <span className="highlight-text">Marcus Koch</span>, a
+            Full-Stack Developer with experience in React, Node.js and modern
+            web technologies. I started my journey in automotive validation and
+            hardware testing, later transitioned into web development and now
+            combine my background with E-Commerce and IoT projects.
           </p>
           <p className="block">
-            Durch agile Methoden und ständiges Feedback sorge ich für hohe
-            Qualitätsstandards und bedürfnisorientierte Ergebnisse.
-          </p>
-          <p className="block">
-            Meine Expertise in der Digitalisierung, besonders im
-            Automobilsektor, qualifiziert mich für Herausforderungen über
-            Branchengrenzen hinweg. Ich hebe Ihre digitalen Produkte auf das
-            nächste Level.
-          </p>
-          <p className="block">
-            <span className="highlight-text">
-              {`Bereit für den nächsten Schritt? `}
-            </span>
-            Kontaktieren Sie mich, und wir gestalten die Zukunft gemeinsam.
+            <span className="highlight-text"> Curiosity </span>drives me. I
+            enjoy creating products that solve real problems and experimenting
+            with digital tools that connect to the physical world. Sports like
+            freediving and calisthenics keep me balanced and often inspire my
+            approach to building.
           </p>
         </article>
 
-        <ul className="achievement-list">{achievementList}</ul>
+        <div className="tech-badges">
+          {Object.entries(techStack).map(([category, items]) => (
+            <div key={category} className="tech-category">
+              <h4>{category}</h4>
+              <ul className="badge-list">
+                {items.map((item) => (
+                  <li key={item} className="badge">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 export default About;
-
-{
-  /* <div className="col-lg-5">
-                <video
-                  aria-label="Video mit der Selbstdarstellung von Marcus Koch"
-                  controls
-                  src={videobg}
-                  muted
-                  style={{
-                    width: "100%",
-                    height: "90%",
-                    objectFit: "cover",
-                  }}
-                >
-                  <track
-                    label="Deutsch"
-                    kind="subtitles"
-                    srclang="de"
-                    src="captions/vtt/sintel-de.vtt"
-                  />
-                </video>
-              </div> */
-}

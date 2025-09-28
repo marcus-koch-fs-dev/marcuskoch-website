@@ -27,11 +27,7 @@
     }
 
     h2 {
-      word-break: normal;
-
-      &.about-headline {
-        margin-top: 1rem;
-      }
+      visibility: hidden;
     }
 
     p {
@@ -41,18 +37,29 @@
     }
   }
 
-  .achievement-list {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .achievement-item {
-    // border: red 1px solid;
+  .tech-badges {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .badge-list {
+      gap: 0.25rem;
+    }
+
+    .badge {
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      background-color: var(--h1-highlight);
+      color: var(--span);
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    @include mobile {
+      justify-content: center;
+    }
   }
 
   @include mobile {
