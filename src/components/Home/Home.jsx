@@ -6,6 +6,11 @@ import Foto from "/assets/me.jpg";
 
 const Home = ({ handleNavClick }) => {
   const { width } = useResponsiveSize();
+  const interests = [
+    "Full-Stack Developer",
+    "E-Commerce Enthusiast",
+    "IoT Explorer",
+  ];
 
   return (
     <section className="home">
@@ -25,11 +30,18 @@ const Home = ({ handleNavClick }) => {
       </div>
       <div className="homeWrapper">
         <h1 className="home-h1">
-          <span>
-            Hi, I'm <span className="highlight-text">Marcus</span>
-          </span>
-          <span>Web Developer</span>
+          Building
+          <span className="highlight-text">{` Digital`}</span>
+          <span className="highlight-text">{` Products `}</span>
+          that create real-world impact
         </h1>
+        <ul className="interests-ul">
+          {interests.map((el, idx) => (
+            <li key={idx} className="interests-li">
+              {el}
+            </li>
+          ))}
+        </ul>
         <BookingButton />
       </div>
     </section>
