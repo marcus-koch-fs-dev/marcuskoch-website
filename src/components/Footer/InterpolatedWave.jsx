@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
-const time = 8000;
+const time = 12000;
 import "./footer.scss";
 import useSvgUpdate from "../../hooks/useSvgUpdate";
 

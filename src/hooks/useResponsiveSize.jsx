@@ -9,10 +9,11 @@ const useResponsiveSize = () => {
     window.innerWidth <= breakpoints.tablet
   );
   const [width, setWidth] = useState(window.innerWidth);
-
+  const offsetPixelWidth = 15;
   useEffect(() => {
     const handleResize = () => {
-      const currentWidth = window.innerWidth;
+      const currentWidth = window.innerWidth - offsetPixelWidth;
+
       setWidth(currentWidth);
       setIsMobile(currentWidth <= breakpoints.tablet); // Setzt isMobile auf true, wenn die Breite <= tablet-Breite ist
     };

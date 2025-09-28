@@ -16,7 +16,8 @@
   --span: #ece2e2;
   --span-highlight: #181717;
 
-  --btn-label: #181717;
+  // --btn-label: #181717;
+  --btn-label: var(--a);
   --btn-default-boxShadow: #fa770c;
   --btn-default-boxShadow_hover: #db541fec;
 

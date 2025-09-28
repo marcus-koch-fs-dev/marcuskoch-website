@@ -1,6 +1,7 @@
 @import "/src/assets/sass/base.scss";
 
 footer {
+  // width: 100%;
   > a {
     margin-top: 1rem;
     text-decoration: none;
@@ -55,9 +56,9 @@ section {
     flex-wrap: wrap;
   }
 
-  li {
-    margin: 0.25rem 0.75rem;
-  }
+  // li {
+  //   margin: 0.25rem 0.75rem;
+  // }
 
   p {
     margin: 0;

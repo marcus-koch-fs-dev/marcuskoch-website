@@ -4,6 +4,8 @@ section {
   li {
     margin: 0;
   }
+  // height: 100%;
+  // flex-grow: 1;
 }
 
 .home {
@@ -11,6 +13,7 @@ section {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: "home home frame";
+  height: 100%;
   flex-grow: 1;
 
   .frame {
@@ -47,10 +50,11 @@ section {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    flex-grow: 1;
     // border: solid red 1px;
 
     .home-h1 {
-      width: 65%;
+      width: 50%;
       // border: solid red 1px;
       margin-bottom: 0;
 
@@ -60,8 +64,12 @@ section {
     }
 
     .interests-li {
-      border-right: 2px solid var(--span);
+      border-right: 2px solid var(--p);
       padding: 0 0.5rem;
+    }
+
+    .interests-li:last-child {
+      border-right: none;
     }
   }
 

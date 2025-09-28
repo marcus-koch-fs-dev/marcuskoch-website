@@ -40,7 +40,7 @@ const Footer = () => {
       >
         <i className="fa fa-chevron-down" />
       </a>
-      <InterpolatedWave innerW={width} />
+      {/* <InterpolatedWave innerW={width} /> */}
       <div className="wrapper">
         <section className="sm-wrapper">
           <ul className="sm-list">

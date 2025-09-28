@@ -22,7 +22,7 @@ const Home = ({ handleNavClick }) => {
           />
           <img
             className="frame-img"
-            alt="Foto von Marcus"
+            alt="Photo Marcus"
             src={Foto}
             // width={"300px"}
           />
@@ -38,7 +38,7 @@ const Home = ({ handleNavClick }) => {
         <ul className="interests-ul">
           {interests.map((el, idx) => (
             <li key={idx} className="interests-li">
-              {el}
+              <p>{el}</p>
             </li>
           ))}
         </ul>
