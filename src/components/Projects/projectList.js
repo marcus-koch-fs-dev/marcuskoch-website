@@ -1,13 +1,13 @@
 export const projectsData = [
   {
     id: 2,
-    title: "Überarbeitung des Launchpad-Frontends",
-    alt: "Launchpad - Screenshot. Homepage der TK-Cloud",
+    title: "Launchpad Frontend Modernization",
+    alt: "Launchpad - Screenshot. Homepage of the TK Cloud",
     projectInfo:
-      "Zwischen Februar und April 2022 habe ich das Frontend eines Cloud-App-Launchpads modernisiert. Mein Fokus lag auf der Entwicklung einer responsiven, visuell ansprechenden Startseite, die an verschiedene Bildschirmgrößen anpassbar ist. Ich implementierte ein benutzerrollenbasiertes Kachelsystem für Apps und Berichte, ermöglichte das Markieren von Favoriten und entwickelte eine Admin-Seite für das einfache Hinzufügen neuer Apps. Diese Arbeit schärfte meine Kompetenzen in responsivem Design und benutzerzentrierter Entwicklung.",
+      "Redesigned the outdated cloud launchpad frontend into a modern, responsive start page with role-based app tiles, favorites, and an administration page for managing new apps. The update improved usability and received positive feedback from key users for its clarity and design.",
     client: "Thyssenkrupp Presta AG",
     technologies:
-      "React, Redux, Node.js (mit TS), Python, Microservices, REST API, Git, Azure für CI/CD, SAP HANA",
+      "React, Redux, Node.js (TS), Python, Microservices, REST API, Git, Azure CI/CD, SAP HANA",
     industry: "Automotive",
     date: "02/2022 - 04/2022",
     thumbImage: "/assets/work/Launch-web256.png",
@@ -16,55 +16,55 @@ export const projectsData = [
       {
         medium: "/assets/work/Launch-web512.png",
         big: "/assets/work/Launch-web.png",
-        desc: "Desktop-Ansicht Launchpad",
+        desc: "Launchpad start page in desktop view",
       },
       {
         medium: "/assets/work/Launch-mobile512.png",
         big: "/assets/work/Launch-mobile.png",
-        desc: "Mobile-Ansicht Launchpad",
+        desc: "Launchpad start page in mobile view",
       },
     ],
   },
   {
     id: 4,
-    title: "Track and Trace - Tracing Component Lifecycles",
-    alt: "Track and Trace - Screenshot. Zeigt eine Tabelle mit umfangreichen Komponenteneigenschaften",
+    title: "Track and Trace - Component Lifecycle Tracing",
+    alt: "Track and Trace - Screenshot. Shows a table with extensive component details",
     projectInfo:
-      "In dem 'Track and Trace' Projekt optimierte ich eine App zur Überwachung des Lebenszyklus von unseren Lenkgetriebe-Produkte und anderen Komponenten. Mein Fokus lag auf der Performance-Verbesserung, der Entwicklung eines stabilen Frontend- und Backend-Systems für umfangreiche Daten und der Gewährleistung der Responsivität auf diversen Endgeräten weltweit. Zusammen mit einem DB-Entwickler erfassten und optimierten wir Produktionsabläufe, adressierten System- und ERP-Probleme, um die App zukunftssicher und international einsetzbar zu machen.",
+      "Optimized the Track & Trace application for monitoring lifecycles of steering gear and other components. Focused on frontend and backend stability to handle millions of records, implemented advanced search with BOM comparison and process quality reporting, and enabled international use with i18n. The redesign reduced search times by over 95%, from days to seconds.",
     client: "Thyssenkrupp Presta AG",
     technologies:
-      "React, Redux, Node.js, Python, Microservices, REST-API, Git, Azure für CI/CD, SAP HANA für SQL-DB-Management, Material UI, AG-Grid",
+      "React, Redux, Node.js, Python, Microservices, REST API, Git, Azure CI/CD, SAP HANA, Material UI, AG-Grid",
     industry: "Automotive",
-    date: "05/22 - 12/23, fortlaufend",
+    date: "05/22 - 12/23",
     thumbImage: "/assets/work/tnt-oneTable-dark256.png",
     imgStyle: "wide",
     sliderImages: [
       {
         medium: "/assets/work/tnt-oneTable-dark512.png",
         big: "/assets/work/tnt-oneTable-dark.png",
-        desc: "Konsumierte Teile-Tabelle im Dark-Mode",
+        desc: "Consumed parts table in dark mode",
       },
       {
         medium: "/assets/work/tnt-oneTable-dark-nested512.png",
         big: "/assets/work/tnt-oneTable-dark-nested.png",
-        desc: "Konsumierte Teile-Tabelle im Dark-Mode mit Details",
+        desc: "Nested view with detailed part properties",
       },
       {
         medium: "/assets/work/tnt-twoTable-dark-nested512.png",
         big: "/assets/work/tnt-twoTable-dark-nested.png",
-        desc: "Konsumierte-Teile & Eingebaut-In Ansicht",
+        desc: "Consumed and assembled parts in dual-table view",
       },
     ],
   },
   {
     id: 5,
-    title: "Cloud Surveillance - Visualisierung von SAP HANA Metadaten",
-    alt: "Cloud Surveillance - Screenshot. KI generiertes Bild mit fiktiver Wolke und Verbindungen.",
+    title: "Cloud Surveillance - SAP HANA Metadata Visualization",
+    alt: "Cloud Surveillance - Screenshot. AI generated image with cloud and connections.",
     projectInfo:
-      "Für 'Cloud Surveillance' entwickelte ich eine Anwendung zur effektiven Überwachung und Visualisierung von SAP HANA Metadaten, einschließlich Datenbankobjekten und Mikroservices. Als Frontend-Entwickler integrierte ich Daten aus verschiedenen Quellen und schuf fortgeschrittene Filterfunktionen für Gruppierungen und Verdichtungen. Die Anwendung bietet eine klare Darstellung der Serviceverteilung nach Teams und identifiziert nicht konforme oder veraltete Elemente, wodurch die Datenintegrität und Systemübersicht im SAP HANA-System verbessert werden.",
+      "Developed a monitoring dashboard to visualize SAP HANA metadata, databases, and microservices. Implemented fast filtering and grouping logic in the frontend and delivered clear plots of service distribution with React, Redux, AG-Grid, and Plotly. The solution improved visibility of compliance issues by about 50%, allowing quicker administrative responses.",
     client: "Thyssenkrupp Presta AG",
     technologies:
-      "React, Redux, Node.js, Python, Microservices, REST-API, Git, Azure für CI/CD, SAP HANA für SQL-DB-Management, Material UI, AG-Grid",
+      "React, Redux, Node.js, Python, Microservices, REST API, Git, Azure CI/CD, SAP HANA, Material UI, AG-Grid, Plotly",
     industry: "Automotive",
     date: "05/23 - 07/23",
     thumbImage: "/assets/work/cloud-surveillance256.jpg",
@@ -73,21 +73,21 @@ export const projectsData = [
       {
         medium: "/assets/work/cloud-surveillance512.jpg",
         big: "/assets/work/cloud-surveillance.webp",
-        desc: "Symbolbild von Cloud-Surveillance",
+        desc: "Illustration of service and database visualization",
       },
     ],
   },
   {
     id: 3,
-    title: "Woundera - Mobile Gesundheits-anwendung",
-    alt: "Woundera App - Screenshot. KI generiertes Bild mit Herz und Stetoskop drumherum.",
+    title: "Woundera - Mobile Health Application",
+    alt: "Woundera App - Screenshot. AI generated image with heart and stethoscope.",
     projectInfo:
-      "In der knappen Personalphase bei 'Woundera', einer Gesundheitsapp, unterstützte ich die Fristeinhaltung. Ich entwickelte wesentliche Teile der in React Native erstellten App zur Verwaltung von Patienten- und Wunddaten. Zu meinen Hauptaufgaben zählten die Erstellung einer intuitiven Navigation, die Implementierung von CRUD-Operationen und die Formularvalidierung. Zudem beseitigte ich kritische Bugs für einen stabilen Betrieb.",
+      "Contributed to the React Native mobile app Woundera during a critical phase of reduced team capacity. Implemented navigation flows, CRUD operations, and form validation for managing patient and wound data, and fixed critical bugs to ensure the release stayed on schedule.",
     client: "Sciendis GmbH",
     technologies:
-      "React Native (mit TS), Redux, REST API, Git, Bitbucket, Material UI",
-    industry: "Gesundheit",
-    date: "12/21 - 01/22, fortlaufend",
+      "React Native (TS), Redux, REST API, Git, Bitbucket, Material UI, Expo",
+    industry: "Healthcare",
+    date: "12/21 - 01/22",
     url: {
       name: "www.woundera.health",
       link: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.wundera.health%2F&psig=AOvVaw1ZMtDKc3cSJGPKWa3VyvRk&ust=1710416058091000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOi0icaS8YQDFQAAAAAdAAAAABAD",
@@ -98,28 +98,49 @@ export const projectsData = [
       {
         medium: "/assets/work/woundera512.jpg",
         big: "/assets/work/woundera.webp",
-        desc: "Symbolbild der Woundera-App",
+        desc: "Illustration representing Woundera app concept",
       },
     ],
   },
   {
     id: 1,
-    title: "Dashboard für zentrale Server-Metadaten",
-    alt: "Arvato App - Screenshot. KI generiertes Bild mit Computern auf der Welt verteilt und vernetzt.",
+    title: "Server Metadata Dashboard",
+    alt: "Arvato App - Screenshot. AI generated image with connected computers worldwide.",
     projectInfo:
-      "Im Team bei Arvato trug ich zur Entwicklung eines Dashboards für Server-Metadaten bei, um Kunden sichere Speicherlösungen in Deutschland anzubieten. Mein Beitrag umfasste das gemeinsame Erarbeiten des Design-Layouts und die Entwicklung wiederverwendbarer UI-Komponenten wie Listen, Buttons und Avatare mit Storybook und Material UI. Ich sicherte die Qualität durch Unit-Tests mit Jest.",
+      "Built parts of a dashboard for server metadata in collaboration with an international team at Arvato. Developed reusable UI components with Storybook and Material UI, aligned with a designer’s visual style, and ensured quality with Jest testing and Azure CI/CD.",
     client: "Arvato Systems GmbH",
     technologies:
-      "React (mit TS), Redux, REST API, Git, Material UI, Storybook für dieUI-bibliothek, Jest",
-    industry: "IT-Dienstleister",
-    date: "06/21 - 11/21, fortlaufend",
+      "React (TS), Redux, REST API, Git, Material UI, Storybook, Jest, Sketch",
+    industry: "IT Services",
+    date: "06/21 - 11/21",
     thumbImage: "/assets/work/arvato256.jpg",
     imgStyle: "",
     sliderImages: [
       {
         medium: "/assets/work/arvato512.jpg",
         big: "/assets/work/arvato.webp",
-        desc: "Symbolbild des Arvato Service",
+        desc: "Illustration of metadata dashboard concept",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Video Management Platform Modernization",
+    alt: "Baas GmbH - Video Platform Screenshot",
+    projectInfo:
+      "Redesigned a legacy FTP-based workflow into a modern video management platform with a YouTube-style interface. Built the frontend with React, Redux, and Material UI, enabling 4K uploads, previews, role-based access, and downloads. Extended the IONOS infrastructure with an S3 bucket for video storage and MySQL for metadata. The backend, implemented in Node.js (Express.js) with fluent-ffmpeg, handled transcoding and thumbnails. The modernization significantly improved usability and reliability, receiving strong positive feedback from clients and the CEO.",
+    client: "Baas Film GmbH",
+    technologies:
+      "React, Redux, Node.js (Express.js), Material UI, MySQL, IONOS S3, fluent-ffmpeg, Git",
+    industry: "Media & Entertainment",
+    date: "04/2024 - 12/2024",
+    thumbImage: "/assets/work/baas256.jpg",
+    imgStyle: "",
+    sliderImages: [
+      {
+        medium: "/assets/work/baas512.jpg",
+        big: "/assets/work/baas.jpg",
+        desc: "Illustration of the video management platform",
       },
     ],
   },

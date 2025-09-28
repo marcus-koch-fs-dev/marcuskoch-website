@@ -1,0 +1,23 @@
+@import "/src/assets/sass/base.scss";
+
+.detailsInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 600px; /* begrenzt die Breite */
+  width: 90%; /* passt sich kleineren Screens an */
+  margin: 0 auto; /* horizontal mittig */
+  padding: 1rem;
+
+  text-align: center;
+
+  h4 {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+  }
+}

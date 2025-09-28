@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import "./projects.scss";
 import { Overlay } from "../Overlay";
 import ProjectDetailsSlider from "./ProjectDetailsSlider";
+import ProjectDetailsInfo from "./ProjectDetailsInfo";
 
 const Projects = () => {
   const [selectedProjectDetails, setSelectedProjectDetails] = useState();
@@ -44,12 +45,10 @@ const Projects = () => {
             darkTheme={false}
             projectDetails={selectedProjectDetails}
           />
-          <div>
-            {/* <ProjectDetailsInfo
-                    darkTheme={darkTheme}
-                    projectDetails={projectDetails}
-                  /> */}
-          </div>
+          <ProjectDetailsInfo
+            darkTheme={false}
+            projectDetails={selectedProjectDetails}
+          />
         </Overlay>
       )}
     </section>
