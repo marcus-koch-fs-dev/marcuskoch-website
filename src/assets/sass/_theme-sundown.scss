@@ -1,49 +1,49 @@
 body.sundown {
-  --h1: #e0851d;
-  --h1-highlight: #c71f7b;
-  --h2: #e0851d;
-  --h2-highlight: #c71f7b;
-  --h3: #e0851d;
-  --h3-highlight: #c71f7b;
-  --h4: #e0851d;
-  --h4-highlight: #c71f7b;
-  --p: #dddddd;
-  --p-highlight: #e6dcdc;
-  --a: #ffffff;
-  --a-highlight: #181717;
-  --span: #e7dcdc;
-  --span-highlight: #181717;
+  // Sundown Theme
+  --h1: #edf4c2;
+  --h1-highlight: #eb5a3c;
+  --h2: #e7d283;
+  --h2-highlight: #eb5a3c;
+  --h3: #df9755;
+  --h3-highlight: #eb5a3c;
+  --h4: #edf4c2;
+  --h4-highlight: #df9755;
+  --p: #e7d283;
+  --p-highlight: #edf4c2;
+  --a: #edf4c2;
+  --a-highlight: #eb5a3c;
+  --span: #df9755;
+  --span-highlight: #e7d283;
 
-  --btn-label: #911414;
-  --btn-default-boxShadow: #c71fa3;
-  --btn-default-boxShadow_hover: #f3f3f3;
+  --btn-label: var(--a);
+  --btn-default-boxShadow: #eb5a3c;
+  --btn-default-boxShadow_hover: #df9755;
 
-  // --pri-color-svg: #f4d115;
-  --pri-color-svg: #910a68;
-  --sec-color-svg: #e935f0;
+  --pri-color-svg: #e7d283;
+  --sec-color-svg: #eb5a3c;
 
-  --bg-header: #313131;
-  --bg-main: #434a5a;
-  --bg-footer: #242424;
-  --bg-footer-disclaimer: #131f3d;
-  --bg-overlay-main: #24242488;
-  --bg-item-label: rgba(37, 37, 37, 0.89);
-  --bg-item-hover: rgba(0, 0, 0, 0.534);
-  --bg-slide: #15151f;
+  --bg-header: #eb5a3c;
+  --bg-main: #df9755;
+  --bg-footer: #eb5a3c;
+  --bg-footer-disclaimer: #e7d283;
+  --bg-overlay-main: rgba(235, 90, 60, 0.85);
+  --bg-item-label: rgba(223, 151, 85, 0.85);
+  --bg-item-hover: rgba(231, 210, 131, 0.8);
+  --bg-slide: #eb5a3c;
 
-  --bg-btn-arrow-slider: #e935f0;
-  --bg-btn-arrow-boxShadow: rgba(29, 31, 29, 0.24);
-  --bg-btn-toggler: "transparent";
+  --bg-btn-arrow-slider: #e7d283;
+  --bg-btn-arrow-boxShadow: rgba(223, 151, 85, 0.6);
+  --bg-btn-toggler: transparent;
   --bg-btn-span-toggler: var(--pri-color-svg);
-  --bg-mobile-menu: rgb(66, 55, 75);
-  --bg-btn-overlay-close: "transparent";
-  --color-overlay-close: #e935f0;
-  --bg-btn-default: rgb(129, 124, 124);
+  --bg-mobile-menu: #eb5a3c;
+  --bg-btn-overlay-close: transparent;
+  --color-overlay-close: #edf4c2;
+  --bg-btn-default: #e7d283;
 
-  --bg-theme-zones: rgb(79, 89, 117);
-  --color-night: #2136f3;
-  --color-day: rgb(204, 86, 31);
-  --color-sundown: rgb(163, 34, 152);
-  --color-sunrise: rgb(98, 40, 204);
+  // --bg-theme-zones: #df9755;
+  --bg-theme-zones: #eb5a3c;
+  --color-night: #df9755;
+  --color-day: #edf4c2;
+  --color-sundown: #edf4c2;
+  --color-sunrise: #df9755;
 }
-// }
