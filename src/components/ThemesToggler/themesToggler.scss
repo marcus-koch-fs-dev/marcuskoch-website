@@ -1,5 +1,4 @@
-@import "/src/assets/sass/base.scss";
-@import "./animations.scss";
+@use "./animations.scss";
 
 .themes-wrapper {
   z-index: 999; // One level beneath overlay

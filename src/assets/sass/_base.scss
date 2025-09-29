@@ -1,15 +1,9 @@
-@import "./normalize.scss";
-@import "./mixins";
-@import "./theme-day.scss";
-@import "./theme-night.scss";
-@import "./theme-sunrise.scss";
-@import "./theme-sundown.scss";
-
-// Breakpoints media devices: max sizes
-$mobile: 425px; //360 small mobile
-$tablet: 768px;
-$laptop: 1024px;
-$desktop-lg: 1440px;
+@use "./index" as *; // Variablen und Mixins verfügbar
+@use "./_normalize.scss"; // gibt CSS aus
+@use "./_theme-day.scss";
+@use "./_theme-night.scss";
+@use "./_theme-sunrise.scss";
+@use "./_theme-sundown.scss";
 
 html,
 body {

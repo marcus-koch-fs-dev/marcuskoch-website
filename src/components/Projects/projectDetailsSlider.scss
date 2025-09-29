@@ -1,4 +1,5 @@
-@import "/src/assets/sass/base.scss";
+//
+@use "/src/assets/sass/variables" as vars;
 
 .details-wrapper {
   // Das Wrapper-Element für den gesamten Slider
