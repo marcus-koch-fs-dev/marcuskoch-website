@@ -7,7 +7,6 @@ export const zones = [
     delay: 1750,
     theme: "sunrise",
     svg: "#bbe1fa",
-    // svg: "#ffd166",
   },
   {
     angle: "90",
