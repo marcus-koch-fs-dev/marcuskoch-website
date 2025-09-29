@@ -25,9 +25,9 @@ export const zones = [
   {
     angle: "270",
     class: "fa-solid fa-moon",
-    delay: 1000,
+    delay: 1750,
     theme: "night",
-    svg: "#1149e4",
+    svg: "#535C91",
   },
 ];
 
