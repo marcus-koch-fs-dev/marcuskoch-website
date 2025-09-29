@@ -49,12 +49,13 @@
         padding: 0.5rem;
         background-color: var(--bg-item-label);
         border-radius: 20rem;
-        color: var(--h4-highlight);
+        // color: var(--h4-highlight);
+        color: var(--h4);
       }
       // h4 {
       // }
       span {
-        color: var(--span);
+        color: var(--a-highlight);
       }
 
       .item-overlay {

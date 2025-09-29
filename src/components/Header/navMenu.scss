@@ -29,7 +29,7 @@
   &.toggled {
     span:nth-child(1) {
       // width: 100%;
-      transform: rotate(45deg) translateY(0.3rem) translateX(0.25rem);
+      transform: rotate(45deg) translateY(0.35rem) translateX(0.25rem);
     }
 
     span:nth-child(2) {
@@ -38,7 +38,7 @@
 
     span:nth-child(3) {
       // width: 100%;
-      transform: rotate(-45deg) translateY(-0.3rem) translateX(0.25rem);
+      transform: rotate(-45deg) translateY(-0.35rem) translateX(0.25rem);
     }
   }
 }
