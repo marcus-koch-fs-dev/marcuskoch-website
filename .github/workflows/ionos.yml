@@ -2,36 +2,58 @@ name: Deploy to Ionos Webstorage
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  # test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
 
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #         cache: 'pnpm'
+
+  #     - run: corepack enable
+  #     - run: pnpm install --frozen-lockfile
+  #     - run: pnpm test
+
+  build:
+    # needs: test
+    runs-on: ubuntu-latest
     steps:
-        # Whats happen here
-      - name: Checkout repository
-        uses: actions/checkout@v4
-  
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-  
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+          cache: 'pnpm'
+
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
-          version: 9
+          name: dist
+          path: dist
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build project
-        run: pnpm run build
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
 
       - name: Deploy via SFTP
-        # What is appleboy? Same as filezilla
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
