@@ -39,4 +39,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           source: "dist/*"
-          target: "/test"
+          target: "/kunden/homepages/0/d4298874552/htdocs/test"
