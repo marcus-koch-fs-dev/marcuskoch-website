@@ -2,14 +2,14 @@ import BookingButton from "../BookingButton";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
 import "./home.scss";
 import Frame from "./Frame";
-import Foto from "/assets/me.jpg";
+import Foto from "/assets/me.webp";
 
-const Home = ({ handleNavClick }) => {
+const Home = () => {
   const { width } = useResponsiveSize();
   const interests = [
-    "Full-Stack Developer",
-    "E-Commerce Enthusiast",
-    "IoT Explorer",
+    "Frontend Developer",
+    "React & TypeScript",
+    "Web Performance & Frontend Architecture",
   ];
 
   return (
@@ -24,16 +24,17 @@ const Home = ({ handleNavClick }) => {
             className="frame-img"
             alt="Photo Marcus"
             src={Foto}
-            // width={"300px"}
+            width={"300px"}
+            height={"300px"}
           />
         </div>
       </div>
       <div className="homeWrapper">
         <h1 className="home-h1">
-          Building
-          <span className="highlight-text">{` Digital`}</span>
-          <span className="highlight-text">{` Products `}</span>
-          that create real-world impact
+          High-Performance
+          <span className="highlight-text">{` Frontend `}</span>
+          <span className="highlight-text">{` Engineering `}</span>
+          with Measurable Impact
         </h1>
         <ul className="interests-ul">
           {interests.map((el, idx) => (

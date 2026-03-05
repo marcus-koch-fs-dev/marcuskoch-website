@@ -1,4 +1,4 @@
-import { VitePWA } from "vite-plugin-pwa";
+// import { VitePWA } from "vite-plugin-pwa";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
@@ -6,12 +6,12 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({
-      registerType: "autoUpdate",
-      devOptions: {
-        enabled: true,
-      },
-    }),
+    // VitePWA({
+    //   registerType: "autoUpdate",
+    //   devOptions: {
+    //     enabled: true,
+    //   },
+    // }),
   ],
   server: {
     open: true,
@@ -23,20 +23,20 @@ export default defineConfig({
       },
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        assetFileNames: ({ name }) => {
-          // Speichert alle Bilddateien in einem 'images'-Ordner im 'assets'-Verzeichnis
-          if (/\.(png|jpe?g|gif|svg)$/.test(name ?? "")) {
-            return "assets/images/[name].[hash][extname]";
-          }
-          // Standardverhalten für andere Arten von Assets
-          return "assets/[name].[hash][extname]";
-        },
-        chunkFileNames: "assets/js/[name].[hash].js",
-        entryFileNames: "assets/js/[name].[hash].js",
-      },
-    },
-  },
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+  //       assetFileNames: ({ name }) => {
+  //         // Speichert alle Bilddateien in einem 'images'-Ordner im 'assets'-Verzeichnis
+  //         if (/\.(png|jpe?g|gif|svg|webp)$/.test(name ?? "")) {
+  //           return "assets/images/[name].[hash][extname]";
+  //         }
+  //         // Standardverhalten für andere Arten von Assets
+  //         return "assets/[name].[hash][extname]";
+  //       },
+  //       chunkFileNames: "assets/js/[name].[hash].js",
+  //       entryFileNames: "assets/js/[name].[hash].js",
+  //     },
+  //   },
+  // },
 });

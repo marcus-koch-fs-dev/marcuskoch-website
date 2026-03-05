@@ -107,7 +107,7 @@ export const projectsData = [
     title: "Server Metadata Dashboard",
     alt: "Arvato App - Screenshot. AI generated image with connected computers worldwide.",
     projectInfo:
-      "Built parts of a dashboard for server metadata in collaboration with an international team at Arvato. Developed reusable UI components with Storybook and Material UI, aligned with a designer’s visual style, and ensured quality with Jest testing and Azure CI/CD.",
+      "Established Azure DevOps CI/CD pipelines for deploying React frontends and Express.js/Python microservices to SAP HANA Cloud, ensuring global availability with minimal downtime. Built a resource monitoring dashboard that identified and eliminated ~30% unused services, reducing vertical scaling costs.",
     client: "Arvato Systems GmbH",
     technologies:
       "React (TS), Redux, REST API, Git, Material UI, Storybook, Jest, Sketch",
@@ -128,7 +128,7 @@ export const projectsData = [
     title: "Video Management Platform Modernization",
     alt: "Baas GmbH - Video Platform Screenshot",
     projectInfo:
-      "Redesigned a legacy FTP-based workflow into a modern video management platform with a YouTube-style interface. Built the frontend with React, Redux, and Material UI, enabling 4K uploads, previews, role-based access, and downloads. Extended the IONOS infrastructure with an S3 bucket for video storage and MySQL for metadata. The backend, implemented in Node.js (Express.js) with fluent-ffmpeg, handled transcoding and thumbnails. The modernization significantly improved usability and reliability, receiving strong positive feedback from clients and the CEO.",
+      "Built a B2B video platform to replace an FTP-based workflow, enabling clients to securely stream (720p), comment on, and manage FHD/4K video content via a web interface. Developed a monolithic Express.js and MySQL backend deployed via GitHub CI/CD on a self-managed IONOS VPS to meet infrastructure and GDPR requirements. Implemented a server-side upload pipeline handling videos up to 15GB using asynchronous fluent-ffmpeg processing for previews and thumbnails. Developed a React and TypeScript dashboard with JWT-secured REST APIs, and improved performance and accessibility, achieving a Lighthouse score of 97. Strengthened reliability through automated testing with Jest and Cypress, reaching ~70% frontend and ~60% backend coverage.",
     client: "Baas Film GmbH",
     technologies:
       "React, Redux, Node.js (Express.js), Material UI, MySQL, IONOS S3, fluent-ffmpeg, Git",
@@ -139,7 +139,7 @@ export const projectsData = [
     sliderImages: [
       {
         medium: "/assets/work/baas512.jpg",
-        big: "/assets/work/baas.jpg",
+        big: "/assets/work/baas.png",
         desc: "Illustration of the video management platform",
       },
     ],

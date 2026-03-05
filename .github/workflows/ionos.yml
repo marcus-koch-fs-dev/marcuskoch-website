@@ -2,9 +2,9 @@ name: Deploy to Ionos Webstorage
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   # test:
@@ -62,4 +62,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           source: "dist/*"
-          target: "/kunden/homepages/0/d4298874552/htdocs/test"
+          target: "/kunden/homepages/0/d4298874552/htdocs/website"

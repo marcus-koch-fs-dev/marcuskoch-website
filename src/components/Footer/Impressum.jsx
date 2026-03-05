@@ -8,7 +8,7 @@ const Impressum = () => {
       </div>
       <div className="">
         <p>Marcus Koch Im Priel 1 88138 Sigmarszell Deutschland</p>
-        <p>E-Mail: info@marcus-koch.dev</p>
+        <p>E-Mail: marcus@marcus-koch.dev</p>
         <p>
           Plattform der EU-Kommission zur Online-Streitbeilegung:{" "}
           <a href="https://ec.europa.eu/odr" target="_blank">

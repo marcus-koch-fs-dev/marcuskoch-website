@@ -6,7 +6,7 @@ const Eyes = () => {
   const [eyesToggled, setEyesToggled] = useState(false);
   const fill = useSvgUpdate();
   useEffect(() => {
-    const times = [4000, 200]; // Zeit in Millisekunden, 150ms für das Blinzeln
+    const times = [10000, 150]; // Zeit in Millisekunden, 150ms für das Blinzeln
 
     const blink = () => {
       setEyesToggled(true); // Auge schließen
