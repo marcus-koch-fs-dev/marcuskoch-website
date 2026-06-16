@@ -14,6 +14,11 @@ section {
   height: 100%;
   flex-grow: 1;
 
+  .home-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
   .frame {
     grid-area: frame;
     display: flex;

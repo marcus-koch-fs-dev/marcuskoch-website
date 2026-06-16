@@ -31,11 +31,11 @@ const Home = () => {
       </div>
       <div className="homeWrapper">
         <h1 className="home-h1">
-          Building
-          <span className="highlight-text">{` Fullstack `}</span>
-          <span className="highlight-text">{`  Applications `}</span>
-          that Perform
+          Building{" "}
+          <span className="highlight-text">Fullstack Applications</span> that
+          Perform
         </h1>
+        <p className="home-subtitle">Marcus Koch</p>
         <ul className="interests-ul">
           {interests.map((el, idx) => (
             <li key={idx} className="interests-li">
