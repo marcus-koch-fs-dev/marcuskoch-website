@@ -7,9 +7,9 @@ import Foto from "/assets/me.webp";
 const Home = () => {
   const { width } = useResponsiveSize();
   const interests = [
-    "Frontend Developer",
-    "React & TypeScript",
-    "Web Performance & Frontend Architecture",
+    "Fullstack Developer",
+    "React, TypeScript & Node.js",
+    "Web Performance & Scalable Architecture",
   ];
 
   return (
@@ -31,10 +31,10 @@ const Home = () => {
       </div>
       <div className="homeWrapper">
         <h1 className="home-h1">
-          High-Performance
-          <span className="highlight-text">{` Frontend `}</span>
-          <span className="highlight-text">{` Engineering `}</span>
-          with Measurable Impact
+          Building
+          <span className="highlight-text">{` Fullstack `}</span>
+          <span className="highlight-text">{`  Applications `}</span>
+          that Perform
         </h1>
         <ul className="interests-ul">
           {interests.map((el, idx) => (
