@@ -40,8 +40,14 @@ footer {
   }
 }
 
-img {
-  width: 2rem;
+.sm-icon {
+  font-size: 2rem;
+  color: var(--footer-text);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--sec-color-svg);
+  }
 }
 
 section {

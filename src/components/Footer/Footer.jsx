@@ -1,7 +1,5 @@
 import Datenschutz from "./Datenschutz";
 import Impressum from "./Impressum";
-import IconLinkedin from "/assets/linkedin.png";
-import IconGit from "/assets/git.png";
 import "./footer.scss";
 import InterpolatedWave from "./InterpolatedWave";
 import useResponsiveSize from "../../hooks/useResponsiveSize";
@@ -49,17 +47,19 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/marcus-koch-dev"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
-                <img className="sm-icon" src={IconLinkedin} alt="Linkedin" />
+                <i className="sm-icon fa-brands fa-linkedin" aria-hidden="true" />
               </a>
             </li>
-            <li className="item">
+            <li className="sm-item">
               <a
                 href="https://github.com/marcus-koch-fs-dev"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
               >
-                <img className="icon" src={IconGit} alt="Github" />
+                <i className="sm-icon fa-brands fa-github" aria-hidden="true" />
               </a>
             </li>
           </ul>
