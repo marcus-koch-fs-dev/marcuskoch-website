@@ -45,10 +45,10 @@ footer {
 .sm-icon {
   font-size: 2rem;
   color: var(--footer-text);
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 
   &:hover {
-    color: var(--sec-color-svg);
+    opacity: 0.7;
   }
 }
 

@@ -18,20 +18,21 @@ const Projects = () => {
       .sort((a, b) => a.id - b.id)
       .map((project) => (
         <li className="project-card" key={project.id}>
+          <div className="project-meta">
+            <span className="project-industry">{project.industry}</span>
+            <span className="project-date">{project.date}</span>
+          </div>
+          <h3 className="project-title">{project.title}</h3>
+          <p className="project-client">{project.client}</p>
+          <p className="project-result">{project.result}</p>
+          <p className="project-tech">{project.technologies}</p>
           <button
             type="button"
-            className="project-card-btn"
+            className="project-more"
+            aria-label={`Details zu ${project.title}`}
             onClick={() => handleClick(project)}
           >
-            <div className="project-meta">
-              <span className="project-industry">{project.industry}</span>
-              <span className="project-date">{project.date}</span>
-            </div>
-            <h3 className="project-title">{project.title}</h3>
-            <p className="project-client">{project.client}</p>
-            <p className="project-result">{project.result}</p>
-            <p className="project-tech">{project.technologies}</p>
-            <span className="project-more">Details →</span>
+            <span aria-hidden="true">Details →</span>
           </button>
         </li>
       ));

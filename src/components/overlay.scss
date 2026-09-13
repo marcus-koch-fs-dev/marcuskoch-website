@@ -48,6 +48,25 @@
       margin: 0;
       line-height: 1.5;
     }
+
+    .detailsInfo-title {
+      margin: 0 0 0.25rem;
+    }
+    .detailsInfo-client {
+      color: var(--h4);
+      font-size: 0.9rem;
+    }
+    .detailsInfo-result {
+      margin: 0.5rem 0 1rem;
+      padding-left: 0.6rem;
+      border-left: 3px solid var(--h1-highlight);
+      font-weight: 700;
+      color: var(--h1);
+    }
+    .detailsInfo-tech {
+      color: var(--h4);
+      font-size: 0.85rem;
+    }
   }
 
   .overlay-close {
