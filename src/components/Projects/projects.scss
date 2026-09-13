@@ -1,113 +1,93 @@
-// @use "src/assets/sass/base.scss";
-
 .projects {
-  //   border: 1px white solid;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   overflow: auto;
-  // justify-content: center;
 
-  > ul {
+  .projects-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+    list-style: none;
+  }
+
+  .project-card {
     display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-    // border: orange 3px solid;
+  }
 
-    li {
-      // border: green 1px solid;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin: 0.5rem;
-      position: relative;
-      top: 0;
-      left: 0;
-      height: 13rem;
-      justify-content: center;
+  .project-card-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    padding: 1.25rem;
+    border: 1px solid var(--pri-color-svg);
+    border-radius: 14px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-      img {
-        width: 100%;
-        height: 100%;
-      }
-
-      &.narrow {
-        width: 13rem;
-      }
-
-      &.wide {
-        width: 26rem;
-      }
-      //       //   border: blue 1px solid;
-      .item-title {
-        position: absolute;
-        margin: 0.5rem;
-        padding: 0.5rem;
-        background-color: var(--bg-item-label);
-        border-radius: 20rem;
-        // color: var(--h4-highlight);
-        color: var(--h4);
-      }
-      // h4 {
-      // }
-      span {
-        color: var(--a-highlight);
-      }
-
-      .item-overlay {
-        position: absolute;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--bg-item-hover);
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-
-      &:hover {
-        .item-overlay {
-          display: flex;
-          cursor: pointer;
-        }
-      }
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px var(--bg-overlay-main);
     }
   }
 
-  @include mobile {
-    > ul {
-      li {
-        height: 8rem;
-
-        &.narrow {
-          width: 8rem;
-        }
-
-        &.wide {
-          width: 16rem;
-        }
-      }
-    }
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--h4);
   }
 
-  @include tablet {
-    > ul {
-      align-items: center;
-      li {
-        height: 11rem;
+  .project-title {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--h3);
+  }
 
-        &.narrow {
-          width: 11rem;
-        }
+  .project-client {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--p);
+  }
 
-        &.wide {
-          width: 22rem;
-        }
-      }
-    }
+  .project-result {
+    margin: 0.25rem 0;
+    padding-left: 0.6rem;
+    border-left: 3px solid var(--h1-highlight);
+    font-weight: 700;
+    color: var(--h1);
+  }
+
+  .project-tech {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--h4);
+  }
+
+  .project-more {
+    margin-top: auto;
+    font-weight: 600;
+    color: var(--h3);
+    transition: color 0.2s ease;
+  }
+
+  .project-card-btn:hover .project-more,
+  .project-card-btn:focus-visible .project-more {
+    color: var(--h1-highlight);
   }
 }

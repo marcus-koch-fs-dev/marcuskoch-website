@@ -1,37 +1,38 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { projectsData } from "./projectList";
-import { useMemo } from "react";
 import "./projects.scss";
 import { Overlay } from "../Overlay";
-import ProjectDetailsSlider from "./ProjectDetailsSlider";
 import ProjectDetailsInfo from "./ProjectDetailsInfo";
 
 const Projects = () => {
   const [selectedProjectDetails, setSelectedProjectDetails] = useState();
   const [openOverlay, setOpenOverlay] = useState(false);
 
-  const handleClick = (project, event) => {
-    event.preventDefault();
+  const handleClick = (project) => {
     setOpenOverlay(true);
     setSelectedProjectDetails(project);
   };
 
   const projectList = useMemo(() => {
-    return projectsData
+    return [...projectsData]
       .sort((a, b) => a.id - b.id)
-      .map((project, index) => (
-        <li
-          className={`item-wrapper ${project.imgStyle ? "wide" : "narrow"}`}
-          key={index}
-        >
-          <img src={project.thumbImage} alt={project.alt} />
-          <h4 className="item-title">{project.title}</h4>
-          <div
-            className="item-overlay"
-            onClick={(e) => handleClick(project, e)}
+      .map((project) => (
+        <li className="project-card" key={project.id}>
+          <button
+            type="button"
+            className="project-card-btn"
+            onClick={() => handleClick(project)}
           >
-            <span>Click for Details</span>
-          </div>
+            <div className="project-meta">
+              <span className="project-industry">{project.industry}</span>
+              <span className="project-date">{project.date}</span>
+            </div>
+            <h3 className="project-title">{project.title}</h3>
+            <p className="project-client">{project.client}</p>
+            <p className="project-result">{project.result}</p>
+            <p className="project-tech">{project.technologies}</p>
+            <span className="project-more">Details →</span>
+          </button>
         </li>
       ));
   }, []);
@@ -41,14 +42,7 @@ const Projects = () => {
       <ul className="projects-wrapper">{projectList}</ul>
       {openOverlay && (
         <Overlay handleClose={() => setOpenOverlay(false)}>
-          <ProjectDetailsSlider
-            darkTheme={false}
-            projectDetails={selectedProjectDetails}
-          />
-          <ProjectDetailsInfo
-            darkTheme={false}
-            projectDetails={selectedProjectDetails}
-          />
+          <ProjectDetailsInfo projectDetails={selectedProjectDetails} />
         </Overlay>
       )}
     </section>
