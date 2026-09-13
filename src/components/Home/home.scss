@@ -13,6 +13,9 @@ section {
   grid-template-areas: "home home frame";
   height: 100%;
   flex-grow: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 
   .home-subtitle {
     font-size: 1.5rem;
@@ -22,7 +25,8 @@ section {
   .frame {
     grid-area: frame;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: center;
 
     .frame-order {
       position: relative;
@@ -57,9 +61,10 @@ section {
     // border: solid red 1px;
 
     .home-h1 {
-      width: 50%;
-      // border: solid red 1px;
+      max-width: 22ch;
       margin-bottom: 0;
+      text-align: center;
+      text-wrap: balance;
 
       .highlight-text {
         color: var(--h1-highlight);
@@ -85,7 +90,7 @@ section {
 
     .homeWrapper {
       .home-h1 {
-        width: 80%;
+        max-width: 90%;
       }
 
       .interests-ul {
