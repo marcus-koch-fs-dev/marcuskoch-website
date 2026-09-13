@@ -33,6 +33,8 @@ footer {
   }
 
   .laws {
+    color: var(--footer-text);
+
     .laws-list {
       gap: 1rem;
       padding-bottom: 0.5rem;
@@ -71,7 +73,7 @@ section {
   }
 
   a {
-    color: var(--p);
+    color: var(--footer-text);
   }
 
   span.laws-p {
