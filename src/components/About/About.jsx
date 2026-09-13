@@ -2,38 +2,14 @@ import Eyes from "./Eyes";
 import "./about.scss";
 
 const techStack = {
-  "💻 Programming Languages": ["JavaScript", "TypeScript", "Python"],
-  "🛠 Technologies & Tools:": [
-    "React",
-    "Redux Toolkit",
-    "Next.js",
-    "Node.js",
-    "Express.js",
-    "REST APIs",
-    "GraphQL",
-    "OAuth 2.0",
-    "Web Security",
-    "Jest",
-    "Cypress",
-    "Webpack",
-    "Vite",
+  "🛠 Core Stack": ["TypeScript", "React", "Next.js", "Node.js", "GraphQL"],
+  "☁️ Tooling & Infra": [
     "Tailwind CSS",
     "SASS",
-    "CSS",
-    "SQL (PostgreSQL, MySQL)",
-    "MongoDB",
-    "Redis",
-    "Git",
+    "Jest / Cypress",
     "Docker",
-    "AI Tools (Claude Code, Cursor, Codex)",
+    "AWS",
   ],
-  "☁️ Cloud & DevOps:": [
-    "AWS (S3, CloudFront, ECS, RDS)",
-    "Azure DevOps",
-    "CI/CD (GitLab, GitHub)",
-  ],
-  "📊 Methods: ": ["Agile (Scrum)", "Kanban"],
-  "🌐 Interests: ": ["Web Performance", "Scalable Architecture"],
 };
 
 const About = () => {
