@@ -3,6 +3,18 @@
   flex-direction: column;
   min-height: 100vh; /* Stellt sicher, dass .main mindestens die volle Höhe des Viewports einnimmt */
   background-color: var(--bg-main);
+  background-image: radial-gradient(
+      ellipse at 15% 10%,
+      var(--sec-color-svg) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 85% 90%,
+      var(--pri-color-svg) 0%,
+      transparent 50%
+    );
+  background-blend-mode: overlay;
+  background-attachment: fixed;
 
   main {
     flex-grow: 1;
