@@ -20,12 +20,14 @@ body.night {
   --btn-default-boxShadow_hover: #1b1a55;
 
   --pri-color-svg: #9290c3;
+  --pri-color-svg-rgb: 146, 144, 195;
   --sec-color-svg: #535c91;
+  --sec-color-svg-rgb: 83, 92, 145;
   --footer-text: #070f2b; /* lesbar auf --pri-color-svg */
   --chip-text: #e6e5f5; /* lesbar auf --h1-highlight */
   --card-bg: #2f2d78;
   --card-text: #e6e5f5;
-  --gradient-intensity: 65%;
+  --gradient-alpha: 0.65;
 
   --bg-header: #070f2b;
   --bg-main: #1b1a55;

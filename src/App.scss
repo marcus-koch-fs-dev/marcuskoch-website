@@ -5,12 +5,12 @@
   background-color: var(--bg-main);
   background-image: radial-gradient(
       ellipse at 15% 10%,
-      color-mix(in srgb, var(--sec-color-svg) var(--gradient-intensity, 40%), transparent) 0%,
+      rgba(var(--sec-color-svg-rgb), var(--gradient-alpha, 0.4)) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse at 85% 90%,
-      color-mix(in srgb, var(--pri-color-svg) var(--gradient-intensity, 40%), transparent) 0%,
+      rgba(var(--pri-color-svg-rgb), var(--gradient-alpha, 0.4)) 0%,
       transparent 55%
     );
   background-attachment: fixed;

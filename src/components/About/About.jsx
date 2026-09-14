@@ -41,7 +41,7 @@ const About = () => {
             That work motivated me to learn advanced programming and eventually
             transition into web development.
           </p>
-          <p className="block">
+          <p className="block block--icon">
             <strong>
               <span className="highlight-text">
                 <span className="icon-badge">🚀</span> My motto:
@@ -68,7 +68,7 @@ const About = () => {
           ))}
         </div>
         <article>
-          <p className="block">
+          <p className="block block--icon">
             <strong>
               <span className="highlight-text">
                 <span className="icon-badge">🤸</span> In{" "}
