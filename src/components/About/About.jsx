@@ -43,10 +43,7 @@ const About = () => {
           </p>
           <p className="block">
             <strong>
-              <span className="highlight-text">
-                <i className="fa-solid fa-rocket" aria-hidden="true" /> My
-                motto:
-              </span>{" "}
+              <span className="highlight-text">My motto:</span>{" "}
             </strong>
             “It’s better to think 5 minutes longer than to spend 5 days fixing
             it.”
@@ -71,10 +68,7 @@ const About = () => {
         <article>
           <p className="block">
             <strong>
-              <span className="highlight-text">
-                <i className="fa-solid fa-person-swimming" aria-hidden="true" />{" "}
-                In{" "}
-              </span>
+              <span className="highlight-text">In </span>
             </strong>
             my free time, you can find me at the gym doing calisthenics training
             or freediving.
