@@ -5,6 +5,7 @@ export const projectsData = [
     client: "Arvato Systems GmbH",
     industry: "IT Services",
     date: "06/21 - 11/21",
+    duration: "6 Monate",
     result: "~30% ungenutzte Services eliminiert → geringere Skalierungskosten",
     technologies:
       "React (TS), Redux, REST API, Git, Material UI, Storybook, Jest, Sketch",
@@ -17,6 +18,7 @@ export const projectsData = [
     client: "Thyssenkrupp Presta AG",
     industry: "Automotive",
     date: "02/2022 - 04/2022",
+    duration: "3 Monate",
     result: "Modernisierte Cloud-Startseite mit positivem Key-User-Feedback",
     technologies:
       "React, Redux, Node.js (TS), Python, Microservices, REST API, Git, Azure CI/CD, SAP HANA",
@@ -29,6 +31,7 @@ export const projectsData = [
     client: "Sciendis GmbH",
     industry: "Healthcare",
     date: "12/21 - 01/22",
+    duration: "2 Monate",
     result: "Release termingerecht trotz reduzierter Team-Kapazität gesichert",
     technologies:
       "React Native (TS), Redux, REST API, Git, Bitbucket, Material UI, Expo",
@@ -41,6 +44,7 @@ export const projectsData = [
     client: "Thyssenkrupp Presta AG",
     industry: "Automotive",
     date: "05/22 - 12/23",
+    duration: "~1,5 Jahre",
     result: "Suchzeiten −95%: von Tagen auf Sekunden",
     technologies:
       "React, Redux, Node.js, Python, Microservices, REST API, Git, Azure CI/CD, SAP HANA, Material UI, AG-Grid",
@@ -53,6 +57,7 @@ export const projectsData = [
     client: "Thyssenkrupp Presta AG",
     industry: "Automotive",
     date: "05/23 - 07/23",
+    duration: "3 Monate",
     result: "Compliance-Sichtbarkeit ~50% verbessert → schnellere Reaktionen",
     technologies:
       "React, Redux, Node.js, Python, Microservices, REST API, Git, Azure CI/CD, SAP HANA, Material UI, AG-Grid, Plotly",
@@ -65,6 +70,7 @@ export const projectsData = [
     client: "Baas Film GmbH",
     industry: "Media & Entertainment",
     date: "04/2024 - 12/2024",
+    duration: "9 Monate",
     result: "Lighthouse-Score 97, Uploads bis 15 GB, ~70/60% Testabdeckung",
     technologies:
       "React, Redux, Node.js (Express.js), Material UI, MySQL, IONOS S3, fluent-ffmpeg, Git",

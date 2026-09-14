@@ -20,7 +20,7 @@ const Projects = () => {
         <li className="project-card" key={project.id}>
           <div className="project-meta">
             <span className="project-industry">{project.industry}</span>
-            <span className="project-date">{project.date}</span>
+            <span className="project-date">{project.duration}</span>
           </div>
           <h3 className="project-title">{project.title}</h3>
           <p className="project-client">{project.client}</p>
