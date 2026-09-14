@@ -35,6 +35,20 @@ ul {
     .menu-horizontal {
       .menu-item {
         margin: 0.35rem;
+
+        a {
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: 1.05rem;
+          letter-spacing: 0.02em;
+          color: var(--a);
+          transition: color 0.2s ease;
+        }
+
+        a.active {
+          color: var(--h1-highlight);
+        }
+
         :hover {
           border-bottom: 2px solid var(--pri-color-svg);
         }
@@ -67,6 +81,19 @@ ul {
   .menu-item {
     box-sizing: border-box;
     height: 2rem;
+
+    a {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      color: var(--a);
+    }
+
+    a.active {
+      color: var(--h1-highlight);
+    }
+
     :hover {
       border-bottom: 2px solid var(--pri-color-svg);
     }
