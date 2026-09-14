@@ -13,12 +13,15 @@ const IconCode = () => (
   </svg>
 );
 
-const IconCloud = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4.5" y="13.5" width="15" height="5.5" rx="2.75" />
-    <circle cx="9" cy="11.5" r="4" />
-    <circle cx="14" cy="9.5" r="5" />
-    <circle cx="18" cy="12.5" r="3.2" />
+const IconGear = () => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="3.2" stroke="currentColor" strokeWidth="1.8" />
+    <path
+      d="M12 3.5v2.3M12 18.2v2.3M20.5 12h-2.3M5.8 12H3.5M17.7 6.3l-1.6 1.6M7.9 16.1l-1.6 1.6M17.7 17.7l-1.6-1.6M7.9 7.9 6.3 6.3"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+    />
   </svg>
 );
 
@@ -41,8 +44,8 @@ const techStack = [
     items: ["TypeScript", "React", "Next.js", "Node.js", "GraphQL"],
   },
   {
-    Icon: IconCloud,
-    label: "Tooling & Infra",
+    Icon: IconGear,
+    label: "Tooling & Infrastructure",
     items: ["Tailwind CSS", "SASS", "Jest / Cypress", "Docker", "AWS"],
   },
 ];
