@@ -13,6 +13,11 @@ dev-dist/*
 dist-ssr
 *.local
 
+# Local pnpm client (v10+) build-script approval prompt file -- not a
+# real workspace config (no `packages:` field), breaks CI's pnpm v9
+# frozen-lockfile install if committed
+pnpm-workspace.yaml
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
