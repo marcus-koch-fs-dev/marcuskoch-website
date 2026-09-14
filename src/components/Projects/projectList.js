@@ -54,9 +54,9 @@ export const projectsData = [
     result:
       "FTP delivery replaced, uploads up to 15 GB, Lighthouse score of 97, around 70% test coverage",
     technologies:
-      "React, TypeScript, JavaScript, Redux Toolkit, Node.js, Express, MySQL, Multer, fluent-ffmpeg, JWT, Jest, Cypress",
+      "React, TypeScript, JavaScript, Redux Toolkit, Node.js, Express, MySQL, Multer, ffmpeg, JWT, Jest, Cypress",
     projectInfo:
-      "B2B platform for delivering commercials and short documentaries in FHD and 4K. FTP-based delivery gave way to a web platform where clients stream 720p preview videos and comment on them directly, which largely removed email approval loops and review meetings. A server-side upload pipeline handles videos up to 15 GB with asynchronous processing through fluent-ffmpeg, backed by an Express and MySQL backend deployed to a VPS at the existing provider for GDPR-compliant infrastructure. Clients and administrators work through a React dashboard with JWT-secured REST endpoints and a 12-month retention policy.",
+      "B2B platform for delivering commercials and short documentaries in FHD and 4K. FTP-based delivery gave way to a web platform where clients stream 720p preview videos and comment on them directly, which largely removed email approval loops and review meetings. A server-side upload pipeline handles videos up to 15 GB with asynchronous processing through ffmpeg, backed by an Express and MySQL backend deployed to a VPS at the existing provider for GDPR-compliant infrastructure. Clients and administrators work through a React dashboard with JWT-secured REST endpoints and a 12-month retention policy.",
   },
   {
     id: 5,
