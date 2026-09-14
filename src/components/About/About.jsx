@@ -1,12 +1,12 @@
 import Eyes from "./Eyes";
 import "./about.scss";
 
-const IconWrench = () => (
+const IconCode = () => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
-      d="M21.7 16.8a5 5 0 0 1-6.7 5.9L4.5 22.3a2 2 0 0 1-1.4-3.4l10.4-10.4a5 5 0 0 1 6-6.6l-3.6 3.6 1.4 1.4 3.6-3.6a5 5 0 0 1 .8 3.5"
+      d="M9 7 4 12l5 5M15 7l5 5-5 5"
       stroke="currentColor"
-      strokeWidth="1.8"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
@@ -14,52 +14,29 @@ const IconWrench = () => (
 );
 
 const IconCloud = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M7 18a4.5 4.5 0 0 1-.6-8.96A5.5 5.5 0 0 1 17.2 9.1 4 4 0 0 1 16.5 18H7Z"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <rect x="4.5" y="13.5" width="15" height="5.5" rx="2.75" />
+    <circle cx="9" cy="11.5" r="4" />
+    <circle cx="14" cy="9.5" r="5" />
+    <circle cx="18" cy="12.5" r="3.2" />
   </svg>
 );
 
-const IconRocket = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M14.5 9.5c2-2 5-2.5 6.5-2 .5 1.5 0 4.5-2 6.5l-2 2-4.5-4.5 2-2Z"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="m12.5 11.5-5 5 2 2 5-5M8 14 5 15l4-4M10 16l-1 3 3-1"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+const IconBolt = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.18 2.29a.9.9 0 0 0-1.55-.79l-10.2 11.4a.9.9 0 0 0 .67 1.5h7.89l-1.57 7.31a.9.9 0 0 0 1.55.79l10.2-11.4a.9.9 0 0 0-.67-1.5h-7.89l1.57-7.31Z" />
   </svg>
 );
 
-const IconGymnastics = () => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="17" cy="5" r="1.8" fill="currentColor" />
-    <path
-      d="M6 20 10 13l2-3 3 2 3-1M10 13l-4-2M12 10 9 6"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+const IconFire = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2.5c-.6 2.7-2.3 4.6-4.2 6.5C6 10.7 5 12.6 5 14.8 5 19 8.1 22 12 22s7-3 7-7.2c0-3-1.6-5.4-3.2-7.5-.3 1.6-1 2.8-2 3.7-.2-3.2-1-5.6-1.8-8.5Zm1.1 12.3a2.9 2.9 0 0 1-2.2 4.9 2.9 2.9 0 0 1-1-5.6c.4.8 1 1.4 1.7 1.8.3-1.1.9-2 1.5-2.8a4.8 4.8 0 0 1 0 1.7Z" />
   </svg>
 );
 
 const techStack = [
   {
-    Icon: IconWrench,
+    Icon: IconCode,
     label: "Core Stack",
     items: ["TypeScript", "React", "Next.js", "Node.js", "GraphQL"],
   },
@@ -101,7 +78,7 @@ const About = () => {
             <strong>
               <span className="highlight-text">
                 <span className="icon-badge">
-                  <IconRocket />
+                  <IconBolt />
                 </span>{" "}
                 My motto:
               </span>{" "}
@@ -134,7 +111,7 @@ const About = () => {
             <strong>
               <span className="highlight-text">
                 <span className="icon-badge">
-                  <IconGymnastics />
+                  <IconFire />
                 </span>{" "}
                 In{" "}
               </span>
