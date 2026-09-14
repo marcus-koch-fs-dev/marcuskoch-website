@@ -16,24 +16,24 @@ export const projectsData = [
   },
   {
     id: 2,
-    title: "Website Relaunch for a Trade Business",
-    client: "Ruck Zuck GmbH",
-    industry: "Skilled Trades",
+    title: "Website Redesign for a Local Services Business",
+    client: "Owner-run services business",
+    industry: "Facility & Courier Services",
     engagement: "Freelance",
     date: "03/26 - 04/26",
     duration: "2 months",
     result:
-      "Non-responsive legacy site replaced by a mobile-ready relaunch within two months",
+      "Responsive redesign delivered as a production-ready build, requirements developed through prototypes instead of a workshop",
     technologies: "React, JavaScript, Claude Design, Claude Code, Codex",
     projectInfo:
-      "Relaunch of the website of a trade business whose legacy site was technically outdated, not responsive and overloaded with text, with no corporate design in place. Instead of a conventional requirements workshop, prototypes served as the basis for discussion, with the color scheme derived from the logo and the company vehicle. The HTML prototype was broken down into separate React components for hero, services, gallery and contact, keeping content exchangeable and a later move to a CMS open. The information architecture was narrowed to services, service area and contact route.",
+      "Redesign of the website of an owner-run business offering caretaking, courier runs and related services, whose site was technically outdated, not responsive and overloaded with text. With no corporate design in place, prototypes replaced a requirements workshop as the basis for discussion, and the color scheme came from the logo and company vehicle. The HTML prototype was broken down into React components for hero, services, gallery and contact, keeping content exchangeable and a later CMS move open. The finished build was handed over for deployment on the client's own hosting.",
   },
   {
     id: 3,
-    title: "Frontend Rebuild of a Video Learning and Quiz Platform",
+    title: "Frontend Support on a Video Learning and Quiz Platform",
     client: "Education provider",
     industry: "EdTech / Education",
-    engagement: "Freelance",
+    engagement: "Freelance subcontractor",
     date: "03/25 - 12/25",
     duration: "10 months",
     result:
@@ -41,7 +41,7 @@ export const projectsData = [
     technologies:
       "React, TypeScript, Redux Toolkit, Styled Components, Storybook, React Flow, Recharts, Axios, Vite, Jest, React Testing Library, Cypress",
     projectInfo:
-      "Complete frontend rebuild of a video learning and quiz platform in a team of three, with the existing Java and Spring Boot backend kept behind REST interfaces. The DOM-driven legacy application gave way to a feature-based single page architecture separating course view, video, quiz, creator and user management. Redux Toolkit keeps session, course progress and quiz logic consistent, including when users jump back within the branching skill tree of main and side paths. Stabler callback references, React.memo and lazy loading cut the render load to a Lighthouse score of 93.",
+      "Subcontracted frontend work on the complete rebuild of a video learning and quiz platform, supporting the lead frontend developer in a team of three. The DOM-driven legacy application gave way to a feature-based single page architecture separating course view, video, quiz, creator and user management, with the existing Java and Spring Boot backend behind REST interfaces. Redux Toolkit keeps session, course progress and quiz logic consistent, including when users jump back within the branching skill tree. Stabler callback references, React.memo and lazy loading cut the render load to a Lighthouse score of 93.",
   },
   {
     id: 4,
