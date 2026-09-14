@@ -21,7 +21,7 @@
     justify-content: center;
 
     .highlight-text {
-      color: var(--h1-highlight);
+      color: var(--highlight-text);
     }
 
     .icon-badge {
@@ -33,9 +33,13 @@
       height: 2.6rem;
       border-radius: 50%;
       background-color: var(--h1-highlight);
-      font-size: 1.4rem;
-      line-height: 1;
+      color: var(--chip-text);
       vertical-align: middle;
+
+      svg {
+        width: 1.4rem;
+        height: 1.4rem;
+      }
     }
 
     h2 {

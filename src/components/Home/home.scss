@@ -60,11 +60,12 @@ section {
     .home-h1 {
       max-width: 22ch;
       margin-bottom: 0;
+      font-size: 3.25rem;
       text-align: center;
       text-wrap: balance;
 
       .highlight-text {
-        color: var(--h1-highlight);
+        color: var(--highlight-text);
       }
     }
 
@@ -88,6 +89,7 @@ section {
     .homeWrapper {
       .home-h1 {
         max-width: 90%;
+        font-size: 2rem;
       }
 
       .interests-ul {
@@ -125,6 +127,10 @@ section {
     grid-template-areas:
       "frame"
       "home";
+
+    .homeWrapper .home-h1 {
+      font-size: 2.75rem;
+    }
   }
 
   .interests-ul {
