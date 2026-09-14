@@ -1,16 +1,18 @@
 import Eyes from "./Eyes";
 import "./about.scss";
 
-const techStack = {
-  "🛠 Core Stack": ["TypeScript", "React", "Next.js", "Node.js", "GraphQL"],
-  "☁️ Tooling & Infra": [
-    "Tailwind CSS",
-    "SASS",
-    "Jest / Cypress",
-    "Docker",
-    "AWS",
-  ],
-};
+const techStack = [
+  {
+    icon: "fa-solid fa-code",
+    label: "Core Stack",
+    items: ["TypeScript", "React", "Next.js", "Node.js", "GraphQL"],
+  },
+  {
+    icon: "fa-solid fa-cloud",
+    label: "Tooling & Infra",
+    items: ["Tailwind CSS", "SASS", "Jest / Cypress", "Docker", "AWS"],
+  },
+];
 
 const About = () => {
   return (
@@ -41,16 +43,21 @@ const About = () => {
           </p>
           <p className="block">
             <strong>
-              <span className="highlight-text">🚀 My motto:</span>{" "}
+              <span className="highlight-text">
+                <i className="fa-solid fa-rocket" aria-hidden="true" /> My
+                motto:
+              </span>{" "}
             </strong>
             “It’s better to think 5 minutes longer than to spend 5 days fixing
             it.”
           </p>
         </article>
         <div className="tech-badges">
-          {Object.entries(techStack).map(([category, items]) => (
-            <div key={category} className="tech-category">
-              <h4>{category}</h4>
+          {techStack.map(({ icon, label, items }) => (
+            <div key={label} className="tech-category">
+              <h4>
+                <i className={icon} aria-hidden="true" /> {label}
+              </h4>
               <ul className="badge-list">
                 {items.map((item) => (
                   <li key={item} className="badge">
@@ -64,7 +71,10 @@ const About = () => {
         <article>
           <p className="block">
             <strong>
-              <span className="highlight-text">🤸 In </span>
+              <span className="highlight-text">
+                <i className="fa-solid fa-person-swimming" aria-hidden="true" />{" "}
+                In{" "}
+              </span>
             </strong>
             my free time, you can find me at the gym doing calisthenics training
             or freediving.
