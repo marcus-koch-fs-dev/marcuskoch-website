@@ -19,7 +19,7 @@ const Projects = () => {
       .map((project) => (
         <li className="project-card" key={project.id}>
           <div className="project-meta">
-            <span className="project-industry">{project.industry}</span>
+            <span className="project-industry">{project.engagement}</span>
             <span className="project-date">{project.duration}</span>
           </div>
           <h3 className="project-title">{project.title}</h3>
