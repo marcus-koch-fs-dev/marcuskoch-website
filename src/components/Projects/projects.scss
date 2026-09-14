@@ -29,12 +29,28 @@
     color: var(--card-text);
     border-radius: 18px;
     box-shadow: 0 4px 14px var(--bg-overlay-main);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      z-index: -1;
+      border-radius: inherit;
+      background: var(--pri-color-svg);
+      filter: blur(22px);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
 
     &:hover,
     &:focus-within {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px var(--bg-overlay-main);
+      transform: translateY(-6px);
+      box-shadow: 0 14px 32px var(--bg-overlay-main);
+
+      &::before {
+        opacity: 0.55;
+      }
     }
   }
 
