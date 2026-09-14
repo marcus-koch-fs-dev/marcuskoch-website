@@ -77,13 +77,7 @@ const techStack = [
   {
     Icon: IconServer,
     label: "Data & Cloud",
-    items: [
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "AWS (S3, ECS, RDS)",
-      "AWS CDK (IaC)",
-    ],
+    items: ["PostgreSQL", "MongoDB", "Redis", "AWS (S3, ECS, RDS)"],
   },
   {
     Icon: IconShield,
