@@ -50,6 +50,14 @@
   transition-duration: 0.3s;
 }
 
+// Truncate text to a fixed number of lines with an ellipsis
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+}
+
 // Center a child inside parents body
 @mixin centerContent {
   display: flex;

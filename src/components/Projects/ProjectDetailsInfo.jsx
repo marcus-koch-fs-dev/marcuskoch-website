@@ -3,7 +3,9 @@ const ProjectDetailsInfo = ({ projectDetails }) => {
 
   const { title, client, industry, date, result, technologies, projectInfo } =
     projectDetails;
-  const techList = technologies.split(",").map((tech) => tech.trim());
+  const techList = technologies
+    ? technologies.split(",").map((tech) => tech.trim())
+    : [];
 
   return (
     <div className="detailsInfo">

@@ -5,6 +5,12 @@
 @use "./_theme-sunrise.scss";
 @use "./_theme-sundown.scss";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;

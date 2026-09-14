@@ -87,6 +87,11 @@
       color: var(--chip-text);
       font-size: 0.85rem;
       font-weight: 500;
+      white-space: nowrap;
+
+      @include mobile {
+        font-size: 0.75rem;
+      }
     }
 
     @include mobile {
