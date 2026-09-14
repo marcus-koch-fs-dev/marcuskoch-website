@@ -8,11 +8,11 @@ export const projectsData = [
     date: "06/26 - 09/26",
     duration: "4 months",
     result:
-      "Server administration eliminated entirely, operating costs capped at 15 EUR per month",
+      "Recurring server maintenance gone without paying for a managed host, 15 EUR per month at worst",
     technologies:
       "React, TypeScript, Redux Toolkit, Node.js, PostgreSQL, Scaleway Serverless, Hetzner Object Storage, ffmpeg, i18n",
     projectInfo:
-      "Second stage of the B2B video platform built in 2024. The managed VPS gave way to a serverless instance on Scaleway, MySQL to serverless Postgres and the blob storage to Hetzner, which removes maintenance, patching and capacity planning for a business with no IT staff of its own. Video processing now runs locally, rendering on the owner's machine and uploading only the finished file, so cloud conversion costs no longer apply. Selectable video qualities, internationalization and tests from unit to E2E were added on top.",
+      "Second stage of the B2B video platform built in 2024. The self-administered VPS gave way to a serverless instance on Scaleway, MySQL to serverless Postgres and the blob storage to Hetzner, which removes the regular patching and monitoring without moving to a far more expensive managed host. Video processing now runs locally, rendering on the owner's machine and uploading only the finished file, so cloud conversion costs no longer apply. Selectable video qualities, internationalization and tests from unit to E2E were added on top.",
   },
   {
     id: 2,
