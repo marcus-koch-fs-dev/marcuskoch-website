@@ -1,147 +1,106 @@
 export const projectsData = [
   {
+    id: 1,
+    title: "Serverless Migration of a Video Platform",
+    client: "Baas Film GmbH",
+    industry: "Media & Film Production",
+    engagement: "Freelance",
+    date: "06/26 - 09/26",
+    duration: "4 months",
+    result:
+      "Recurring server maintenance gone without paying for a managed host, 15 EUR per month at worst",
+    technologies:
+      "React, TypeScript, Redux Toolkit, Node.js, PostgreSQL, Scaleway Serverless, Hetzner Object Storage, ffmpeg, i18n",
+    projectInfo:
+      "Second stage of the B2B video platform built in 2024. The self-administered VPS gave way to a serverless instance on Scaleway, MySQL to serverless Postgres and the blob storage to Hetzner, which removes the regular patching and monitoring without moving to a far more expensive managed host. Video processing now runs locally, rendering on the owner's machine and uploading only the finished file, so cloud conversion costs no longer apply. Selectable video qualities, internationalization and tests from unit to E2E were added on top.",
+  },
+  {
     id: 2,
-    title: "Launchpad Frontend Modernization",
-    alt: "Launchpad - Screenshot. Homepage of the TK Cloud",
+    title: "Website Redesign for a Local Services Business",
+    client: "Owner-run services business",
+    industry: "Facility & Courier Services",
+    engagement: "Freelance",
+    date: "03/26 - 04/26",
+    duration: "2 months",
+    result:
+      "Responsive redesign delivered as a production-ready build, requirements developed through prototypes instead of a workshop",
+    technologies: "React, JavaScript, Claude Design, Claude Code, Codex",
     projectInfo:
-      "Redesigned the outdated cloud launchpad frontend into a modern, responsive start page with role-based app tiles, favorites, and an administration page for managing new apps. The update improved usability and received positive feedback from key users for its clarity and design.",
-    client: "Thyssenkrupp Presta AG",
-    technologies:
-      "React, Redux, Node.js (TS), Python, Microservices, REST API, Git, Azure CI/CD, SAP HANA",
-    industry: "Automotive",
-    date: "02/2022 - 04/2022",
-    thumbImage: "/assets/work/Launch-web256.png",
-    imgStyle: "wide",
-    sliderImages: [
-      {
-        medium: "/assets/work/Launch-web512.png",
-        big: "/assets/work/Launch-web.png",
-        desc: "Launchpad start page in desktop view",
-      },
-      {
-        medium: "/assets/work/Launch-mobile512.png",
-        big: "/assets/work/Launch-mobile.png",
-        desc: "Launchpad start page in mobile view",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Track and Trace - Component Lifecycle Tracing",
-    alt: "Track and Trace - Screenshot. Shows a table with extensive component details",
-    projectInfo:
-      "Optimized the Track & Trace application for monitoring lifecycles of steering gear and other components. Focused on frontend and backend stability to handle millions of records, implemented advanced search with BOM comparison and process quality reporting, and enabled international use with i18n. The redesign reduced search times by over 95%, from days to seconds.",
-    client: "Thyssenkrupp Presta AG",
-    technologies:
-      "React, Redux, Node.js, Python, Microservices, REST API, Git, Azure CI/CD, SAP HANA, Material UI, AG-Grid",
-    industry: "Automotive",
-    date: "05/22 - 12/23",
-    thumbImage: "/assets/work/tnt-oneTable-dark256.png",
-    imgStyle: "wide",
-    sliderImages: [
-      {
-        medium: "/assets/work/tnt-oneTable-dark512.png",
-        big: "/assets/work/tnt-oneTable-dark.png",
-        desc: "Consumed parts table in dark mode",
-      },
-      {
-        medium: "/assets/work/tnt-oneTable-dark-nested512.png",
-        big: "/assets/work/tnt-oneTable-dark-nested.png",
-        desc: "Nested view with detailed part properties",
-      },
-      {
-        medium: "/assets/work/tnt-twoTable-dark-nested512.png",
-        big: "/assets/work/tnt-twoTable-dark-nested.png",
-        desc: "Consumed and assembled parts in dual-table view",
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "Cloud Surveillance - SAP HANA Metadata Visualization",
-    alt: "Cloud Surveillance - Screenshot. AI generated image with cloud and connections.",
-    projectInfo:
-      "Developed a monitoring dashboard to visualize SAP HANA metadata, databases, and microservices. Implemented fast filtering and grouping logic in the frontend and delivered clear plots of service distribution with React, Redux, AG-Grid, and Plotly. The solution improved visibility of compliance issues by about 50%, allowing quicker administrative responses.",
-    client: "Thyssenkrupp Presta AG",
-    technologies:
-      "React, Redux, Node.js, Python, Microservices, REST API, Git, Azure CI/CD, SAP HANA, Material UI, AG-Grid, Plotly",
-    industry: "Automotive",
-    date: "05/23 - 07/23",
-    thumbImage: "/assets/work/cloud-surveillance256.jpg",
-    imgStyle: "",
-    sliderImages: [
-      {
-        medium: "/assets/work/cloud-surveillance512.jpg",
-        big: "/assets/work/cloud-surveillance.webp",
-        desc: "Illustration of service and database visualization",
-      },
-    ],
+      "Redesign of the website of an owner-run business offering caretaking, courier runs and related services, whose site was technically outdated, not responsive and overloaded with text. With no corporate design in place, prototypes replaced a requirements workshop as the basis for discussion, and the color scheme came from the logo and company vehicle. The HTML prototype was broken down into React components for hero, services, gallery and contact, keeping content exchangeable and a later CMS move open. The finished build was handed over for deployment on the client's own hosting.",
   },
   {
     id: 3,
-    title: "Woundera - Mobile Health Application",
-    alt: "Woundera App - Screenshot. AI generated image with heart and stethoscope.",
-    projectInfo:
-      "Contributed to the React Native mobile app Woundera during a critical phase of reduced team capacity. Implemented navigation flows, CRUD operations, and form validation for managing patient and wound data, and fixed critical bugs to ensure the release stayed on schedule.",
-    client: "Sciendis GmbH",
+    title: "Frontend Support on a Video Learning and Quiz Platform",
+    client: "Education provider",
+    industry: "EdTech / Education",
+    engagement: "Freelance subcontractor",
+    date: "03/25 - 12/25",
+    duration: "10 months",
+    result:
+      "Lighthouse score of 93 (desktop) and around 68% test coverage across a full frontend rebuild",
     technologies:
-      "React Native (TS), Redux, REST API, Git, Bitbucket, Material UI, Expo",
-    industry: "Healthcare",
-    date: "12/21 - 01/22",
-    url: {
-      name: "www.woundera.health",
-      link: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.wundera.health%2F&psig=AOvVaw1ZMtDKc3cSJGPKWa3VyvRk&ust=1710416058091000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOi0icaS8YQDFQAAAAAdAAAAABAD",
-    },
-    thumbImage: "/assets/work/woundera256.jpg",
-    imgStyle: "",
-    sliderImages: [
-      {
-        medium: "/assets/work/woundera512.jpg",
-        big: "/assets/work/woundera.webp",
-        desc: "Illustration representing Woundera app concept",
-      },
-    ],
+      "React, TypeScript, Redux Toolkit, Styled Components, Storybook, React Flow, Recharts, Axios, Vite, Jest, React Testing Library, Cypress",
+    projectInfo:
+      "Subcontracted frontend work on the complete rebuild of a video learning and quiz platform, supporting the lead frontend developer in a team of three. The DOM-driven legacy application gave way to a feature-based single page architecture separating course view, video, quiz, creator and user management, with the existing Java and Spring Boot backend behind REST interfaces. Redux Toolkit keeps session, course progress and quiz logic consistent, including when users jump back within the branching skill tree. Stabler callback references, React.memo and lazy loading cut the render load to a Lighthouse score of 93.",
   },
   {
-    id: 1,
-    title: "Server Metadata Dashboard",
-    alt: "Arvato App - Screenshot. AI generated image with connected computers worldwide.",
-    projectInfo:
-      "Established Azure DevOps CI/CD pipelines for deploying React frontends and Express.js/Python microservices to SAP HANA Cloud, ensuring global availability with minimal downtime. Built a resource monitoring dashboard that identified and eliminated ~30% unused services, reducing vertical scaling costs.",
-    client: "Arvato Systems GmbH",
+    id: 4,
+    title: "B2B Platform for Video Delivery",
+    client: "Baas Film GmbH",
+    industry: "Media & Film Production",
+    engagement: "Freelance",
+    date: "04/24 - 12/24",
+    duration: "9 months",
+    result:
+      "FTP delivery replaced, uploads up to 15 GB, Lighthouse score of 97, around 70% test coverage",
     technologies:
-      "React (TS), Redux, REST API, Git, Material UI, Storybook, Jest, Sketch",
-    industry: "IT Services",
-    date: "06/21 - 11/21",
-    thumbImage: "/assets/work/arvato256.jpg",
-    imgStyle: "",
-    sliderImages: [
-      {
-        medium: "/assets/work/arvato512.jpg",
-        big: "/assets/work/arvato.webp",
-        desc: "Illustration of metadata dashboard concept",
-      },
-    ],
+      "React, TypeScript, JavaScript, Redux Toolkit, Node.js, Express, MySQL, Multer, ffmpeg, JWT, Jest, Cypress",
+    projectInfo:
+      "B2B platform for delivering commercials and short documentaries in FHD and 4K. FTP-based delivery gave way to a web platform where clients stream 720p preview videos and comment on them directly, which largely removed email approval loops and review meetings. A server-side upload pipeline handles videos up to 15 GB with asynchronous processing through ffmpeg, backed by an Express and MySQL backend deployed to a VPS at the existing provider for GDPR-compliant infrastructure. Clients and administrators work through a React dashboard with JWT-secured REST endpoints and a 12-month retention policy.",
+  },
+  {
+    id: 5,
+    title: "Track & Trace, Component Tracking in Manufacturing",
+    client: "Thyssenkrupp Presta AG",
+    industry: "Automotive / Manufacturing",
+    engagement: "Permanent position",
+    date: "05/22 - 12/23",
+    duration: "20 months",
+    result:
+      "Component search reduced from several days to seconds, rendering 2.3 s faster",
+    technologies:
+      "React, Redux Toolkit, Node.js, Express, Python (Flask), SAP HANA Cloud, REST APIs, AG-Grid, Material UI, Azure DevOps, Jest",
+    projectInfo:
+      "Global track-and-trace application for an automotive supplier that follows individual components across their entire lifecycle. The core of the solution was pre-generating component trees in the database, which cut a previously manual search from several days down to seconds. Analyzing application state properties with the Redux DevTools slimmed down the component tree and sped up rendering by 2.3 seconds. Delivery ran through Azure DevOps pipelines as a React frontend with Express and Python microservices on SAP HANA Cloud, including internationalization and accessibility for all plants worldwide.",
   },
   {
     id: 6,
-    title: "Video Management Platform Modernization",
-    alt: "Baas GmbH - Video Platform Screenshot",
-    projectInfo:
-      "Built a B2B video platform to replace an FTP-based workflow, enabling clients to securely stream (720p), comment on, and manage FHD/4K video content via a web interface. Developed a monolithic Express.js and MySQL backend deployed via GitHub CI/CD on a self-managed IONOS VPS to meet infrastructure and GDPR requirements. Implemented a server-side upload pipeline handling videos up to 15GB using asynchronous fluent-ffmpeg processing for previews and thumbnails. Developed a React and TypeScript dashboard with JWT-secured REST APIs, and improved performance and accessibility, achieving a Lighthouse score of 97. Strengthened reliability through automated testing with Jest and Cypress, reaching ~70% frontend and ~60% backend coverage.",
-    client: "Baas Film GmbH",
+    title: "Cloud Launchpad & Cloud Surveillance, Internal Cloud Tools",
+    client: "Thyssenkrupp Presta AG",
+    industry: "Automotive / Manufacturing",
+    engagement: "Permanent position",
+    date: "02/22 - 07/23",
+    duration: "2 sub-projects, 3 months each",
+    result:
+      "Around 30% of unused services identified and decommissioned, lowering cloud costs",
     technologies:
-      "React, Redux, Node.js (Express.js), Material UI, MySQL, IONOS S3, fluent-ffmpeg, Git",
-    industry: "Media & Entertainment",
-    date: "04/2024 - 12/2024",
-    thumbImage: "/assets/work/baas256.jpg",
-    imgStyle: "",
-    sliderImages: [
-      {
-        medium: "/assets/work/baas512.jpg",
-        big: "/assets/work/baas.png",
-        desc: "Illustration of the video management platform",
-      },
-    ],
+      "React, Redux Toolkit, Plotly, AG-Grid, Material UI, SAP HANA, REST API, Node.js, Python, Azure CI/CD",
+    projectInfo:
+      "Two internal tools covering the group's cloud landscape. Cloud Launchpad replaced an outdated start page with a role and location based overview of all cloud services and Power BI applications, offering configurable tiles, favorites, a dedicated administration page and language support. Cloud Surveillance visualizes SAP HANA resource usage and compliance violations through interactive tables and configurable charts, which made it possible to shut down around 30% of unused services. Both were built in a Scrum team of six full-stack developers working with code reviews and pair programming.",
+  },
+  {
+    id: 7,
+    title: "Server Monitoring Dashboard and Mobile Health App",
+    client: "Arvato Systems GmbH & Sciendis GmbH",
+    industry: "IT Services / Healthcare",
+    engagement: "Permanent position via contractor",
+    date: "06/21 - 01/22",
+    duration: "8 months",
+    result:
+      "Two client assignments, reusable UI library established and health app delivered on schedule",
+    technologies:
+      "JavaScript, TypeScript, React, React Native, Redux Toolkit, Storybook, Material UI, Jest, REST API, Azure CI/CD, Bitbucket",
+    projectInfo:
+      "Two consecutive client assignments through the engineering services provider Brunel. At Arvato Systems the work covered a dashboard for central server metadata and cluster availability, where navigation elements and list structures were prototyped as reusable components in Storybook and covered by Jest. At Sciendis the mobile health application Woundera followed, for which an intuitive navigation structure was built with React Native along with complex wound forms including validation and error handling. Both assignments were frontend-heavy and geared towards clean, testable components.",
   },
 ];

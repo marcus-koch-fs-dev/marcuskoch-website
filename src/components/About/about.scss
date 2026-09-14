@@ -21,7 +21,25 @@
     justify-content: center;
 
     .highlight-text {
-      color: var(--h1-highlight);
+      color: var(--highlight-text);
+    }
+
+    .icon-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 50%;
+      background-color: var(--h1-highlight);
+      color: var(--chip-text);
+      vertical-align: middle;
+
+      svg {
+        width: 1.4rem;
+        height: 1.4rem;
+      }
     }
 
     h2 {
@@ -31,6 +49,13 @@
     p {
       &.block {
         margin: 1.5rem 0;
+        padding-left: 0.9rem;
+        border-left: 3px solid var(--pri-color-svg);
+      }
+
+      &.block--icon {
+        padding-left: 0;
+        border-left: none;
       }
     }
   }
@@ -39,20 +64,34 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 1.25rem;
+
+    h4 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
 
     .badge-list {
-      gap: 0.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     .badge {
       padding: 0.4rem 0.8rem;
       border-radius: 8px;
       background-color: var(--h1-highlight);
-      color: var(--span);
+      color: var(--chip-text);
       font-size: 0.85rem;
       font-weight: 500;
       white-space: nowrap;
+
+      @include mobile {
+        font-size: 0.75rem;
+      }
     }
 
     @include mobile {

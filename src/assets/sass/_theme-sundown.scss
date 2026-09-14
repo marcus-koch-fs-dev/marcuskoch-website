@@ -1,26 +1,34 @@
 body.sundown {
   // Sundown Theme
-  --h1: #edf4c2;
+  --h1: #3d2410;
   --h1-highlight: #eb5a3c;
-  --h2: #e7d283;
+  --h2: #3d2410;
   --h2-highlight: #eb5a3c;
-  --h3: #df9755;
+  --h3: #4a3320;
   --h3-highlight: #eb5a3c;
-  --h4: #edf4c2;
+  --h4: #4a3320;
   --h4-highlight: #df9755;
-  --p: #e7d283;
+  --p: #4a3320;
   --p-highlight: #edf4c2;
-  --a: #edf4c2;
+  --a: #5e1a0e;
   --a-highlight: #eb5a3c;
-  --span: #edf4c2;
+  --span: #4a3320;
   --span-highlight: #e7d283;
 
-  --btn-label: #eb5a3c;
+  --btn-label: #5e1a0e;
   --btn-default-boxShadow: #eb5a3c;
   --btn-default-boxShadow_hover: #df9755;
 
   --pri-color-svg: #e7d283;
+  --pri-color-svg-rgb: 231, 210, 131;
   --sec-color-svg: #eb5a3c;
+  --sec-color-svg-rgb: 235, 90, 60;
+  --highlight-text: #6e1c0c; /* AA auf --bg-main, wärmerer Rotton, nah an --a statt Extremkontrast */
+  --nav-active: #2a0f06; /* AA auf --bg-header (== --h1-highlight in diesem Theme) */
+  --footer-text: #3d1508; /* lesbar auf --pri-color-svg */
+  --chip-text: #2a0f06; /* lesbar auf --h1-highlight */
+  --card-bg: #7a3d22;
+  --card-text: #f7e9c9;
 
   --bg-header: #eb5a3c;
   --bg-main: #df9755;

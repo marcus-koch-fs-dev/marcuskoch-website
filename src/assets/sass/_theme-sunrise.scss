@@ -20,7 +20,15 @@ body.sunrise {
   --btn-default-boxShadow_hover: #0f4c75;
 
   --pri-color-svg: #ffd166;
+  --pri-color-svg-rgb: 255, 209, 102;
   --sec-color-svg: #3282b8;
+  --sec-color-svg-rgb: 50, 130, 184;
+  --highlight-text: #fff6dc; /* bestmöglicher Kontrast auf --bg-main im Gelb-Ton */
+  --nav-active: #ffd166; /* AA auf --bg-header */
+  --footer-text: #0f4c75; /* lesbar auf --pri-color-svg */
+  --chip-text: #0f4c75; /* bereits AA auf --h1-highlight */
+  --card-bg: #2a6690;
+  --card-text: #f5f8fb;
 
   --bg-header: #0f4c75;
   --bg-main: #3282b8;

@@ -1,9 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -11,12 +8,14 @@ import About from "./components/About/About";
 import Home from "./components/Home/Home";
 import Services from "./components/Services";
 import Projects from "./components/Projects/Projects";
+import ErrorPage from "./components/ErrorPage";
 import { ThemesProvider } from "./context/ThemesContext";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

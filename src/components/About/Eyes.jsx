@@ -6,20 +6,46 @@ const Eyes = () => {
   const [eyesToggled, setEyesToggled] = useState(false);
   const fill = useSvgUpdate();
   useEffect(() => {
-    const times = [10000, 150]; // Zeit in Millisekunden, 150ms für das Blinzeln
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReducedMotion) return;
 
-    const blink = () => {
-      setEyesToggled(true); // Auge schließen
-      setTimeout(() => {
-        setEyesToggled(false); // Auge öffnen
-      }, times[1]);
+    let cancelled = false;
+    const timeouts = [];
+    const after = (fn, delay) => {
+      const id = setTimeout(fn, delay);
+      timeouts.push(id);
     };
 
-    const interval = setInterval(() => {
-      blink();
-    }, times[0]);
+    const blink = () => {
+      setEyesToggled(true);
+      after(() => {
+        setEyesToggled(false);
+        // Occasional quick double-blink, like a real eye
+        if (Math.random() < 0.15) {
+          after(() => {
+            setEyesToggled(true);
+            after(() => setEyesToggled(false), 110);
+          }, 140);
+        }
+      }, 120 + Math.random() * 100);
+    };
 
-    return () => clearInterval(interval);
+    const loop = () => {
+      // Irregular gap between blinks (~3-7s) instead of a metronomic tick
+      after(() => {
+        if (cancelled) return;
+        blink();
+        loop();
+      }, 3000 + Math.random() * 4000);
+    };
+    loop();
+
+    return () => {
+      cancelled = true;
+      timeouts.forEach(clearTimeout);
+    };
   }, []);
 
   return (

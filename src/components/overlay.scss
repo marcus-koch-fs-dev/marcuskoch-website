@@ -40,13 +40,65 @@
   .detailsInfo {
     max-width: min(640px, 92vw);
     text-align: start;
+    background-color: var(--card-bg);
+    color: var(--card-text);
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 12px 32px var(--bg-overlay-main);
 
     h4 {
-      margin-bottom: 0.5rem;
+      margin: 1.25rem 0 0.5rem;
+      color: inherit;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.7;
     }
     p {
       margin: 0;
+      color: inherit;
       line-height: 1.5;
+    }
+
+    .detailsInfo-meta {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .detailsInfo-title {
+      margin: 0.35rem 0 0.25rem;
+      color: inherit;
+    }
+    .detailsInfo-client {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    .detailsInfo-result {
+      margin: 0.75rem 0 1rem;
+      padding-left: 0.65rem;
+      border-left: 3px solid var(--pri-color-svg);
+      font-weight: 700;
+    }
+    .detailsInfo-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        padding: 0.35rem 0.7rem;
+        border-radius: 8px;
+        background-color: var(--h1-highlight);
+        color: var(--chip-text);
+        font-size: 0.8rem;
+        font-weight: 500;
+        white-space: nowrap;
+      }
     }
   }
 

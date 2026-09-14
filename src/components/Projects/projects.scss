@@ -1,113 +1,157 @@
-// @use "src/assets/sass/base.scss";
-
 .projects {
-  //   border: 1px white solid;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   overflow: auto;
-  // justify-content: center;
 
-  > ul {
+  .projects-wrapper {
     display: flex;
-    flex-grow: 1;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    overflow: auto;
-    // border: orange 3px solid;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    list-style: none;
 
-    li {
-      // border: green 1px solid;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin: 0.5rem;
-      position: relative;
-      top: 0;
-      left: 0;
-      height: 13rem;
-      justify-content: center;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-
-      &.narrow {
-        width: 13rem;
-      }
-
-      &.wide {
-        width: 26rem;
-      }
-      //       //   border: blue 1px solid;
-      .item-title {
-        position: absolute;
-        margin: 0.5rem;
-        padding: 0.5rem;
-        background-color: var(--bg-item-label);
-        border-radius: 20rem;
-        // color: var(--h4-highlight);
-        color: var(--h4);
-      }
-      // h4 {
-      // }
-      span {
-        color: var(--a-highlight);
-      }
-
-      .item-overlay {
-        position: absolute;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--bg-item-hover);
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-
-      &:hover {
-        .item-overlay {
-          display: flex;
-          cursor: pointer;
-        }
-      }
+    @include mobile {
+      gap: 1.25rem;
+      padding: 1.5rem 1rem;
     }
   }
 
-  @include mobile {
-    > ul {
-      li {
-        height: 8rem;
+  .project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    flex: 1 1 480px;
+    min-width: 0;
+    max-width: 600px;
+    min-height: 300px;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    color: var(--card-text);
+    border-radius: 18px;
+    box-shadow: 0 4px 14px var(--bg-overlay-main);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-        &.narrow {
-          width: 8rem;
-        }
+    &:hover,
+    &:focus-within {
+      transform: translateY(-6px);
+      box-shadow:
+        0 14px 32px var(--bg-overlay-main),
+        0 0 36px 6px rgba(var(--pri-color-svg-rgb), 0.55);
+    }
 
-        &.wide {
-          width: 16rem;
-        }
-      }
+    @include mobile {
+      flex-basis: 100%;
+      max-width: 100%;
+      min-height: 280px;
     }
   }
 
-  @include tablet {
-    > ul {
-      align-items: center;
-      li {
-        height: 11rem;
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: 100%;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.78;
 
-        &.narrow {
-          width: 11rem;
-        }
-
-        &.wide {
-          width: 22rem;
-        }
-      }
+    @include mobile {
+      font-size: 0.6rem;
     }
+  }
+
+  .project-title {
+    margin: 0;
+    @include line-clamp(2);
+    color: inherit;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    font-weight: 700;
+
+    @include mobile {
+      font-size: 1.05rem;
+    }
+  }
+
+  .project-client {
+    margin: 0;
+    color: inherit;
+    font-size: 0.82rem;
+    opacity: 0.8;
+
+    @include mobile {
+      font-size: 0.75rem;
+    }
+  }
+
+  .project-result {
+    margin: 0.15rem 0;
+    padding-left: 0.65rem;
+    border-left: 3px solid var(--pri-color-svg);
+    @include line-clamp(2);
+    color: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.35;
+
+    @include mobile {
+      font-size: 0.85rem;
+    }
+  }
+
+  .project-tech {
+    margin: 0;
+    @include line-clamp(2);
+    color: inherit;
+    font-size: 0.74rem;
+    line-height: 1.5;
+    opacity: 0.78;
+
+    @include mobile {
+      font-size: 0.68rem;
+    }
+  }
+
+  .project-more {
+    margin-top: auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--card-text);
+    opacity: 0.85;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    // Stretched link: the button covers the whole card so the entire
+    // card is clickable, while the button itself holds only phrasing.
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--card-text);
+      outline-offset: 2px;
+    }
+  }
+
+  .project-card:hover .project-more,
+  .project-card:focus-within .project-more {
+    opacity: 1;
   }
 }

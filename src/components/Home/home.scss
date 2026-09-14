@@ -15,14 +15,16 @@ section {
   flex-grow: 1;
 
   .home-subtitle {
+    font-family: var(--font-display);
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .frame {
     grid-area: frame;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-start;
 
     .frame-order {
       position: relative;
@@ -57,12 +59,14 @@ section {
     // border: solid red 1px;
 
     .home-h1 {
-      width: 50%;
-      // border: solid red 1px;
+      max-width: 22ch;
       margin-bottom: 0;
+      font-size: 3.25rem;
+      text-align: center;
+      text-wrap: balance;
 
       .highlight-text {
-        color: var(--h1-highlight);
+        color: var(--highlight-text);
       }
     }
 
@@ -85,7 +89,8 @@ section {
 
     .homeWrapper {
       .home-h1 {
-        width: 80%;
+        max-width: 90%;
+        font-size: 2rem;
       }
 
       .interests-ul {
@@ -123,6 +128,10 @@ section {
     grid-template-areas:
       "frame"
       "home";
+
+    .homeWrapper .home-h1 {
+      font-size: 2.75rem;
+    }
   }
 
   .interests-ul {
