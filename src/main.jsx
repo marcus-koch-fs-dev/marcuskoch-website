@@ -11,12 +11,14 @@ import About from "./components/About/About";
 import Home from "./components/Home/Home";
 import Services from "./components/Services";
 import Projects from "./components/Projects/Projects";
+import ErrorPage from "./components/ErrorPage";
 import { ThemesProvider } from "./context/ThemesContext";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
