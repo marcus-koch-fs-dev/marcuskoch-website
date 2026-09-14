@@ -38,6 +38,24 @@ const IconServer = () => (
   </svg>
 );
 
+const IconShield = () => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M12 3.5 19.5 6v5.2c0 4.6-3.1 7.9-7.5 9.3-4.4-1.4-7.5-4.7-7.5-9.3V6L12 3.5Z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinejoin="round"
+    />
+    <path
+      d="m9 12.3 2.1 2.1L15.3 10"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 const IconBolt = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path d="M13.18 2.29a.9.9 0 0 0-1.55-.79l-10.2 11.4a.9.9 0 0 0 .67 1.5h7.89l-1.57 7.31a.9.9 0 0 0 1.55.79l10.2-11.4a.9.9 0 0 0-.67-1.5h-7.89l1.57-7.31Z" />
@@ -54,12 +72,29 @@ const techStack = [
   {
     Icon: IconCode,
     label: "Core Stack",
-    items: ["TypeScript", "React", "Next.js", "Node.js", "GraphQL"],
+    items: ["TypeScript", "React", "Next.js", "Node.js", "Python"],
   },
   {
     Icon: IconServer,
-    label: "Tooling & Infrastructure",
-    items: ["Tailwind CSS", "SASS", "Jest / Cypress", "Docker", "AWS"],
+    label: "Data & Cloud",
+    items: [
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "AWS (S3, ECS, RDS)",
+      "AWS CDK (IaC)",
+    ],
+  },
+  {
+    Icon: IconShield,
+    label: "Tooling & Security",
+    items: [
+      "GraphQL",
+      "OAuth 2.0 / Web Security",
+      "Docker",
+      "CI/CD (GitHub, GitLab, Azure DevOps)",
+      "Jest / Cypress",
+    ],
   },
 ];
 
