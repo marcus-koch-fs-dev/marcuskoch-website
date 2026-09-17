@@ -62,4 +62,5 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           source: "dist/*"
-          target: "/kunden/homepages/0/d4298874552/htdocs/website"
+          target: "public"
+          strip_components: 1
