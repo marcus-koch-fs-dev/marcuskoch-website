@@ -51,7 +51,7 @@ const THEME_LIGHT = {
 };
 
 const GLOBE_COLORS = {
-  ocean: "#051428",
+  ocean: "#000000",
   stroke: "#3dffa0",
   // Dots at ~68% opacity; brighter for DE (near home base).
   dot: "rgba(61, 255, 160, 0.68)",
