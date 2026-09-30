@@ -1,43 +1,83 @@
 ---
 // src/pages/index.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Frame from "../components/Home/Frame.astro";
-import BookingButton from "../components/BookingButton.astro";
-import "../components/Home/home.scss";
-
-const interests = [
-  "Fullstack Developer",
-  "React, TypeScript & Node.js",
-  "Web Performance & Scalable Architecture",
-];
+import GlobeHero from "../components/experiments/GlobeHero.jsx";
 ---
 <BaseLayout>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </noscript>
   <main>
-    <section class="home">
-      <div class="frame">
-        <div class="frame-order">
-          <Frame width={300} height={300} />
-          <img
-            class="frame-img"
-            alt="Photo Marcus"
-            src="/assets/me.webp"
-            width="300px"
-            height="300px"
-          />
-        </div>
-      </div>
-      <div class="homeWrapper">
-        <h1 class="home-h1">
-          Building <span class="highlight-text">Fullstack Applications</span> that Perform
-        </h1>
-        <p class="home-subtitle">Marcus Koch</p>
-        <ul class="interests-ul">
-          {interests.map((el) => (
-            <li class="interests-li"><p>{el}</p></li>
-          ))}
-        </ul>
-        <BookingButton />
-      </div>
-    </section>
+    <GlobeHero client:only="react" />
   </main>
 </BaseLayout>
+
+<style>
+  /* Header (site nav + theme toggler) removed entirely on this page --
+     the in-globe terminal is the whole UI here, on every viewport width.
+     No header also means no mobile hamburger menu, so there is currently
+     no link anywhere on this page to /about, /projects, or /services. */
+  :global(header) {
+    display: none;
+  }
+
+  /* Footer is normally in-flow (header + 100vh hero + footer taller than
+     the viewport forces a page scrollbar). Taken out of flow here so the
+     hero stays exactly 100vh and the footer stays on screen as a thin
+     overlay bar instead. Scoped to this page only. */
+  :global(footer) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+  }
+
+  :global(footer .wrapper) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
+    background: rgba(2, 5, 4, 0.95);
+    backdrop-filter: blur(6px);
+    /* Same visual style as the hero's "> STATUS: NOMINAL" status log:
+       mono, regular weight, small, dim phosphor green -- not the bold
+       nav display font, which read too heavy here. */
+    font-family: "Share Tech Mono", "Courier New", monospace;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+  }
+
+  /* GitHub/LinkedIn already live in the hero's status log; no need to
+     duplicate them in the footer bar too. */
+  :global(footer .sm-wrapper) {
+    display: none;
+  }
+
+  :global(footer .laws),
+  :global(footer .laws-item span),
+  :global(footer .laws a) {
+    color: rgba(109, 255, 168, 0.75);
+    font-weight: 400;
+  }
+
+  :global(footer .laws-list) {
+    padding-bottom: 0;
+    font-size: 0.8rem;
+  }
+
+  :global(footer .laws-item) {
+    cursor: pointer;
+  }
+</style>
