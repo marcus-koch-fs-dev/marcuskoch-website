@@ -9,6 +9,17 @@
   }
 }
 
+@keyframes globe-hero-cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes globe-hero-twinkle {
   0%,
   100% {
@@ -434,6 +445,26 @@
         color: rgba(109, 255, 168, 0.5);
       }
     }
+  }
+
+  &__status-log {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(109, 255, 168, 0.25);
+    font-family: "Share Tech Mono", "Courier New", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: rgba(109, 255, 168, 0.55);
+
+    p {
+      margin: 0 0 0.3rem;
+      color: inherit;
+    }
+  }
+
+  &__cursor-blink {
+    display: inline-block;
+    animation: globe-hero-cursor-blink 1s steps(1) infinite;
   }
 }
 

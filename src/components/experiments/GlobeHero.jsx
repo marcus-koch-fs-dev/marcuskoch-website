@@ -453,6 +453,14 @@ export default function GlobeHero() {
             INITIATE_CONTACT
           </a>
         </div>
+
+        <div className="globe-hero__status-log" aria-hidden="true">
+          <p>&gt; STATUS: NOMINAL</p>
+          <p>&gt; UPLINK: STABLE</p>
+          <p>
+            &gt; AWAITING INPUT<span className="globe-hero__cursor-blink">_</span>
+          </p>
+        </div>
       </div>
 
       <div className="globe-hero__stage" ref={stageRef}>
