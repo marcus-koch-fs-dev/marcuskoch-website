@@ -29,3 +29,10 @@ export function estimateTravelStats(distanceKm) {
     callMs: Math.round(CALL_BASE_MS + distanceKm / CALL_KM_PER_MS),
   };
 }
+
+export function formatDuration(minutes) {
+  if (minutes >= 60) {
+    return `~${Math.round(minutes / 60)} H`;
+  }
+  return `~${minutes} MIN`;
+}

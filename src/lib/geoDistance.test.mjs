@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { haversineDistanceKm, estimateTravelStats } from "./geoDistance.js";
+import { haversineDistanceKm, estimateTravelStats, formatDuration } from "./geoDistance.js";
 
 test("haversineDistanceKm returns 0 for identical points", () => {
   assert.equal(haversineDistanceKm(48.8, 9.0, 48.8, 9.0), 0);
@@ -18,4 +18,17 @@ test("estimateTravelStats scales with distance", () => {
   assert.equal(stats.walkMinutes, 1080);
   assert.equal(stats.planeMinutes, 97);
   assert.ok(stats.callMs > 20);
+});
+
+test("formatDuration keeps minutes under an hour", () => {
+  assert.equal(formatDuration(45), "~45 MIN");
+});
+
+test("formatDuration switches to hours at the 60-minute boundary", () => {
+  assert.equal(formatDuration(59), "~59 MIN");
+  assert.equal(formatDuration(60), "~1 H");
+});
+
+test("formatDuration rounds long durations to whole hours", () => {
+  assert.equal(formatDuration(1930), "~32 H");
 });

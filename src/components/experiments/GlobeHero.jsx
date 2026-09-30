@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
-import { haversineDistanceKm, estimateTravelStats } from "../../lib/geoDistance";
+import { haversineDistanceKm, estimateTravelStats, formatDuration } from "../../lib/geoDistance";
 import { projectsData } from "../../data/projectList";
 import { PROJECT_LOCATIONS } from "./projectLocations";
 import "./globeHero.scss";
@@ -362,19 +362,19 @@ export default function GlobeHero() {
                     </li>
                     <li>
                       <span>Arrival by car</span>
-                      <span>~{stats.carMinutes} min</span>
+                      <span>{formatDuration(stats.carMinutes)}</span>
                     </li>
                     <li>
                       <span>On foot</span>
-                      <span>~{stats.walkMinutes} min</span>
+                      <span>{formatDuration(stats.walkMinutes)}</span>
                     </li>
                     <li>
                       <span>By plane</span>
-                      <span>~{stats.planeMinutes} min</span>
+                      <span>{formatDuration(stats.planeMinutes)}</span>
                     </li>
                     <li>
                       <span>Just a message</span>
-                      <span>unpayable</span>
+                      <span>0 MIN</span>
                     </li>
                   </ul>
                 </div>
