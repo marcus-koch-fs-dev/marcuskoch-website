@@ -1,6 +1,8 @@
 ---
 // src/layouts/BaseLayout.astro
 import "../styles/_base.scss";
+import Navbar from "../components/Header/Navbar.astro";
+import "../components/Header/header.scss";
 
 const { title = "Marcus Koch | Fullstack Developer" } = Astro.props;
 ---
@@ -107,6 +109,9 @@ const { title = "Marcus Koch | Fullstack Developer" } = Astro.props;
   </head>
   <body>
     <div class="app">
+      <header>
+        <Navbar />
+      </header>
       <slot />
     </div>
     <div id="modal-root"></div>

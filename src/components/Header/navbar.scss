@@ -99,3 +99,19 @@ ul {
     }
   }
 }
+
+// Both layouts render server-side now (no JS media-query hook); CSS picks
+// one. 768px matches the SPA's old useResponsiveSize "isMobile" threshold.
+.menu-wrapper-vertical {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-wrapper-horizontal {
+    display: none;
+  }
+
+  .menu-wrapper-vertical {
+    display: flex;
+  }
+}

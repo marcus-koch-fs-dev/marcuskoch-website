@@ -1,42 +1,39 @@
-import React from "react";
+// src/components/Header/NavMenu.jsx
+import { useEffect, useRef, useState } from "react";
 import "./navMenu.scss";
-import { useEffect } from "react";
 
-const NavMenu = ({ handleClick, isToggled, menuRef }) => {
+const NavMenu = () => {
+  const [isToggled, setIsToggled] = useState(false);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const list = document.getElementById("mobile-menu-list");
+    if (!list) return;
+    list.hidden = !isToggled;
+  }, [isToggled]);
+
+  useEffect(() => {
+    const list = document.getElementById("mobile-menu-list");
+    if (!list) return;
+
+    const closeOnLinkClick = (e) => {
+      if (e.target.closest("a")) setIsToggled(false);
+    };
+    list.addEventListener("click", closeOnLinkClick);
+    return () => list.removeEventListener("click", closeOnLinkClick);
+  }, []);
+
   const handleBlur = (e) => {
-    // Überprüfe, ob `menuRef` definiert ist und ob der Klick außerhalb des Menüs stattgefunden hat
-    if (menuRef?.current && !menuRef.current.contains(e.relatedTarget)) {
-      handleClick(false);
+    const list = document.getElementById("mobile-menu-list");
+    if (list && !list.contains(e.relatedTarget) && e.relatedTarget !== buttonRef.current) {
+      setIsToggled(false);
     }
   };
 
-  useEffect(() => {
-    if (!menuRef?.current) return;
-
-    const menu = menuRef.current;
-
-    // Event-Listener für Mouse-Events hinzufügen
-    const handleMouseEnter = () => {
-      menu.dataset.mouseHasEntered = "true";
-    };
-
-    const handleMouseLeave = () => {
-      menu.dataset.mouseHasEntered = "false";
-    };
-
-    menu.addEventListener("mouseenter", handleMouseEnter);
-    menu.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      // Event-Listener beim Cleanup entfernen
-      menu.removeEventListener("mouseenter", handleMouseEnter);
-      menu.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [menuRef]);
-
   return (
     <button
-      onClick={() => handleClick(!isToggled)}
+      ref={buttonRef}
+      onClick={() => setIsToggled((prev) => !prev)}
       onBlur={handleBlur}
       className={`menu-toggler ${isToggled ? "toggled" : ""}`}
       type="button"
