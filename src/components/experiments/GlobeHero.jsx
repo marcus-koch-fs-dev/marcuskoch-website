@@ -95,6 +95,31 @@ export default function GlobeHero() {
   }, [destination]);
 
   useEffect(() => {
+    const large = destination === "about";
+    let ticks = 0;
+    const id = setInterval(() => {
+      const marker = document.querySelector(".globe-hero__avatar-marker");
+      if (marker) marker.classList.toggle("globe-hero__avatar-marker--large", large);
+      ticks += 1;
+      if (ticks > 15) clearInterval(id);
+    }, 100);
+    return () => clearInterval(id);
+  }, [destination]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const letters = document.querySelectorAll(".globe-hero__name .globe-hero__word span");
+      letters.forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.add("glow-pulse");
+          setTimeout(() => el.classList.remove("glow-pulse"), 250);
+        }, i * 55);
+      });
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     const globe = globeRef.current;
     if (!globe) return;
     const scene = globe.scene();
@@ -122,14 +147,14 @@ export default function GlobeHero() {
     const ctx = audioCtxRef.current;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
-    osc.type = "square";
-    osc.frequency.setValueAtTime(920, ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(460, ctx.currentTime + 0.09);
-    gain.gain.setValueAtTime(0.1, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.12);
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(320, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.15);
+    gain.gain.setValueAtTime(0.14, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.2);
     osc.connect(gain).connect(ctx.destination);
     osc.start();
-    osc.stop(ctx.currentTime + 0.12);
+    osc.stop(ctx.currentTime + 0.2);
   }
 
   function playHoverTick() {
