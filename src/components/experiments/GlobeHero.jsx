@@ -56,9 +56,9 @@ const GLOBE_COLORS = {
   // Dots at ~68% opacity; brighter for DE (near home base).
   dot: "rgba(61, 255, 160, 0.68)",
   dotBright: "rgba(61, 255, 160, 0.9)",
-  // Grey/anthracite country outline (not green) -- three-globe's polygon
-  // stroke has no line-width control, so "thin" is opacity + altitude.
-  coastline: "rgba(154, 160, 166, 0.45)",
+  // Green country outline -- three-globe's polygon stroke has no
+  // line-width control, so "thin" is opacity + altitude.
+  coastline: "rgba(61, 255, 160, 0.35)",
 };
 const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
 
