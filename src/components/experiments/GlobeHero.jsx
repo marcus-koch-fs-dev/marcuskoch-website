@@ -124,6 +124,7 @@ export default function GlobeHero() {
 
   return (
     <div className="globe-hero" ref={containerRef}>
+      <div className="globe-hero__bg" />
       <Globe
         ref={globeRef}
         width={size.width}
@@ -132,7 +133,7 @@ export default function GlobeHero() {
         showAtmosphere={true}
         atmosphereColor="#7fb0e0"
         atmosphereAltitude={0.25}
-        backgroundImageUrl="/experiments/milky-way-2k.jpg"
+        backgroundColor="rgba(0,0,0,0)"
         hexPolygonsData={countries}
         hexPolygonResolution={3}
         hexPolygonMargin={0.3}
