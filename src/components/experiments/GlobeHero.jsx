@@ -12,6 +12,21 @@ const HOME_VIEW = { lat: 15, lng: 25, altitude: 1.7 };
 const DESTINATION_ZOOM_ALTITUDE = 0.35;
 const PENDING_RANGE = "AWAITING COORDS";
 
+// A project can span more than one location (see project 7). These stay
+// pure/standalone so the zoom math is easy to reason about in isolation.
+function locationCenter(locations) {
+  const lat = locations.reduce((sum, loc) => sum + loc.lat, 0) / locations.length;
+  const lng = locations.reduce((sum, loc) => sum + loc.lng, 0) / locations.length;
+  return { lat, lng };
+}
+
+function zoomAltitudeFor(locations) {
+  if (locations.length < 2) return DESTINATION_ZOOM_ALTITUDE;
+  const [a, b] = locations;
+  const spanKm = haversineDistanceKm(a.lat, a.lng, b.lat, b.lng);
+  return Math.max(DESTINATION_ZOOM_ALTITUDE, Math.min(0.8, spanKm / 300));
+}
+
 const ABOUT_TEXT =
   "I'm Marcus Koch, a fullstack developer with 5+ years of experience in TypeScript, React and Node.js. My focus is on web performance and scalable software architecture. I built a cloud-based tracking system at Thyssenkrupp that reduced the manual search for defective components from days to seconds and helped avoid expensive compensation cases.";
 
@@ -258,10 +273,10 @@ export default function GlobeHero() {
   function selectProject(project) {
     playBlip();
     setDestination(project.id);
-    const location = PROJECT_LOCATIONS[project.id];
-    if (location) {
+    const locations = PROJECT_LOCATIONS[project.id];
+    if (locations?.length) {
       globeRef.current?.pointOfView(
-        { lat: location.lat, lng: location.lng, altitude: DESTINATION_ZOOM_ALTITUDE },
+        { ...locationCenter(locations), altitude: zoomAltitudeFor(locations) },
         1200
       );
     }
@@ -279,12 +294,13 @@ export default function GlobeHero() {
 
   const selectedProject =
     typeof destination === "number" ? projectsData.find((p) => p.id === destination) ?? null : null;
-  const selectedLocation = selectedProject ? PROJECT_LOCATIONS[selectedProject.id] : null;
+  const selectedLocations = selectedProject ? PROJECT_LOCATIONS[selectedProject.id] : null;
+  const selectedCities = selectedLocations?.map((loc) => loc.city).join(" / ") ?? "UNKNOWN_LOCATION";
   const aboutOpen = destination === "about";
   const destinationLabel = aboutOpen
     ? "ABOUT_ME — LINDAU, DE"
     : selectedProject
-    ? `${selectedProject.title.toUpperCase()} — ${selectedLocation?.city?.toUpperCase() ?? "UNKNOWN_LOCATION"}`
+    ? `${selectedProject.title.toUpperCase()} — ${selectedCities.toUpperCase()}`
     : "HOME BASE";
 
   const points = [
@@ -293,8 +309,13 @@ export default function GlobeHero() {
     // exact coordinate regardless of camera angle.
     { lat: MARCUS_COORDS.lat, lng: MARCUS_COORDS.lng, label: "HOME BASE: LINDAU, DE", color: "#ffcc66" },
     ...(userPoint ? [userPoint] : []),
-    ...(selectedLocation
-      ? [{ lat: selectedLocation.lat, lng: selectedLocation.lng, label: selectedProject.title, color: "#ff3b3b" }]
+    ...(selectedLocations
+      ? selectedLocations.map((loc) => ({
+          lat: loc.lat,
+          lng: loc.lng,
+          label: `${selectedProject.title} — ${loc.city}`,
+          color: "#ff3b3b",
+        }))
       : []),
   ];
   const arcs = userPoint
@@ -443,7 +464,8 @@ export default function GlobeHero() {
                           {project.id === destination ? "●" : "○"} {project.title}
                         </span>
                         <span className="globe-hero__terminal-projects-city">
-                          {PROJECT_LOCATIONS[project.id]?.city ?? "UNKNOWN_LOCATION"}
+                          {PROJECT_LOCATIONS[project.id]?.map((loc) => loc.city).join(" / ") ??
+                            "UNKNOWN_LOCATION"}
                         </span>
                       </button>
                     </li>
@@ -593,7 +615,7 @@ export default function GlobeHero() {
               &times;
             </button>
             <p className="globe-hero__info-popup-location">
-              {`// ${selectedLocation?.city ?? "UNKNOWN_LOCATION"}`}
+              {`// ${selectedCities}`}
             </p>
             <h2>{selectedProject.title}</h2>
             <p className="globe-hero__info-popup-meta">
