@@ -21,23 +21,20 @@ const THEME_LIGHT = {
   night: { color: 0x8899ff, position: [0, -1, 2] },
 };
 
-const GLOBE_COLORS = { ocean: "#03130d", stroke: "#3dffa0" };
+const GLOBE_COLORS = {
+  ocean: "#03130d",
+  stroke: "#3dffa0",
+  // Dots at ~55% opacity per feedback; brighter for DE (near home base).
+  dot: "rgba(61, 255, 160, 0.55)",
+  dotBright: "rgba(61, 255, 160, 0.9)",
+};
 const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
 
 // Condensed from the real About page's tech-badges list.
-const TECH_STACK = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Python",
-  "PostgreSQL",
-  "MongoDB",
-  "Redis",
-  "AWS",
-  "GraphQL",
-  "Docker",
-  "Jest / Cypress",
+const TECH_STACK_GROUPS = [
+  { label: "Frontend", items: ["TypeScript", "React", "Next.js"] },
+  { label: "Backend", items: ["Node.js", "Python", "GraphQL"] },
+  { label: "Infra", items: ["PostgreSQL", "MongoDB", "Redis", "AWS", "Docker", "Jest // Cypress"] },
 ];
 
 const TWINKLE_STAR_COLORS = ["#ffffff", "#ffe1b3", "#ff9e80", "#9fdcff"];
@@ -95,7 +92,7 @@ export default function GlobeHero() {
   const [userPoint, setUserPoint] = useState(null);
   const [stats, setStats] = useState(null);
   const [countries, setCountries] = useState([]);
-  const [projectsOpen, setProjectsOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(true);
   const [techOpen, setTechOpen] = useState(false);
   // "home" | "about" | a project id
   const [destination, setDestination] = useState("home");
@@ -338,47 +335,62 @@ export default function GlobeHero() {
 
           <div className="globe-hero__terminal-body">
             <div className="globe-hero__terminal-readout">
-              {permissionState !== "granted" && (
-                <>
-                  <p>Allow your location to see how far you are from Marcus.</p>
-                  <button
-                    type="button"
-                    onClick={requestLocation}
-                    disabled={permissionState === "requesting"}
-                  >
-                    {permissionState === "requesting" ? "Requesting location…" : "Allow location"}
-                  </button>
-                  {permissionState === "denied" && <p>Location access was denied.</p>}
-                </>
-              )}
-
-              {stats && (
-                <div className="globe-hero__intel">
-                  <p className="globe-hero__intel-title">INTEL: DESTINATION DATA</p>
-                  <ul className="globe-hero__stats">
-                    <li>
-                      <span>Distance</span>
-                      <span>{stats.distanceKm} km</span>
-                    </li>
-                    <li>
-                      <span>Arrival by car</span>
-                      <span>{formatDuration(stats.carMinutes)}</span>
-                    </li>
-                    <li>
-                      <span>On foot</span>
-                      <span>{formatDuration(stats.walkMinutes)}</span>
-                    </li>
-                    <li>
-                      <span>By plane</span>
-                      <span>{formatDuration(stats.planeMinutes)}</span>
-                    </li>
-                    <li>
-                      <span>Just a message</span>
-                      <span>0 MIN</span>
-                    </li>
-                  </ul>
-                </div>
-              )}
+              <div className="globe-hero__intel">
+                <p className="globe-hero__intel-title">NAV: ROUTE TO HOME BASE</p>
+                <ul className="globe-hero__stats">
+                  <li>
+                    <span>Range</span>
+                    <span className="globe-hero__stats-leader" />
+                    <span>{stats ? `${stats.distanceKm} km` : "—"}</span>
+                  </li>
+                  <li>
+                    <span>Ground transport</span>
+                    <span className="globe-hero__stats-leader" />
+                    <span>{stats ? formatDuration(stats.carMinutes) : "—"}</span>
+                  </li>
+                  <li>
+                    <span>EVA (on foot)</span>
+                    <span className="globe-hero__stats-leader" />
+                    <span>{stats ? formatDuration(stats.walkMinutes) : "—"}</span>
+                  </li>
+                  <li>
+                    <span>Airborne</span>
+                    <span className="globe-hero__stats-leader" />
+                    <span>{stats ? `${formatDuration(stats.planeMinutes)} (incl. security)` : "—"}</span>
+                  </li>
+                  <li>
+                    <span>Transmission</span>
+                    <span className="globe-hero__stats-leader" />
+                    <span>
+                      INSTANT{" "}
+                      <a
+                        className="globe-hero__stats-send"
+                        href="mailto:marcus@marcus-koch.dev?subject=Request&body=Hi%20Marcus,"
+                      >
+                        [ SEND &gt; ]
+                      </a>
+                    </span>
+                  </li>
+                </ul>
+                {permissionState !== "granted" && (
+                  <p className="globe-hero__terminal-hint">
+                    {permissionState === "denied" ? (
+                      "Location access denied — range unknown."
+                    ) : (
+                      <>
+                        Allow location for exact range.{" "}
+                        <button
+                          type="button"
+                          onClick={requestLocation}
+                          disabled={permissionState === "requesting"}
+                        >
+                          {permissionState === "requesting" ? "Requesting…" : "Allow location"}
+                        </button>
+                      </>
+                    )}
+                  </p>
+                )}
+              </div>
             </div>
 
             <nav className="globe-hero__terminal-nav">
@@ -405,7 +417,7 @@ export default function GlobeHero() {
                 onClick={toggleProjects}
                 onMouseEnter={playHoverTick}
               >
-                {projectsOpen ? "●" : "○"} PROJECTS {projectsOpen ? "▾" : "▸"}
+                {projectsOpen ? "▾" : "▸"} PROJECTS
               </button>
               {projectsOpen && (
                 <ul className="globe-hero__terminal-projects">
@@ -434,30 +446,41 @@ export default function GlobeHero() {
                 onClick={toggleTechStack}
                 onMouseEnter={playHoverTick}
               >
-                {techOpen ? "●" : "○"} TECH_STACK {techOpen ? "▾" : "▸"}
+                {techOpen ? "▾" : "▸"} TECH_STACK
               </button>
               {techOpen && (
-                <ul className="globe-hero__terminal-stack">
-                  {TECH_STACK.map((item) => (
-                    <li key={item}>{item}</li>
+                <div className="globe-hero__terminal-stack">
+                  {TECH_STACK_GROUPS.map((group) => (
+                    <div key={group.label} className="globe-hero__terminal-stack-group">
+                      <p className="globe-hero__terminal-stack-label">{group.label}</p>
+                      <ul>
+                        {group.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               )}
             </nav>
           </div>
-
-          <a
-            className="contact-button globe-hero__terminal-cta"
-            href="mailto:marcus@marcus-koch.dev?subject=Request&body=Hi%20Marcus,"
-          >
-            INITIATE_CONTACT
-          </a>
         </div>
 
-        <div className="globe-hero__status-log" aria-hidden="true">
-          <p>&gt; STATUS: NOMINAL</p>
-          <p>&gt; UPLINK: STABLE</p>
+        <div className="globe-hero__status-log">
+          <p aria-hidden="true">&gt; STATUS: NOMINAL</p>
           <p>
+            &gt; GITHUB:{" "}
+            <a href="https://github.com/marcus-koch-fs-dev" target="_blank" rel="noopener noreferrer">
+              marcus-koch-fs-dev
+            </a>
+          </p>
+          <p>
+            &gt; LINKEDIN:{" "}
+            <a href="https://www.linkedin.com/in/marcus-koch-dev" target="_blank" rel="noopener noreferrer">
+              marcus-koch-dev
+            </a>
+          </p>
+          <p aria-hidden="true">
             &gt; AWAITING INPUT<span className="globe-hero__cursor-blink">_</span>
           </p>
         </div>
@@ -476,10 +499,12 @@ export default function GlobeHero() {
           atmosphereAltitude={0.25}
           backgroundColor="rgba(0,0,0,0)"
           hexPolygonsData={countries}
-          hexPolygonResolution={3}
-          hexPolygonMargin={0.3}
+          hexPolygonResolution={4}
+          hexPolygonMargin={0.55}
           hexPolygonUseDots={true}
-          hexPolygonColor={() => GLOBE_COLORS.stroke}
+          hexPolygonColor={(feature) =>
+            feature.properties?.ISO_A2 === "DE" ? GLOBE_COLORS.dotBright : GLOBE_COLORS.dot
+          }
           hexPolygonAltitude={0.004}
           pointsData={points}
           pointLat="lat"
