@@ -51,7 +51,7 @@ const THEME_LIGHT = {
 };
 
 const GLOBE_COLORS = {
-  ocean: "#03130d",
+  ocean: "#051428",
   stroke: "#3dffa0",
   // Thin, subtle country outline -- three-globe's polygon stroke has no
   // line-width control, so "thinner" is done via lower opacity + altitude.
