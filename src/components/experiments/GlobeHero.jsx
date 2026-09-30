@@ -218,7 +218,16 @@ export default function GlobeHero() {
 
       <div className="globe-hero__intro">
         <p className="globe-hero__eyebrow">Marcus Koch</p>
-        <h1 className="globe-hero__name">Fullstack Developer</h1>
+        <h1 className="globe-hero__name">
+          {"Fullstack Developer".split(" ").map((word, wi, words) => (
+            <span className="globe-hero__word" key={wi}>
+              {word.split("").map((char, ci) => (
+                <span key={ci}>{char}</span>
+              ))}
+              {wi < words.length - 1 ? " " : ""}
+            </span>
+          ))}
+        </h1>
 
         <div className="globe-hero__terminal">
           <p className="globe-hero__terminal-title">MU/TH/UR 6000</p>
