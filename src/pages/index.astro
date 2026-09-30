@@ -54,22 +54,18 @@ import GlobeHero from "../components/experiments/GlobeHero.jsx";
   :global(footer .wrapper) {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem 1.5rem;
     padding: 0.5rem 1.5rem;
-    background: rgba(4, 10, 8, 0.85);
+    background: rgba(2, 5, 4, 0.95);
     backdrop-filter: blur(6px);
-    border-top: 1px solid rgba(109, 255, 168, 0.3);
   }
 
-  :global(footer .sm-wrapper .sm-list) {
-    padding-top: 0;
-  }
-
-  :global(footer .sm-icon) {
-    font-size: 1.1rem;
-    color: #6dffa8;
+  /* GitHub/LinkedIn already live in the hero's status log; no need to
+     duplicate them in the footer bar too. */
+  :global(footer .sm-wrapper) {
+    display: none;
   }
 
   :global(footer .laws),
