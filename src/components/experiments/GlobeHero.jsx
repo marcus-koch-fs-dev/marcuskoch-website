@@ -17,6 +17,7 @@ const HOME_VIEW = { lat: 15, lng: 25, altitude: 1.7 };
 const DESTINATION_ZOOM_ALTITUDE = 0.35;
 const PENDING_RANGE = "AWAITING COORDS";
 const LOCATION_WATCH_TIMEOUT_MS = 10000;
+const NAME_SCAN_INTERVAL_MS = 10000;
 
 // A project can span more than one location (see project 7). These stay
 // pure/standalone so the zoom math is easy to reason about in isolation.
@@ -181,7 +182,7 @@ export default function GlobeHero() {
   }, [destination]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    function sweepNameGlow() {
       const letters = document.querySelectorAll(".globe-hero__name .globe-hero__word span");
       letters.forEach((el, i) => {
         setTimeout(() => {
@@ -189,8 +190,13 @@ export default function GlobeHero() {
           setTimeout(() => el.classList.remove("glow-pulse"), 250);
         }, i * 55);
       });
-    }, 3000);
-    return () => clearTimeout(timer);
+    }
+    const introTimer = setTimeout(sweepNameGlow, 3000);
+    const interval = setInterval(sweepNameGlow, NAME_SCAN_INTERVAL_MS);
+    return () => {
+      clearTimeout(introTimer);
+      clearInterval(interval);
+    };
   }, []);
 
   useEffect(() => {
