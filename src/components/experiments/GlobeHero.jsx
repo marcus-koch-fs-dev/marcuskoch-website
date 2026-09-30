@@ -21,7 +21,7 @@ const THEME_LIGHT = {
   night: { color: 0x8899ff, position: [0, -1, 2] },
 };
 
-const GLOBE_COLORS = { ocean: "#03130d", land: "#1d5c3c", stroke: "#3dffa0" };
+const GLOBE_COLORS = { ocean: "#03130d", stroke: "#3dffa0" };
 const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
 
 // Condensed from the real About page's tech-badges list.
@@ -475,11 +475,12 @@ export default function GlobeHero() {
           atmosphereColor={GLOBE_COLORS.stroke}
           atmosphereAltitude={0.25}
           backgroundColor="rgba(0,0,0,0)"
-          polygonsData={countries}
-          polygonCapColor={() => "rgba(0,0,0,0)"}
-          polygonSideColor={() => "rgba(0,0,0,0)"}
-          polygonStrokeColor={() => GLOBE_COLORS.stroke}
-          polygonAltitude={0.004}
+          hexPolygonsData={countries}
+          hexPolygonResolution={3}
+          hexPolygonMargin={0.3}
+          hexPolygonUseDots={true}
+          hexPolygonColor={() => GLOBE_COLORS.stroke}
+          hexPolygonAltitude={0.004}
           pointsData={points}
           pointLat="lat"
           pointLng="lng"
