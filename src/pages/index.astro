@@ -72,16 +72,18 @@ import GlobeHero from "../components/experiments/GlobeHero.jsx";
     color: #6dffa8;
   }
 
-  :global(footer .laws) {
-    color: rgba(207, 255, 224, 0.7);
+  :global(footer .laws),
+  :global(footer .laws-item span),
+  :global(footer .laws a) {
+    color: rgba(207, 255, 224, 0.85);
   }
 
   :global(footer .laws-list) {
     padding-bottom: 0;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
   }
 
-  :global(footer .laws a) {
-    color: rgba(207, 255, 224, 0.7);
+  :global(footer .laws-item) {
+    cursor: pointer;
   }
 </style>
