@@ -1,12 +1,17 @@
-// Demo placeholders for the globe spike, keyed by projectList.js id.
-// Thyssenkrupp Presta AG (Liechtenstein) and Arvato Systems (Gütersloh) use
-// their real, publicly known HQ cities. The rest are unverified stand-ins —
-// pick the client's actual city (or drop the marker) before this goes live.
+// Keyed by projectList.js id. Confirmed by Marcus on 2026-09-30:
+// - 1, 4: Baas Film GmbH -- Lindau (same city as Marcus's own home base).
+// - 2: Owner-run services business -- Wangen im Allgäu.
+// - 3: Education provider -- Berlin.
+// - 5, 6: Thyssenkrupp Presta AG -- Eschen, Liechtenstein.
+// - 7: Arvato Systems GmbH (Gütersloh) & Sciendis GmbH (Leipzig) -- two
+//   cities for one project id; only Arvato's is used here since a project
+//   only carries a single marker today. See the reply to this commit's
+//   request for the open question on whether that should change.
 export const PROJECT_LOCATIONS = {
-  1: { city: "Hamburg", lat: 53.5511, lng: 9.9937 },
-  2: { city: "Stuttgart", lat: 48.7758, lng: 9.1829 },
-  3: { city: "Munich", lat: 48.1351, lng: 11.582 },
-  4: { city: "Hamburg", lat: 53.5511, lng: 9.9937 },
+  1: { city: "Lindau", lat: 47.5456, lng: 9.6857 },
+  2: { city: "Wangen im Allgäu", lat: 47.6825, lng: 9.8317 },
+  3: { city: "Berlin", lat: 52.52, lng: 13.405 },
+  4: { city: "Lindau", lat: 47.5456, lng: 9.6857 },
   5: { city: "Eschen, Liechtenstein", lat: 47.3167, lng: 9.5167 },
   6: { city: "Eschen, Liechtenstein", lat: 47.3167, lng: 9.5167 },
   7: { city: "Gütersloh", lat: 51.9036, lng: 8.3789 },
