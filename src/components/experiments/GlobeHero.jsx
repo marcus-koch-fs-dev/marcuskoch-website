@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
 import { haversineDistanceKm, estimateTravelStats } from "../../lib/geoDistance";
@@ -21,15 +21,8 @@ const THEME_LIGHT = {
   night: { color: 0x8899ff, position: [0, -1, 2] },
 };
 
-// Temporary comparison presets for the closed-globe look — pick one and
-// delete this dropdown once we settle on a palette.
-const GLOBE_PALETTES = [
-  { id: "navy", label: "Classic Navy", ocean: "#050b1a", land: "#1d3f94", stroke: "#3a6bd8" },
-  { id: "phosphor", label: "Phosphor Green (recommended)", ocean: "#03130d", land: "#1d5c3c", stroke: "#3dffa0" },
-  { id: "amber", label: "Amber Terminal", ocean: "#1a0f02", land: "#8a5a12", stroke: "#ffcc66" },
-  { id: "ice", label: "Ice Blue", ocean: "#020a12", land: "#2f6f8a", stroke: "#7fd4ff" },
-  { id: "mono", label: "Mono Slate", ocean: "#0a0a0a", land: "#3a3a3a", stroke: "#8a8a8a" },
-];
+const GLOBE_COLORS = { ocean: "#03130d", land: "#1d5c3c", stroke: "#3dffa0" };
+const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
 
 // Condensed from the real About page's tech-badges list.
 const TECH_STACK = [
@@ -104,7 +97,6 @@ export default function GlobeHero() {
   const [countries, setCountries] = useState([]);
   const [projectsOpen, setProjectsOpen] = useState(false);
   const [techOpen, setTechOpen] = useState(false);
-  const [paletteId, setPaletteId] = useState("phosphor");
   // "home" | "about" | a project id
   const [destination, setDestination] = useState("home");
 
@@ -288,11 +280,6 @@ export default function GlobeHero() {
     typeof destination === "number" ? projectsData.find((p) => p.id === destination) ?? null : null;
   const selectedLocation = selectedProject ? PROJECT_LOCATIONS[selectedProject.id] : null;
   const aboutOpen = destination === "about";
-  const palette = GLOBE_PALETTES.find((p) => p.id === paletteId) ?? GLOBE_PALETTES[0];
-  const globeMaterial = useMemo(
-    () => new THREE.MeshPhongMaterial({ color: palette.ocean }),
-    [palette.ocean]
-  );
   const destinationLabel = aboutOpen
     ? "ABOUT_ME — LINDAU, DE"
     : selectedProject
@@ -347,17 +334,6 @@ export default function GlobeHero() {
 
         <div className="globe-hero__terminal">
           <p className="globe-hero__terminal-title">MU/TH/UR 6000</p>
-
-          <label className="globe-hero__dev-palette">
-            DEV: PALETTE{" "}
-            <select value={paletteId} onChange={(e) => setPaletteId(e.target.value)}>
-              {GLOBE_PALETTES.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.label}
-                </option>
-              ))}
-            </select>
-          </label>
 
           <div className="globe-hero__terminal-body">
             <div className="globe-hero__terminal-readout">
@@ -487,14 +463,14 @@ export default function GlobeHero() {
           showGlobe={true}
           globeMaterial={globeMaterial}
           showAtmosphere={true}
-          atmosphereColor={palette.stroke}
+          atmosphereColor={GLOBE_COLORS.stroke}
           atmosphereAltitude={0.25}
           backgroundColor="rgba(0,0,0,0)"
           polygonsData={countries}
-          polygonCapColor={() => palette.land}
-          polygonSideColor={() => palette.land}
-          polygonStrokeColor={() => palette.stroke}
-          polygonAltitude={0.006}
+          polygonCapColor={() => "rgba(0,0,0,0)"}
+          polygonSideColor={() => "rgba(0,0,0,0)"}
+          polygonStrokeColor={() => GLOBE_COLORS.stroke}
+          polygonAltitude={0.004}
           pointsData={points}
           pointLat="lat"
           pointLng="lng"
