@@ -49,7 +49,7 @@ export default function GlobeHero() {
   useEffect(() => {
     const globe = globeRef.current;
     if (!globe) return;
-    globe.pointOfView({ lat: 15, lng: 25, altitude: 3.8 }, 0);
+    globe.pointOfView({ lat: 15, lng: 25, altitude: 3.4 }, 0);
   }, []);
 
   useEffect(() => {
@@ -124,6 +124,7 @@ export default function GlobeHero() {
 
   return (
     <div className="globe-hero">
+      <div className="globe-hero__stars" />
       <div className="globe-hero__aurora" />
 
       <div className="globe-hero__intro">
@@ -170,13 +171,13 @@ export default function GlobeHero() {
           height={size.height}
           showGlobe={false}
           showAtmosphere={true}
-          atmosphereColor="#7fb0e0"
+          atmosphereColor="#c04dff"
           atmosphereAltitude={0.25}
           backgroundColor="rgba(0,0,0,0)"
           polygonsData={countries}
-          polygonCapColor={() => "#4a72b8"}
-          polygonSideColor={() => "rgba(74, 114, 184, 0.25)"}
-          polygonStrokeColor={() => "#2c4a7c"}
+          polygonCapColor={() => "#b03df0"}
+          polygonSideColor={() => "rgba(176, 61, 240, 0.25)"}
+          polygonStrokeColor={() => "#b03df0"}
           polygonAltitude={0.006}
           pointsData={points}
           pointLat="lat"
