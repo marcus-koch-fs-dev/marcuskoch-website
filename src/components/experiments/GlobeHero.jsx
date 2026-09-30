@@ -53,9 +53,12 @@ const THEME_LIGHT = {
 const GLOBE_COLORS = {
   ocean: "#051428",
   stroke: "#3dffa0",
-  // Thin, subtle country outline -- three-globe's polygon stroke has no
-  // line-width control, so "thinner" is done via lower opacity + altitude.
-  coastline: "rgba(61, 255, 160, 0.22)",
+  // Dots at ~68% opacity; brighter for DE (near home base).
+  dot: "rgba(61, 255, 160, 0.68)",
+  dotBright: "rgba(61, 255, 160, 0.9)",
+  // Grey/anthracite country outline (not green) -- three-globe's polygon
+  // stroke has no line-width control, so "thin" is opacity + altitude.
+  coastline: "rgba(154, 160, 166, 0.45)",
 };
 const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
 
@@ -601,6 +604,14 @@ export default function GlobeHero() {
           polygonSideColor={() => "rgba(0,0,0,0)"}
           polygonStrokeColor={() => GLOBE_COLORS.coastline}
           polygonAltitude={0.0015}
+          hexPolygonsData={countries}
+          hexPolygonResolution={4}
+          hexPolygonMargin={0.55}
+          hexPolygonUseDots={true}
+          hexPolygonColor={(feature) =>
+            feature.properties?.ISO_A2 === "DE" ? GLOBE_COLORS.dotBright : GLOBE_COLORS.dot
+          }
+          hexPolygonAltitude={0.004}
           pointsData={points}
           pointLat="lat"
           pointLng="lng"
