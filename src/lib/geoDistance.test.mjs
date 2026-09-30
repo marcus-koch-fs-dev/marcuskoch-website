@@ -1,6 +1,11 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { haversineDistanceKm, estimateTravelStats, formatDuration } from "./geoDistance.js";
+import {
+  haversineDistanceKm,
+  estimateTravelStats,
+  formatDuration,
+  locationQualityFor,
+} from "./geoDistance.js";
 
 test("haversineDistanceKm returns 0 for identical points", () => {
   assert.equal(haversineDistanceKm(48.8, 9.0, 48.8, 9.0), 0);
@@ -47,4 +52,19 @@ test("plane is still faster than car for a long ~1200km trip", () => {
     stats.carMinutes - stats.planeMinutes > 200,
     `expected car to be >200min slower than plane at 1200km, got car=${stats.carMinutes} plane=${stats.planeMinutes}`
   );
+});
+
+test("locationQualityFor is PRECISE under 100m GPS accuracy", () => {
+  assert.equal(locationQualityFor(50), "PRECISE");
+  assert.equal(locationQualityFor(99), "PRECISE");
+});
+
+test("locationQualityFor is APPROX between 100m and 5km", () => {
+  assert.equal(locationQualityFor(100), "APPROX");
+  assert.equal(locationQualityFor(4999), "APPROX");
+});
+
+test("locationQualityFor is ROUGH at 5km accuracy or worse", () => {
+  assert.equal(locationQualityFor(5000), "ROUGH");
+  assert.equal(locationQualityFor(50000), "ROUGH");
 });

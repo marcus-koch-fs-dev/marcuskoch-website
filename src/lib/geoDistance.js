@@ -30,6 +30,12 @@ export function estimateTravelStats(distanceKm) {
   };
 }
 
+export function locationQualityFor(accuracyMeters) {
+  if (accuracyMeters < 100) return "PRECISE";
+  if (accuracyMeters < 5000) return "APPROX";
+  return "ROUGH";
+}
+
 export function formatDuration(minutes) {
   if (minutes >= 60) {
     return `~${Math.round(minutes / 60)} H`;
