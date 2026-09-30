@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
-import { haversineDistanceKm, estimateTravelStats, formatDuration } from "../../lib/geoDistance";
+import {
+  haversineDistanceKm,
+  estimateTravelStats,
+  formatDuration,
+  locationQualityFor,
+} from "../../lib/geoDistance";
 import { projectsData } from "../../data/projectList";
 import { PROJECT_LOCATIONS } from "./projectLocations";
 import "./globeHero.scss";
@@ -11,6 +16,7 @@ const MARCUS_COORDS = { lat: 47.5456, lng: 9.6857, label: "Marcus", color: "#ffc
 const HOME_VIEW = { lat: 15, lng: 25, altitude: 1.7 };
 const DESTINATION_ZOOM_ALTITUDE = 0.35;
 const PENDING_RANGE = "AWAITING COORDS";
+const LOCATION_WATCH_TIMEOUT_MS = 10000;
 
 // A project can span more than one location (see project 7). These stay
 // pure/standalone so the zoom math is easy to reason about in isolation.
@@ -105,16 +111,24 @@ export default function GlobeHero() {
   const globeRef = useRef();
   const stageRef = useRef();
   const audioCtxRef = useRef(null);
+  const watchIdRef = useRef(null);
   const [theme, setTheme] = useState("day");
   const [size, setSize] = useState({ width: 800, height: 600 });
   const [permissionState, setPermissionState] = useState("idle");
   const [userPoint, setUserPoint] = useState(null);
   const [stats, setStats] = useState(null);
+  const [locationQuality, setLocationQuality] = useState(null);
   const [countries, setCountries] = useState([]);
   const [projectsOpen, setProjectsOpen] = useState(false);
   const [techOpen, setTechOpen] = useState(false);
   // "home" | "about" | a project id
   const [destination, setDestination] = useState("home");
+
+  useEffect(() => {
+    return () => {
+      if (watchIdRef.current != null) navigator.geolocation.clearWatch(watchIdRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     setTheme(readTheme());
@@ -237,9 +251,18 @@ export default function GlobeHero() {
 
   function requestLocation() {
     setPermissionState("requesting");
-    navigator.geolocation.getCurrentPosition(
+    if (watchIdRef.current != null) navigator.geolocation.clearWatch(watchIdRef.current);
+
+    // Keep watching after the first fix: GPS accuracy improves over a few
+    // seconds, so only better (lower-accuracy-number) readings replace the
+    // shown one, until either a precise fix arrives or the timeout below
+    // stops the watch.
+    let bestAccuracy = Infinity;
+    const watchId = navigator.geolocation.watchPosition(
       (pos) => {
-        const { latitude, longitude } = pos.coords;
+        const { latitude, longitude, accuracy } = pos.coords;
+        if (accuracy >= bestAccuracy) return;
+        bestAccuracy = accuracy;
         setUserPoint({ lat: latitude, lng: longitude, label: "You", color: "#4dd2ff" });
         const distanceKm = haversineDistanceKm(
           latitude,
@@ -247,12 +270,22 @@ export default function GlobeHero() {
           MARCUS_COORDS.lat,
           MARCUS_COORDS.lng
         );
+        const quality = locationQualityFor(accuracy);
         setStats(estimateTravelStats(distanceKm));
+        setLocationQuality(quality);
         setPermissionState("granted");
+        if (quality === "PRECISE") navigator.geolocation.clearWatch(watchId);
       },
-      () => setPermissionState("denied"),
-      { timeout: 10000 }
+      () => {
+        // A later error (e.g. signal lost while refining) shouldn't erase
+        // an already-shown reading -- only fail the request if we never
+        // got one at all.
+        setPermissionState((current) => (current === "granted" ? current : "denied"));
+      },
+      { enableHighAccuracy: true, maximumAge: 0 }
     );
+    watchIdRef.current = watchId;
+    setTimeout(() => navigator.geolocation.clearWatch(watchId), LOCATION_WATCH_TIMEOUT_MS);
   }
 
   function goHome() {
@@ -370,7 +403,11 @@ export default function GlobeHero() {
                   <li>
                     <span>Range</span>
                     <span className="globe-hero__stats-leader" />
-                    <span>{stats ? `${stats.distanceKm} km` : PENDING_RANGE}</span>
+                    <span>
+                      {stats
+                        ? `${locationQuality === "PRECISE" ? "" : "~"}${stats.distanceKm} km (${locationQuality})`
+                        : PENDING_RANGE}
+                    </span>
                   </li>
                   <li>
                     <span>Ground transport</span>
