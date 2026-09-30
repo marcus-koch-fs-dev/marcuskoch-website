@@ -30,12 +30,26 @@ export default function GlobeHero() {
   const [permissionState, setPermissionState] = useState("idle");
   const [userPoint, setUserPoint] = useState(null);
   const [stats, setStats] = useState(null);
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     setTheme(readTheme());
     const observer = new MutationObserver(() => setTheme(readTheme()));
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    fetch("https://unpkg.com/three-globe/example/hexed-polygons/ne_110m_admin_0_countries.geojson")
+      .then((res) => res.json())
+      .then((data) => setCountries(data.features))
+      .catch(() => setCountries([]));
+  }, []);
+
+  useEffect(() => {
+    const globe = globeRef.current;
+    if (!globe) return;
+    globe.pointOfView({ altitude: 5 }, 0);
   }, []);
 
   useEffect(() => {
@@ -114,8 +128,16 @@ export default function GlobeHero() {
         ref={globeRef}
         width={size.width}
         height={size.height}
-        globeImageUrl="https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+        showGlobe={false}
+        showAtmosphere={true}
+        atmosphereColor="#7fb0e0"
+        atmosphereAltitude={0.2}
         backgroundColor="rgba(0,0,0,0)"
+        hexPolygonsData={countries}
+        hexPolygonResolution={3}
+        hexPolygonMargin={0.3}
+        hexPolygonAltitude={0.005}
+        hexPolygonColor={() => "#4a72b8"}
         pointsData={points}
         pointLat="lat"
         pointLng="lng"
