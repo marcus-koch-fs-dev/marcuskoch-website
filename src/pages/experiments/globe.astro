@@ -3,7 +3,6 @@
 // Evaluate the globe/theming/geolocation idea in isolation before deciding
 // whether (and how) it belongs on the real site.
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ThemesToggler from "../../components/ThemesToggler/ThemesToggler.jsx";
 import GlobeHero from "../../components/experiments/GlobeHero.jsx";
 ---
 <BaseLayout title="Globe Spike">
@@ -19,9 +18,6 @@ import GlobeHero from "../../components/experiments/GlobeHero.jsx";
       rel="stylesheet"
     />
   </noscript>
-  <div style="position: fixed; top: 1rem; right: 1rem; z-index: 10;">
-    <ThemesToggler client:idle />
-  </div>
   <GlobeHero client:only="react" />
 </BaseLayout>
 
@@ -30,6 +26,9 @@ import GlobeHero from "../../components/experiments/GlobeHero.jsx";
      Scoped to this page only — the real site nav is untouched elsewhere. */
   @media screen and (min-width: 769px) {
     :global(.menu-horizontal) {
+      display: none;
+    }
+    :global(.menu-wrapper-horizontal .themesToggler) {
       display: none;
     }
   }

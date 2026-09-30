@@ -103,8 +103,8 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: min(34rem, 46%);
-    padding: 3rem 2.5rem 3rem 3rem;
+    width: min(36rem, 46%);
+    padding: 4.5rem 2.5rem 3rem 3rem;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(109, 255, 168, 0.5) transparent;
@@ -117,7 +117,7 @@
   }
 
   &__eyebrow {
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.75rem;
     font-family: "Share Tech Mono", "Courier New", monospace;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -126,14 +126,15 @@
   }
 
   &__name {
-    margin: 0 0 2rem;
+    margin: 0 0 4rem;
     color: #7bffb0;
     font-family: "Share Tech Mono", "Courier New", monospace;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: clamp(2rem, 4.2vw, 3.25rem);
+    letter-spacing: 0.04em;
+    font-size: clamp(1.6rem, 2.6vw, 2.4rem);
     line-height: 1.25;
+    white-space: nowrap;
   }
 
   &__eyebrow,
@@ -162,6 +163,14 @@
     position: absolute;
     z-index: 1;
     inset: 0;
+    overflow: hidden;
+  }
+
+  &__stage-inner {
+    position: absolute;
+    inset: 0;
+    transform: translateX(8%) scale(0.9);
+    transform-origin: center center;
   }
 
   canvas {
@@ -325,6 +334,13 @@
     }
   }
 
+  &__terminal-lock {
+    margin: 0 0 0.25rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: rgba(207, 255, 224, 0.55);
+  }
+
   &__terminal-nav {
     display: flex;
     flex-direction: column;
@@ -364,6 +380,9 @@
     border-left: 1px solid rgba(109, 255, 168, 0.25);
 
     button {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
       background: none;
       border: none;
       padding: 0;
@@ -380,6 +399,13 @@
         color: #ff6b6b;
       }
     }
+  }
+
+  &__terminal-projects-city {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(207, 255, 224, 0.45);
   }
 
   &__terminal-stack {

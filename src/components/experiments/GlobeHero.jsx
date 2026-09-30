@@ -220,7 +220,7 @@ export default function GlobeHero() {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
-        setUserPoint({ lat: latitude, lng: longitude, label: "Du", color: "#4dd2ff" });
+        setUserPoint({ lat: latitude, lng: longitude, label: "You", color: "#4dd2ff" });
         const distanceKm = haversineDistanceKm(
           latitude,
           longitude,
@@ -276,6 +276,11 @@ export default function GlobeHero() {
     typeof destination === "number" ? projectsData.find((p) => p.id === destination) ?? null : null;
   const selectedLocation = selectedProject ? PROJECT_LOCATIONS[selectedProject.id] : null;
   const aboutOpen = destination === "about";
+  const destinationLabel = aboutOpen
+    ? "ABOUT_ME — LINDAU, DE"
+    : selectedProject
+    ? `${selectedProject.title.toUpperCase()} — ${selectedLocation?.city?.toUpperCase() ?? "UNKNOWN_LOCATION"}`
+    : "HOME BASE";
 
   const points = [
     ...(userPoint ? [userPoint] : []),
@@ -330,15 +335,15 @@ export default function GlobeHero() {
             <div className="globe-hero__terminal-readout">
               {permissionState !== "granted" && (
                 <>
-                  <p>Erlaube deinen Standort, um zu sehen, wie weit du von Marcus entfernt bist.</p>
+                  <p>Allow your location to see how far you are from Marcus.</p>
                   <button
                     type="button"
                     onClick={requestLocation}
                     disabled={permissionState === "requesting"}
                   >
-                    {permissionState === "requesting" ? "Frage Standort ab…" : "Standort erlauben"}
+                    {permissionState === "requesting" ? "Requesting location…" : "Allow location"}
                   </button>
-                  {permissionState === "denied" && <p>Standort wurde nicht freigegeben.</p>}
+                  {permissionState === "denied" && <p>Location access was denied.</p>}
                 </>
               )}
 
@@ -372,13 +377,14 @@ export default function GlobeHero() {
             </div>
 
             <nav className="globe-hero__terminal-nav">
+              <p className="globe-hero__terminal-lock">LOCK: {destinationLabel}</p>
               <button
                 type="button"
                 className={destination === "home" ? "active" : ""}
                 onClick={goHome}
                 onMouseEnter={playHoverTick}
               >
-                &gt; HOME
+                {destination === "home" ? "●" : "○"} HOME
               </button>
               <button
                 type="button"
@@ -386,7 +392,7 @@ export default function GlobeHero() {
                 onClick={goAbout}
                 onMouseEnter={playHoverTick}
               >
-                &gt; ABOUT_ME
+                {aboutOpen ? "●" : "○"} ABOUT_ME
               </button>
               <button
                 type="button"
@@ -406,7 +412,12 @@ export default function GlobeHero() {
                         onClick={() => selectProject(project)}
                         onMouseEnter={playHoverTick}
                       >
-                        {project.title}
+                        <span className="globe-hero__terminal-projects-title">
+                          {project.id === destination ? "●" : "○"} {project.title}
+                        </span>
+                        <span className="globe-hero__terminal-projects-city">
+                          {PROJECT_LOCATIONS[project.id]?.city ?? "UNKNOWN_LOCATION"}
+                        </span>
                       </button>
                     </li>
                   ))}
@@ -434,12 +445,13 @@ export default function GlobeHero() {
             className="contact-button globe-hero__terminal-cta"
             href="mailto:marcus@marcus-koch.dev?subject=Request&body=Hi%20Marcus,"
           >
-            Erstkontakt herstellen
+            Initiate First Contact
           </a>
         </div>
       </div>
 
       <div className="globe-hero__stage" ref={stageRef}>
+        <div className="globe-hero__stage-inner">
         <Globe
           ref={globeRef}
           width={size.width}
@@ -484,6 +496,7 @@ export default function GlobeHero() {
           arcDashGap={0.2}
           arcDashAnimateTime={1500}
         />
+        </div>
 
         {aboutOpen && (
           <div className="globe-hero__info-popup">
@@ -491,11 +504,11 @@ export default function GlobeHero() {
               type="button"
               className="globe-hero__info-popup-close"
               onClick={goHome}
-              aria-label="Schließen"
+              aria-label="Close"
             >
               &times;
             </button>
-            <p className="globe-hero__info-popup-location">{"// Lindau, Bodensee"}</p>
+            <p className="globe-hero__info-popup-location">{"// Lindau, Lake Constance"}</p>
             <h2>About Me</h2>
             <p className="globe-hero__info-popup-body">{ABOUT_TEXT}</p>
           </div>
@@ -507,7 +520,7 @@ export default function GlobeHero() {
               type="button"
               className="globe-hero__info-popup-close"
               onClick={goHome}
-              aria-label="Schließen"
+              aria-label="Close"
             >
               &times;
             </button>
