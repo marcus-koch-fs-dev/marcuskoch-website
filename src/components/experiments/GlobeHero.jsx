@@ -329,8 +329,9 @@ export default function GlobeHero() {
       <div className="globe-hero__vignette" />
 
       <div className="globe-hero__intro">
-        <p className="globe-hero__eyebrow">{renderGlowText("Marcus Koch")}</p>
-        <h1 className="globe-hero__name">{renderGlowText("Fullstack Developer")}</h1>
+        <p className="globe-hero__eyebrow">{renderGlowText("Fullstack Developer")}</p>
+        <h1 className="globe-hero__name">{renderGlowText("Marcus Koch")}</h1>
+        <p className="globe-hero__tagline">TypeScript · React · Node.js — based in Lindau, DE</p>
 
         <div className="globe-hero__terminal">
           <p className="globe-hero__terminal-title">MU/TH/UR 6000</p>

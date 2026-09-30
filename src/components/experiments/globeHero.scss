@@ -126,7 +126,7 @@
   }
 
   &__name {
-    margin: 0 0 4rem;
+    margin: 0 0 0.5rem;
     color: #7bffb0;
     font-family: "Share Tech Mono", "Courier New", monospace;
     font-weight: 400;
@@ -135,6 +135,14 @@
     font-size: clamp(1.6rem, 2.6vw, 2.4rem);
     line-height: 1.25;
     white-space: nowrap;
+  }
+
+  &__tagline {
+    margin: 0 0 4rem;
+    color: rgba(207, 255, 224, 0.75);
+    font-family: "Share Tech Mono", "Courier New", monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
   }
 
   &__eyebrow,
