@@ -115,9 +115,10 @@
         transition: text-shadow 1.2s ease-out;
 
         &:hover {
-          text-shadow: 0 0 18px rgba(109, 255, 168, 1), 0 0 45px rgba(60, 255, 140, 0.9),
-            0 0 80px rgba(60, 255, 140, 0.6);
-          transition: text-shadow 0.15s ease-in;
+          color: #fff;
+          text-shadow: 0 0 10px #fff, 0 0 25px rgba(109, 255, 168, 1),
+            0 0 55px rgba(60, 255, 140, 1), 0 0 100px rgba(60, 255, 140, 0.8);
+          transition: text-shadow 0.04s linear, color 0.04s linear;
         }
       }
     }
