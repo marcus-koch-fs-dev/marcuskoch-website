@@ -239,6 +239,28 @@
     flex: 0 0 auto;
   }
 
+  &__dev-palette {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.5rem 0 0;
+    padding: 0.3rem 0.5rem;
+    border: 1px dashed rgba(255, 107, 107, 0.5);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: rgba(255, 150, 150, 0.85);
+    flex: 0 0 auto;
+
+    select {
+      font-family: inherit;
+      font-size: 0.65rem;
+      background: #0a0a0a;
+      color: #cfffe0;
+      border: 1px solid rgba(109, 255, 168, 0.4);
+      border-radius: 0.2rem;
+    }
+  }
+
   &__terminal-body {
     flex: 1 1 auto;
     min-height: 0;
