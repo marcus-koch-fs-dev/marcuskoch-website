@@ -29,4 +29,59 @@ import GlobeHero from "../components/experiments/GlobeHero.jsx";
       display: none;
     }
   }
+
+  /* Header and footer are normally in-flow (header + 100vh hero + footer
+     taller than the viewport, forcing a page scrollbar). Taken out of flow
+     here so the hero stays exactly 100vh and both stay on screen as thin
+     overlay bars instead. Scoped to this page only. */
+  :global(header) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    background: transparent;
+  }
+
+  :global(footer) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+  }
+
+  :global(footer .wrapper) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
+    background: rgba(4, 10, 8, 0.85);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(109, 255, 168, 0.3);
+  }
+
+  :global(footer .sm-wrapper .sm-list) {
+    padding-top: 0;
+  }
+
+  :global(footer .sm-icon) {
+    font-size: 1.1rem;
+    color: #6dffa8;
+  }
+
+  :global(footer .laws) {
+    color: rgba(207, 255, 224, 0.7);
+  }
+
+  :global(footer .laws-list) {
+    padding-bottom: 0;
+    font-size: 0.75rem;
+  }
+
+  :global(footer .laws a) {
+    color: rgba(207, 255, 224, 0.7);
+  }
 </style>
