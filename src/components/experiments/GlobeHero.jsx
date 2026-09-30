@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
 import {
@@ -9,10 +9,14 @@ import {
 } from "../../lib/geoDistance";
 import { projectsData } from "../../data/projectList";
 import { PROJECT_LOCATIONS } from "./projectLocations";
+import { THEMES, DEFAULT_THEME } from "../../lib/theme";
 import "./globeHero.scss";
 
 // Real location, given by Marcus for this feature.
 const MARCUS_COORDS = { lat: 47.5456, lng: 9.6857, label: "Marcus", color: "#ffcc66" };
+// Stable reference so react-globe.gl's htmlElementsData prop doesn't see a
+// "changed" array on every unrelated re-render.
+const MARCUS_HTML_ELEMENTS = [MARCUS_COORDS];
 const HOME_VIEW = { lat: 15, lng: 25, altitude: 1.7 };
 const DESTINATION_ZOOM_ALTITUDE = 0.35;
 const PENDING_RANGE = "AWAITING COORDS";
@@ -90,9 +94,9 @@ function makeTwinkleStars(count, seed) {
 const TWINKLE_STARS = makeTwinkleStars(55, 42);
 
 function readTheme() {
-  if (typeof document === "undefined") return "day";
+  if (typeof document === "undefined") return DEFAULT_THEME;
   const current = document.documentElement.className;
-  return THEME_LIGHT[current] ? current : "day";
+  return THEMES.some((zone) => zone.theme === current) ? current : DEFAULT_THEME;
 }
 
 function renderGlowText(text) {
@@ -115,7 +119,8 @@ export default function GlobeHero() {
   const stageRef = useRef();
   const audioCtxRef = useRef(null);
   const watchIdRef = useRef(null);
-  const [theme, setTheme] = useState("day");
+  const avatarMarkerRef = useRef(null);
+  const [theme, setTheme] = useState(DEFAULT_THEME);
   const [size, setSize] = useState({ width: 800, height: 600 });
   const [permissionState, setPermissionState] = useState("idle");
   const [userPoint, setUserPoint] = useState(null);
@@ -172,15 +177,7 @@ export default function GlobeHero() {
   }, [destination]);
 
   useEffect(() => {
-    const large = destination === "about";
-    let ticks = 0;
-    const id = setInterval(() => {
-      const marker = document.querySelector(".globe-hero__avatar-marker");
-      if (marker) marker.classList.toggle("globe-hero__avatar-marker--large", large);
-      ticks += 1;
-      if (ticks > 15) clearInterval(id);
-    }, 100);
-    return () => clearInterval(id);
+    avatarMarkerRef.current?.classList.toggle("globe-hero__avatar-marker--large", destination === "about");
   }, [destination]);
 
   useEffect(() => {
@@ -222,12 +219,21 @@ export default function GlobeHero() {
     light.position.set(...position);
   }, [theme]);
 
-  function playBlip() {
-    if (typeof window === "undefined") return;
+  function getAudioContext() {
+    if (typeof window === "undefined") return null;
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) return;
+    if (!AudioCtx) return null;
     if (!audioCtxRef.current) audioCtxRef.current = new AudioCtx();
     const ctx = audioCtxRef.current;
+    // Created on the first mouseenter, which browsers don't count as a
+    // user-activation gesture, so it can start (and stay) suspended.
+    if (ctx.state === "suspended") ctx.resume();
+    return ctx;
+  }
+
+  function playBlip() {
+    const ctx = getAudioContext();
+    if (!ctx) return;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.type = "sine";
@@ -241,11 +247,8 @@ export default function GlobeHero() {
   }
 
   function playHoverTick() {
-    if (typeof window === "undefined") return;
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) return;
-    if (!audioCtxRef.current) audioCtxRef.current = new AudioCtx();
-    const ctx = audioCtxRef.current;
+    const ctx = getAudioContext();
+    if (!ctx) return;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.type = "sine";
@@ -258,6 +261,10 @@ export default function GlobeHero() {
   }
 
   function requestLocation() {
+    if (!navigator.geolocation) {
+      setPermissionState("denied");
+      return;
+    }
     setPermissionState("requesting");
     if (watchIdRef.current != null) navigator.geolocation.clearWatch(watchIdRef.current);
 
@@ -344,31 +351,38 @@ export default function GlobeHero() {
     ? `${selectedProject.title.toUpperCase()} — ${selectedCities.toUpperCase()}`
     : "HOME BASE";
 
-  const points = [
-    // Small precise surface dot under the avatar marker -- the HTML
-    // overlay is easy to read as "somewhere near here", this pins the
-    // exact coordinate regardless of camera angle.
-    { lat: MARCUS_COORDS.lat, lng: MARCUS_COORDS.lng, label: "HOME BASE: LINDAU, DE", color: "#ffcc66" },
-    ...(userPoint ? [userPoint] : []),
-    ...(selectedLocations
-      ? selectedLocations.map((loc) => ({
-          lat: loc.lat,
-          lng: loc.lng,
-          label: `${selectedProject.title} — ${loc.city}`,
-          color: "#ff3b3b",
-        }))
-      : []),
-  ];
-  const arcs = userPoint
-    ? [
-        {
-          startLat: MARCUS_COORDS.lat,
-          startLng: MARCUS_COORDS.lng,
-          endLat: userPoint.lat,
-          endLng: userPoint.lng,
-        },
-      ]
-    : [];
+  const points = useMemo(
+    () => [
+      // Small precise surface dot under the avatar marker -- the HTML
+      // overlay is easy to read as "somewhere near here", this pins the
+      // exact coordinate regardless of camera angle.
+      { lat: MARCUS_COORDS.lat, lng: MARCUS_COORDS.lng, label: "HOME BASE: LINDAU, DE", color: "#ffcc66" },
+      ...(userPoint ? [userPoint] : []),
+      ...(selectedLocations
+        ? selectedLocations.map((loc) => ({
+            lat: loc.lat,
+            lng: loc.lng,
+            label: `${selectedProject.title} — ${loc.city}`,
+            color: "#ff3b3b",
+          }))
+        : []),
+    ],
+    [userPoint, selectedLocations, selectedProject]
+  );
+  const arcs = useMemo(
+    () =>
+      userPoint
+        ? [
+            {
+              startLat: MARCUS_COORDS.lat,
+              startLng: MARCUS_COORDS.lng,
+              endLat: userPoint.lat,
+              endLng: userPoint.lng,
+            },
+          ]
+        : [],
+    [userPoint]
+  );
 
   return (
     <div className="globe-hero">
@@ -605,7 +619,7 @@ export default function GlobeHero() {
           pointColor={(d) => d.color}
           pointRadius={0.4}
           pointAltitude={0.01}
-          htmlElementsData={[MARCUS_COORDS]}
+          htmlElementsData={MARCUS_HTML_ELEMENTS}
           htmlLat="lat"
           htmlLng="lng"
           htmlElement={() => {
@@ -616,6 +630,7 @@ export default function GlobeHero() {
             img.src = "/assets/me.webp";
             img.alt = "Marcus";
             el.appendChild(img);
+            avatarMarkerRef.current = el;
             return el;
           }}
           arcsData={arcs}
