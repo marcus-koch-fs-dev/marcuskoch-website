@@ -374,6 +374,7 @@ export default function GlobeHero() {
                       <a
                         className="globe-hero__stats-send"
                         href="mailto:marcus@marcus-koch.dev?subject=Request&body=Hi%20Marcus,"
+                        onMouseEnter={playHoverTick}
                       >
                         [ SEND &gt; ]
                       </a>
@@ -390,6 +391,7 @@ export default function GlobeHero() {
                         <button
                           type="button"
                           onClick={requestLocation}
+                          onMouseEnter={playHoverTick}
                           disabled={permissionState === "requesting"}
                         >
                           {permissionState === "requesting" ? "[ ACQUIRING… ]" : "[ ACQUIRE POSITION ]"}
@@ -478,13 +480,23 @@ export default function GlobeHero() {
           <p aria-hidden="true">&gt; STATUS: NOMINAL</p>
           <p>
             &gt; GITHUB:{" "}
-            <a href="https://github.com/marcus-koch-fs-dev" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/marcus-koch-fs-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={playHoverTick}
+            >
               marcus-koch-fs-dev
             </a>
           </p>
           <p>
             &gt; LINKEDIN:{" "}
-            <a href="https://www.linkedin.com/in/marcus-koch-dev" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/in/marcus-koch-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={playHoverTick}
+            >
               marcus-koch-dev
             </a>
           </p>
@@ -558,6 +570,7 @@ export default function GlobeHero() {
               type="button"
               className="globe-hero__info-popup-close"
               onClick={goHome}
+              onMouseEnter={playHoverTick}
               aria-label="Close"
             >
               &times;
@@ -574,6 +587,7 @@ export default function GlobeHero() {
               type="button"
               className="globe-hero__info-popup-close"
               onClick={goHome}
+              onMouseEnter={playHoverTick}
               aria-label="Close"
             >
               &times;
