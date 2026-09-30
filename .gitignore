@@ -12,6 +12,7 @@ dist
 dev-dist/*
 dist-ssr
 *.local
+.astro/
 
 # Local pnpm client (v10+) build-script approval prompt file -- not a
 # real workspace config (no `packages:` field), breaks CI's pnpm v9

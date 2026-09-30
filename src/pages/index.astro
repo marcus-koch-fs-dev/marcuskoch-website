@@ -1,0 +1,43 @@
+---
+// src/pages/index.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Frame from "../components/Home/Frame.astro";
+import BookingButton from "../components/BookingButton.astro";
+import "../components/Home/home.scss";
+
+const interests = [
+  "Fullstack Developer",
+  "React, TypeScript & Node.js",
+  "Web Performance & Scalable Architecture",
+];
+---
+<BaseLayout>
+  <main>
+    <section class="home">
+      <div class="frame">
+        <div class="frame-order">
+          <Frame width={300} height={300} />
+          <img
+            class="frame-img"
+            alt="Photo Marcus"
+            src="/assets/me.webp"
+            width="300px"
+            height="300px"
+          />
+        </div>
+      </div>
+      <div class="homeWrapper">
+        <h1 class="home-h1">
+          Building <span class="highlight-text">Fullstack Applications</span> that Perform
+        </h1>
+        <p class="home-subtitle">Marcus Koch</p>
+        <ul class="interests-ul">
+          {interests.map((el) => (
+            <li class="interests-li"><p>{el}</p></li>
+          ))}
+        </ul>
+        <BookingButton />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

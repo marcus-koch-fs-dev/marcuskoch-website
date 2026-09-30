@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { projectsData } from "./projectList";
+import { projectsData } from "../../data/projectList";
 import "./projects.scss";
 import { Overlay } from "../Overlay";
 import ProjectDetailsInfo from "./ProjectDetailsInfo";

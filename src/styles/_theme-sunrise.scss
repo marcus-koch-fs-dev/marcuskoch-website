@@ -1,0 +1,57 @@
+html.sunrise {
+  /* Fonts */
+  --h1: #bbe1fa;
+  --h1-highlight: #ffd166;
+  --h2: #bbe1fa;
+  --h2-highlight: #ffd166;
+  --h3: #bbe1fa;
+  --h3-highlight: #ffd166;
+  --h4: #bbe1fa;
+  --h4-highlight: #ffd166;
+  --p: #bbe1fa;
+  --p-highlight: #ffd166;
+  --a: #ffd166;
+  --a-highlight: #0f4c75;
+  --span: #0f4c75;
+  --span-highlight: #ffd166;
+
+  --btn-label: #0f4c75;
+  --btn-default-boxShadow: #ffd166;
+  --btn-default-boxShadow_hover: #0f4c75;
+
+  --pri-color-svg: #ffd166;
+  --pri-color-svg-rgb: 255, 209, 102;
+  --sec-color-svg: #3282b8;
+  --sec-color-svg-rgb: 50, 130, 184;
+  --highlight-text: #fff6dc; /* bestmöglicher Kontrast auf --bg-main im Gelb-Ton */
+  --nav-active: #ffd166; /* AA auf --bg-header */
+  --footer-text: #0f4c75; /* lesbar auf --pri-color-svg */
+  --chip-text: #0f4c75; /* bereits AA auf --h1-highlight */
+  --card-bg: #2a6690;
+  --card-text: #f5f8fb;
+
+  --bg-header: #0f4c75;
+  --bg-main: #3282b8;
+  --bg-footer: #0f4c75;
+  --bg-footer-disclaimer: #0f4c75;
+  --bg-overlay-main: rgba(15, 76, 117, 0.85);
+  --bg-item-label: rgba(50, 130, 184, 0.8);
+  --bg-item-hover: rgba(187, 225, 250, 0.8);
+  --bg-slide: #0f4c75;
+
+  --bg-btn-arrow-slider: #ffd166;
+  --bg-btn-arrow-boxShadow: rgba(15, 76, 117, 0.6);
+  --bg-btn-toggler: transparent;
+  --bg-btn-span-toggler: var(--pri-color-svg);
+  --bg-mobile-menu: #0f4c75;
+  --bg-btn-overlay-close: transparent;
+  --color-overlay-close: #ffd166;
+  --bg-btn-default: #bbe1fa;
+
+  --bg-theme-zones: #0f4c75;
+  --color-night: #3282b8;
+  --color-day: #bbe1fa;
+  --color-sundown: #bbe1fa;
+  --color-sunrise: #3282b8;
+  --svg-fill: #bbe1fa;
+}

@@ -1,0 +1,17 @@
+---
+// src/pages/404.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "./errorPage.scss";
+---
+<BaseLayout title="Page not found | Marcus Koch">
+  <main>
+    <section class="error-page">
+      <div class="error-card">
+        <p class="error-status">404</p>
+        <h1>This page hit a snag</h1>
+        <p class="error-message">The page you're looking for doesn't exist.</p>
+        <a href="/" class="error-home-link">Back to Home</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

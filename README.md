@@ -1,27 +1,29 @@
 # Marcus Koch Website
 
-A personal portfolio website built with **React** and **Vite**.
+A personal portfolio website built with **Astro** (static output) and **React islands**.
 
 ---
 
 ## ✨ Features
 
-- Modern frontend architecture with React + Vite  
-- Hot Module Replacement (HMR) for fast development  
-- ESLint configuration for clean code  
-- Clear folder separation for maintainability  
+- Static HTML at build time, React only where the page is genuinely interactive
+- ESLint configuration for clean code
+- Clear folder separation for maintainability
 
 ---
 
 ## 📂 Project Structure
 
-- **`public/`** – Static assets (favicon, index.html, …)  
-- **`src/`** – Source code (components, styles, logic)  
-- **`dev-dist/`** – Development build output  
-- **`.eslintrc.cjs`** – ESLint configuration  
-- **`vite.config.js`** – Vite configuration  
-- **`package.json`** – Dependencies and scripts  
-- **`pnpm-lock.yaml`** – Lockfile  
+- **`public/`** – Static assets (favicons, images, robots.txt, …)
+- **`src/pages/`** – One file per route (Astro file-based routing)
+- **`src/layouts/`** – Shared page shell (`BaseLayout.astro`)
+- **`src/components/`** – Static `.astro` components and React island `.jsx` components
+- **`src/lib/`** – Pure logic, covered by `node --test`
+- **`src/data/`** – Static content data (nav links, project list)
+- **`src/styles/`** – Global Sass (variables, mixins, themes)
+- **`astro.config.mjs`** – Astro configuration
+- **`package.json`** – Dependencies and scripts
+- **`pnpm-lock.yaml`** – Lockfile
 
 ---
 
@@ -32,7 +34,7 @@ A personal portfolio website built with **React** and **Vite**.
 git clone https://github.com/marcus-koch-fs-dev/marcuskoch-website.git
 cd marcuskoch-website
 
-# Install dependencies (pnpm recommended)
+# Install dependencies (pnpm required)
 pnpm install
 
 # Start development server
@@ -43,3 +45,4 @@ pnpm build
 
 # Preview the production build
 pnpm preview
+```
