@@ -49,7 +49,7 @@ export default function GlobeHero() {
   useEffect(() => {
     const globe = globeRef.current;
     if (!globe) return;
-    globe.pointOfView({ altitude: 5 }, 0);
+    globe.pointOfView({ altitude: 3.8 }, 0);
   }, []);
 
   useEffect(() => {
@@ -131,8 +131,8 @@ export default function GlobeHero() {
         showGlobe={false}
         showAtmosphere={true}
         atmosphereColor="#7fb0e0"
-        atmosphereAltitude={0.2}
-        backgroundColor="rgba(0,0,0,0)"
+        atmosphereAltitude={0.25}
+        backgroundImageUrl="/experiments/milky-way-2k.jpg"
         hexPolygonsData={countries}
         hexPolygonResolution={3}
         hexPolygonMargin={0.3}
