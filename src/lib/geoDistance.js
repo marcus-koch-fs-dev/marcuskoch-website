@@ -2,7 +2,7 @@ const EARTH_RADIUS_KM = 6371;
 const CAR_KMH = 90;
 const WALK_KMH = 5;
 const PLANE_KMH = 800;
-const PLANE_OVERHEAD_MINUTES = 90;
+const PLANE_OVERHEAD_MINUTES = 150;
 const CALL_BASE_MS = 20;
 const CALL_KM_PER_MS = 40;
 
