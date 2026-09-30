@@ -405,7 +405,7 @@ export default function GlobeHero() {
                 onClick={toggleProjects}
                 onMouseEnter={playHoverTick}
               >
-                &gt; PROJECTS {projectsOpen ? "▾" : "▸"}
+                {projectsOpen ? "●" : "○"} PROJECTS {projectsOpen ? "▾" : "▸"}
               </button>
               {projectsOpen && (
                 <ul className="globe-hero__terminal-projects">
@@ -434,7 +434,7 @@ export default function GlobeHero() {
                 onClick={toggleTechStack}
                 onMouseEnter={playHoverTick}
               >
-                &gt; TECH_STACK {techOpen ? "▾" : "▸"}
+                {techOpen ? "●" : "○"} TECH_STACK {techOpen ? "▾" : "▸"}
               </button>
               {techOpen && (
                 <ul className="globe-hero__terminal-stack">
@@ -450,7 +450,7 @@ export default function GlobeHero() {
             className="contact-button globe-hero__terminal-cta"
             href="mailto:marcus@marcus-koch.dev?subject=Request&body=Hi%20Marcus,"
           >
-            Initiate First Contact
+            INITIATE_CONTACT
           </a>
         </div>
       </div>
