@@ -1,0 +1,14 @@
+---
+// Spike prototype — not linked from nav, not wired into the real Home.
+// Evaluate the globe/theming/geolocation idea in isolation before deciding
+// whether (and how) it belongs on the real site.
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ThemesToggler from "../../components/ThemesToggler/ThemesToggler.jsx";
+import GlobeHero from "../../components/experiments/GlobeHero.jsx";
+---
+<BaseLayout title="Globe Spike">
+  <div style="position: fixed; top: 1rem; right: 1rem; z-index: 10;">
+    <ThemesToggler client:idle />
+  </div>
+  <GlobeHero client:only="react" />
+</BaseLayout>
