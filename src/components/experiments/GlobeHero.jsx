@@ -9,7 +9,8 @@ import "./globeHero.scss";
 // Real location, given by Marcus for this feature.
 const MARCUS_COORDS = { lat: 47.5456, lng: 9.6857, label: "Marcus", color: "#ffcc66" };
 const HOME_VIEW = { lat: 15, lng: 25, altitude: 1.7 };
-const DESTINATION_ZOOM_ALTITUDE = 0.7;
+const DESTINATION_ZOOM_ALTITUDE = 0.35;
+const PENDING_RANGE = "AWAITING COORDS";
 
 const ABOUT_TEXT =
   "I'm Marcus Koch, a fullstack developer with 5+ years of experience in TypeScript, React and Node.js. My focus is on web performance and scalable software architecture. I built a cloud-based tracking system at Thyssenkrupp that reduced the manual search for defective components from days to seconds and helped avoid expensive compensation cases.";
@@ -24,9 +25,12 @@ const THEME_LIGHT = {
 const GLOBE_COLORS = {
   ocean: "#03130d",
   stroke: "#3dffa0",
-  // Dots at ~55% opacity per feedback; brighter for DE (near home base).
-  dot: "rgba(61, 255, 160, 0.55)",
+  // Dots at ~65% opacity (nudged up from 55% for continent legibility);
+  // brighter for DE (near home base).
+  dot: "rgba(61, 255, 160, 0.68)",
   dotBright: "rgba(61, 255, 160, 0.9)",
+  // Paper-thin coastline stroke layered under the dots for extra definition.
+  coastline: "rgba(61, 255, 160, 0.3)",
 };
 const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
 
@@ -92,7 +96,7 @@ export default function GlobeHero() {
   const [userPoint, setUserPoint] = useState(null);
   const [stats, setStats] = useState(null);
   const [countries, setCountries] = useState([]);
-  const [projectsOpen, setProjectsOpen] = useState(true);
+  const [projectsOpen, setProjectsOpen] = useState(false);
   const [techOpen, setTechOpen] = useState(false);
   // "home" | "about" | a project id
   const [destination, setDestination] = useState("home");
@@ -284,6 +288,10 @@ export default function GlobeHero() {
     : "HOME BASE";
 
   const points = [
+    // Small precise surface dot under the avatar marker -- the HTML
+    // overlay is easy to read as "somewhere near here", this pins the
+    // exact coordinate regardless of camera angle.
+    { lat: MARCUS_COORDS.lat, lng: MARCUS_COORDS.lng, label: "HOME BASE: LINDAU, DE", color: "#ffcc66" },
     ...(userPoint ? [userPoint] : []),
     ...(selectedLocation
       ? [{ lat: selectedLocation.lat, lng: selectedLocation.lng, label: selectedProject.title, color: "#ff3b3b" }]
@@ -341,22 +349,22 @@ export default function GlobeHero() {
                   <li>
                     <span>Range</span>
                     <span className="globe-hero__stats-leader" />
-                    <span>{stats ? `${stats.distanceKm} km` : "—"}</span>
+                    <span>{stats ? `${stats.distanceKm} km` : PENDING_RANGE}</span>
                   </li>
                   <li>
                     <span>Ground transport</span>
                     <span className="globe-hero__stats-leader" />
-                    <span>{stats ? formatDuration(stats.carMinutes) : "—"}</span>
+                    <span>{stats ? formatDuration(stats.carMinutes) : PENDING_RANGE}</span>
                   </li>
                   <li>
                     <span>EVA (on foot)</span>
                     <span className="globe-hero__stats-leader" />
-                    <span>{stats ? formatDuration(stats.walkMinutes) : "—"}</span>
+                    <span>{stats ? formatDuration(stats.walkMinutes) : PENDING_RANGE}</span>
                   </li>
                   <li>
                     <span>Airborne</span>
                     <span className="globe-hero__stats-leader" />
-                    <span>{stats ? `${formatDuration(stats.planeMinutes)} (incl. security)` : "—"}</span>
+                    <span>{stats ? `${formatDuration(stats.planeMinutes)} (incl. security)` : PENDING_RANGE}</span>
                   </li>
                   <li>
                     <span>Transmission</span>
@@ -384,7 +392,7 @@ export default function GlobeHero() {
                           onClick={requestLocation}
                           disabled={permissionState === "requesting"}
                         >
-                          {permissionState === "requesting" ? "Requesting…" : "Allow location"}
+                          {permissionState === "requesting" ? "[ ACQUIRING… ]" : "[ ACQUIRE POSITION ]"}
                         </button>
                       </>
                     )}
@@ -498,6 +506,11 @@ export default function GlobeHero() {
           atmosphereColor={GLOBE_COLORS.stroke}
           atmosphereAltitude={0.25}
           backgroundColor="rgba(0,0,0,0)"
+          polygonsData={countries}
+          polygonCapColor={() => "rgba(0,0,0,0)"}
+          polygonSideColor={() => "rgba(0,0,0,0)"}
+          polygonStrokeColor={() => GLOBE_COLORS.coastline}
+          polygonAltitude={0.0035}
           hexPolygonsData={countries}
           hexPolygonResolution={4}
           hexPolygonMargin={0.55}
@@ -519,6 +532,7 @@ export default function GlobeHero() {
           htmlElement={() => {
             const el = document.createElement("div");
             el.className = "globe-hero__avatar-marker";
+            el.title = "HOME BASE: LINDAU, DE";
             const img = document.createElement("img");
             img.src = "/assets/me.webp";
             img.alt = "Marcus";
