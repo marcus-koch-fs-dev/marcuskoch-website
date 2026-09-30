@@ -16,7 +16,9 @@ import GlobeHero from "../components/experiments/GlobeHero.jsx";
       rel="stylesheet"
     />
   </noscript>
-  <GlobeHero client:only="react" />
+  <main>
+    <GlobeHero client:only="react" />
+  </main>
 </BaseLayout>
 
 <style>
@@ -25,9 +27,14 @@ import GlobeHero from "../components/experiments/GlobeHero.jsx";
     :global(.menu-horizontal) {
       display: none;
     }
-    :global(.menu-wrapper-horizontal .themesToggler) {
-      display: none;
-    }
+  }
+
+  /* The hero ignores the site's day/night/sunrise/sundown theme by design
+     (fixed dark terminal look at every altitude and viewport width) --
+     the toggler would be a dead control here, so it's hidden everywhere,
+     not just on desktop. */
+  :global(.themesToggler) {
+    display: none;
   }
 
   /* Header and footer are normally in-flow (header + 100vh hero + footer
