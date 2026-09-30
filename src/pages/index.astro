@@ -60,7 +60,12 @@ import GlobeHero from "../components/experiments/GlobeHero.jsx";
     padding: 0.5rem 1.5rem;
     background: rgba(2, 5, 4, 0.95);
     backdrop-filter: blur(6px);
-    font-family: var(--font-display);
+    /* Same visual style as the hero's "> STATUS: NOMINAL" status log:
+       mono, regular weight, small, dim phosphor green -- not the bold
+       nav display font, which read too heavy here. */
+    font-family: "Share Tech Mono", "Courier New", monospace;
+    font-weight: 400;
+    letter-spacing: 0.06em;
   }
 
   /* GitHub/LinkedIn already live in the hero's status log; no need to
@@ -72,12 +77,13 @@ import GlobeHero from "../components/experiments/GlobeHero.jsx";
   :global(footer .laws),
   :global(footer .laws-item span),
   :global(footer .laws a) {
-    color: rgba(207, 255, 224, 0.85);
+    color: rgba(109, 255, 168, 0.75);
+    font-weight: 400;
   }
 
   :global(footer .laws-list) {
     padding-bottom: 0;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
   }
 
   :global(footer .laws-item) {
