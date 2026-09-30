@@ -16,5 +16,6 @@ test("estimateTravelStats scales with distance", () => {
   assert.equal(stats.distanceKm, 90);
   assert.equal(stats.carMinutes, 60);
   assert.equal(stats.walkMinutes, 1080);
+  assert.equal(stats.planeMinutes, 97);
   assert.ok(stats.callMs > 20);
 });

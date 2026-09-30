@@ -1,6 +1,8 @@
 const EARTH_RADIUS_KM = 6371;
 const CAR_KMH = 90;
 const WALK_KMH = 5;
+const PLANE_KMH = 800;
+const PLANE_OVERHEAD_MINUTES = 90;
 const CALL_BASE_MS = 20;
 const CALL_KM_PER_MS = 40;
 
@@ -23,6 +25,7 @@ export function estimateTravelStats(distanceKm) {
     distanceKm: Math.round(distanceKm),
     carMinutes: Math.round((distanceKm / CAR_KMH) * 60),
     walkMinutes: Math.round((distanceKm / WALK_KMH) * 60),
+    planeMinutes: Math.round((distanceKm / PLANE_KMH) * 60 + PLANE_OVERHEAD_MINUTES),
     callMs: Math.round(CALL_BASE_MS + distanceKm / CALL_KM_PER_MS),
   };
 }

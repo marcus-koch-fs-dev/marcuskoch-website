@@ -8,7 +8,7 @@ import "./globeHero.scss";
 
 // Real location, given by Marcus for this feature.
 const MARCUS_COORDS = { lat: 47.5456, lng: 9.6857, label: "Marcus", color: "#ffcc66" };
-const HOME_VIEW = { lat: 15, lng: 25, altitude: 3.4 };
+const HOME_VIEW = { lat: 15, lng: 25, altitude: 1.7 };
 const DESTINATION_ZOOM_ALTITUDE = 0.7;
 
 const ABOUT_TEXT =
@@ -20,6 +20,46 @@ const THEME_LIGHT = {
   sundown: { color: 0xff9955, position: [3, 0.3, -1.5] },
   night: { color: 0x8899ff, position: [0, -1, 2] },
 };
+
+// Condensed from the real About page's tech-badges list.
+const TECH_STACK = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Python",
+  "PostgreSQL",
+  "MongoDB",
+  "Redis",
+  "AWS",
+  "GraphQL",
+  "Docker",
+  "Jest / Cypress",
+];
+
+const TWINKLE_STAR_COLORS = ["#ffffff", "#ffe1b3", "#ff9e80", "#9fdcff"];
+
+function makeTwinkleStars(count, seed) {
+  let s = seed;
+  const rand = () => {
+    s = (s * 9301 + 49297) % 233280;
+    return s / 233280;
+  };
+  return Array.from({ length: count }, (_, i) => {
+    const size = 1 + rand() * 2.2;
+    return {
+      id: i,
+      left: rand() * 100,
+      top: rand() * 100,
+      size,
+      color: TWINKLE_STAR_COLORS[Math.floor(rand() * TWINKLE_STAR_COLORS.length)],
+      delay: rand() * 6,
+      duration: 2.5 + rand() * 3.5,
+    };
+  });
+}
+
+const TWINKLE_STARS = makeTwinkleStars(55, 42);
 
 function readTheme() {
   if (typeof document === "undefined") return "day";
@@ -53,6 +93,7 @@ export default function GlobeHero() {
   const [stats, setStats] = useState(null);
   const [countries, setCountries] = useState([]);
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const [techOpen, setTechOpen] = useState(false);
   // "home" | "about" | a project id
   const [destination, setDestination] = useState("home");
 
@@ -226,6 +267,11 @@ export default function GlobeHero() {
     setProjectsOpen((open) => !open);
   }
 
+  function toggleTechStack() {
+    playBlip();
+    setTechOpen((open) => !open);
+  }
+
   const selectedProject =
     typeof destination === "number" ? projectsData.find((p) => p.id === destination) ?? null : null;
   const selectedLocation = selectedProject ? PROJECT_LOCATIONS[selectedProject.id] : null;
@@ -252,6 +298,24 @@ export default function GlobeHero() {
     <div className="globe-hero">
       <div className="globe-hero__stars" />
       <div className="globe-hero__stars globe-hero__stars--far" />
+      <div className="globe-hero__twinkle-stars">
+        {TWINKLE_STARS.map((star) => (
+          <span
+            key={star.id}
+            className="globe-hero__twinkle-star"
+            style={{
+              left: `${star.left}%`,
+              top: `${star.top}%`,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              backgroundColor: star.color,
+              boxShadow: `0 0 ${star.size * 2}px ${star.color}`,
+              animationDelay: `${star.delay}s`,
+              animationDuration: `${star.duration}s`,
+            }}
+          />
+        ))}
+      </div>
       <div className="globe-hero__aurora" />
       <div className="globe-hero__vignette" />
 
@@ -262,80 +326,116 @@ export default function GlobeHero() {
         <div className="globe-hero__terminal">
           <p className="globe-hero__terminal-title">MU/TH/UR 6000</p>
 
-          <div className="globe-hero__terminal-readout">
-            {permissionState !== "granted" && (
-              <>
-                <p>Erlaube deinen Standort, um zu sehen, wie weit du von Marcus entfernt bist.</p>
-                <button
-                  type="button"
-                  onClick={requestLocation}
-                  disabled={permissionState === "requesting"}
-                >
-                  {permissionState === "requesting" ? "Frage Standort ab…" : "Standort erlauben"}
-                </button>
-                {permissionState === "denied" && <p>Standort wurde nicht freigegeben.</p>}
-              </>
-            )}
+          <div className="globe-hero__terminal-body">
+            <div className="globe-hero__terminal-readout">
+              {permissionState !== "granted" && (
+                <>
+                  <p>Erlaube deinen Standort, um zu sehen, wie weit du von Marcus entfernt bist.</p>
+                  <button
+                    type="button"
+                    onClick={requestLocation}
+                    disabled={permissionState === "requesting"}
+                  >
+                    {permissionState === "requesting" ? "Frage Standort ab…" : "Standort erlauben"}
+                  </button>
+                  {permissionState === "denied" && <p>Standort wurde nicht freigegeben.</p>}
+                </>
+              )}
 
-            {stats && (
-              <ul className="globe-hero__stats">
-                <li>{stats.distanceKm} km entfernt</li>
-                <li>Mit dem Auto: ~{stats.carMinutes} min</li>
-                <li>Zu Fuß: ~{stats.walkMinutes} min</li>
-                <li>Ein Call: unbezahlbar</li>
-              </ul>
-            )}
+              {stats && (
+                <div className="globe-hero__intel">
+                  <p className="globe-hero__intel-title">INTEL: DESTINATION DATA</p>
+                  <ul className="globe-hero__stats">
+                    <li>
+                      <span>Distance</span>
+                      <span>{stats.distanceKm} km</span>
+                    </li>
+                    <li>
+                      <span>Arrival by car</span>
+                      <span>~{stats.carMinutes} min</span>
+                    </li>
+                    <li>
+                      <span>On foot</span>
+                      <span>~{stats.walkMinutes} min</span>
+                    </li>
+                    <li>
+                      <span>By plane</span>
+                      <span>~{stats.planeMinutes} min</span>
+                    </li>
+                    <li>
+                      <span>Just a message</span>
+                      <span>unpayable</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
 
-            <a
-              className="contact-button"
-              href="mailto:marcus@marcus-koch.dev?subject=Request&body=Hi%20Marcus,"
-            >
-              Beende die Stille
-            </a>
+            <nav className="globe-hero__terminal-nav">
+              <button
+                type="button"
+                className={destination === "home" ? "active" : ""}
+                onClick={goHome}
+                onMouseEnter={playHoverTick}
+              >
+                &gt; HOME
+              </button>
+              <button
+                type="button"
+                className={aboutOpen ? "active" : ""}
+                onClick={goAbout}
+                onMouseEnter={playHoverTick}
+              >
+                &gt; ABOUT_ME
+              </button>
+              <button
+                type="button"
+                className="globe-hero__terminal-nav-toggle"
+                onClick={toggleProjects}
+                onMouseEnter={playHoverTick}
+              >
+                &gt; PROJECTS {projectsOpen ? "▾" : "▸"}
+              </button>
+              {projectsOpen && (
+                <ul className="globe-hero__terminal-projects">
+                  {projectsData.map((project) => (
+                    <li key={project.id}>
+                      <button
+                        type="button"
+                        className={project.id === destination ? "active" : ""}
+                        onClick={() => selectProject(project)}
+                        onMouseEnter={playHoverTick}
+                      >
+                        {project.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <button
+                type="button"
+                className="globe-hero__terminal-nav-toggle"
+                onClick={toggleTechStack}
+                onMouseEnter={playHoverTick}
+              >
+                &gt; TECH_STACK {techOpen ? "▾" : "▸"}
+              </button>
+              {techOpen && (
+                <ul className="globe-hero__terminal-stack">
+                  {TECH_STACK.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </nav>
           </div>
 
-          <nav className="globe-hero__terminal-nav">
-            <button
-              type="button"
-              className={destination === "home" ? "active" : ""}
-              onClick={goHome}
-              onMouseEnter={playHoverTick}
-            >
-              &gt; HOME
-            </button>
-            <button
-              type="button"
-              className={aboutOpen ? "active" : ""}
-              onClick={goAbout}
-              onMouseEnter={playHoverTick}
-            >
-              &gt; ABOUT_ME
-            </button>
-            <button
-              type="button"
-              className="globe-hero__terminal-nav-toggle"
-              onClick={toggleProjects}
-              onMouseEnter={playHoverTick}
-            >
-              &gt; PROJECTS {projectsOpen ? "▾" : "▸"}
-            </button>
-            {projectsOpen && (
-              <ul className="globe-hero__terminal-projects">
-                {projectsData.map((project) => (
-                  <li key={project.id}>
-                    <button
-                      type="button"
-                      className={project.id === destination ? "active" : ""}
-                      onClick={() => selectProject(project)}
-                      onMouseEnter={playHoverTick}
-                    >
-                      {project.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </nav>
+          <a
+            className="contact-button globe-hero__terminal-cta"
+            href="mailto:marcus@marcus-koch.dev?subject=Request&body=Hi%20Marcus,"
+          >
+            Erstkontakt herstellen
+          </a>
         </div>
       </div>
 
@@ -375,6 +475,11 @@ export default function GlobeHero() {
           }}
           arcsData={arcs}
           arcColor={() => "#ffcc66"}
+          arcAltitude={(arc) => {
+            const km = haversineDistanceKm(arc.startLat, arc.startLng, arc.endLat, arc.endLng);
+            return Math.min(0.4, Math.max(0.15, km / 12000));
+          }}
+          arcStroke={0.6}
           arcDashLength={0.4}
           arcDashGap={0.2}
           arcDashAnimateTime={1500}
