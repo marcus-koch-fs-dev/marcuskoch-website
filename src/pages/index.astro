@@ -22,34 +22,18 @@ import GlobeHero from "../components/experiments/GlobeHero.jsx";
 </BaseLayout>
 
 <style>
-  /* This page's own in-globe terminal replaces top nav on desktop. */
-  @media screen and (min-width: 769px) {
-    :global(.menu-horizontal) {
-      display: none;
-    }
-  }
-
-  /* The hero ignores the site's day/night/sunrise/sundown theme by design
-     (fixed dark terminal look at every altitude and viewport width) --
-     the toggler would be a dead control here, so it's hidden everywhere,
-     not just on desktop. */
-  :global(.themesToggler) {
+  /* Header (site nav + theme toggler) removed entirely on this page --
+     the in-globe terminal is the whole UI here, on every viewport width.
+     No header also means no mobile hamburger menu, so there is currently
+     no link anywhere on this page to /about, /projects, or /services. */
+  :global(header) {
     display: none;
   }
 
-  /* Header and footer are normally in-flow (header + 100vh hero + footer
-     taller than the viewport, forcing a page scrollbar). Taken out of flow
-     here so the hero stays exactly 100vh and both stay on screen as thin
-     overlay bars instead. Scoped to this page only. */
-  :global(header) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 4;
-    background: transparent;
-  }
-
+  /* Footer is normally in-flow (header + 100vh hero + footer taller than
+     the viewport forces a page scrollbar). Taken out of flow here so the
+     hero stays exactly 100vh and the footer stays on screen as a thin
+     overlay bar instead. Scoped to this page only. */
   :global(footer) {
     position: fixed;
     bottom: 0;
