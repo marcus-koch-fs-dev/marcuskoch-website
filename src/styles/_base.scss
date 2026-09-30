@@ -91,6 +91,30 @@ body {
   }
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Stellt sicher, dass .main mindestens die volle Höhe des Viewports einnimmt */
+  background-color: var(--bg-main);
+  background-image: radial-gradient(
+      ellipse at 15% 10%,
+      rgba(var(--sec-color-svg-rgb), var(--gradient-alpha, 0.4)) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 85% 90%,
+      rgba(var(--pri-color-svg-rgb), var(--gradient-alpha, 0.4)) 0%,
+      transparent 55%
+    );
+  background-attachment: fixed;
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 // Respect users who prefer reduced motion: keep decoration, drop looping motion
 @media (prefers-reduced-motion: reduce) {
   *,
