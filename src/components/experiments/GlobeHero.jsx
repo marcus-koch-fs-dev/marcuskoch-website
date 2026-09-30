@@ -10,6 +10,7 @@ import "./globeHero.scss";
 const MARCUS_COORDS = { lat: 47.5456, lng: 9.6857, label: "Marcus", color: "#ffcc66" };
 const HOME_VIEW = { lat: 15, lng: 25, altitude: 3.4 };
 const ZOOM_ALTITUDE = 1.6;
+const PROJECT_ZOOM_ALTITUDE = 0.7;
 
 const ABOUT_TEXT =
   "I'm Marcus Koch, a fullstack developer with 5+ years of experience in TypeScript, React and Node.js. My focus is on web performance and scalable software architecture. I built a cloud-based tracking system at Thyssenkrupp that reduced the manual search for defective components from days to seconds and helped avoid expensive compensation cases.";
@@ -49,7 +50,7 @@ export default function GlobeHero() {
   }, []);
 
   useEffect(() => {
-    fetch("https://unpkg.com/three-globe/example/hexed-polygons/ne_110m_admin_0_countries.geojson")
+    fetch("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson")
       .then((res) => res.json())
       .then((data) => setCountries(data.features))
       .catch(() => setCountries([]));
@@ -117,6 +118,23 @@ export default function GlobeHero() {
     osc.stop(ctx.currentTime + 0.12);
   }
 
+  function playHoverTick() {
+    if (typeof window === "undefined") return;
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    if (!audioCtxRef.current) audioCtxRef.current = new AudioCtx();
+    const ctx = audioCtxRef.current;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(1600, ctx.currentTime);
+    gain.gain.setValueAtTime(0.015, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.04);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.04);
+  }
+
   function requestLocation() {
     setPermissionState("requesting");
     navigator.geolocation.getCurrentPosition(
@@ -157,7 +175,10 @@ export default function GlobeHero() {
     setDestination(project.id);
     const location = PROJECT_LOCATIONS[project.id];
     if (location) {
-      globeRef.current?.pointOfView({ lat: location.lat, lng: location.lng, altitude: ZOOM_ALTITUDE }, 1200);
+      globeRef.current?.pointOfView(
+        { lat: location.lat, lng: location.lng, altitude: PROJECT_ZOOM_ALTITUDE },
+        1200
+      );
     }
   }
 
@@ -240,13 +261,24 @@ export default function GlobeHero() {
               type="button"
               className={destination === "home" ? "active" : ""}
               onClick={goHome}
+              onMouseEnter={playHoverTick}
             >
               &gt; HOME
             </button>
-            <button type="button" className={aboutOpen ? "active" : ""} onClick={goAbout}>
+            <button
+              type="button"
+              className={aboutOpen ? "active" : ""}
+              onClick={goAbout}
+              onMouseEnter={playHoverTick}
+            >
               &gt; ABOUT_ME
             </button>
-            <button type="button" className="globe-hero__terminal-nav-toggle" onClick={toggleProjects}>
+            <button
+              type="button"
+              className="globe-hero__terminal-nav-toggle"
+              onClick={toggleProjects}
+              onMouseEnter={playHoverTick}
+            >
               &gt; PROJECTS {projectsOpen ? "▾" : "▸"}
             </button>
             {projectsOpen && (
@@ -257,6 +289,7 @@ export default function GlobeHero() {
                       type="button"
                       className={project.id === destination ? "active" : ""}
                       onClick={() => selectProject(project)}
+                      onMouseEnter={playHoverTick}
                     >
                       {project.title}
                     </button>
