@@ -9,8 +9,7 @@ import "./globeHero.scss";
 // Real location, given by Marcus for this feature.
 const MARCUS_COORDS = { lat: 47.5456, lng: 9.6857, label: "Marcus", color: "#ffcc66" };
 const HOME_VIEW = { lat: 15, lng: 25, altitude: 3.4 };
-const ZOOM_ALTITUDE = 1.6;
-const PROJECT_ZOOM_ALTITUDE = 0.7;
+const DESTINATION_ZOOM_ALTITUDE = 0.7;
 
 const ABOUT_TEXT =
   "I'm Marcus Koch, a fullstack developer with 5+ years of experience in TypeScript, React and Node.js. My focus is on web performance and scalable software architecture. I built a cloud-based tracking system at Thyssenkrupp that reduced the manual search for defective components from days to seconds and helped avoid expensive compensation cases.";
@@ -111,7 +110,7 @@ export default function GlobeHero() {
     osc.type = "square";
     osc.frequency.setValueAtTime(920, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(460, ctx.currentTime + 0.09);
-    gain.gain.setValueAtTime(0.04, ctx.currentTime);
+    gain.gain.setValueAtTime(0.1, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.12);
     osc.connect(gain).connect(ctx.destination);
     osc.start();
@@ -128,11 +127,11 @@ export default function GlobeHero() {
     const gain = ctx.createGain();
     osc.type = "sine";
     osc.frequency.setValueAtTime(1600, ctx.currentTime);
-    gain.gain.setValueAtTime(0.015, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.04);
+    gain.gain.setValueAtTime(0.06, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.07);
     osc.connect(gain).connect(ctx.destination);
     osc.start();
-    osc.stop(ctx.currentTime + 0.04);
+    osc.stop(ctx.currentTime + 0.07);
   }
 
   function requestLocation() {
@@ -165,7 +164,7 @@ export default function GlobeHero() {
     playBlip();
     setDestination("about");
     globeRef.current?.pointOfView(
-      { lat: MARCUS_COORDS.lat, lng: MARCUS_COORDS.lng, altitude: ZOOM_ALTITUDE },
+      { lat: MARCUS_COORDS.lat, lng: MARCUS_COORDS.lng, altitude: DESTINATION_ZOOM_ALTITUDE },
       1200
     );
   }
@@ -176,7 +175,7 @@ export default function GlobeHero() {
     const location = PROJECT_LOCATIONS[project.id];
     if (location) {
       globeRef.current?.pointOfView(
-        { lat: location.lat, lng: location.lng, altitude: PROJECT_ZOOM_ALTITUDE },
+        { lat: location.lat, lng: location.lng, altitude: DESTINATION_ZOOM_ALTITUDE },
         1200
       );
     }
