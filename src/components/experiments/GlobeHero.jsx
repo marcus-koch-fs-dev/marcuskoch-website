@@ -126,6 +126,7 @@ export default function GlobeHero() {
     <div className="globe-hero">
       <div className="globe-hero__stars" />
       <div className="globe-hero__aurora" />
+      <div className="globe-hero__vignette" />
 
       <div className="globe-hero__intro">
         <p className="globe-hero__eyebrow">Marcus Koch</p>
@@ -171,13 +172,13 @@ export default function GlobeHero() {
           height={size.height}
           showGlobe={false}
           showAtmosphere={true}
-          atmosphereColor="#c04dff"
+          atmosphereColor="#3a6bd8"
           atmosphereAltitude={0.25}
           backgroundColor="rgba(0,0,0,0)"
           polygonsData={countries}
-          polygonCapColor={() => "#b03df0"}
-          polygonSideColor={() => "rgba(176, 61, 240, 0.25)"}
-          polygonStrokeColor={() => "#b03df0"}
+          polygonCapColor={() => "#2851b8"}
+          polygonSideColor={() => "rgba(40, 81, 184, 0.25)"}
+          polygonStrokeColor={() => "#2851b8"}
           polygonAltitude={0.006}
           pointsData={points}
           pointLat="lat"

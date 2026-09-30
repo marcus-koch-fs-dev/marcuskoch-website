@@ -34,10 +34,22 @@
     z-index: 0;
     pointer-events: none;
     background-image: radial-gradient(
-      ellipse at 50% 120%,
-      rgba(60, 255, 140, 0.45) 0%,
-      rgba(40, 200, 110, 0.22) 30%,
-      transparent 65%
+      ellipse at 50% 130%,
+      rgba(60, 255, 140, 0.32) 0%,
+      rgba(40, 200, 110, 0.14) 18%,
+      transparent 42%
+    );
+  }
+
+  &__vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at 50% 45%,
+      transparent 35%,
+      rgba(0, 0, 0, 0.75) 100%
     );
   }
 
