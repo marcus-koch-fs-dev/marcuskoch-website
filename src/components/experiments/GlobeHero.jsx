@@ -27,6 +27,21 @@ function readTheme() {
   return THEME_LIGHT[current] ? current : "day";
 }
 
+function renderGlowText(text) {
+  const nodes = [];
+  text.split(" ").forEach((word, wi) => {
+    if (wi > 0) nodes.push(" ");
+    nodes.push(
+      <span className="globe-hero__word" key={wi}>
+        {word.split("").map((char, ci) => (
+          <span key={ci}>{char}</span>
+        ))}
+      </span>
+    );
+  });
+  return nodes;
+}
+
 export default function GlobeHero() {
   const globeRef = useRef();
   const stageRef = useRef();
@@ -49,7 +64,7 @@ export default function GlobeHero() {
   }, []);
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson")
+    fetch("https://unpkg.com/three-globe/example/hexed-polygons/ne_110m_admin_0_countries.geojson")
       .then((res) => res.json())
       .then((data) => setCountries(data.features))
       .catch(() => setCountries([]));
@@ -192,7 +207,6 @@ export default function GlobeHero() {
   const aboutOpen = destination === "about";
 
   const points = [
-    MARCUS_COORDS,
     ...(userPoint ? [userPoint] : []),
     ...(selectedLocation
       ? [{ lat: selectedLocation.lat, lng: selectedLocation.lng, label: selectedProject.title, color: "#ff3b3b" }]
@@ -217,17 +231,8 @@ export default function GlobeHero() {
       <div className="globe-hero__vignette" />
 
       <div className="globe-hero__intro">
-        <p className="globe-hero__eyebrow">Marcus Koch</p>
-        <h1 className="globe-hero__name">
-          {"Fullstack Developer".split(" ").map((word, wi, words) => (
-            <span className="globe-hero__word" key={wi}>
-              {word.split("").map((char, ci) => (
-                <span key={ci}>{char}</span>
-              ))}
-              {wi < words.length - 1 ? " " : ""}
-            </span>
-          ))}
-        </h1>
+        <p className="globe-hero__eyebrow">{renderGlowText("Marcus Koch")}</p>
+        <h1 className="globe-hero__name">{renderGlowText("Fullstack Developer")}</h1>
 
         <div className="globe-hero__terminal">
           <p className="globe-hero__terminal-title">MU/TH/UR 6000</p>
@@ -331,6 +336,18 @@ export default function GlobeHero() {
           pointColor={(d) => d.color}
           pointRadius={0.4}
           pointAltitude={0.01}
+          htmlElementsData={[MARCUS_COORDS]}
+          htmlLat="lat"
+          htmlLng="lng"
+          htmlElement={() => {
+            const el = document.createElement("div");
+            el.className = "globe-hero__avatar-marker";
+            const img = document.createElement("img");
+            img.src = "/assets/me.webp";
+            img.alt = "Marcus";
+            el.appendChild(img);
+            return el;
+          }}
           arcsData={arcs}
           arcColor={() => "#ffcc66"}
           arcDashLength={0.4}
