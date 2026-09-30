@@ -7,6 +7,18 @@ import ThemesToggler from "../../components/ThemesToggler/ThemesToggler.jsx";
 import GlobeHero from "../../components/experiments/GlobeHero.jsx";
 ---
 <BaseLayout title="Globe Spike">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </noscript>
   <div style="position: fixed; top: 1rem; right: 1rem; z-index: 10;">
     <ThemesToggler client:idle />
   </div>

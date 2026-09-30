@@ -24,7 +24,7 @@ function readTheme() {
 
 export default function GlobeHero() {
   const globeRef = useRef();
-  const containerRef = useRef();
+  const stageRef = useRef();
   const [theme, setTheme] = useState("day");
   const [size, setSize] = useState({ width: 800, height: 600 });
   const [permissionState, setPermissionState] = useState("idle");
@@ -49,13 +49,13 @@ export default function GlobeHero() {
   useEffect(() => {
     const globe = globeRef.current;
     if (!globe) return;
-    globe.pointOfView({ altitude: 3.8 }, 0);
+    globe.pointOfView({ lat: 15, lng: 25, altitude: 3.8 }, 0);
   }, []);
 
   useEffect(() => {
     function updateSize() {
-      if (!containerRef.current) return;
-      const { width, height } = containerRef.current.getBoundingClientRect();
+      if (!stageRef.current) return;
+      const { width, height } = stageRef.current.getBoundingClientRect();
       setSize({ width, height });
     }
     updateSize();
@@ -123,66 +123,74 @@ export default function GlobeHero() {
     : [];
 
   return (
-    <div className="globe-hero" ref={containerRef}>
-      <div className="globe-hero__bg" />
-      <Globe
-        ref={globeRef}
-        width={size.width}
-        height={size.height}
-        showGlobe={false}
-        showAtmosphere={true}
-        atmosphereColor="#7fb0e0"
-        atmosphereAltitude={0.25}
-        backgroundColor="rgba(0,0,0,0)"
-        hexPolygonsData={countries}
-        hexPolygonResolution={3}
-        hexPolygonMargin={0.3}
-        hexPolygonAltitude={0.005}
-        hexPolygonColor={() => "#4a72b8"}
-        pointsData={points}
-        pointLat="lat"
-        pointLng="lng"
-        pointLabel="label"
-        pointColor={() => "#ffcc66"}
-        pointRadius={0.4}
-        pointAltitude={0.01}
-        arcsData={arcs}
-        arcColor={() => "#ffcc66"}
-        arcDashLength={0.4}
-        arcDashGap={0.2}
-        arcDashAnimateTime={1500}
-      />
+    <div className="globe-hero">
+      <div className="globe-hero__aurora" />
 
-      <div className="globe-hero__panel">
-        {permissionState !== "granted" && (
-          <>
-            <p>Erlaube deinen Standort, um zu sehen, wie weit du von Marcus entfernt bist.</p>
-            <button
-              type="button"
-              onClick={requestLocation}
-              disabled={permissionState === "requesting"}
-            >
-              {permissionState === "requesting" ? "Frage Standort ab…" : "Standort erlauben"}
-            </button>
-            {permissionState === "denied" && <p>Standort wurde nicht freigegeben.</p>}
-          </>
-        )}
+      <div className="globe-hero__intro">
+        <p className="globe-hero__eyebrow">Marcus Koch</p>
+        <h1 className="globe-hero__name">Fullstack Developer</h1>
 
-        {stats && (
-          <ul className="globe-hero__stats">
-            <li>{stats.distanceKm} km entfernt</li>
-            <li>Mit dem Auto: ~{stats.carMinutes} min</li>
-            <li>Zu Fuß: ~{stats.walkMinutes} min</li>
-            <li>Ein Call: ~{stats.callMs} ms</li>
-          </ul>
-        )}
+        <div className="globe-hero__panel">
+          {permissionState !== "granted" && (
+            <>
+              <p>Erlaube deinen Standort, um zu sehen, wie weit du von Marcus entfernt bist.</p>
+              <button
+                type="button"
+                onClick={requestLocation}
+                disabled={permissionState === "requesting"}
+              >
+                {permissionState === "requesting" ? "Frage Standort ab…" : "Standort erlauben"}
+              </button>
+              {permissionState === "denied" && <p>Standort wurde nicht freigegeben.</p>}
+            </>
+          )}
 
-        <a
-          className="contact-button"
-          href="mailto:marcus@marcus-koch.dev?subject=Request&body=Hi%20Marcus,"
-        >
-          Beende die Stille
-        </a>
+          {stats && (
+            <ul className="globe-hero__stats">
+              <li>{stats.distanceKm} km entfernt</li>
+              <li>Mit dem Auto: ~{stats.carMinutes} min</li>
+              <li>Zu Fuß: ~{stats.walkMinutes} min</li>
+              <li>Ein Call: ~{stats.callMs} ms</li>
+            </ul>
+          )}
+
+          <a
+            className="contact-button"
+            href="mailto:marcus@marcus-koch.dev?subject=Request&body=Hi%20Marcus,"
+          >
+            Beende die Stille
+          </a>
+        </div>
+      </div>
+
+      <div className="globe-hero__stage" ref={stageRef}>
+        <Globe
+          ref={globeRef}
+          width={size.width}
+          height={size.height}
+          showGlobe={false}
+          showAtmosphere={true}
+          atmosphereColor="#7fb0e0"
+          atmosphereAltitude={0.25}
+          backgroundColor="rgba(0,0,0,0)"
+          polygonsData={countries}
+          polygonCapColor={() => "#4a72b8"}
+          polygonSideColor={() => "rgba(74, 114, 184, 0.25)"}
+          polygonStrokeColor={() => "#2c4a7c"}
+          polygonAltitude={0.006}
+          pointsData={points}
+          pointLat="lat"
+          pointLng="lng"
+          pointLabel="label"
+          pointColor={() => "#ffcc66"}
+          pointRadius={0.4}
+          pointAltitude={0.01}
+          arcsData={arcs}
+          arcColor={() => "#ffcc66"}
+          arcDashLength={0.4}
+          arcDashGap={0.2}
+          arcDashAnimateTime={1500}
+        />
       </div>
     </div>
   );
