@@ -4,18 +4,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import GlobeHero from "../components/experiments/GlobeHero.jsx";
 ---
 <BaseLayout title="Impressum | Marcus Koch">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
-    rel="stylesheet"
-    media="print"
-    onload="this.media='all'"
-  />
-  <noscript>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
-      rel="stylesheet"
-    />
-  </noscript>
   <main>
     <GlobeHero client:only="react" />
   </main>

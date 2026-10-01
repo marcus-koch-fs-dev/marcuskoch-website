@@ -47,10 +47,10 @@ const ABOUT_TEXT =
   "I'm Marcus Koch, a fullstack developer with 5+ years of experience in TypeScript, React and Node.js. My focus is on web performance and scalable software architecture. I built a cloud-based tracking system at Thyssenkrupp that reduced the manual search for defective components from days to seconds and helped avoid expensive compensation cases.";
 
 const THEME_LIGHT = {
-  sunrise: { color: 0xffd9a0, position: [-3, 0.4, 1.5] },
-  day: { color: 0xffffff, position: [1, 3, 2] },
-  sundown: { color: 0xff9955, position: [3, 0.3, -1.5] },
-  night: { color: 0x8899ff, position: [0, -1, 2] },
+  sunrise: { color: 0xffd9a0, position: [-3, 0.4, 1.5], ambient: 0.6 },
+  day: { color: 0xffffff, position: [1, 3, 2], ambient: 0.6 },
+  sundown: { color: 0xff9955, position: [3, 0.3, -1.5], ambient: 0.5 },
+  night: { color: 0x8899ff, position: [0, -1, 2], ambient: 0.25 },
 };
 
 const GLOBE_COLORS = {
@@ -157,6 +157,15 @@ export default function GlobeHero() {
   }, []);
 
   useEffect(() => {
+    document.title =
+      destination === "impressum"
+        ? "Impressum | Marcus Koch"
+        : destination === "datenschutz"
+        ? "Datenschutz | Marcus Koch"
+        : "Marcus Koch | Fullstack Developer";
+  }, [destination]);
+
+  useEffect(() => {
     return () => {
       if (watchIdRef.current != null) navigator.geolocation.clearWatch(watchIdRef.current);
     };
@@ -246,11 +255,13 @@ export default function GlobeHero() {
     const globe = globeRef.current;
     if (!globe) return;
     const light = globe.scene().getObjectByName("theme-sun");
-    if (!light) return;
-    const { color, position } = THEME_LIGHT[theme];
+    const fill = globe.scene().getObjectByName("theme-fill");
+    if (!light || !fill) return;
+    const { color, position, ambient } = THEME_LIGHT[theme];
     light.color.setHex(color);
     light.intensity = 0.85;
     light.position.set(...position);
+    fill.intensity = ambient;
   }, [theme]);
 
   function getAudioContext() {

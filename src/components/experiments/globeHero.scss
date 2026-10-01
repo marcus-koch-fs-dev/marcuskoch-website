@@ -585,7 +585,7 @@
 }
 
 @media screen and (max-width: 1100px) {
-  .globe-hero__info-popup {
+  .globe-hero__info-popup:not(.globe-hero__info-popup--center) {
     width: min(26rem, 85%);
   }
 }
