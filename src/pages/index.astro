@@ -22,16 +22,8 @@ import GlobeHero from "../components/experiments/GlobeHero.jsx";
 </BaseLayout>
 
 <style>
-  /* Header (site nav + theme toggler) removed entirely on this page --
-     the in-globe terminal is the whole UI here, on every viewport width.
-     No header also means no mobile hamburger menu, so there is currently
-     no link anywhere on this page to /about, /projects, or /services. */
-  :global(header) {
-    display: none;
-  }
-
-  /* Footer is normally in-flow (header + 100vh hero + footer taller than
-     the viewport forces a page scrollbar). Taken out of flow here so the
+  /* Footer is normally in-flow (100vh hero + footer taller than the
+     viewport forces a page scrollbar). Taken out of flow here so the
      hero stays exactly 100vh and the footer stays on screen as a thin
      overlay bar instead. Scoped to this page only. */
   :global(footer) {
