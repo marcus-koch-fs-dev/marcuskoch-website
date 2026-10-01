@@ -572,7 +572,11 @@
   }
 }
 
-@media screen and (max-width: $tablet) {
+// Up through $laptop (1024px): below this, the side-by-side composition
+// (fixed-width intro panel + full-bleed globe behind it) no longer has
+// enough room -- the globe ends up mostly hidden under the panel or
+// cropped by the stage's overflow:hidden. Stack instead, same as mobile.
+@media screen and (max-width: $laptop) {
   .globe-hero {
     display: flex;
     flex-direction: column;
