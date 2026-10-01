@@ -10,6 +10,8 @@ import {
 import { projectsData } from "../../data/projectList";
 import { PROJECT_LOCATIONS } from "./projectLocations";
 import { THEMES, DEFAULT_THEME } from "../../lib/theme";
+import Impressum from "../Footer/Impressum.jsx";
+import Datenschutz from "../Footer/Datenschutz.jsx";
 import "./globeHero.scss";
 
 // Real location, given by Marcus for this feature.
@@ -114,7 +116,7 @@ function renderGlowText(text) {
   return nodes;
 }
 
-export default function GlobeHero() {
+export default function GlobeHero({ initialDestination = "home" }) {
   const globeRef = useRef();
   const stageRef = useRef();
   const audioCtxRef = useRef(null);
@@ -130,7 +132,7 @@ export default function GlobeHero() {
   const [projectsOpen, setProjectsOpen] = useState(false);
   const [techOpen, setTechOpen] = useState(false);
   // "home" | "about" | a project id
-  const [destination, setDestination] = useState("home");
+  const [destination, setDestination] = useState(initialDestination);
 
   useEffect(() => {
     return () => {
@@ -384,8 +386,10 @@ export default function GlobeHero() {
     [userPoint]
   );
 
+  const legalOpen = destination === "impressum" || destination === "datenschutz";
+
   return (
-    <div className="globe-hero">
+    <div className={`globe-hero${legalOpen ? " globe-hero--legal" : ""}`}>
       <div className="globe-hero__stars" />
       <div className="globe-hero__stars globe-hero__stars--far" />
       <div className="globe-hero__twinkle-stars">
@@ -674,6 +678,20 @@ export default function GlobeHero() {
               {selectedProject.client} — {selectedProject.industry}
             </p>
             <p className="globe-hero__info-popup-body">{selectedProject.projectInfo}</p>
+          </div>
+        )}
+
+        {legalOpen && (
+          <div className="globe-hero__info-popup globe-hero__info-popup--center">
+            <a
+              href="/"
+              className="globe-hero__info-popup-close"
+              onMouseEnter={playHoverTick}
+              aria-label="Back to home"
+            >
+              &times;
+            </a>
+            {destination === "impressum" ? <Impressum /> : <Datenschutz />}
           </div>
         )}
       </div>

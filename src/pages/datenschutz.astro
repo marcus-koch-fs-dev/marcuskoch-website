@@ -1,8 +1,7 @@
 ---
 // src/pages/datenschutz.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Datenschutz from "../components/Footer/Datenschutz.jsx";
-import "../components/Footer/legalOverlay.scss";
+import GlobeHero from "../components/experiments/GlobeHero.jsx";
 ---
 <BaseLayout title="Datenschutz | Marcus Koch">
   <link
@@ -17,10 +16,7 @@ import "../components/Footer/legalOverlay.scss";
       rel="stylesheet"
     />
   </noscript>
-  <main class="legal-overlay">
-    <div class="legal-overlay__card">
-      <a href="/" class="legal-overlay__back" aria-label="Back to home">&times;</a>
-      <Datenschutz />
-    </div>
+  <main>
+    <GlobeHero initialDestination="datenschutz" client:only="react" />
   </main>
 </BaseLayout>

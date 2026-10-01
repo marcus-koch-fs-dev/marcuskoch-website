@@ -509,6 +509,14 @@
   }
 }
 
+// Impressum/Datenschutz replace the terminal UI with a single centered
+// card -- the name/nav panel underneath would otherwise visually clash
+// with it since it's no longer offset to the side like the about/project
+// popups are.
+.globe-hero--legal .globe-hero__intro {
+  display: none;
+}
+
 .globe-hero__info-popup {
   position: absolute;
   z-index: 3;
@@ -526,6 +534,16 @@
   color: #f2fff8;
   font-family: "Share Tech Mono", "Courier New", monospace;
 
+  &--center {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    width: min(32rem, 90%);
+    z-index: 4;
+  }
+
+  h1,
   h2 {
     margin: 0.5rem 0;
     color: #fff;
@@ -607,5 +625,14 @@
 
   .globe-hero__terminal {
     max-width: 100%;
+  }
+
+  // Centered popups (impressum/datenschutz) are positioned relative to
+  // .globe-hero, which is tall and scrollable here -- pin to the viewport
+  // instead so the card stays centered on screen regardless of scroll.
+  .globe-hero__info-popup--center {
+    position: fixed;
+    max-height: 80vh;
+    background: #04070a;
   }
 }
