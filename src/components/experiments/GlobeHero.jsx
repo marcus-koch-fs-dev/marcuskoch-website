@@ -52,10 +52,10 @@ const THEME_LIGHT = {
 
 const GLOBE_COLORS = {
   ocean: "#000000",
+  // Solid land fill, a shade lighter than the ocean so coastlines read
+  // without relying on the stroke alone.
+  land: "#141414",
   stroke: "#3dffa0",
-  // Dots at ~68% opacity; brighter for DE (near home base).
-  dot: "rgba(61, 255, 160, 0.68)",
-  dotBright: "rgba(61, 255, 160, 0.9)",
   // Green country outline -- three-globe's polygon stroke has no
   // line-width control, so "thin" is opacity + altitude.
   coastline: "rgba(61, 255, 160, 0.35)",
@@ -600,18 +600,10 @@ export default function GlobeHero() {
           atmosphereAltitude={0.25}
           backgroundColor="rgba(0,0,0,0)"
           polygonsData={countries}
-          polygonCapColor={() => "rgba(0,0,0,0)"}
-          polygonSideColor={() => "rgba(0,0,0,0)"}
+          polygonCapColor={() => GLOBE_COLORS.land}
+          polygonSideColor={() => GLOBE_COLORS.land}
           polygonStrokeColor={() => GLOBE_COLORS.coastline}
           polygonAltitude={0.0015}
-          hexPolygonsData={countries}
-          hexPolygonResolution={4}
-          hexPolygonMargin={0.55}
-          hexPolygonUseDots={true}
-          hexPolygonColor={(feature) =>
-            feature.properties?.ISO_A2 === "DE" ? GLOBE_COLORS.dotBright : GLOBE_COLORS.dot
-          }
-          hexPolygonAltitude={0.004}
           pointsData={points}
           pointLat="lat"
           pointLng="lng"
