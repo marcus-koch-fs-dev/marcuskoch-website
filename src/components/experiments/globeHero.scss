@@ -573,4 +573,35 @@
 }
 
 @media screen and (max-width: $tablet) {
+  .globe-hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .globe-hero__stage {
+    order: 1;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 42vh;
+  }
+
+  .globe-hero__intro {
+    order: 2;
+    position: relative;
+    inset: auto;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+    padding: 2rem 1.25rem 6rem;
+  }
+
+  .globe-hero__terminal {
+    max-width: 100%;
+  }
 }
