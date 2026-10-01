@@ -2,9 +2,25 @@
 // src/pages/impressum.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Impressum from "../components/Footer/Impressum.jsx";
+import "../components/Footer/legalOverlay.scss";
 ---
 <BaseLayout title="Impressum | Marcus Koch">
-  <main>
-    <Impressum />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </noscript>
+  <main class="legal-overlay">
+    <div class="legal-overlay__card">
+      <a href="/" class="legal-overlay__back" aria-label="Back to home">&times;</a>
+      <Impressum />
+    </div>
   </main>
 </BaseLayout>
