@@ -2,9 +2,25 @@
 // src/pages/datenschutz.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Datenschutz from "../components/Footer/Datenschutz.jsx";
+import "../components/Footer/legalOverlay.scss";
 ---
 <BaseLayout title="Datenschutz | Marcus Koch">
-  <main>
-    <Datenschutz />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </noscript>
+  <main class="legal-overlay">
+    <div class="legal-overlay__card">
+      <a href="/" class="legal-overlay__back" aria-label="Back to home">&times;</a>
+      <Datenschutz />
+    </div>
   </main>
 </BaseLayout>
