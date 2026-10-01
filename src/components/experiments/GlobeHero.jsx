@@ -60,7 +60,7 @@ const GLOBE_COLORS = {
   stroke: "#3dffa0",
   // Green country outline -- three-globe's polygon stroke has no
   // line-width control, so "thin" is opacity + altitude.
-  coastline: "rgba(61, 255, 160, 0.35)",
+  coastline: "rgba(61, 255, 160, 0.18)",
 };
 const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
 
@@ -116,7 +116,13 @@ function renderGlowText(text) {
   return nodes;
 }
 
-export default function GlobeHero({ initialDestination = "home" }) {
+function destinationFromPath(pathname) {
+  if (pathname.startsWith("/impressum")) return "impressum";
+  if (pathname.startsWith("/datenschutz")) return "datenschutz";
+  return "home";
+}
+
+export default function GlobeHero() {
   const globeRef = useRef();
   const stageRef = useRef();
   const audioCtxRef = useRef(null);
@@ -131,8 +137,23 @@ export default function GlobeHero({ initialDestination = "home" }) {
   const [countries, setCountries] = useState([]);
   const [projectsOpen, setProjectsOpen] = useState(false);
   const [techOpen, setTechOpen] = useState(false);
-  // "home" | "about" | a project id
-  const [destination, setDestination] = useState(initialDestination);
+  // "home" | "about" | "impressum" | "datenschutz" | a project id
+  const [destination, setDestination] = useState(() => destinationFromPath(window.location.pathname));
+
+  useEffect(() => {
+    function onDestinationEvent(e) {
+      setDestination(e.detail);
+    }
+    function onPopState() {
+      setDestination(destinationFromPath(window.location.pathname));
+    }
+    window.addEventListener("globe-hero:destination", onDestinationEvent);
+    window.addEventListener("popstate", onPopState);
+    return () => {
+      window.removeEventListener("globe-hero:destination", onDestinationEvent);
+      window.removeEventListener("popstate", onPopState);
+    };
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -307,6 +328,7 @@ export default function GlobeHero({ initialDestination = "home" }) {
 
   function goHome() {
     playBlip();
+    if (window.location.pathname !== "/") history.pushState({}, "", "/");
     setDestination("home");
     globeRef.current?.pointOfView(HOME_VIEW, 1200);
   }
@@ -683,14 +705,15 @@ export default function GlobeHero({ initialDestination = "home" }) {
 
         {legalOpen && (
           <div className="globe-hero__info-popup globe-hero__info-popup--center">
-            <a
-              href="/"
+            <button
+              type="button"
               className="globe-hero__info-popup-close"
+              onClick={goHome}
               onMouseEnter={playHoverTick}
               aria-label="Back to home"
             >
               &times;
-            </a>
+            </button>
             {destination === "impressum" ? <Impressum /> : <Datenschutz />}
           </div>
         )}

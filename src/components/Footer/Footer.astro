@@ -33,3 +33,25 @@ import "./footer.scss";
     </section>
   </div>
 </footer>
+
+<script>
+  // The globe hero is a single already-mounted React island (WebGL globe
+  // + state). Navigating to /impressum or /datenschutz would unmount and
+  // re-create it from scratch -- visible as a jarring re-render/"hitch".
+  // Intercept the click and switch its internal destination instead,
+  // syncing the URL via pushState so the links still work as direct/
+  // bookmarkable routes when there's no globe hero on the page yet.
+  const legalLinks = document.querySelectorAll(
+    '.laws-item a[href="/impressum"], .laws-item a[href="/datenschutz"]'
+  );
+  legalLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      if (!document.querySelector(".globe-hero")) return;
+      e.preventDefault();
+      const href = link.getAttribute("href");
+      const destination = href.slice(1);
+      history.pushState({}, "", href);
+      window.dispatchEvent(new CustomEvent("globe-hero:destination", { detail: destination }));
+    });
+  });
+</script>
