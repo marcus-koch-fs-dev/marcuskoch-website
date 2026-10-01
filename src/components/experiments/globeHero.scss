@@ -586,7 +586,7 @@
     position: relative;
     inset: auto;
     width: 100%;
-    height: 42vh;
+    height: min(42vh, 65vw);
   }
 
   .globe-hero__intro {
