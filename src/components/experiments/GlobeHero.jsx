@@ -22,6 +22,7 @@ const MARCUS_HTML_ELEMENTS = [MARCUS_COORDS];
 const HOME_VIEW = { lat: 15, lng: 25, altitude: 1.7 };
 const DESTINATION_ZOOM_ALTITUDE = 0.35;
 const PENDING_RANGE = "AWAITING COORDS";
+const PENDING_SHORT = "···";
 const LOCATION_WATCH_TIMEOUT_MS = 10000;
 const NAME_SCAN_INTERVAL_MS = 10000;
 const NAME_SWEEP_STAGGER_MS = 90;
@@ -56,11 +57,11 @@ const GLOBE_COLORS = {
   ocean: "#000000",
   // Solid land fill, a shade lighter than the ocean so coastlines read
   // without relying on the stroke alone.
-  land: "#141414",
+  land: "#0b1a12",
   stroke: "#3dffa0",
   // Green country outline -- three-globe's polygon stroke has no
   // line-width control, so "thin" is opacity + altitude.
-  coastline: "rgba(61, 255, 160, 0.18)",
+  coastline: "rgba(61, 255, 160, 0.28)",
 };
 const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
 
@@ -460,17 +461,17 @@ export default function GlobeHero() {
                   <li>
                     <span>Ground transport</span>
                     <span className="globe-hero__stats-leader" />
-                    <span>{stats ? formatDuration(stats.carMinutes) : PENDING_RANGE}</span>
+                    <span>{stats ? formatDuration(stats.carMinutes) : PENDING_SHORT}</span>
                   </li>
                   <li>
                     <span>EVA (on foot)</span>
                     <span className="globe-hero__stats-leader" />
-                    <span>{stats ? formatDuration(stats.walkMinutes) : PENDING_RANGE}</span>
+                    <span>{stats ? formatDuration(stats.walkMinutes) : PENDING_SHORT}</span>
                   </li>
                   <li>
                     <span>Airborne</span>
                     <span className="globe-hero__stats-leader" />
-                    <span>{stats ? `${formatDuration(stats.planeMinutes)} (incl. security)` : PENDING_RANGE}</span>
+                    <span>{stats ? `${formatDuration(stats.planeMinutes)} (incl. security)` : PENDING_SHORT}</span>
                   </li>
                   <li>
                     <span>Transmission</span>
