@@ -61,7 +61,7 @@ const GLOBE_COLORS = {
   stroke: "#3dffa0",
   // Green country outline -- three-globe's polygon stroke has no
   // line-width control, so "thin" is opacity + altitude.
-  coastline: "rgba(61, 255, 160, 0.28)",
+  coastline: "rgba(61, 255, 160, 0.16)",
 };
 const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
 
