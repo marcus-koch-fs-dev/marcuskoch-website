@@ -229,7 +229,17 @@ export default function GlobeHero() {
     const light = new THREE.DirectionalLight();
     light.name = "theme-sun";
     scene.add(light);
-    return () => scene.remove(light);
+    // Fill light -- without it, a few triangles in the country-polygon
+    // mesh (an artifact of draping irregular borders onto the sphere)
+    // catch the directional light at a near-grazing angle and render as
+    // near-black specks on the land fill.
+    const fill = new THREE.AmbientLight(0xffffff, 0.6);
+    fill.name = "theme-fill";
+    scene.add(fill);
+    return () => {
+      scene.remove(light);
+      scene.remove(fill);
+    };
   }, []);
 
   useEffect(() => {
