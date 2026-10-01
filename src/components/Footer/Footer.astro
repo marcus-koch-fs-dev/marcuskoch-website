@@ -1,7 +1,6 @@
 ---
 // src/components/Footer/Footer.astro
 import "./footer.scss";
-import LegalModals from "./LegalModals.jsx";
 ---
 <footer>
   <a aria-label="Nächste Seite" role="button" class="next-page-btn" id="next-page-btn" href="#">
@@ -27,7 +26,12 @@ import LegalModals from "./LegalModals.jsx";
         <li class="laws-item">
           <span>Copyright ©{new Date().getFullYear()} Marcus Koch</span>
         </li>
-        <LegalModals client:idle />
+        <li class="laws-item">
+          <a href="/datenschutz" class="laws-p">Datenschutz</a>
+        </li>
+        <li class="laws-item">
+          <a href="/impressum" class="laws-p">Impressum</a>
+        </li>
       </ul>
     </section>
   </div>
