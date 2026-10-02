@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--pri-color-svg);
 
   .sm-wrapper {
     .sm-list {
@@ -13,8 +12,6 @@
   }
 
   .laws {
-    color: var(--footer-text);
-
     .laws-list {
       gap: 1rem;
       padding-bottom: 0.5rem;
@@ -24,7 +21,6 @@
 
 .sm-icon {
   font-size: 2rem;
-  color: var(--footer-text);
   transition: opacity 0.2s ease;
 
   &:hover {
@@ -44,21 +40,12 @@ section {
     flex-wrap: wrap;
   }
 
-  // li {
-  //   margin: 0.25rem 0.75rem;
-  // }
-
   p {
     margin: 0;
   }
 
   a {
-    color: var(--footer-text);
     font-size: inherit;
-  }
-
-  span.laws-p {
-    cursor: pointer;
   }
 }
 
