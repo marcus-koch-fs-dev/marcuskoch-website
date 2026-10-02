@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { HOME_VIEW } from "../../../config/globeHeroConfig";
+import { HOME_VIEW } from "../config/globeHeroConfig";
 
 export function useGlobeCamera(globeRef, isHome) {
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { destinationFromPath } from "../../../lib/destination";
+import { destinationFromPath } from "../lib/destination";
 
 const DESTINATION_TITLES = {
   impressum: "Impressum | Marcus Koch",

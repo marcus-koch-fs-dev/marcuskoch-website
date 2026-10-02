@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { MARCUS_COORDS } from "../../../config/globeHeroConfig";
+import { MARCUS_COORDS } from "../config/globeHeroConfig";
 
 export function useGlobeMarkers(userPoint, selectedProject, selectedLocations) {
   const points = useMemo(

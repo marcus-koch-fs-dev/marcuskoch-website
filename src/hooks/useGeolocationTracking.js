@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { haversineDistanceKm, estimateTravelStats, locationQualityFor } from "../../../lib/geoDistance";
-import { LOCATION_WATCH_TIMEOUT_MS } from "../../../config/globeHeroConfig";
+import { haversineDistanceKm, estimateTravelStats, locationQualityFor } from "../lib/geoDistance";
+import { LOCATION_WATCH_TIMEOUT_MS } from "../config/globeHeroConfig";
 
 export function useGeolocationTracking(homeCoords) {
   const watchIdRef = useRef(null);

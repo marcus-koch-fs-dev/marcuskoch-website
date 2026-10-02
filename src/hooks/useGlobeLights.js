@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as THREE from "three";
-import { THEMES, DEFAULT_THEME } from "../../../lib/theme";
-import { THEME_LIGHT } from "../../../config/globeHeroConfig";
+import { THEMES, DEFAULT_THEME } from "../lib/theme";
+import { THEME_LIGHT } from "../config/globeHeroConfig";
 
 function readTheme() {
   if (typeof document === "undefined") return DEFAULT_THEME;
