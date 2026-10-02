@@ -26,12 +26,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Stellt sicher, dass .main mindestens die volle Höhe des Viewports einnimmt */
-  // Only visible on pages without GlobeHero (currently just 404) -- its own
-  // backdrop covers this everywhere else. Matches the old day-theme palette.
-  background-color: #f5efe6;
-  background-image: radial-gradient(ellipse at 15% 10%, rgba(203, 220, 235, 0.7) 0%, transparent 60%),
-    radial-gradient(ellipse at 85% 90%, rgba(109, 148, 197, 0.7) 0%, transparent 55%);
-  background-attachment: fixed;
+  // GlobeHero is client:only="react" -- nothing renders server-side, so this
+  // is what's visible for a moment on first paint/hard reload before it
+  // mounts. Matches .globe-hero's own background so there's no flash.
+  background-color: #000;
 
   main {
     flex-grow: 1;

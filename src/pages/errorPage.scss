@@ -4,6 +4,9 @@
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
+  background-color: #f5efe6;
+  background-image: radial-gradient(ellipse at 15% 10%, rgba(203, 220, 235, 0.7) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 90%, rgba(109, 148, 197, 0.7) 0%, transparent 55%);
 
   .error-card {
     max-width: min(480px, 92vw);
