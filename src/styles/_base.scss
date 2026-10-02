@@ -13,7 +13,17 @@ body {
   font-family: "Poppins", "Sans";
   --font-display: "Bricolage Grotesque", "Poppins", "Sans";
 
+  // Not just a reset: several components (e.g. globeHero.scss's status-log
+  // and stats-send links) rely on this to render larger than their
+  // surrounding 0.8rem/0.85rem container text, since an inherited font-size
+  // loses to any rule that targets the element directly.
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
   a {
+    font-size: 1rem;
     text-decoration: none;
   }
 
