@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { projectsData } from "../../data/projectList";
-import { PROJECT_LOCATIONS } from "../../data/projectLocations";
+import { citiesLabelFor } from "../../data/projectLocations";
 import { TECH_STACK_GROUPS } from "../../config/globeHeroConfig";
 
 export default function TerminalNav({
@@ -52,7 +52,7 @@ export default function TerminalNav({
                   {project.id === destination ? "●" : "○"} {project.title}
                 </span>
                 <span className="globe-hero__terminal-projects-city">
-                  {PROJECT_LOCATIONS[project.id]?.map((loc) => loc.city).join(" / ") ?? "UNKNOWN_LOCATION"}
+                  {citiesLabelFor(project.id)}
                 </span>
               </button>
             </li>

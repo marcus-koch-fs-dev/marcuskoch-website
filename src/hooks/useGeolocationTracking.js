@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { haversineDistanceKm, estimateTravelStats, locationQualityFor } from "../lib/geoDistance";
-import { LOCATION_WATCH_TIMEOUT_MS } from "../config/globeHeroConfig";
+import { MARCUS_COORDS, LOCATION_WATCH_TIMEOUT_MS } from "../config/globeHeroConfig";
 
-export function useGeolocationTracking(homeCoords) {
+export function useGeolocationTracking() {
   const watchIdRef = useRef(null);
   const [permissionState, setPermissionState] = useState("idle");
   const [userPoint, setUserPoint] = useState(null);
@@ -34,7 +34,7 @@ export function useGeolocationTracking(homeCoords) {
         if (accuracy >= bestAccuracy) return;
         bestAccuracy = accuracy;
         setUserPoint({ lat: latitude, lng: longitude, label: "You", color: "#4dd2ff" });
-        const distanceKm = haversineDistanceKm(latitude, longitude, homeCoords.lat, homeCoords.lng);
+        const distanceKm = haversineDistanceKm(latitude, longitude, MARCUS_COORDS.lat, MARCUS_COORDS.lng);
         const quality = locationQualityFor(accuracy);
         setStats(estimateTravelStats(distanceKm));
         setLocationQuality(quality);

@@ -22,3 +22,7 @@ export const PROJECT_LOCATIONS = {
     { city: "Leipzig", lat: 51.3397, lng: 12.3731 },
   ],
 };
+
+export function citiesLabelFor(projectId) {
+  return PROJECT_LOCATIONS[projectId]?.map((loc) => loc.city).join(" / ") ?? "UNKNOWN_LOCATION";
+}

@@ -8,6 +8,10 @@ export const THEMES = [
 
 export const DEFAULT_THEME = "day";
 
+export function isValidTheme(name) {
+  return THEMES.some((zone) => zone.theme === name);
+}
+
 export function resolveInitialTheme(raw) {
   if (!raw) return DEFAULT_THEME;
   let parsed;
@@ -16,7 +20,7 @@ export function resolveInitialTheme(raw) {
   } catch {
     return DEFAULT_THEME;
   }
-  return THEMES.some((zone) => zone.theme === parsed) ? parsed : DEFAULT_THEME;
+  return isValidTheme(parsed) ? parsed : DEFAULT_THEME;
 }
 
 export function applyTheme(themeName) {

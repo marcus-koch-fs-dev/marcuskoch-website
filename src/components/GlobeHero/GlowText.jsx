@@ -1,4 +1,6 @@
-export default function GlowText({ text }) {
+import { memo } from "react";
+
+function GlowText({ text }) {
   const nodes = [];
   text.split(" ").forEach((word, wi) => {
     if (wi > 0) nodes.push(" ");
@@ -12,3 +14,5 @@ export default function GlowText({ text }) {
   });
   return nodes;
 }
+
+export default memo(GlowText);

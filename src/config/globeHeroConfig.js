@@ -10,6 +10,7 @@ export const MARCUS_COORDS = { lat: 47.5456, lng: 9.6857, label: "Marcus", color
 export const MARCUS_HTML_ELEMENTS = [MARCUS_COORDS];
 
 export const HOME_VIEW = { lat: 15, lng: 25, altitude: 1.7 };
+export const PROJECT_MARKER_COLOR = "#ff3b3b";
 export const DESTINATION_ZOOM_ALTITUDE = 0.35;
 
 export const GLOBE_COLORS = {

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import * as THREE from "three";
-import { THEMES, DEFAULT_THEME } from "../lib/theme";
+import { DEFAULT_THEME, isValidTheme } from "../lib/theme";
 import { THEME_LIGHT } from "../config/globeHeroConfig";
 
 function readTheme() {
   if (typeof document === "undefined") return DEFAULT_THEME;
   const current = document.documentElement.className;
-  return THEMES.some((zone) => zone.theme === current) ? current : DEFAULT_THEME;
+  return isValidTheme(current) ? current : DEFAULT_THEME;
 }
 
 // Creates the globe's sun/fill lights once and keeps them in sync with the

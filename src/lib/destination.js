@@ -1,6 +1,6 @@
 // src/lib/destination.js
 import { projectsData } from "../data/projectList";
-import { PROJECT_LOCATIONS } from "../data/projectLocations";
+import { PROJECT_LOCATIONS, citiesLabelFor } from "../data/projectLocations";
 
 export function destinationFromPath(pathname) {
   if (pathname.startsWith("/impressum")) return "impressum";
@@ -14,7 +14,7 @@ export function describeDestination(destination) {
   const selectedProject =
     typeof destination === "number" ? projectsData.find((p) => p.id === destination) ?? null : null;
   const selectedLocations = selectedProject ? PROJECT_LOCATIONS[selectedProject.id] : null;
-  const selectedCities = selectedLocations?.map((loc) => loc.city).join(" / ") ?? "UNKNOWN_LOCATION";
+  const selectedCities = selectedProject ? citiesLabelFor(selectedProject.id) : "UNKNOWN_LOCATION";
   const aboutOpen = destination === "about";
   const legalOpen = destination === "impressum" || destination === "datenschutz";
   const destinationLabel = aboutOpen

@@ -1,17 +1,26 @@
+import { useEffect, useRef } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
 import { haversineDistanceKm } from "../../lib/geoDistance";
 import Impressum from "../Footer/Impressum.jsx";
 import Datenschutz from "../Footer/Datenschutz.jsx";
 import InfoPopup from "./InfoPopup.jsx";
-import { MARCUS_HTML_ELEMENTS, GLOBE_COLORS, ABOUT_TEXT } from "../../config/globeHeroConfig";
+import { MARCUS_COORDS, MARCUS_HTML_ELEMENTS, GLOBE_COLORS, ABOUT_TEXT } from "../../config/globeHeroConfig";
 
 const globeMaterial = new THREE.MeshPhongMaterial({ color: GLOBE_COLORS.ocean });
+const polygonCapColor = () => GLOBE_COLORS.land;
+const polygonSideColor = () => GLOBE_COLORS.land;
+const polygonStrokeColor = () => GLOBE_COLORS.coastline;
+const pointColor = (d) => d.color;
+const arcColor = () => MARCUS_COORDS.color;
+const arcAltitude = (arc) => {
+  const km = haversineDistanceKm(arc.startLat, arc.startLng, arc.endLat, arc.endLng);
+  return Math.min(0.4, Math.max(0.15, km / 12000));
+};
 
 export default function GlobeStage({
   stageRef,
   globeRef,
-  avatarMarkerRef,
   size,
   countries,
   points,
@@ -24,6 +33,12 @@ export default function GlobeStage({
   goHome,
   playHoverTick,
 }) {
+  const avatarMarkerRef = useRef(null);
+
+  useEffect(() => {
+    avatarMarkerRef.current?.classList.toggle("globe-hero__avatar-marker--large", aboutOpen);
+  }, [aboutOpen]);
+
   return (
     <div className="globe-hero__stage" ref={stageRef}>
       <div className="globe-hero__stage-inner">
@@ -38,15 +53,15 @@ export default function GlobeStage({
           atmosphereAltitude={0.25}
           backgroundColor="rgba(0,0,0,0)"
           polygonsData={countries}
-          polygonCapColor={() => GLOBE_COLORS.land}
-          polygonSideColor={() => GLOBE_COLORS.land}
-          polygonStrokeColor={() => GLOBE_COLORS.coastline}
+          polygonCapColor={polygonCapColor}
+          polygonSideColor={polygonSideColor}
+          polygonStrokeColor={polygonStrokeColor}
           polygonAltitude={0.0015}
           pointsData={points}
           pointLat="lat"
           pointLng="lng"
           pointLabel="label"
-          pointColor={(d) => d.color}
+          pointColor={pointColor}
           pointRadius={0.4}
           pointAltitude={0.01}
           htmlElementsData={MARCUS_HTML_ELEMENTS}
@@ -64,11 +79,8 @@ export default function GlobeStage({
             return el;
           }}
           arcsData={arcs}
-          arcColor={() => "#ffcc66"}
-          arcAltitude={(arc) => {
-            const km = haversineDistanceKm(arc.startLat, arc.startLng, arc.endLat, arc.endLng);
-            return Math.min(0.4, Math.max(0.15, km / 12000));
-          }}
+          arcColor={arcColor}
+          arcAltitude={arcAltitude}
           arcStroke={0.6}
           arcDashLength={0.4}
           arcDashGap={0.2}

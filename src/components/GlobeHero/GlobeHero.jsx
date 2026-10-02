@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useMemo, useRef } from "react";
 import { locationCenter, zoomAltitudeFor } from "../../lib/projectZoom";
 import { describeDestination } from "../../lib/destination";
 import { PROJECT_LOCATIONS } from "../../data/projectLocations";
@@ -13,27 +13,21 @@ import { useGlobeLights } from "../../hooks/useGlobeLights";
 import { useGeolocationTracking } from "../../hooks/useGeolocationTracking";
 import { useAudioBlips } from "../../hooks/useAudioBlips";
 import { useGlobeMarkers } from "../../hooks/useGlobeMarkers";
-import { MARCUS_COORDS, HOME_VIEW, DESTINATION_ZOOM_ALTITUDE } from "../../config/globeHeroConfig";
+import { MARCUS_COORDS, HOME_VIEW } from "../../config/globeHeroConfig";
 import "./globeHero.scss";
 
 export default function GlobeHero() {
   const globeRef = useRef();
   const stageRef = useRef();
-  const avatarMarkerRef = useRef(null);
 
   const [destination, setDestination] = useDestinationRouting();
   const size = useElementSize(stageRef);
   const countries = useCountriesGeoJSON();
-  const { permissionState, userPoint, stats, locationQuality, requestLocation } =
-    useGeolocationTracking(MARCUS_COORDS);
+  const { permissionState, userPoint, stats, locationQuality, requestLocation } = useGeolocationTracking();
   const { playBlip, playHoverTick } = useAudioBlips();
 
   useGlobeCamera(globeRef, destination === "home");
   useGlobeLights(globeRef);
-
-  useEffect(() => {
-    avatarMarkerRef.current?.classList.toggle("globe-hero__avatar-marker--large", destination === "about");
-  }, [destination]);
 
   function goHome() {
     playBlip();
@@ -46,7 +40,7 @@ export default function GlobeHero() {
     playBlip();
     setDestination("about");
     globeRef.current?.pointOfView(
-      { lat: MARCUS_COORDS.lat, lng: MARCUS_COORDS.lng, altitude: DESTINATION_ZOOM_ALTITUDE },
+      { ...locationCenter([MARCUS_COORDS]), altitude: zoomAltitudeFor([MARCUS_COORDS]) },
       1200
     );
   }
@@ -60,8 +54,10 @@ export default function GlobeHero() {
     }
   }
 
-  const { selectedProject, selectedCities, aboutOpen, legalOpen, destinationLabel, selectedLocations } =
-    describeDestination(destination);
+  const { selectedProject, selectedCities, aboutOpen, legalOpen, destinationLabel, selectedLocations } = useMemo(
+    () => describeDestination(destination),
+    [destination]
+  );
   const { points, arcs } = useGlobeMarkers(userPoint, selectedProject, selectedLocations);
 
   return (
@@ -86,7 +82,6 @@ export default function GlobeHero() {
       <GlobeStage
         stageRef={stageRef}
         globeRef={globeRef}
-        avatarMarkerRef={avatarMarkerRef}
         size={size}
         countries={countries}
         points={points}
