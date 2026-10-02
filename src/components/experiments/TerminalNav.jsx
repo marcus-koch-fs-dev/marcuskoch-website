@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { projectsData } from "../../data/projectList";
-import { PROJECT_LOCATIONS } from "./projectLocations";
+import { PROJECT_LOCATIONS } from "../../data/projectLocations";
 import { TECH_STACK_GROUPS } from "../../config/globeHeroConfig";
 
 export default function TerminalNav({

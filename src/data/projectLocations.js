@@ -2,7 +2,7 @@
 // locations (a project can span more than one, see 7). Confirmed by Marcus
 // on 2026-09-30:
 // - 1, 4: Baas Film GmbH -- Lindau. Nudged ~5km east of Marcus's own
-//   MARCUS_COORDS (GlobeHero.jsx) so the two markers sit side by side
+//   MARCUS_COORDS (src/config/globeHeroConfig.js) so the two markers sit side by side
 //   instead of exactly overlapping -- a deliberate visual offset, not a
 //   real-world claim about Baas Film's address.
 // - 2: Owner-run services business -- Wangen im Allgäu.
